@@ -1,6 +1,6 @@
 # Bdnb API Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/bdnb_api.svg)](https://pypi.org/project/bdnb_api/)
+[![PyPI version](https://img.shields.io/pypi/v/bdnb-api.svg)](https://pypi.org/project/bdnb-api/)
 
 The Bdnb API Python library provides convenient access to the Bdnb API REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
@@ -15,12 +15,9 @@ The REST API documentation can be found on [docs.bdnb-api.com](https://docs.bdnb
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/bdnb-api-python.git
+# install from PyPI
+pip install --pre bdnb-api
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre bdnb_api`
 
 ## Usage
 
@@ -196,9 +193,9 @@ polygon = response.parse()  # get the object that `donnees.batiment_groupe_compl
 print(polygon)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/bdnb-api-python/tree/main/src/bdnb_api/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/jplumail/bdnb-api/tree/main/src/bdnb_api/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/bdnb-api-python/tree/main/src/bdnb_api/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/jplumail/bdnb-api/tree/main/src/bdnb_api/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -292,7 +289,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/bdnb-api-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/jplumail/bdnb-api/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
