@@ -11,13 +11,13 @@ __all__ = ["FournisseurRetrieveParams"]
 
 class FournisseurRetrieveParams(TypedDict, total=False):
     acronyme: str
-    """Acronyme du fournisseur de donnÃ©es"""
+    """Acronyme du fournisseur de données"""
 
     denomination_fournisseur: str
-    """DÃ©nomination du fournisseur de donnÃ©es"""
+    """Dénomination du fournisseur de données"""
 
     description: str
-    """Description du fournisseur de donnÃ©es"""
+    """Description du fournisseur de données"""
 
     limit: str
     """Limiting and Pagination"""

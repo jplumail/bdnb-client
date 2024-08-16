@@ -69,14 +69,14 @@ class BatimentGroupeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeListResponse:
         """
-        Complexes de bÃ¢timents au sens de la BDNB
+        Complexes de bâtiments au sens de la BDNB
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_epci_insee: Code de l'EPCI
 
@@ -84,28 +84,28 @@ class BatimentGroupeResource(SyncAPIResource):
 
           code_qp: identifiant de la table qpv
 
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          contient_fictive_geom_groupe: Vaut "vrai", si la gÃ©omÃ©trie du groupe de bÃ¢timent est gÃ©nÃ©rÃ©e
-              automatiquement et ne reprÃ©sente pas la gÃ©omÃ©trie du groupe de bÃ¢timent.
+          contient_fictive_geom_groupe: Vaut "vrai", si la géométrie du groupe de bâtiment est générée automatiquement
+              et ne représente pas la géométrie du groupe de bâtiment.
 
-          geom_groupe: GÃ©omÃ©trie multipolygonale du groupe de bÃ¢timent (Lambert-93)
+          geom_groupe: Géométrie multipolygonale du groupe de bâtiment (Lambert-93)
 
-          geom_groupe_pos_wgs84: Point sur la surface du groupe de bÃ¢timent en WSG84
+          geom_groupe_pos_wgs84: Point sur la surface du groupe de bâtiment en WSG84
 
-          libelle_commune_insee: (insee) LibellÃ© de la commune accueillant le groupe de bÃ¢timent
+          libelle_commune_insee: (insee) Libellé de la commune accueillant le groupe de bâtiment
 
           limit: Limiting and Pagination
 
-          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          quartier_prioritaire: Est situÃ© dans un quartier prioritaire
+          quartier_prioritaire: Est situé dans un quartier prioritaire
 
-          s_geom_groupe: Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe)
+          s_geom_groupe: Surface au sol de la géométrie du bâtiment groupe (geom_groupe)
 
           select: Filtering Columns
 
@@ -203,14 +203,14 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeListResponse:
         """
-        Complexes de bÃ¢timents au sens de la BDNB
+        Complexes de bâtiments au sens de la BDNB
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_epci_insee: Code de l'EPCI
 
@@ -218,28 +218,28 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
 
           code_qp: identifiant de la table qpv
 
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          contient_fictive_geom_groupe: Vaut "vrai", si la gÃ©omÃ©trie du groupe de bÃ¢timent est gÃ©nÃ©rÃ©e
-              automatiquement et ne reprÃ©sente pas la gÃ©omÃ©trie du groupe de bÃ¢timent.
+          contient_fictive_geom_groupe: Vaut "vrai", si la géométrie du groupe de bâtiment est générée automatiquement
+              et ne représente pas la géométrie du groupe de bâtiment.
 
-          geom_groupe: GÃ©omÃ©trie multipolygonale du groupe de bÃ¢timent (Lambert-93)
+          geom_groupe: Géométrie multipolygonale du groupe de bâtiment (Lambert-93)
 
-          geom_groupe_pos_wgs84: Point sur la surface du groupe de bÃ¢timent en WSG84
+          geom_groupe_pos_wgs84: Point sur la surface du groupe de bâtiment en WSG84
 
-          libelle_commune_insee: (insee) LibellÃ© de la commune accueillant le groupe de bÃ¢timent
+          libelle_commune_insee: (insee) Libellé de la commune accueillant le groupe de bâtiment
 
           limit: Limiting and Pagination
 
-          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          quartier_prioritaire: Est situÃ© dans un quartier prioritaire
+          quartier_prioritaire: Est situé dans un quartier prioritaire
 
-          s_geom_groupe: Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe)
+          s_geom_groupe: Surface au sol de la géométrie du bâtiment groupe (geom_groupe)
 
           select: Filtering Columns
 

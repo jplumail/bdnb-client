@@ -59,17 +59,17 @@ class DepartementResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> DepartementListResponse:
         """
-        DonnÃ©es sur contours des dÃ©partements, issues de l'agrÃ©gation des IRIS Grande
+        Données sur contours des départements, issues de l'agrégation des IRIS Grande
         Echelle fournies par l'IGN pour le compte de l'INSEE
 
         Args:
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          geom_departement: GÃ©omÃ©trie du dÃ©partement
+          geom_departement: Géométrie du département
 
-          libelle_departement: LibellÃ© dÃ©partement INSEE
+          libelle_departement: Libellé département INSEE
 
           limit: Limiting and Pagination
 
@@ -153,17 +153,17 @@ class AsyncDepartementResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> DepartementListResponse:
         """
-        DonnÃ©es sur contours des dÃ©partements, issues de l'agrÃ©gation des IRIS Grande
+        Données sur contours des départements, issues de l'agrégation des IRIS Grande
         Echelle fournies par l'IGN pour le compte de l'INSEE
 
         Args:
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          geom_departement: GÃ©omÃ©trie du dÃ©partement
+          geom_departement: Géométrie du département
 
-          libelle_departement: LibellÃ© dÃ©partement INSEE
+          libelle_departement: Libellé département INSEE
 
           limit: Limiting and Pagination
 

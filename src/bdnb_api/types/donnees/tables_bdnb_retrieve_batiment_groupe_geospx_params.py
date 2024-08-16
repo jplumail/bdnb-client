@@ -11,28 +11,28 @@ __all__ = ["TablesBdnbRetrieveBatimentGroupeGeospxParams"]
 
 class TablesBdnbRetrieveBatimentGroupeGeospxParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     croisement_geospx_reussi: str
     """
-    le croisement gÃ©ospatial entre la BDTOPO et les fichiers fonciers est
-    considÃ©rÃ©e comme rÃ©ussi
+    le croisement géospatial entre la BDTOPO et les fichiers fonciers est considérée
+    comme réussi
     """
 
     fiabilite_adresse: str
     """
-    FiabilitÃ© des adresses du bÃ¢timent : "vrai" si les Fichiers Fonciers et BDTOpo
-    partagent au moins une mÃªme adresse BAN
+    Fiabilité des adresses du bâtiment : "vrai" si les Fichiers Fonciers et BDTOpo
+    partagent au moins une màªme adresse BAN
     """
 
     fiabilite_emprise_sol: str
-    """FiabilitÃ© de l'emprise au sol du bÃ¢timent"""
+    """Fiabilité de l'emprise au sol du bâtiment"""
 
     fiabilite_hauteur: str
-    """FiabilitÃ© de la hauteur du bÃ¢timent"""
+    """Fiabilité de la hauteur du bâtiment"""
 
     limit: str
     """Limiting and Pagination"""

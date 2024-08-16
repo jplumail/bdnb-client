@@ -9,389 +9,383 @@ __all__ = ["BatimentGroupeSimulationsDpeAPIExpert"]
 
 class BatimentGroupeSimulationsDpeAPIExpert(BaseModel):
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB
+    """Identifiant du groupe de bâtiment au sens de la BDNB
 
     Note: This is a Primary Key.<pk/>
     """
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     etat_initial_consommation_energie_estim_inc: Optional[int] = None
     """
-    Incertitude des estimations de consommation Ã©nergÃ©tique finale avant
-    rÃ©novation [kWh/m2/an]
+    Incertitude des estimations de consommation énergétique finale avant rénovation
+    [kWh/m2/an]
     """
 
     etat_initial_consommation_energie_estim_lower: Optional[int] = None
     """
-    Estimation basse de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+    Estimation basse de la consommation énergétique finale avant rénovation
     [kWh/m2/an]
     """
 
     etat_initial_consommation_energie_estim_mean: Optional[int] = None
     """
-    Estimation moyenne de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+    Estimation moyenne de la consommation énergétique finale avant rénovation
     [kWh/m2/an]
     """
 
     etat_initial_consommation_energie_estim_upper: Optional[int] = None
     """
-    Estimation haute de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+    Estimation haute de la consommation énergétique finale avant rénovation
     [kWh/m2/an]
     """
 
     etat_initial_consommation_energie_primaire_estim_lower: Optional[int] = None
     """
-    Estimation basse de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+    Estimation basse de la consommation énergétique primaire avant rénovation
     [kWh/m2/an]
     """
 
     etat_initial_consommation_energie_primaire_estim_mean: Optional[int] = None
     """
-    Estimation moyenne de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+    Estimation moyenne de la consommation énergétique primaire avant rénovation
     [kWh/m2/an]
     """
 
     etat_initial_consommation_energie_primaire_estim_upper: Optional[int] = None
     """
-    Estimation haute de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+    Estimation haute de la consommation énergétique primaire avant rénovation
     [kWh/m2/an]
     """
 
     etat_initial_consommation_ges_estim_inc: Optional[int] = None
     """
-    Incertitude sur l'estimation de consommation de GES avant rÃ©novation
+    Incertitude sur l'estimation de consommation de GES avant rénovation
     [kgeqC02/m2/an]
     """
 
     etat_initial_ges_estim_lower: Optional[int] = None
-    """Estimation basse de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]"""
+    """Estimation basse de la consommation de GES avant rénovation [kgeqC02/m2/an]"""
 
     etat_initial_ges_estim_mean: Optional[int] = None
-    """Estimation moyenne de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]"""
+    """Estimation moyenne de la consommation de GES avant rénovation [kgeqC02/m2/an]"""
 
     etat_initial_ges_estim_upper: Optional[int] = None
-    """Estimation haute de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]"""
+    """Estimation haute de la consommation de GES avant rénovation [kgeqC02/m2/an]"""
 
     etat_initial_risque_canicule: Optional[int] = None
-    """Estimation du risque canicule avant rÃ©novation [1-5]"""
+    """Estimation du risque canicule avant rénovation [1-5]"""
 
     etat_initial_risque_canicule_inc: Optional[int] = None
-    """Incertitude de l'estimation du risque canicule avant rÃ©novation [1-5]"""
+    """Incertitude de l'estimation du risque canicule avant rénovation [1-5]"""
 
     etat_renove_consommation_energie_estim_inc: Optional[int] = None
     """
-    Incertitude sur les estimations des consommations Ã©nergÃ©tiques finales aprÃ¨s
-    un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-    composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-    [kWh/m2/an]
+    Incertitude sur les estimations des consommations énergétiques finales après un
+    scénario de rénovation globale "standard" (isolation des principaux composants
+    d'enveloppe et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_energie_estim_lower: Optional[int] = None
     """
-    Estimation basse de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation basse de la consommation énergétique finale après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_energie_estim_mean: Optional[int] = None
     """
-    Estimation moyenne de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario
-    de rÃ©novation globale "standard" (isolation des principaux composants
-    d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation moyenne de la consommation énergétique finale après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_energie_estim_upper: Optional[int] = None
     """
-    Estimation haute de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation haute de la consommation énergétique finale après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_energie_primaire_estim_lower: Optional[int] = None
     """
-    Estimation basse de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation basse de la consommation d'énergie primaire après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_energie_primaire_estim_mean: Optional[int] = None
     """
-    Estimation moyenne de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation moyenne de la consommation d'énergie primaire après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_energie_primaire_estim_upper: Optional[int] = None
     """
-    Estimation haute de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation haute de la consommation d'énergie primaire après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_consommation_ges_estim_inc: Optional[int] = None
     """
-    Incertitude sur l'estimation de consommation de GES aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kgeqC02/m2/an]
+    Incertitude sur l'estimation de consommation de GES après un scénario de
+    rénovation globale "standard" (isolation des principaux composants d'enveloppe
+    et changement de système énergétique de chauffage) [kgeqC02/m2/an]
     """
 
     etat_renove_ges_estim_lower: Optional[int] = None
     """
-    Estimation basse des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-    globale "standard" (isolation des principaux composants d'enveloppe et
-    changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation basse des émissions de GES après un scénario de rénovation globale
+    "standard" (isolation des principaux composants d'enveloppe et changement de
+    système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_ges_estim_mean: Optional[int] = None
     """
-    Estimation moyenne des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-    globale "standard" (isolation des principaux composants d'enveloppe et
-    changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation moyenne des émissions de GES après un scénario de rénovation globale
+    "standard" (isolation des principaux composants d'enveloppe et changement de
+    système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_ges_estim_upper: Optional[int] = None
     """
-    Estimation haute des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-    globale "standard" (isolation des principaux composants d'enveloppe et
-    changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+    Estimation haute des émissions de GES après un scénario de rénovation globale
+    "standard" (isolation des principaux composants d'enveloppe et changement de
+    système énergétique de chauffage) [kWh/m2/an]
     """
 
     etat_renove_risque_canicule: Optional[int] = None
-    """Estimation du risque canicule aprÃ¨s rÃ©novation [1-5]"""
+    """Estimation du risque canicule après rénovation [1-5]"""
 
     etat_renove_risque_canicule_inc: Optional[int] = None
-    """Incertitude de l'estimation du risque canicule aprÃ¨s rÃ©novation [1-5]"""
+    """Incertitude de l'estimation du risque canicule après rénovation [1-5]"""
 
     etiquette_dpe_initial_a: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_b: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_c: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_d: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_e: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_error: Optional[float] = None
-    """Erreur sur la simulation de DPE pour l'Ã©tat actuel du bÃ¢timent"""
+    """Erreur sur la simulation de DPE pour l'état actuel du bâtiment"""
 
     etiquette_dpe_initial_f: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_g: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+    Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+    bâtiment pour l'état actuel du bâtiment
     """
 
     etiquette_dpe_initial_inc: Optional[float] = None
     """
-    Classe d'incertitude de classe sur l'Ã©tiquette dpe avec la plus grande
-    probabilitÃ© avant rÃ©novation [1 Ã 5]. Cet indicateur se lit de 1 = peu fiable
-    Ã 5 = fiable.
+    Classe d'incertitude de classe sur l'étiquette dpe avec la plus grande
+    probabilité avant rénovation [1 à 5]. Cet indicateur se lit de 1 = peu fiable à
+    5 = fiable.
     """
 
     etiquette_dpe_initial_map: Optional[str] = None
-    """Etiquette ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent"""
+    """Etiquette ayant la plus grande probabilité pour l'état actuel du bâtiment"""
 
     etiquette_dpe_initial_map_2nd: Optional[str] = None
-    """2 Ã©tiquettes ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du
-    bÃ¢timent.
+    """2 étiquettes ayant la plus grande probabilité pour l'état actuel du bâtiment.
 
-    Si le champs vaut F-G alors F la premiÃ¨re Ã©tiquette est l'Ã©tiquette la plus
-    probable , G la seconde Ã©tiquette la plus probable.
+    Si le champs vaut F-G alors F la première étiquette est l'étiquette la plus
+    probable , G la seconde étiquette la plus probable.
     """
 
     etiquette_dpe_initial_map_2nd_prob: Optional[float] = None
     """
-    ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-    ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. Si
+    Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+    la plus grande probabilité pour l'état actuel du bâtiment. Si
     etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
-    0.95 alors il y a 95% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit
-    classÃ© F ou G.
+    0.95 alors il y a 95% de chance que l'étiquette DPE de ce bâtiment soit classé F
+    ou G.
     """
 
     etiquette_dpe_initial_map_prob: Optional[float] = None
     """
-    ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE Ã©gale Ã l'Ã©tiquette ayant
-    la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. C'est la
-    probabilitÃ© d'avoir pour ce bÃ¢timent l'Ã©tiquette etiquette_dpe_initial_map.
-    Si etiquette_dpe_initial_map = F et que etiquette_dpe_initial_map_prob = 0.64
-    alors il y a 64% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit classÃ© F
+    Probabilité que le bâtiment ait une étiquette DPE égale à l'étiquette ayant la
+    plus grande probabilité pour l'état actuel du bâtiment. C'est la probabilité
+    d'avoir pour ce bâtiment l'étiquette etiquette_dpe_initial_map. Si
+    etiquette_dpe_initial_map = F et que etiquette_dpe_initial_map_prob = 0.64 alors
+    il y a 64% de chance que l'étiquette DPE de ce bâtiment soit classé F
     """
 
     etiquette_dpe_renove_a: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_b: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_c: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_d: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_e: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_error: Optional[float] = None
-    """Erreur sur la simulation de DPE avant rÃ©novation"""
+    """Erreur sur la simulation de DPE avant rénovation"""
 
     etiquette_dpe_renove_f: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_g: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage)
     """
 
     etiquette_dpe_renove_inc: Optional[float] = None
     """
-    Incertitude de classe sur l'Ã©tiquette dpe avec la plus grande probabilitÃ©
-    aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-    composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-    [1-5]
+    Incertitude de classe sur l'étiquette dpe avec la plus grande probabilité après
+    un scénario de rénovation globale "standard" (isolation des principaux
+    composants d'enveloppe et changement de système énergétique de chauffage) [1-5]
     """
 
     etiquette_dpe_renove_map: Optional[str] = None
     """
-    Etiquette ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation
+    Etiquette ayant la plus grande probabilité après un scénario de rénovation
     globale "standard" (isolation des principaux composants d'enveloppe et
-    changement de systÃ¨me Ã©nergÃ©tique de chauffage)
+    changement de système énergétique de chauffage)
     """
 
     etiquette_dpe_renove_map_2nd: Optional[str] = None
     """
-    2 Ã©tiquettes ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de
-    rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-    et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
+    2 étiquettes ayant la plus grande probabilité après un scénario de rénovation
+    globale "standard" (isolation des principaux composants d'enveloppe et
+    changement de système énergétique de chauffage)
     """
 
     etiquette_dpe_renove_map_2nd_prob: Optional[float] = None
     """
-    ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-    ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
-    "standard" (isolation des principaux composants d'enveloppe et changement de
-    systÃ¨me Ã©nergÃ©tique de chauffage)
+    Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+    la plus grande probabilité après un scénario de rénovation globale "standard"
+    (isolation des principaux composants d'enveloppe et changement de système
+    énergétique de chauffage)
     """
 
     etiquette_dpe_renove_map_prob: Optional[float] = None
     """
-    ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE Ã©gale Ã l'Ã©tiquette ayant
-    la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
-    "standard" (isolation des principaux composants d'enveloppe et changement de
-    systÃ¨me Ã©nergÃ©tique de chauffage)
+    Probabilité que le bâtiment ait une étiquette DPE égale à l'étiquette ayant la
+    plus grande probabilité après un scénario de rénovation globale "standard"
+    (isolation des principaux composants d'enveloppe et changement de système
+    énergétique de chauffage)
     """
 
     gisement_gain_conso_finale_total: Optional[int] = None
     """Estimation du gisement de gain de consommation finale total"""
 
     gisement_gain_energetique_mean: Optional[int] = None
-    """Estimation du gain Ã©nergÃ©tique moyen"""
+    """Estimation du gain énergétique moyen"""
 
     gisement_gain_ges_mean: Optional[int] = None
     """
-    Estimation moyenne du gisement de gain sur les Ã©missions de gaz Ã effets de
+    Estimation moyenne du gisement de gain sur les émissions de gaz à effets de
     serre
     """
 
     indecence_energetique_initial: Optional[float] = None
-    """
-    probabilitÃ© du bÃ¢timent d'Ãªtre en indÃ©cence Ã©nergÃ©tique dans son Ã©tat
-    initial
-    """
+    """probabilité du bâtiment d'àªtre en indécence énergétique dans son état initial"""
 
     indecence_energetique_renove: Optional[float] = None
     """
-    probabilitÃ© du bÃ¢timent d'Ãªtre en indÃ©cence Ã©nergÃ©tique dans son Ã©tat
-    rÃ©novÃ© (rÃ©novation globale)
+    probabilité du bâtiment d'àªtre en indécence énergétique dans son état rénové
+    (rénovation globale)
     """
 
     surface_deperditive: Optional[int] = None
-    """Estimation de la surface dÃ©perditive du bÃ¢timent [mÂ²]"""
+    """Estimation de la surface déperditive du bâtiment [mÂ²]"""
 
     surface_deperditive_verticale: Optional[int] = None
-    """Estimation de la surface dÃ©perditive verticale du bÃ¢timent [mÂ²]"""
+    """Estimation de la surface déperditive verticale du bâtiment [mÂ²]"""
 
     surface_enveloppe: Optional[int] = None
     """Estimation de la surface de l'enveloppe [mÂ²]"""
 
     surface_facade_ext: Optional[int] = None
-    """Estimation de la surface de faÃ§ade donnant sur l'exterieur [mÂ²]"""
+    """Estimation de la surface de faà§ade donnant sur l'exterieur [mÂ²]"""
 
     surface_facade_mitoyenne: Optional[int] = None
-    """Estimation de la surface de faÃ§ade donnant sur un autre bÃ¢timent [mÂ²]"""
+    """Estimation de la surface de faà§ade donnant sur un autre bâtiment [mÂ²]"""
 
     surface_facade_totale: Optional[int] = None
-    """Estimation de la surface totale de faÃ§ade (murs + baies) [mÂ²]"""
+    """Estimation de la surface totale de faà§ade (murs + baies) [mÂ²]"""
 
     surface_facade_vitree: Optional[int] = None
-    """Estimation de la surface de faÃ§ade vitrÃ©e [mÂ²]"""
+    """Estimation de la surface de faà§ade vitrée [mÂ²]"""
 
     surface_toiture: Optional[int] = None
-    """Estimation de la surface de toiture du bÃ¢timent [mÂ²]"""
+    """Estimation de la surface de toiture du bâtiment [mÂ²]"""
 
     surface_verticale: Optional[int] = None
-    """Estimation de la surface verticale du bÃ¢timent [mÂ²]"""
+    """Estimation de la surface verticale du bâtiment [mÂ²]"""
 
     volume_brut: Optional[int] = None
-    """Volume brut du bÃ¢timent [m3]"""
+    """Volume brut du bâtiment [m3]"""

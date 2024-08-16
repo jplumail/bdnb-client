@@ -13,54 +13,53 @@ __all__ = ["RelBatimentGroupeSirenCompletListParams"]
 
 class RelBatimentGroupeSirenCompletListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """ClÃ© d'IntÃ©ropÃ©rabilitÃ© du bÃ¢timent dans la BDNB."""
+    """Clé d'Intéropérabilité du bâtiment dans la BDNB."""
 
     cat_org: str
-    """CatÃ©gorie de l'organisation selon la base RPLS."""
+    """Catégorie de l'organisation selon la base RPLS."""
 
     cat_org_simplifie: str
-    """CatÃ©gorie de l'organisation - simplifiÃ©e"""
+    """Catégorie de l'organisation - simplifiée"""
 
     code_departement_insee: str
-    """(bdnb) Code dÃ©partement INSEE dans lequel se trouve le bÃ¢timent"""
+    """(bdnb) Code département INSEE dans lequel se trouve le bâtiment"""
 
     dans_majic_pm: str
-    """(majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm"""
 
     dans_majic_pm_ou_etablissement: str
     """
-    IdentifiÃ© comme Ã©tablissement ou dans majic_pm - permet de filtrer les
-    Ã©lÃ©ments en open data
+    Identifié comme établissement ou dans majic_pm - permet de filtrer les éléments
+    en open data
     """
 
     date_creation: Annotated[Union[str, date], PropertyInfo(format="iso8601")]
     """
-    La date de crÃ©ation de l'unitÃ© lÃ©gale - correspond Ã la date qui figure dans
-    la dÃ©claration dÃ©posÃ©e au Centres de FormalitÃ©s des Entreprises (CFE)
-    compÃ©tent.
+    La date de création de l'unité légale - correspond à la date qui figure dans la
+    déclaration déposée au Centres de Formalités des Entreprises (CFE) compétent.
     """
 
     date_dernier_traitement: Annotated[Union[str, date], PropertyInfo(format="iso8601")]
-    """Date du dernier traitement de l'unitÃ© lÃ©gale dans le rÃ©pertoire Sirene."""
+    """Date du dernier traitement de l'unité légale dans le répertoire Sirene."""
 
     denomination_personne_morale: str
-    """DÃ©nomination de la personne morale."""
+    """Dénomination de la personne morale."""
 
     etablissement: str
-    """IdentifiÃ© comme Ã©tablissement"""
+    """Identifié comme établissement"""
 
     etat_administratif_actif: str
-    """Ã‰tat administratif de l'unitÃ© lÃ©gale (siren).
+    """à‰tat administratif de l'unité légale (siren).
 
-    Si l'unitÃ© lÃ©gale est signalÃ©e comme active alors la variable est indiquÃ©e
-    comme 'Vrai'.
+    Si l'unité légale est signalée comme active alors la variable est indiquée comme
+    'Vrai'.
     """
 
     limit: str
     """Limiting and Pagination"""
 
     nb_locaux_open: str
-    """(majic_pm) Nombre de locaux dÃ©clarÃ©s dans majic_pm."""
+    """(majic_pm) Nombre de locaux déclarés dans majic_pm."""
 
     nb_siret_actifs: str
     """Nombre de siret actifs."""
@@ -72,10 +71,10 @@ class RelBatimentGroupeSirenCompletListParams(TypedDict, total=False):
     """Ordering"""
 
     personne_type: str
-    """Permet de diffÃ©rencier les personnes physiques des personnes morales."""
+    """Permet de différencier les personnes physiques des personnes morales."""
 
     proprietaire_open: str
-    """Permet de filtrer les propriÃ©taires de type open"""
+    """Permet de filtrer les propriétaires de type open"""
 
     select: str
     """Filtering Columns"""
@@ -84,7 +83,7 @@ class RelBatimentGroupeSirenCompletListParams(TypedDict, total=False):
     """Siren de la personne morale."""
 
     siren_dans_sirene: str
-    """Le Siren est prÃ©sent dans la base sirene."""
+    """Le Siren est présent dans la base sirene."""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

@@ -52,28 +52,28 @@ class GeocodageResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> object:
-        """Service de gÃ©ocodage.
+        """Service de géocodage.
 
-        Prend en entrÃ©e un chaÃ®ne de caractÃ¨re et retourne des
-        coordonnÃ©es gÃ©ographiques. Permet l'autocomplÃ©tion dans une barre de saisie
+        Prend en entrée un chaà®ne de caractère et retourne des
+        coordonnées géographiques. Permet l'autocomplétion dans une barre de saisie
 
         Args:
           q: Adresse texte
 
-          autocomplete: Avec autocomplete on peut dÃ©sactiver les traitements dâ€™auto-complÃ©tion
+          autocomplete: Avec autocomplete on peut désactiver les traitements dâ€™auto-complétion
               autocomplete=0
 
-          citycode: Limite du nombre de rÃ©ponses
+          citycode: Limite du nombre de réponses
 
-          lat: latitude. Avec lat et lon on peut donner une prioritÃ© gÃ©ographique
+          lat: latitude. Avec lat et lon on peut donner une priorité géographique
 
-          limit: Limite du nombre de rÃ©ponses
+          limit: Limite du nombre de réponses
 
-          lon: longitude. Avec lat et lon on peut donner une prioritÃ© gÃ©ographique
+          lon: longitude. Avec lat et lon on peut donner une priorité géographique
 
-          postcode: Limite du nombre de rÃ©ponses
+          postcode: Limite du nombre de réponses
 
-          type: Limite du nombre de rÃ©ponses
+          type: Limite du nombre de réponses
 
           extra_headers: Send extra headers
 
@@ -135,28 +135,28 @@ class AsyncGeocodageResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> object:
-        """Service de gÃ©ocodage.
+        """Service de géocodage.
 
-        Prend en entrÃ©e un chaÃ®ne de caractÃ¨re et retourne des
-        coordonnÃ©es gÃ©ographiques. Permet l'autocomplÃ©tion dans une barre de saisie
+        Prend en entrée un chaà®ne de caractère et retourne des
+        coordonnées géographiques. Permet l'autocomplétion dans une barre de saisie
 
         Args:
           q: Adresse texte
 
-          autocomplete: Avec autocomplete on peut dÃ©sactiver les traitements dâ€™auto-complÃ©tion
+          autocomplete: Avec autocomplete on peut désactiver les traitements dâ€™auto-complétion
               autocomplete=0
 
-          citycode: Limite du nombre de rÃ©ponses
+          citycode: Limite du nombre de réponses
 
-          lat: latitude. Avec lat et lon on peut donner une prioritÃ© gÃ©ographique
+          lat: latitude. Avec lat et lon on peut donner une priorité géographique
 
-          limit: Limite du nombre de rÃ©ponses
+          limit: Limite du nombre de réponses
 
-          lon: longitude. Avec lat et lon on peut donner une prioritÃ© gÃ©ographique
+          lon: longitude. Avec lat et lon on peut donner une priorité géographique
 
-          postcode: Limite du nombre de rÃ©ponses
+          postcode: Limite du nombre de réponses
 
-          type: Limite du nombre de rÃ©ponses
+          type: Limite du nombre de réponses
 
           extra_headers: Send extra headers
 

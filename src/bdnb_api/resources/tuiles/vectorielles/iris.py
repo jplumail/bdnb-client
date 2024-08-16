@@ -44,7 +44,7 @@ class IrisResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif iris.
+        """Tuiles vectorielles pour le référentiel administratif iris.
 
         Zoom 9->13
 
@@ -95,7 +95,7 @@ class AsyncIrisResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncBinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif iris.
+        """Tuiles vectorielles pour le référentiel administratif iris.
 
         Zoom 9->13
 

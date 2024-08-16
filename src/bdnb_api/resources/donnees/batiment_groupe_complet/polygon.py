@@ -49,7 +49,7 @@ class PolygonResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> PolygonCreateResponse:
         """
-        rÃ©cupÃ©rer les bÃ¢timents qui sont Ã l'intÃ©rieur d'un polygone
+        récupérer les bâtiments qui sont à l'intérieur d'un polygone
 
         Args:
           extra_headers: Send extra headers
@@ -103,7 +103,7 @@ class AsyncPolygonResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> PolygonCreateResponse:
         """
-        rÃ©cupÃ©rer les bÃ¢timents qui sont Ã l'intÃ©rieur d'un polygone
+        récupérer les bâtiments qui sont à l'intérieur d'un polygone
 
         Args:
           extra_headers: Send extra headers

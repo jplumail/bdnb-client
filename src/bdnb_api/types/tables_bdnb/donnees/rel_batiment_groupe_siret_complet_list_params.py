@@ -13,68 +13,64 @@ __all__ = ["RelBatimentGroupeSiretCompletListParams"]
 
 class RelBatimentGroupeSiretCompletListParams(TypedDict, total=False):
     activite_registre_metier: str
-    """ActivitÃ© principale de l'Ã©tablissement au Registre des MÃ©tiers.
+    """Activité principale de l'établissement au Registre des Métiers.
 
-    Cette variable, complÃ©mentaire Ã l'activitÃ© principale de l'Ã©tablissement, ne
-    concerne que les Ã©tablissements relevant de l'artisanat (artisans,
-    artisans-commerÃ§ants et sociÃ©tÃ©s artisanales). Elle caractÃ©rise l'activitÃ©
-    selon la Nomenclature d'ActivitÃ©s FranÃ§aise de l'Artisanat (NAFA). La variable
-    n'est pas disponible au niveau unitÃ© lÃ©gale.
+    Cette variable, complémentaire à l'activité principale de l'établissement, ne
+    concerne que les établissements relevant de l'artisanat (artisans,
+    artisans-commerà§ants et sociétés artisanales). Elle caractérise l'activité
+    selon la Nomenclature d'Activités Franà§aise de l'Artisanat (NAFA). La variable
+    n'est pas disponible au niveau unité légale.
     """
 
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     cle_interop_adr: str
-    """ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale"""
+    """Clé d'interopérabilité de l'adresse postale"""
 
     code_activite_principale: str
     """
-    Code de l'activitÃ© principale de l'Ã©tablissement, lors de son inscription au
-    rÃ©pertoire APET. Il permet l'identification de la branche d'activitÃ©
-    principale pour chaque Ã©tablissement.
+    Code de l'activité principale de l'établissement, lors de son inscription au
+    répertoire APET. Il permet l'identification de la branche d'activité principale
+    pour chaque établissement.
     """
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     date_creation: Annotated[Union[str, date], PropertyInfo(format="iso8601")]
     """
-    La date de crÃ©ation de l'unitÃ© lÃ©gale - correspond Ã la date qui figure dans
-    la dÃ©claration dÃ©posÃ©e au Centres de FormalitÃ©s des Entreprises (CFE)
-    compÃ©tent.
+    La date de création de l'unité légale - correspond à la date qui figure dans la
+    déclaration déposée au Centres de Formalités des Entreprises (CFE) compétent.
     """
 
     date_dernier_traitement: Annotated[Union[str, date], PropertyInfo(format="iso8601")]
-    """Date du dernier traitement de l'unitÃ© lÃ©gale dans le rÃ©pertoire Sirene."""
+    """Date du dernier traitement de l'unité légale dans le répertoire Sirene."""
 
     denomination_etablissement: str
     """
-    Cette variable dÃ©signe le nom sous lequel l'Ã©tablissement est connu du grand
-    public (nom commercial de l'Ã©tablissement).
+    Cette variable désigne le nom sous lequel l'établissement est connu du grand
+    public (nom commercial de l'établissement).
     """
 
     etat_administratif_actif: str
-    """Ã‰tat administratif de l'Ã©tablissement.
+    """à‰tat administratif de l'établissement.
 
-    Si l'Ã©tablissement est signalÃ© comme actif alors la variable est indiquÃ©e
-    comme 'Vrai'.
+    Si l'établissement est signalé comme actif alors la variable est indiquée comme
+    'Vrai'.
     """
 
     libelle_activite_principale: str
     """
-    LibellÃ© de l'activitÃ© principale de l'Ã©tablissement, lors de son inscription
-    au rÃ©pertoire APET.
+    Libellé de l'activité principale de l'établissement, lors de son inscription au
+    répertoire APET.
     """
 
     limit: str
     """Limiting and Pagination"""
 
     nic: str
-    """
-    NumÃ©ro interne de classement (Nic) de l'Ã©tablissement siÃ¨ge de
-    l'Ã©tablissement.
-    """
+    """Numéro interne de classement (Nic) de l'établissement siège de l'établissement."""
 
     offset: str
     """Limiting and Pagination"""
@@ -86,13 +82,13 @@ class RelBatimentGroupeSiretCompletListParams(TypedDict, total=False):
     """Filtering Columns"""
 
     siege_social: str
-    """Indique si l'Ã©tablissement est le siÃ¨ge social"""
+    """Indique si l'établissement est le siège social"""
 
     siren: str
-    """Siret de l'Ã©tablissement."""
+    """Siret de l'établissement."""
 
     siret: str
-    """Siret de l'Ã©tablissement."""
+    """Siret de l'établissement."""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

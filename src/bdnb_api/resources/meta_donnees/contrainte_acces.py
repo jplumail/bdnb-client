@@ -57,12 +57,12 @@ class ContrainteAccesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ContrainteAcceRetrieveResponse:
         """
-        Ensemble des contraintes d'accÃ¨s valides de la BDNB
+        Ensemble des contraintes d'accès valides de la BDNB
 
         Args:
-          contrainte_acces: DÃ©nomination de la contrainte d'accÃ¨s
+          contrainte_acces: Dénomination de la contrainte d'accès
 
-          description: Description de la sÃ©rie de donnÃ©es
+          description: Description de la série de données
 
           limit: Limiting and Pagination
 
@@ -142,12 +142,12 @@ class AsyncContrainteAccesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ContrainteAcceRetrieveResponse:
         """
-        Ensemble des contraintes d'accÃ¨s valides de la BDNB
+        Ensemble des contraintes d'accès valides de la BDNB
 
         Args:
-          contrainte_acces: DÃ©nomination de la contrainte d'accÃ¨s
+          contrainte_acces: Dénomination de la contrainte d'accès
 
-          description: Description de la sÃ©rie de donnÃ©es
+          description: Description de la série de données
 
           limit: Limiting and Pagination
 

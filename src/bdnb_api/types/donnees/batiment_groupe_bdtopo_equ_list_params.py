@@ -11,19 +11,19 @@ __all__ = ["BatimentGroupeBdtopoEquListParams"]
 
 class BatimentGroupeBdtopoEquListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     l_nature: str
-    """(ign) CatÃ©gorie de nature du bÃ¢timent"""
+    """(ign) Catégorie de nature du bâtiment"""
 
     l_nature_detaillee: str
-    """(ign) CatÃ©gorie dÃ©taillÃ©e de nature de l'Ã©quipement"""
+    """(ign) Catégorie détaillée de nature de l'équipement"""
 
     l_toponyme: str
-    """(ign) Toponymie de l'Ã©quipement"""
+    """(ign) Toponymie de l'équipement"""
 
     limit: str
     """Limiting and Pagination"""

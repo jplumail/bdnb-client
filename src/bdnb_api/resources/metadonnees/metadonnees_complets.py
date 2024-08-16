@@ -76,42 +76,42 @@ class MetadonneesCompletsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> MetadonneesCompletListResponse:
         """
-        jointure de toutes les metadata Ã l'Ã©chelle colonne
+        jointure de toutes les metadata à l'échelle colonne
 
         Args:
-          api_expert: Disponible pour les abonnÃ©s de l'API Expert
+          api_expert: Disponible pour les abonnés de l'API Expert
 
           api_open: Disponible sans souscription
 
           colonne_gorenove_legacy: Nom de la colonne dans l'ancienne API gorenove /v2/gorenove/buildings
 
-          contrainte_acces: Contrainte d'accÃ¨s de la colonne
+          contrainte_acces: Contrainte d'accès de la colonne
 
-          contrainte_acces_table: Contrainte d'accÃ¨s de la table
+          contrainte_acces_table: Contrainte d'accès de la table
 
-          couverture_spatiale: Couverture spatiale du jeu de donnÃ©es
+          couverture_spatiale: Couverture spatiale du jeu de données
 
-          couverture_temporelle: Couverture temporelle du jeu de donnÃ©es
+          couverture_temporelle: Couverture temporelle du jeu de données
 
-          date_publication: Date de publication du jeu de donnÃ©es
+          date_publication: Date de publication du jeu de données
 
-          denomination_serie: DÃ©nomination du jeu de donnÃ©es
+          denomination_serie: Dénomination du jeu de données
 
           description: Description de la table
 
-          description_jeu_de_donnees: Description du jeu de donnÃ©es
+          description_jeu_de_donnees: Description du jeu de données
 
-          index: la colonne est indexÃ©e dans la table
+          index: la colonne est indexée dans la table
 
-          libelle_metier: libelle Ã utiliser dans les applications web
+          libelle_metier: libelle à utiliser dans les applications web
 
           limit: Limiting and Pagination
 
-          millesime_jeu_de_donnees: MillÃ©sime du jeu de donnÃ©es
+          millesime_jeu_de_donnees: Millésime du jeu de données
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
           offset: Limiting and Pagination
 
@@ -121,7 +121,7 @@ class MetadonneesCompletsResource(SyncAPIResource):
 
           type: Type de la colonne
 
-          unite: UnitÃ© de la colonne
+          unite: Unité de la colonne
 
           extra_headers: Send extra headers
 
@@ -231,42 +231,42 @@ class AsyncMetadonneesCompletsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> MetadonneesCompletListResponse:
         """
-        jointure de toutes les metadata Ã l'Ã©chelle colonne
+        jointure de toutes les metadata à l'échelle colonne
 
         Args:
-          api_expert: Disponible pour les abonnÃ©s de l'API Expert
+          api_expert: Disponible pour les abonnés de l'API Expert
 
           api_open: Disponible sans souscription
 
           colonne_gorenove_legacy: Nom de la colonne dans l'ancienne API gorenove /v2/gorenove/buildings
 
-          contrainte_acces: Contrainte d'accÃ¨s de la colonne
+          contrainte_acces: Contrainte d'accès de la colonne
 
-          contrainte_acces_table: Contrainte d'accÃ¨s de la table
+          contrainte_acces_table: Contrainte d'accès de la table
 
-          couverture_spatiale: Couverture spatiale du jeu de donnÃ©es
+          couverture_spatiale: Couverture spatiale du jeu de données
 
-          couverture_temporelle: Couverture temporelle du jeu de donnÃ©es
+          couverture_temporelle: Couverture temporelle du jeu de données
 
-          date_publication: Date de publication du jeu de donnÃ©es
+          date_publication: Date de publication du jeu de données
 
-          denomination_serie: DÃ©nomination du jeu de donnÃ©es
+          denomination_serie: Dénomination du jeu de données
 
           description: Description de la table
 
-          description_jeu_de_donnees: Description du jeu de donnÃ©es
+          description_jeu_de_donnees: Description du jeu de données
 
-          index: la colonne est indexÃ©e dans la table
+          index: la colonne est indexée dans la table
 
-          libelle_metier: libelle Ã utiliser dans les applications web
+          libelle_metier: libelle à utiliser dans les applications web
 
           limit: Limiting and Pagination
 
-          millesime_jeu_de_donnees: MillÃ©sime du jeu de donnÃ©es
+          millesime_jeu_de_donnees: Millésime du jeu de données
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
           offset: Limiting and Pagination
 
@@ -276,7 +276,7 @@ class AsyncMetadonneesCompletsResource(AsyncAPIResource):
 
           type: Type de la colonne
 
-          unite: UnitÃ© de la colonne
+          unite: Unité de la colonne
 
           extra_headers: Send extra headers
 

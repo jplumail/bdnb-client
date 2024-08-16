@@ -59,13 +59,13 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeParcelleListResponse:
         """
-        Table de relation entre les groupes de bÃ¢timent et les parcelles (si
-        ayant_droit_ffo, prÃ©fÃ©rer la table [parcelle_unifiee])
+        Table de relation entre les groupes de bâtiment et les parcelles (si
+        ayant_droit_ffo, préférer la table [parcelle_unifiee])
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -73,11 +73,11 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
 
           order: Ordering
 
-          parcelle_id: (ffo:idpar) Identifiant de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+          parcelle_id: (ffo:idpar) Identifiant de parcelle (Concaténation de ccodep, ccocom, ccopre,
               ccosec, dnupla)
 
-          parcelle_principale: BoolÃ©en renvoyant 'vrai' si la parcelle cadastrale est la plus grande
-              intersectant le groupe de bÃ¢timent
+          parcelle_principale: Booléen renvoyant 'vrai' si la parcelle cadastrale est la plus grande
+              intersectant le groupe de bâtiment
 
           select: Filtering Columns
 
@@ -155,13 +155,13 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeParcelleListResponse:
         """
-        Table de relation entre les groupes de bÃ¢timent et les parcelles (si
-        ayant_droit_ffo, prÃ©fÃ©rer la table [parcelle_unifiee])
+        Table de relation entre les groupes de bâtiment et les parcelles (si
+        ayant_droit_ffo, préférer la table [parcelle_unifiee])
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -169,11 +169,11 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
 
           order: Ordering
 
-          parcelle_id: (ffo:idpar) Identifiant de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+          parcelle_id: (ffo:idpar) Identifiant de parcelle (Concaténation de ccodep, ccocom, ccopre,
               ccosec, dnupla)
 
-          parcelle_principale: BoolÃ©en renvoyant 'vrai' si la parcelle cadastrale est la plus grande
-              intersectant le groupe de bÃ¢timent
+          parcelle_principale: Booléen renvoyant 'vrai' si la parcelle cadastrale est la plus grande
+              intersectant le groupe de bâtiment
 
           select: Filtering Columns
 

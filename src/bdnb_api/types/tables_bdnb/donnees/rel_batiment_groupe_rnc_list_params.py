@@ -11,25 +11,25 @@ __all__ = ["RelBatimentGroupeRncListParams"]
 
 class RelBatimentGroupeRncListParams(TypedDict, total=False):
     adresse_brut: str
-    """adresse brute envoyÃ©e au gÃ©ocodeur"""
+    """adresse brute envoyée au géocodeur"""
 
     adresse_geocodee: str
-    """libelle de l'adresse retournÃ©e par le gÃ©ocodeur"""
+    """libelle de l'adresse retournée par le géocodeur"""
 
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     cle_interop_adr: str
-    """ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale"""
+    """Clé d'interopérabilité de l'adresse postale"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     fiabilite_geocodage: str
-    """fiabilitÃ© du gÃ©ocodage"""
+    """fiabilité du géocodage"""
 
     fiabilite_globale: str
-    """fiabilitÃ© du global du croisement"""
+    """fiabilité du global du croisement"""
 
     limit: str
     """Limiting and Pagination"""
@@ -45,7 +45,7 @@ class RelBatimentGroupeRncListParams(TypedDict, total=False):
 
     parcelle_id: str
     """
-    (ffo:idpar) Identifiant de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+    (ffo:idpar) Identifiant de parcelle (Concaténation de ccodep, ccocom, ccopre,
     ccosec, dnupla)
     """
 

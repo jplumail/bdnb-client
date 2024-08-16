@@ -69,20 +69,20 @@ class BatimentGroupeDleGazMultimillesimeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDleGazMultimillesimeListResponse:
         """
-        DonnÃ©es de consommations des DLE gaz agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Données de consommations des DLE gaz agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           conso_pro: Consommation professionnelle [kWh/an]
 
           conso_pro_par_pdl: Consommation professionnelle par point de livraison [kWh/pdl.an]
 
-          conso_res: Consommation rÃ©sidentielle [kWh/an]
+          conso_res: Consommation résidentielle [kWh/an]
 
-          conso_res_par_pdl: Consommation rÃ©sidentielle par point de livraison [kWh/pdl.an]
+          conso_res_par_pdl: Consommation résidentielle par point de livraison [kWh/pdl.an]
 
           conso_tot: Consommation totale [kWh/an]
 
@@ -90,11 +90,11 @@ class BatimentGroupeDleGazMultimillesimeResource(SyncAPIResource):
 
           limit: Limiting and Pagination
 
-          millesime: MillÃ©sime des donnÃ©es
+          millesime: Millésime des données
 
           nb_pdl_pro: Nombre de points de livraisons professionel
 
-          nb_pdl_res: Nombre de points de livraisons rÃ©sidentiel
+          nb_pdl_res: Nombre de points de livraisons résidentiel
 
           nb_pdl_tot: Nombre total de points de livraisons
 
@@ -194,20 +194,20 @@ class AsyncBatimentGroupeDleGazMultimillesimeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDleGazMultimillesimeListResponse:
         """
-        DonnÃ©es de consommations des DLE gaz agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Données de consommations des DLE gaz agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           conso_pro: Consommation professionnelle [kWh/an]
 
           conso_pro_par_pdl: Consommation professionnelle par point de livraison [kWh/pdl.an]
 
-          conso_res: Consommation rÃ©sidentielle [kWh/an]
+          conso_res: Consommation résidentielle [kWh/an]
 
-          conso_res_par_pdl: Consommation rÃ©sidentielle par point de livraison [kWh/pdl.an]
+          conso_res_par_pdl: Consommation résidentielle par point de livraison [kWh/pdl.an]
 
           conso_tot: Consommation totale [kWh/an]
 
@@ -215,11 +215,11 @@ class AsyncBatimentGroupeDleGazMultimillesimeResource(AsyncAPIResource):
 
           limit: Limiting and Pagination
 
-          millesime: MillÃ©sime des donnÃ©es
+          millesime: Millésime des données
 
           nb_pdl_pro: Nombre de points de livraisons professionel
 
-          nb_pdl_res: Nombre de points de livraisons rÃ©sidentiel
+          nb_pdl_res: Nombre de points de livraisons résidentiel
 
           nb_pdl_tot: Nombre total de points de livraisons
 

@@ -9,26 +9,26 @@ __all__ = ["BatimentGroupeListParams"]
 
 class BatimentGroupeListParams(TypedDict, total=False):
     groupby: Required[str]
-    """colonnes de group by (agrÃ©gation)"""
+    """colonnes de group by (agrégation)"""
 
     colonnes: str
     """
-    colonnes pour lesquelles il faut calculer des statistiques (separÃ©es par
+    colonnes pour lesquelles il faut calculer des statistiques (separées par
     virgules, pas d'espaces). Par default retourne toutes les colonnes ("\\**")
     """
 
     epsg: int
-    """EPSG de sortie pour les gÃ©omÃ©tries. Exemple : 4326"""
+    """EPSG de sortie pour les géométries. Exemple : 4326"""
 
     filter: str
     """
-    filtre Ã appliquer Ã la population de bÃ¢timents avec syntaxe PostgREST pour les
+    filtre à appliquer à la population de bâtiments avec syntaxe PostgREST pour les
     operateurs
     """
 
     output_format: Literal["json", "geojson", "raw_query"]
     """type de sortie.
 
-    valeurs possibles: json, geojson, raw_query raw_query retourne pas les donnÃ©es
-    agrÃ©gÃ©es mais uniquement la requÃªte SQL d'agrÃ©gation (pour dÃ©bogage)
+    valeurs possibles: json, geojson, raw_query raw_query retourne pas les données
+    agrégées mais uniquement la requàªte SQL d'agrégation (pour débogage)
     """

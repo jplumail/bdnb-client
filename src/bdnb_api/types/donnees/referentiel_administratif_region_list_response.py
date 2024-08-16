@@ -10,13 +10,13 @@ __all__ = ["ReferentielAdministratifRegionListResponse", "ReferentielAdministrat
 
 class ReferentielAdministratifRegionListResponseItem(BaseModel):
     code_region_insee: Optional[str] = None
-    """Code rÃ©gion INSEE"""
+    """Code région INSEE"""
 
     geom_region: Optional[str] = None
-    """GÃ©omÃ©trie de la rÃ©gion"""
+    """Géométrie de la région"""
 
     libelle_region: Optional[str] = None
-    """LibellÃ© de la rÃ©gion"""
+    """Libellé de la région"""
 
 
 ReferentielAdministratifRegionListResponse: TypeAlias = List[ReferentielAdministratifRegionListResponseItem]

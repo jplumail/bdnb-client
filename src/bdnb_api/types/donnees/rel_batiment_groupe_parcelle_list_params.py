@@ -11,10 +11,10 @@ __all__ = ["RelBatimentGroupeParcelleListParams"]
 
 class RelBatimentGroupeParcelleListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     limit: str
     """Limiting and Pagination"""
@@ -27,14 +27,14 @@ class RelBatimentGroupeParcelleListParams(TypedDict, total=False):
 
     parcelle_id: str
     """
-    (ffo:idpar) Identifiant de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+    (ffo:idpar) Identifiant de parcelle (Concaténation de ccodep, ccocom, ccopre,
     ccosec, dnupla)
     """
 
     parcelle_principale: str
     """
-    BoolÃ©en renvoyant 'vrai' si la parcelle cadastrale est la plus grande
-    intersectant le groupe de bÃ¢timent
+    Booléen renvoyant 'vrai' si la parcelle cadastrale est la plus grande
+    intersectant le groupe de bâtiment
     """
 
     select: str

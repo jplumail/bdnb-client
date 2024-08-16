@@ -11,7 +11,7 @@ __all__ = ["ColonneListParams"]
 
 class ColonneListParams(TypedDict, total=False):
     api_expert: str
-    """Disponible pour les abonnÃ©s de l'API Expert"""
+    """Disponible pour les abonnés de l'API Expert"""
 
     api_open: str
     """Disponible sans souscription"""
@@ -20,7 +20,7 @@ class ColonneListParams(TypedDict, total=False):
     """Nom de la colonne dans l'ancienne API gorenove /v2/gorenove/buildings"""
 
     contrainte_acces: str
-    """Contrainte d'accÃ¨s Ã la donnÃ©es"""
+    """Contrainte d'accès à la données"""
 
     description: str
     """Description de la table dans la base postgres"""
@@ -29,10 +29,10 @@ class ColonneListParams(TypedDict, total=False):
     """Description de la table"""
 
     index: str
-    """la colonne est indexÃ©e dans la table"""
+    """la colonne est indexée dans la table"""
 
     libelle_metier: str
-    """libelle Ã utiliser dans les application web"""
+    """libelle à utiliser dans les application web"""
 
     limit: str
     """Limiting and Pagination"""
@@ -41,7 +41,7 @@ class ColonneListParams(TypedDict, total=False):
     """Nom de la colonne"""
 
     nom_table: str
-    """Nom de la table rattachÃ©e"""
+    """Nom de la table rattachée"""
 
     offset: str
     """Limiting and Pagination"""
@@ -59,7 +59,7 @@ class ColonneListParams(TypedDict, total=False):
     """Type sql de la colonne"""
 
     unite: str
-    """UnitÃ© de la colonne"""
+    """Unité de la colonne"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

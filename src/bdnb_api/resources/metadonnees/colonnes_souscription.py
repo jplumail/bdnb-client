@@ -65,27 +65,27 @@ class ColonnesSouscriptionResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ColonnesSouscriptionListResponse:
-        """Liste des colonnes de la base = attributs = modalitÃ©s = champs des tables.
+        """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
-        champs portent des droits d'accÃ¨s
+        champs portent des droits d'accès
 
         Args:
-          contrainte_acces: Contrainte d'accÃ¨s Ã la donnÃ©es
+          contrainte_acces: Contrainte d'accès à la données
 
           description: Description de la table dans la base postgres
 
           description_table: Description de la table
 
-          index: la colonne est indexÃ©e dans la table
+          index: la colonne est indexée dans la table
 
           limit: Limiting and Pagination
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
-          nom_table_implementation: Nom de la table d'implÃ©mentation
+          nom_table_implementation: Nom de la table d'implémentation
 
           offset: Limiting and Pagination
 
@@ -97,7 +97,7 @@ class ColonnesSouscriptionResource(SyncAPIResource):
 
           type: Type sql de la colonne
 
-          unite: UnitÃ© de la colonne
+          unite: Unité de la colonne
 
           extra_headers: Send extra headers
 
@@ -186,27 +186,27 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ColonnesSouscriptionListResponse:
-        """Liste des colonnes de la base = attributs = modalitÃ©s = champs des tables.
+        """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
-        champs portent des droits d'accÃ¨s
+        champs portent des droits d'accès
 
         Args:
-          contrainte_acces: Contrainte d'accÃ¨s Ã la donnÃ©es
+          contrainte_acces: Contrainte d'accès à la données
 
           description: Description de la table dans la base postgres
 
           description_table: Description de la table
 
-          index: la colonne est indexÃ©e dans la table
+          index: la colonne est indexée dans la table
 
           limit: Limiting and Pagination
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
-          nom_table_implementation: Nom de la table d'implÃ©mentation
+          nom_table_implementation: Nom de la table d'implémentation
 
           offset: Limiting and Pagination
 
@@ -218,7 +218,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
 
           type: Type sql de la colonne
 
-          unite: UnitÃ© de la colonne
+          unite: Unité de la colonne
 
           extra_headers: Send extra headers
 

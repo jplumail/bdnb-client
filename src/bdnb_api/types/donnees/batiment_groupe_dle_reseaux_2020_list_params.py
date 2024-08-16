@@ -11,10 +11,10 @@ __all__ = ["BatimentGroupeDleReseaux2020ListParams"]
 
 class BatimentGroupeDleReseaux2020ListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     conso_pro: str
     """Consommation professionnelle [kWh/an]"""
@@ -23,10 +23,10 @@ class BatimentGroupeDleReseaux2020ListParams(TypedDict, total=False):
     """Consommation professionnelle par point de livraison [kWh/pdl.an]"""
 
     conso_res: str
-    """Consommation rÃ©sidentielle [kWh/an]"""
+    """Consommation résidentielle [kWh/an]"""
 
     conso_res_par_pdl: str
-    """Consommation rÃ©sidentielle par point de livraison [kWh/pdl.an]"""
+    """Consommation résidentielle par point de livraison [kWh/pdl.an]"""
 
     conso_tot: str
     """Consommation totale [kWh/an]"""
@@ -44,7 +44,7 @@ class BatimentGroupeDleReseaux2020ListParams(TypedDict, total=False):
     """Nombre de points de livraisons professionel"""
 
     nb_pdl_res: str
-    """Nombre de points de livraisons rÃ©sidentiel"""
+    """Nombre de points de livraisons résidentiel"""
 
     nb_pdl_tot: str
     """Nombre total de points de livraisons"""
@@ -59,7 +59,7 @@ class BatimentGroupeDleReseaux2020ListParams(TypedDict, total=False):
     """Filtering Columns"""
 
     type_reseau: str
-    """type du rÃ©seau de chaleur"""
+    """type du réseau de chaleur"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

@@ -9,13 +9,13 @@ __all__ = ["BatimentGroupeDleElec2020APIExpert"]
 
 class BatimentGroupeDleElec2020APIExpert(BaseModel):
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB
+    """Identifiant du groupe de bâtiment au sens de la BDNB
 
     Note: This is a Primary Key.<pk/>
     """
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     conso_pro: Optional[float] = None
     """Consommation professionnelle [kWh/an]"""
@@ -24,10 +24,10 @@ class BatimentGroupeDleElec2020APIExpert(BaseModel):
     """Consommation professionnelle par point de livraison [kWh/pdl.an]"""
 
     conso_res: Optional[float] = None
-    """Consommation rÃ©sidentielle [kWh/an]"""
+    """Consommation résidentielle [kWh/an]"""
 
     conso_res_par_pdl: Optional[float] = None
-    """Consommation rÃ©sidentielle par point de livraison [kWh/pdl.an]"""
+    """Consommation résidentielle par point de livraison [kWh/pdl.an]"""
 
     conso_tot: Optional[float] = None
     """Consommation totale [kWh/an]"""
@@ -39,7 +39,7 @@ class BatimentGroupeDleElec2020APIExpert(BaseModel):
     """Nombre de points de livraisons professionel"""
 
     nb_pdl_res: Optional[float] = None
-    """Nombre de points de livraisons rÃ©sidentiel"""
+    """Nombre de points de livraisons résidentiel"""
 
     nb_pdl_tot: Optional[float] = None
     """Nombre total de points de livraisons"""

@@ -9,13 +9,13 @@ __all__ = ["Fournisseur"]
 
 class Fournisseur(BaseModel):
     denomination_fournisseur: str
-    """DÃ©nomination du fournisseur de donnÃ©es
+    """Dénomination du fournisseur de données
 
     Note: This is a Primary Key.<pk/>
     """
 
     acronyme: Optional[str] = None
-    """Acronyme du fournisseur de donnÃ©es"""
+    """Acronyme du fournisseur de données"""
 
     description: Optional[str] = None
-    """Description du fournisseur de donnÃ©es"""
+    """Description du fournisseur de données"""

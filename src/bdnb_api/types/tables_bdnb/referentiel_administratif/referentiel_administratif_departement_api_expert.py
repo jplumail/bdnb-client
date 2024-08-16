@@ -9,13 +9,13 @@ __all__ = ["ReferentielAdministratifDepartementAPIExpert"]
 
 class ReferentielAdministratifDepartementAPIExpert(BaseModel):
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_region_insee: Optional[str] = None
-    """Code rÃ©gion INSEE"""
+    """Code région INSEE"""
 
     geom_departement: Optional[str] = None
-    """GÃ©omÃ©trie du dÃ©partement"""
+    """Géométrie du département"""
 
     libelle_departement: Optional[str] = None
-    """LibellÃ© dÃ©partement INSEE"""
+    """Libellé département INSEE"""

@@ -58,15 +58,14 @@ class BatimentGroupeArgilesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeArgileListResponse:
         """
-        Informations sur l'alÃ©a Argiles gonflants (RGA) agrÃ©gÃ©es Ã l'Ã©chelle du
-        bÃ¢timent
+        Informations sur l'aléa Argiles gonflants (RGA) agrégées à l'échelle du bâtiment
 
         Args:
-          alea: (argiles) AlÃ©a du risque argiles
+          alea: (argiles) Aléa du risque argiles
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -148,15 +147,14 @@ class AsyncBatimentGroupeArgilesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeArgileListResponse:
         """
-        Informations sur l'alÃ©a Argiles gonflants (RGA) agrÃ©gÃ©es Ã l'Ã©chelle du
-        bÃ¢timent
+        Informations sur l'aléa Argiles gonflants (RGA) agrégées à l'échelle du bâtiment
 
         Args:
-          alea: (argiles) AlÃ©a du risque argiles
+          alea: (argiles) Aléa du risque argiles
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 

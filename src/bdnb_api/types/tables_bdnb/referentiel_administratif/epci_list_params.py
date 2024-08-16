@@ -14,10 +14,10 @@ class EpciListParams(TypedDict, total=False):
     """Code de l'EPCI"""
 
     geom_epci: str
-    """GÃ©omÃ©trie de l'EPCI"""
+    """Géométrie de l'EPCI"""
 
     libelle_epci: str
-    """LibellÃ© de l'EPCI"""
+    """Libellé de l'EPCI"""
 
     limit: str
     """Limiting and Pagination"""

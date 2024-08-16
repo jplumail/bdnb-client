@@ -59,15 +59,15 @@ class EpciResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EpciListResponse:
         """
-        DonnÃ©es sur contours des EPCI, issues de l'agrÃ©gation des IRIS Grande Echelle
+        Données sur contours des EPCI, issues de l'agrégation des IRIS Grande Echelle
         fournies par l'IGN pour le compte de l'INSEE
 
         Args:
           code_epci_insee: Code de l'EPCI
 
-          geom_epci: GÃ©omÃ©trie de l'EPCI
+          geom_epci: Géométrie de l'EPCI
 
-          libelle_epci: LibellÃ© de l'EPCI
+          libelle_epci: Libellé de l'EPCI
 
           limit: Limiting and Pagination
 
@@ -153,15 +153,15 @@ class AsyncEpciResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EpciListResponse:
         """
-        DonnÃ©es sur contours des EPCI, issues de l'agrÃ©gation des IRIS Grande Echelle
+        Données sur contours des EPCI, issues de l'agrégation des IRIS Grande Echelle
         fournies par l'IGN pour le compte de l'INSEE
 
         Args:
           code_epci_insee: Code de l'EPCI
 
-          geom_epci: GÃ©omÃ©trie de l'EPCI
+          geom_epci: Géométrie de l'EPCI
 
-          libelle_epci: LibellÃ© de l'EPCI
+          libelle_epci: Libellé de l'EPCI
 
           limit: Limiting and Pagination
 

@@ -14,16 +14,16 @@ class TablesBdnbRetrieveRelBatimentGroupeProprietaireSirenParams(TypedDict, tota
     """TODO"""
 
     dans_majic_pm: str
-    """(majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm"""
 
     is_bailleur: str
-    """Vrai si le propriÃ©taire est un bailleur social"""
+    """Vrai si le propriétaire est un bailleur social"""
 
     limit: str
     """Limiting and Pagination"""
 
     nb_locaux_open: str
-    """(majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) nombre de locaux déclarés dans majic_pm"""
 
     offset: str
     """Limiting and Pagination"""
@@ -35,7 +35,7 @@ class TablesBdnbRetrieveRelBatimentGroupeProprietaireSirenParams(TypedDict, tota
     """Filtering Columns"""
 
     siren: str
-    """NumÃ©ro de SIREN de la personne morale (FF)"""
+    """Numéro de SIREN de la personne morale (FF)"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

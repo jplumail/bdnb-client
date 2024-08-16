@@ -62,24 +62,24 @@ class JeuDeDonneesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> JeuDeDonneeListResponse:
         """
-        Les jeux de donnÃ©es utilisÃ©es dans la BDNB
+        Les jeux de données utilisées dans la BDNB
 
         Args:
-          contrainte_acces: DÃ©nomination de la contrainte d'accÃ¨s associÃ©e
+          contrainte_acces: Dénomination de la contrainte d'accès associée
 
-          couverture_spatiale: Couverture spatiale du jeu de donnÃ©es
+          couverture_spatiale: Couverture spatiale du jeu de données
 
-          couverture_temporelle: Couverture temporelle du jeu de donnÃ©es
+          couverture_temporelle: Couverture temporelle du jeu de données
 
-          date_publication: Date de publication du jeu de donnÃ©es
+          date_publication: Date de publication du jeu de données
 
-          denomination_serie: DÃ©nomination du jeu de donnÃ©es
+          denomination_serie: Dénomination du jeu de données
 
-          description: Description du jeu de donnÃ©es
+          description: Description du jeu de données
 
           limit: Limiting and Pagination
 
-          millesime_jeu_de_donnees: MillÃ©sime du jeu de donnÃ©es
+          millesime_jeu_de_donnees: Millésime du jeu de données
 
           offset: Limiting and Pagination
 
@@ -167,24 +167,24 @@ class AsyncJeuDeDonneesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> JeuDeDonneeListResponse:
         """
-        Les jeux de donnÃ©es utilisÃ©es dans la BDNB
+        Les jeux de données utilisées dans la BDNB
 
         Args:
-          contrainte_acces: DÃ©nomination de la contrainte d'accÃ¨s associÃ©e
+          contrainte_acces: Dénomination de la contrainte d'accès associée
 
-          couverture_spatiale: Couverture spatiale du jeu de donnÃ©es
+          couverture_spatiale: Couverture spatiale du jeu de données
 
-          couverture_temporelle: Couverture temporelle du jeu de donnÃ©es
+          couverture_temporelle: Couverture temporelle du jeu de données
 
-          date_publication: Date de publication du jeu de donnÃ©es
+          date_publication: Date de publication du jeu de données
 
-          denomination_serie: DÃ©nomination du jeu de donnÃ©es
+          denomination_serie: Dénomination du jeu de données
 
-          description: Description du jeu de donnÃ©es
+          description: Description du jeu de données
 
           limit: Limiting and Pagination
 
-          millesime_jeu_de_donnees: MillÃ©sime du jeu de donnÃ©es
+          millesime_jeu_de_donnees: Millésime du jeu de données
 
           offset: Limiting and Pagination
 

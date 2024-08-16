@@ -60,16 +60,16 @@ class BatimentGroupeHthdResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeHthdListResponse:
         """
-        DonnÃ©es issues de la base Arcep agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Données issues de la base Arcep agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           l_nom_pdl: (hthd) Liste des noms des points de livraisons centraux
 
-          l_type_pdl: (hthd) Liste de type de bÃ¢timent desservis par les PDL
+          l_type_pdl: (hthd) Liste de type de bâtiment desservis par les PDL
 
           limit: Limiting and Pagination
 
@@ -157,16 +157,16 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeHthdListResponse:
         """
-        DonnÃ©es issues de la base Arcep agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Données issues de la base Arcep agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           l_nom_pdl: (hthd) Liste des noms des points de livraisons centraux
 
-          l_type_pdl: (hthd) Liste de type de bÃ¢timent desservis par les PDL
+          l_type_pdl: (hthd) Liste de type de bâtiment desservis par les PDL
 
           limit: Limiting and Pagination
 

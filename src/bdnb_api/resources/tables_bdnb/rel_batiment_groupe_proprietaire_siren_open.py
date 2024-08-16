@@ -64,23 +64,23 @@ class RelBatimentGroupeProprietaireSirenOpenResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeProprietaireSirenOpenListResponse:
         """
-        Table de relation entre les proprietaires et les groupes de bÃ¢timent (la
-        version open filtre sur la colonne `dans_majic_pm)
+        Table de relation entre les proprietaires et les groupes de bâtiment (la version
+        open filtre sur la colonne `dans_majic_pm)
 
         Args:
           bat_prop_denomination_proprietaire: TODO
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          is_bailleur: Vrai si le propriÃ©taire est un bailleur social
+          is_bailleur: Vrai si le propriétaire est un bailleur social
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm
+          nb_locaux_open: (majic_pm) nombre de locaux déclarés dans majic_pm
 
           offset: Limiting and Pagination
 
@@ -88,7 +88,7 @@ class RelBatimentGroupeProprietaireSirenOpenResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          siren: NumÃ©ro de SIREN de la personne morale (FF)
+          siren: Numéro de SIREN de la personne morale (FF)
 
           extra_headers: Send extra headers
 
@@ -170,23 +170,23 @@ class AsyncRelBatimentGroupeProprietaireSirenOpenResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeProprietaireSirenOpenListResponse:
         """
-        Table de relation entre les proprietaires et les groupes de bÃ¢timent (la
-        version open filtre sur la colonne `dans_majic_pm)
+        Table de relation entre les proprietaires et les groupes de bâtiment (la version
+        open filtre sur la colonne `dans_majic_pm)
 
         Args:
           bat_prop_denomination_proprietaire: TODO
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          is_bailleur: Vrai si le propriÃ©taire est un bailleur social
+          is_bailleur: Vrai si le propriétaire est un bailleur social
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm
+          nb_locaux_open: (majic_pm) nombre de locaux déclarés dans majic_pm
 
           offset: Limiting and Pagination
 
@@ -194,7 +194,7 @@ class AsyncRelBatimentGroupeProprietaireSirenOpenResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          siren: NumÃ©ro de SIREN de la personne morale (FF)
+          siren: Numéro de SIREN de la personne morale (FF)
 
           extra_headers: Send extra headers
 

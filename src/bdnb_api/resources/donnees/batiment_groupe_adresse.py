@@ -62,28 +62,28 @@ class BatimentGroupeAdresseResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeAdresseListResponse:
         """
-        MÃ©triques du groupe de bÃ¢timent par rapport Ã ses adresses postales
+        Métriques du groupe de bâtiment par rapport à ses adresses postales
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          cle_interop_adr_principale_ban: ClÃ© d'interopÃ©rabilitÃ© de l'adresse principale (issue de la BAN)
+          cle_interop_adr_principale_ban: Clé d'interopérabilité de l'adresse principale (issue de la BAN)
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          fiabilite_cr_adr_niv_1: FiabilitÃ© des donnÃ©es croisÃ©es Ã l'adresse ('donnÃ©es croisÃ©es Ã l'adresse
-              fiables', 'donnÃ©es croisÃ©es Ã l'adresse fiables Ã l'echelle de la parcelle
-              unifiee', 'donnÃ©es croisÃ©es Ã l'adresse moyennement fiables', 'problÃ¨me de
-              gÃ©ocodage')
+          fiabilite_cr_adr_niv_1: Fiabilité des données croisées à l'adresse ('données croisées à l'adresse
+              fiables', 'données croisées à l'adresse fiables à l'echelle de la parcelle
+              unifiee', 'données croisées à l'adresse moyennement fiables', 'problème de
+              géocodage')
 
-          fiabilite_cr_adr_niv_2: FiabilitÃ© dÃ©taillÃ©e des donnÃ©es croisÃ©es Ã l'adresse
+          fiabilite_cr_adr_niv_2: Fiabilité détaillée des données croisées à l'adresse
 
-          libelle_adr_principale_ban: LibellÃ© complet de l'adresse principale (issue de la BAN)
+          libelle_adr_principale_ban: Libellé complet de l'adresse principale (issue de la BAN)
 
           limit: Limiting and Pagination
 
-          nb_adresse_valid_ban: Nombre d'adresses valides diffÃ©rentes provenant de la BAN qui desservent le
-              groupe de bÃ¢timent
+          nb_adresse_valid_ban: Nombre d'adresses valides différentes provenant de la BAN qui desservent le
+              groupe de bâtiment
 
           offset: Limiting and Pagination
 
@@ -171,28 +171,28 @@ class AsyncBatimentGroupeAdresseResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeAdresseListResponse:
         """
-        MÃ©triques du groupe de bÃ¢timent par rapport Ã ses adresses postales
+        Métriques du groupe de bâtiment par rapport à ses adresses postales
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          cle_interop_adr_principale_ban: ClÃ© d'interopÃ©rabilitÃ© de l'adresse principale (issue de la BAN)
+          cle_interop_adr_principale_ban: Clé d'interopérabilité de l'adresse principale (issue de la BAN)
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          fiabilite_cr_adr_niv_1: FiabilitÃ© des donnÃ©es croisÃ©es Ã l'adresse ('donnÃ©es croisÃ©es Ã l'adresse
-              fiables', 'donnÃ©es croisÃ©es Ã l'adresse fiables Ã l'echelle de la parcelle
-              unifiee', 'donnÃ©es croisÃ©es Ã l'adresse moyennement fiables', 'problÃ¨me de
-              gÃ©ocodage')
+          fiabilite_cr_adr_niv_1: Fiabilité des données croisées à l'adresse ('données croisées à l'adresse
+              fiables', 'données croisées à l'adresse fiables à l'echelle de la parcelle
+              unifiee', 'données croisées à l'adresse moyennement fiables', 'problème de
+              géocodage')
 
-          fiabilite_cr_adr_niv_2: FiabilitÃ© dÃ©taillÃ©e des donnÃ©es croisÃ©es Ã l'adresse
+          fiabilite_cr_adr_niv_2: Fiabilité détaillée des données croisées à l'adresse
 
-          libelle_adr_principale_ban: LibellÃ© complet de l'adresse principale (issue de la BAN)
+          libelle_adr_principale_ban: Libellé complet de l'adresse principale (issue de la BAN)
 
           limit: Limiting and Pagination
 
-          nb_adresse_valid_ban: Nombre d'adresses valides diffÃ©rentes provenant de la BAN qui desservent le
-              groupe de bÃ¢timent
+          nb_adresse_valid_ban: Nombre d'adresses valides différentes provenant de la BAN qui desservent le
+              groupe de bâtiment
 
           offset: Limiting and Pagination
 

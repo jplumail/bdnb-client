@@ -17,13 +17,13 @@ class AncqpvListParams(TypedDict, total=False):
     """TODO"""
 
     geom: str
-    """GÃ©ometrie de l'entitÃ©"""
+    """Géometrie de l'entité"""
 
     limit: str
     """Limiting and Pagination"""
 
     nom_qp: str
-    """Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent"""
+    """Nom du quartier prioritaire dans lequel se trouve le bâtiment"""
 
     offset: str
     """Limiting and Pagination"""

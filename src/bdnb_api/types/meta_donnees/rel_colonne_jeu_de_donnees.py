@@ -9,13 +9,13 @@ __all__ = ["RelColonneJeuDeDonnees"]
 
 class RelColonneJeuDeDonnees(BaseModel):
     denomination_serie: Optional[str] = None
-    """DÃ©nomination du jeu de donnÃ©es"""
+    """Dénomination du jeu de données"""
 
     millesime_jeu_de_donnees: Optional[str] = None
-    """MillÃ©sime du jeu de donnÃ©es"""
+    """Millésime du jeu de données"""
 
     nom_colonne: Optional[str] = None
     """Nom de la colonne"""
 
     nom_table: Optional[str] = None
-    """Nom de la table rattachÃ©e"""
+    """Nom de la table rattachée"""

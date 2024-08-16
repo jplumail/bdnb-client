@@ -67,21 +67,21 @@ class BatimentGroupeRncResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeRncListResponse:
         """
-        Informations issues de la base RNC agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent (si
-        certaines donnÃ©es sont restreintes aux ayants_droit RNC, la majoritÃ© des
+        Informations issues de la base RNC agrégées à l'échelle du bâtiment (si
+        certaines données sont restreintes aux ayants_droit RNC, la majorité des
         informations sont accessibles en open-data)
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          copro_dans_pvd: (rnc) au moins une des coproprietÃ©s est dans le programme petites villes de
+          copro_dans_pvd: (rnc) au moins une des coproprietés est dans le programme petites villes de
               demain
 
-          l_annee_construction: Liste des annÃ©es de construction
+          l_annee_construction: Liste des années de construction
 
-          l_nom_copro: (rnc) liste des noms des copropriÃ©tÃ©s
+          l_nom_copro: (rnc) liste des noms des copropriétés
 
           l_siret: liste de siret
 
@@ -95,14 +95,14 @@ class BatimentGroupeRncResource(SyncAPIResource):
 
           nb_lot_tot: Nombre total de lots
 
-          numero_immat_principal: numÃ©ro d'immatriculation principal associÃ© au bÃ¢timent groupe. (numÃ©ro
-              d'immatriculation copropriÃ©tÃ© qui comporte le plus de lots)
+          numero_immat_principal: numéro d'immatriculation principal associé au bâtiment groupe. (numéro
+              d'immatriculation copropriété qui comporte le plus de lots)
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          periode_construction_max: (rnc) PÃ©riode de construction du local le plus rÃ©cent
+          periode_construction_max: (rnc) Période de construction du local le plus récent
 
           select: Filtering Columns
 
@@ -196,21 +196,21 @@ class AsyncBatimentGroupeRncResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeRncListResponse:
         """
-        Informations issues de la base RNC agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent (si
-        certaines donnÃ©es sont restreintes aux ayants_droit RNC, la majoritÃ© des
+        Informations issues de la base RNC agrégées à l'échelle du bâtiment (si
+        certaines données sont restreintes aux ayants_droit RNC, la majorité des
         informations sont accessibles en open-data)
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          copro_dans_pvd: (rnc) au moins une des coproprietÃ©s est dans le programme petites villes de
+          copro_dans_pvd: (rnc) au moins une des coproprietés est dans le programme petites villes de
               demain
 
-          l_annee_construction: Liste des annÃ©es de construction
+          l_annee_construction: Liste des années de construction
 
-          l_nom_copro: (rnc) liste des noms des copropriÃ©tÃ©s
+          l_nom_copro: (rnc) liste des noms des copropriétés
 
           l_siret: liste de siret
 
@@ -224,14 +224,14 @@ class AsyncBatimentGroupeRncResource(AsyncAPIResource):
 
           nb_lot_tot: Nombre total de lots
 
-          numero_immat_principal: numÃ©ro d'immatriculation principal associÃ© au bÃ¢timent groupe. (numÃ©ro
-              d'immatriculation copropriÃ©tÃ© qui comporte le plus de lots)
+          numero_immat_principal: numéro d'immatriculation principal associé au bâtiment groupe. (numéro
+              d'immatriculation copropriété qui comporte le plus de lots)
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          periode_construction_max: (rnc) PÃ©riode de construction du local le plus rÃ©cent
+          periode_construction_max: (rnc) Période de construction du local le plus récent
 
           select: Filtering Columns
 

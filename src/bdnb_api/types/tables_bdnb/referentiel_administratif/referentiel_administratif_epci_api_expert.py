@@ -12,10 +12,10 @@ class ReferentielAdministratifEpciAPIExpert(BaseModel):
     """Code de l'EPCI"""
 
     geom_epci: Optional[str] = None
-    """GÃ©omÃ©trie de l'EPCI"""
+    """Géométrie de l'EPCI"""
 
     libelle_epci: Optional[str] = None
-    """LibellÃ© de l'EPCI"""
+    """Libellé de l'EPCI"""
 
     nature_epci: Optional[str] = None
     """Type d'EPCI"""

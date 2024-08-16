@@ -9,7 +9,7 @@ __all__ = ["Colonne"]
 
 class Colonne(BaseModel):
     contrainte_acces: str
-    """Contrainte d'accÃ¨s Ã la donnÃ©es
+    """Contrainte d'accès à la données
 
     Note: This is a Primary Key.<pk/>
     """
@@ -21,13 +21,13 @@ class Colonne(BaseModel):
     """
 
     nom_table: str
-    """Nom de la table rattachÃ©e
+    """Nom de la table rattachée
 
     Note: This is a Primary Key.<pk/>
     """
 
     api_expert: Optional[bool] = None
-    """Disponible pour les abonnÃ©s de l'API Expert"""
+    """Disponible pour les abonnés de l'API Expert"""
 
     api_open: Optional[bool] = None
     """Disponible sans souscription"""
@@ -42,10 +42,10 @@ class Colonne(BaseModel):
     """Description de la table"""
 
     index: Optional[bool] = None
-    """la colonne est indexÃ©e dans la table"""
+    """la colonne est indexée dans la table"""
 
     libelle_metier: Optional[str] = None
-    """libelle Ã utiliser dans les application web"""
+    """libelle à utiliser dans les application web"""
 
     route: Optional[str] = None
     """Chemin dans l'API"""
@@ -54,4 +54,4 @@ class Colonne(BaseModel):
     """Type sql de la colonne"""
 
     unite: Optional[str] = None
-    """UnitÃ© de la colonne"""
+    """Unité de la colonne"""

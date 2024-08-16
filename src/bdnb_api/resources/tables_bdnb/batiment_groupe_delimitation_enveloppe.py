@@ -60,16 +60,16 @@ class BatimentGroupeDelimitationEnveloppeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDelimitationEnveloppeListResponse:
         """
-        Table contenant les donnÃ©es de prÃ©traitements de gÃ©omÃ©trie des groupes de
-        bÃ¢timents : liste des parois, orientations, surfaces, pÃ©rimÃ¨tres, adjacences
-        et masques solaire
+        Table contenant les données de prétraitements de géométrie des groupes de
+        bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
+        masques solaire
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          delimitation_enveloppe_dict: Liste de toutes les parois extÃ©rieures constitutives d''un bÃ¢timent (murs,
+          delimitation_enveloppe_dict: Liste de toutes les parois extérieures constitutives d''un bâtiment (murs,
               planchers haut/bas).
 
           limit: Limiting and Pagination
@@ -152,16 +152,16 @@ class AsyncBatimentGroupeDelimitationEnveloppeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDelimitationEnveloppeListResponse:
         """
-        Table contenant les donnÃ©es de prÃ©traitements de gÃ©omÃ©trie des groupes de
-        bÃ¢timents : liste des parois, orientations, surfaces, pÃ©rimÃ¨tres, adjacences
-        et masques solaire
+        Table contenant les données de prétraitements de géométrie des groupes de
+        bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
+        masques solaire
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          delimitation_enveloppe_dict: Liste de toutes les parois extÃ©rieures constitutives d''un bÃ¢timent (murs,
+          delimitation_enveloppe_dict: Liste de toutes les parois extérieures constitutives d''un bâtiment (murs,
               planchers haut/bas).
 
           limit: Limiting and Pagination

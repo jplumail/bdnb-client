@@ -11,35 +11,35 @@ __all__ = ["BatimentsConstructionListParams"]
 
 class BatimentsConstructionListParams(TypedDict, total=False):
     altitude_sol: str
-    """(ign) Altitude moynne au pied du bÃ¢timent physique [m]"""
+    """(ign) Altitude moynne au pied du bâtiment physique [m]"""
 
     batiment_construction_id: str
-    """Identifiant unique de l'entrÃ©e batiment_construction."""
+    """Identifiant unique de l'entrée batiment_construction."""
 
     batiment_groupe_id: str
-    """(bdnb) ClÃ© d'IntÃ©ropÃ©rabilitÃ© du bÃ¢timent dans la BDNB"""
+    """(bdnb) Clé d'Intéropérabilité du bâtiment dans la BDNB"""
 
     code_commune_insee: str
     """Code INSEE de la commune"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_iris: str
     """Code iris INSEE"""
 
     fictive_geom_cstr: str
-    """(ign) BoolÃ©en.
+    """(ign) Booléen.
 
-    Si 'True', la gÃ©omÃ©trie est fictive (et la surface au sol n'est pas rÃ©elle),
-    sinon elle correspond Ã une emprise au sol rÃ©elle
+    Si 'True', la géométrie est fictive (et la surface au sol n'est pas réelle),
+    sinon elle correspond à une emprise au sol réelle
     """
 
     geom_cstr: str
-    """(ign) GÃ©omÃ©trie multipolygonale de l'enceinte du bÃ¢timent (Lambert-93)"""
+    """(ign) Géométrie multipolygonale de l'enceinte du bâtiment (Lambert-93)"""
 
     hauteur: str
-    """(ign) Hauteur du bÃ¢timent physique [m]"""
+    """(ign) Hauteur du bâtiment physique [m]"""
 
     limit: str
     """Limiting and Pagination"""
@@ -51,15 +51,15 @@ class BatimentsConstructionListParams(TypedDict, total=False):
     """Ordering"""
 
     rnb_id: str
-    """Identifiant unique de l'entrÃ©e RNB.
+    """Identifiant unique de l'entrée RNB.
 
-    Dans le cas d'un double rnb_id pour un mÃªme bÃ¢timent construction, celui
-    appartenant au bÃ¢timent construction avec le plus d'emprise au sol est pris en
+    Dans le cas d'un double rnb_id pour un màªme bâtiment construction, celui
+    appartenant au bâtiment construction avec le plus d'emprise au sol est pris en
     compte.
     """
 
     s_geom_cstr: str
-    """(ign) Surface au sol de la gÃ©omÃ©trie de la construction [mÂ²]"""
+    """(ign) Surface au sol de la géométrie de la construction [mÂ²]"""
 
     select: str
     """Filtering Columns"""

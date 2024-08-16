@@ -11,13 +11,13 @@ __all__ = ["ExtBatimentGroupeLBdtopoBatCleabListParams"]
 
 class ExtBatimentGroupeLBdtopoBatCleabListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     l_bdtopo_bat_cleabs: str
-    """Liste d'identifiants de la table bÃ¢timent de la BDTOPO"""
+    """Liste d'identifiants de la table bâtiment de la BDTOPO"""
 
     limit: str
     """Limiting and Pagination"""

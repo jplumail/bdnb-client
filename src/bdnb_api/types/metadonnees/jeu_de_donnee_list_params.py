@@ -11,28 +11,28 @@ __all__ = ["JeuDeDonneeListParams"]
 
 class JeuDeDonneeListParams(TypedDict, total=False):
     contrainte_acces: str
-    """DÃ©nomination de la contrainte d'accÃ¨s associÃ©e"""
+    """Dénomination de la contrainte d'accès associée"""
 
     couverture_spatiale: str
-    """Couverture spatiale du jeu de donnÃ©es"""
+    """Couverture spatiale du jeu de données"""
 
     couverture_temporelle: str
-    """Couverture temporelle du jeu de donnÃ©es"""
+    """Couverture temporelle du jeu de données"""
 
     date_publication: str
-    """Date de publication du jeu de donnÃ©es"""
+    """Date de publication du jeu de données"""
 
     denomination_serie: str
-    """DÃ©nomination du jeu de donnÃ©es"""
+    """Dénomination du jeu de données"""
 
     description: str
-    """Description du jeu de donnÃ©es"""
+    """Description du jeu de données"""
 
     limit: str
     """Limiting and Pagination"""
 
     millesime_jeu_de_donnees: str
-    """MillÃ©sime du jeu de donnÃ©es"""
+    """Millésime du jeu de données"""
 
     offset: str
     """Limiting and Pagination"""

@@ -57,7 +57,7 @@ class InfoResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InfoListResponse:
         """
-        Information sur le millÃ©sime servi par l'API
+        Information sur le millésime servi par l'API
 
         Args:
           limit: Limiting and Pagination
@@ -142,7 +142,7 @@ class AsyncInfoResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InfoListResponse:
         """
-        Information sur le millÃ©sime servi par l'API
+        Information sur le millésime servi par l'API
 
         Args:
           limit: Limiting and Pagination

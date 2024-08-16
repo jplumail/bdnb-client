@@ -58,15 +58,15 @@ class BatimentGroupeBpeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeBpeListResponse:
         """
-        Informations provenant de la base permanente des Ã©quipements (BPE) de l'INSEE
-        agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Informations provenant de la base permanente des équipements (BPE) de l'INSEE
+        agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_type_equipement: (bpe) Liste des Ã©quipements recensÃ©s par la base BPE
+          l_type_equipement: (bpe) Liste des équipements recensés par la base BPE
 
           limit: Limiting and Pagination
 
@@ -148,15 +148,15 @@ class AsyncBatimentGroupeBpeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeBpeListResponse:
         """
-        Informations provenant de la base permanente des Ã©quipements (BPE) de l'INSEE
-        agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Informations provenant de la base permanente des équipements (BPE) de l'INSEE
+        agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_type_equipement: (bpe) Liste des Ã©quipements recensÃ©s par la base BPE
+          l_type_equipement: (bpe) Liste des équipements recensés par la base BPE
 
           limit: Limiting and Pagination
 

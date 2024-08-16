@@ -63,24 +63,24 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeFfoBatListResponse:
         """
-        DonnÃ©es issues des Fichiers Fonciers agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
         Args:
-          annee_construction: AnnÃ©e de construction du bÃ¢timent
+          annee_construction: Année de construction du bâtiment
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
-          mat_mur_txt: (ffo) MatÃ©riaux principal des murs extÃ©rieurs
+          mat_mur_txt: (ffo) Matériaux principal des murs extérieurs
 
-          mat_toit_txt: (ffo) MatÃ©riau principal des toitures
+          mat_toit_txt: (ffo) Matériau principal des toitures
 
           nb_log: (rnc) Nombre de logements
 
-          nb_niveau: (ffo) Nombre de niveau du bÃ¢timent (ex: RDC = 1, R+1 = 2, etc..)
+          nb_niveau: (ffo) Nombre de niveau du bâtiment (ex: RDC = 1, R+1 = 2, etc..)
 
           offset: Limiting and Pagination
 
@@ -88,7 +88,7 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          usage_niveau_1_txt: indicateurs d'usage simplifiÃ© du bÃ¢timent (verbose)
+          usage_niveau_1_txt: indicateurs d'usage simplifié du bâtiment (verbose)
 
           extra_headers: Send extra headers
 
@@ -172,24 +172,24 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeFfoBatListResponse:
         """
-        DonnÃ©es issues des Fichiers Fonciers agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
         Args:
-          annee_construction: AnnÃ©e de construction du bÃ¢timent
+          annee_construction: Année de construction du bâtiment
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
-          mat_mur_txt: (ffo) MatÃ©riaux principal des murs extÃ©rieurs
+          mat_mur_txt: (ffo) Matériaux principal des murs extérieurs
 
-          mat_toit_txt: (ffo) MatÃ©riau principal des toitures
+          mat_toit_txt: (ffo) Matériau principal des toitures
 
           nb_log: (rnc) Nombre de logements
 
-          nb_niveau: (ffo) Nombre de niveau du bÃ¢timent (ex: RDC = 1, R+1 = 2, etc..)
+          nb_niveau: (ffo) Nombre de niveau du bâtiment (ex: RDC = 1, R+1 = 2, etc..)
 
           offset: Limiting and Pagination
 
@@ -197,7 +197,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          usage_niveau_1_txt: indicateurs d'usage simplifiÃ© du bÃ¢timent (verbose)
+          usage_niveau_1_txt: indicateurs d'usage simplifié du bâtiment (verbose)
 
           extra_headers: Send extra headers
 

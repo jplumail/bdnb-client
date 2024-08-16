@@ -64,37 +64,37 @@ class ProprietaireResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ProprietaireListResponse:
         """
-        DonnÃ©es des propriÃ©taires de bÃ¢timent (principalement issues des Fichiers
+        Données des propriétaires de bâtiment (principalement issues des Fichiers
         Fonciers) (la version open filtre sur la colonne `dans_majic_pm`)
 
         Args:
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_postal: Code postal
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          denomination: DÃ©nomination du propriÃ©taire (FF)
+          denomination: Dénomination du propriétaire (FF)
 
-          forme_juridique: Forme juridique du propriÃ©taire (FF)
+          forme_juridique: Forme juridique du propriétaire (FF)
 
-          libelle_commune: LibellÃ© de la commune
+          libelle_commune: Libellé de la commune
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm
+          nb_locaux_open: (majic_pm) nombre de locaux déclarés dans majic_pm
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          personne_id: ConcatÃ©nation de code dÃ©partement et du numÃ©ro de personne Majic3 (FF)
-              (appelÃ© aussi NUMÃ‰RO PERSONNE PRESENT DANS Lâ€™APPLICATION MAJIC dans les
-              fichiers des locaux des personnes morales)
+          personne_id: Concaténation de code département et du numéro de personne Majic3 (FF) (appelé
+              aussi NUMà‰RO PERSONNE PRESENT DANS Lâ€™APPLICATION MAJIC dans les fichiers des
+              locaux des personnes morales)
 
           select: Filtering Columns
 
-          siren: NumÃ©ro de SIREN de la personne morale (FF)
+          siren: Numéro de SIREN de la personne morale (FF)
 
           extra_headers: Send extra headers
 
@@ -180,37 +180,37 @@ class AsyncProprietaireResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ProprietaireListResponse:
         """
-        DonnÃ©es des propriÃ©taires de bÃ¢timent (principalement issues des Fichiers
+        Données des propriétaires de bâtiment (principalement issues des Fichiers
         Fonciers) (la version open filtre sur la colonne `dans_majic_pm`)
 
         Args:
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_postal: Code postal
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          denomination: DÃ©nomination du propriÃ©taire (FF)
+          denomination: Dénomination du propriétaire (FF)
 
-          forme_juridique: Forme juridique du propriÃ©taire (FF)
+          forme_juridique: Forme juridique du propriétaire (FF)
 
-          libelle_commune: LibellÃ© de la commune
+          libelle_commune: Libellé de la commune
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm
+          nb_locaux_open: (majic_pm) nombre de locaux déclarés dans majic_pm
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          personne_id: ConcatÃ©nation de code dÃ©partement et du numÃ©ro de personne Majic3 (FF)
-              (appelÃ© aussi NUMÃ‰RO PERSONNE PRESENT DANS Lâ€™APPLICATION MAJIC dans les
-              fichiers des locaux des personnes morales)
+          personne_id: Concaténation de code département et du numéro de personne Majic3 (FF) (appelé
+              aussi NUMà‰RO PERSONNE PRESENT DANS Lâ€™APPLICATION MAJIC dans les fichiers des
+              locaux des personnes morales)
 
           select: Filtering Columns
 
-          siren: NumÃ©ro de SIREN de la personne morale (FF)
+          siren: Numéro de SIREN de la personne morale (FF)
 
           extra_headers: Send extra headers
 

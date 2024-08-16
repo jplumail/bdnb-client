@@ -9,7 +9,7 @@ __all__ = ["BatimentGroupeJsonStats"]
 
 class BatimentGroupeJsonStats(BaseModel):
     annee_construction: Optional[int] = None
-    """AnnÃ©e de construction du bÃ¢timent.
+    """Année de construction du bâtiment.
 
     ```yaml
     source_column: annee_construction
@@ -174,7 +174,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB.
+    """Identifiant du groupe de bâtiment au sens de la BDNB.
 
     ```yaml
     source_column: batiment_groupe_id
@@ -194,7 +194,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE.
+    """Code département INSEE.
 
     ```yaml
     source_column: code_departement_insee
@@ -228,9 +228,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     conso_3_usages_ep_m2_arrete_2012: Optional[float] = None
     """
-    consommation annuelle 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage,
-    ECS , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-    l'arrÃªtÃ© du 8 fÃ©vrier 2012.
+    consommation annuelle 3 usages énergie primaire rapportée au m2 (Chauffage, ECS
+    , Climatisation). valable uniquement pour les DPE appliquant la méthode de
+    l'arràªté du 8 février 2012.
 
     ```yaml
     source_column: conso_3_usages_ep_m2_arrete_2012
@@ -242,9 +242,9 @@ class BatimentGroupeJsonStats(BaseModel):
     conso_5_usages_ep_m2: Optional[float] = None
     """
     consommation annuelle 5 usages
-    (ecs/chauffage/climatisation/eclairage/auxiliaires) en Ã©nergie primaire
-    (dÃ©duit de la production pv autoconsommÃ©e) (kWhep/mÂ²/an). valable uniquement
-    pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
+    (ecs/chauffage/climatisation/eclairage/auxiliaires) en énergie primaire (déduit
+    de la production pv autoconsommée) (kWhep/mÂ²/an). valable uniquement pour les
+    DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur
     actuellement).
 
     ```yaml
@@ -586,8 +586,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_a: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_a
@@ -598,8 +598,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_b: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_b
@@ -610,8 +610,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_c: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_c
@@ -622,8 +622,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_d: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_d
@@ -634,8 +634,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_e: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_e
@@ -646,8 +646,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_f: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_f
@@ -658,8 +658,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_initial_g: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-    bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent.
+    Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+    bâtiment pour l'état actuel du bâtiment.
 
     ```yaml
     source_column: etiquette_dpe_initial_g
@@ -670,9 +670,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_a: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -684,9 +684,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_b: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -698,9 +698,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_c: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -712,9 +712,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_d: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -726,9 +726,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_e: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -740,9 +740,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_f: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -754,9 +754,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     etiquette_dpe_2021_renove_g: Optional[float] = None
     """
-    Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-    bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-    principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+    Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+    bâtiment après un scénario de rénovation globale "standard" (isolation des
+    principaux composants d'enveloppe et changement de système énergétique de
     chauffage).
 
     ```yaml
@@ -778,7 +778,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     hauteur_mean: Optional[int] = None
-    """(ign) Hauteur moyenne des bÃ¢timents [m].
+    """(ign) Hauteur moyenne des bâtiments [m].
 
     ```yaml
     source_column: hauteur_mean
@@ -789,10 +789,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     materiaux_structure_mur_exterieur_simplifie: Optional[str] = None
-    """materiaux principal utiliÃ© pour les murs extÃ©rieur simplifiÃ©.
+    """materiaux principal utilié pour les murs extérieur simplifié.
 
-    Cette information peut Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers
-    Fonciers ou DPE pour le moment).
+    Cette information peut àªtre récupérée de différentes sources (Fichiers Fonciers
+    ou DPE pour le moment).
 
     ```yaml
     source_column: materiaux_structure_mur_exterieur_simplifie
@@ -804,8 +804,8 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_adresse_valid_ban: Optional[float] = None
     """
-    Nombre d'adresses valides diffÃ©rentes provenant de la BAN qui desservent le
-    groupe de bÃ¢timent.
+    Nombre d'adresses valides différentes provenant de la BAN qui desservent le
+    groupe de bâtiment.
 
     ```yaml
     source_column: nb_adresse_valid_ban
@@ -815,7 +815,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_batiment: Optional[int] = None
-    """Nombre de bÃ¢timents.
+    """Nombre de bâtiments.
 
     ```yaml
     fixed_value: 1
@@ -825,7 +825,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_a: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe A.
 
     ```yaml
@@ -837,7 +837,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_b: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe B.
 
     ```yaml
@@ -849,7 +849,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_c: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe C.
 
     ```yaml
@@ -861,7 +861,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_d: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe D.
 
     ```yaml
@@ -873,7 +873,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_e: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe E.
 
     ```yaml
@@ -885,7 +885,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_f: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe F.
 
     ```yaml
@@ -897,7 +897,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_bilan_dpe_g: Optional[float] = None
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe G.
 
     ```yaml
@@ -908,10 +908,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_a: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique A.
+    """(dpe) Nombre de DPE de la classe énergétique A.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_a
@@ -921,10 +921,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_b: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique B.
+    """(dpe) Nombre de DPE de la classe énergétique B.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_b
@@ -934,10 +934,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_c: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique C.
+    """(dpe) Nombre de DPE de la classe énergétique C.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_c
@@ -947,10 +947,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_d: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique D.
+    """(dpe) Nombre de DPE de la classe énergétique D.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_d
@@ -960,10 +960,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_e: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique E.
+    """(dpe) Nombre de DPE de la classe énergétique E.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_e
@@ -973,10 +973,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_f: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique F.
+    """(dpe) Nombre de DPE de la classe énergétique F.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_f
@@ -986,10 +986,10 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     nb_classe_conso_energie_arrete_2012_g: Optional[float] = None
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique G.
+    """(dpe) Nombre de DPE de la classe énergétique G.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012.
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8
+    février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_g
@@ -1000,9 +1000,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_classe_conso_energie_arrete_2012_nc: Optional[float] = None
     """
-    (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'Ã©tiquette Ã©nergie
-    (DPE dits vierges). valable uniquement pour les DPE appliquant la mÃ©thode de
-    l'arrÃªtÃ© du 8 fÃ©vrier 2012.
+    (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'étiquette énergie
+    (DPE dits vierges). valable uniquement pour les DPE appliquant la méthode de
+    l'arràªté du 8 février 2012.
 
     ```yaml
     source_column: nb_classe_conso_energie_arrete_2012_nc
@@ -1013,9 +1013,9 @@ class BatimentGroupeJsonStats(BaseModel):
 
     nb_logement: Optional[float] = None
     """
-    Nombre de logements pour le calcul de lâ€™exposition (il correspond Ã la
-    rÃ©partition homogÃ¨ne des logements sociaux associÃ©s Ã la parcelle sur
-    lâ€™ensemble des bÃ¢timents contenus, en fonction de leur volumÃ©trie).
+    Nombre de logements pour le calcul de lâ€™exposition (il correspond à la
+    répartition homogène des logements sociaux associés à la parcelle sur
+    lâ€™ensemble des bâtiments contenus, en fonction de leur volumétrie).
 
     ```yaml
     source_column: nb_log
@@ -1065,7 +1065,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     quartier_prioritaire: Optional[str] = None
-    """Est situÃ© dans un quartier prioritaire.
+    """Est situé dans un quartier prioritaire.
 
     ```yaml
     source_ref: batiment_groupe
@@ -1096,7 +1096,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     surface_emprise_sol: Optional[int] = None
-    """Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe).
+    """Surface au sol de la géométrie du bâtiment groupe (geom_groupe).
 
     ```yaml
     source_ref: batiment_groupe
@@ -1107,7 +1107,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     surface_facade_ext: Optional[float] = None
-    """Estimation de la surface de faÃ§ade donnant sur l'exterieur [mÂ²].
+    """Estimation de la surface de faà§ade donnant sur l'exterieur [mÂ²].
 
     ```yaml
     source_column: surface_facade_ext
@@ -1117,7 +1117,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     surface_facade_mitoyenne: Optional[float] = None
-    """Estimation de la surface de faÃ§ade donnant sur un autre bÃ¢timent [mÂ²].
+    """Estimation de la surface de faà§ade donnant sur un autre bâtiment [mÂ²].
 
     ```yaml
     source_column: surface_facade_mitoyenne
@@ -1127,7 +1127,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     surface_facade_totale: Optional[float] = None
-    """Estimation de la surface totale de faÃ§ade (murs + baies) [mÂ²].
+    """Estimation de la surface totale de faà§ade (murs + baies) [mÂ²].
 
     ```yaml
     source_column: surface_facade_totale
@@ -1138,7 +1138,7 @@ class BatimentGroupeJsonStats(BaseModel):
 
     type_isolation_mur_exterieur: Optional[str] = None
     """
-    type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+    type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
     version BDNB).
 
     ```yaml
@@ -1150,7 +1150,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     usage_niveau_1_txt: Optional[str] = None
-    """indicateurs d'usage simplifiÃ© du bÃ¢timent (verbose).
+    """indicateurs d'usage simplifié du bâtiment (verbose).
 
     ```yaml
     source_column: usage_niveau_1_txt
@@ -1166,7 +1166,7 @@ class BatimentGroupeJsonStats(BaseModel):
     source_column: usage_niveau_1_txt
     source_ref: batiment_groupe_ffo_bat
     agg_type: sum
-    agg_modality: DÃ©pendance
+    agg_modality: Dépendance
     ```
     """
 
@@ -1176,7 +1176,7 @@ class BatimentGroupeJsonStats(BaseModel):
     source_column: usage_niveau_1_txt
     source_ref: batiment_groupe_ffo_bat
     agg_type: sum
-    agg_modality: RÃ©sidentiel collectif
+    agg_modality: Résidentiel collectif
     ```
     """
 
@@ -1186,7 +1186,7 @@ class BatimentGroupeJsonStats(BaseModel):
     source_column: usage_niveau_1_txt
     source_ref: batiment_groupe_ffo_bat
     agg_type: sum
-    agg_modality: RÃ©sidentiel individuel
+    agg_modality: Résidentiel individuel
     ```
     """
 
@@ -1211,7 +1211,7 @@ class BatimentGroupeJsonStats(BaseModel):
     """
 
     volume_brut: Optional[float] = None
-    """Volume brut du bÃ¢timent [m3].
+    """Volume brut du bâtiment [m3].
 
     ```yaml
     source_column: volume_brut

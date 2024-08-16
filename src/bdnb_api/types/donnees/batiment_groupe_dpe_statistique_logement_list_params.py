@@ -11,110 +11,110 @@ __all__ = ["BatimentGroupeDpeStatistiqueLogementListParams"]
 
 class BatimentGroupeDpeStatistiqueLogementListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     limit: str
     """Limiting and Pagination"""
 
     nb_classe_bilan_dpe_a: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe A
     """
 
     nb_classe_bilan_dpe_b: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe B
     """
 
     nb_classe_bilan_dpe_c: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe C
     """
 
     nb_classe_bilan_dpe_d: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe D
     """
 
     nb_classe_bilan_dpe_e: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe E
     """
 
     nb_classe_bilan_dpe_f: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe F
     """
 
     nb_classe_bilan_dpe_g: str
     """
-    (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+    (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
     classe G
     """
 
     nb_classe_conso_energie_arrete_2012_a: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique A.
+    """(dpe) Nombre de DPE de la classe énergétique A.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_b: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique B.
+    """(dpe) Nombre de DPE de la classe énergétique B.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_c: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique C.
+    """(dpe) Nombre de DPE de la classe énergétique C.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_d: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique D.
+    """(dpe) Nombre de DPE de la classe énergétique D.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_e: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique E.
+    """(dpe) Nombre de DPE de la classe énergétique E.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_f: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique F.
+    """(dpe) Nombre de DPE de la classe énergétique F.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_g: str
-    """(dpe) Nombre de DPE de la classe Ã©nergÃ©tique G.
+    """(dpe) Nombre de DPE de la classe énergétique G.
 
-    valable uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8
-    fÃ©vrier 2012
+    valable uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février
+    2012
     """
 
     nb_classe_conso_energie_arrete_2012_nc: str
     """
-    (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'Ã©tiquette Ã©nergie
-    (DPE dits vierges). valable uniquement pour les DPE appliquant la mÃ©thode de
-    l'arrÃªtÃ© du 8 fÃ©vrier 2012
+    (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'étiquette énergie
+    (DPE dits vierges). valable uniquement pour les DPE appliquant la méthode de
+    l'arràªté du 8 février 2012
     """
 
     offset: str
