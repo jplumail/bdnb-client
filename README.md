@@ -1,6 +1,6 @@
 # Bdnb API Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/bdnb_api.svg)](https://pypi.org/project/bdnb_api/)
+[![PyPI version](https://img.shields.io/pypi/v/bdnb-api.svg)](https://pypi.org/project/bdnb-api/)
 
 The Bdnb API Python library provides convenient access to the Bdnb API REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
@@ -15,12 +15,9 @@ The REST API documentation can be found on [docs.bdnb-api.com](https://docs.bdnb
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/jplumail/bdnb-api.git
+# install from PyPI
+pip install --pre bdnb-api
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre bdnb_api`
 
 ## Usage
 
