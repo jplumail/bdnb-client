@@ -76,38 +76,37 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeSirenCompletListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les siren.
+        Table de relation entre les bâtiments de la BDNB et les siren.
 
         Args:
-          batiment_groupe_id: ClÃ© d'IntÃ©ropÃ©rabilitÃ© du bÃ¢timent dans la BDNB.
+          batiment_groupe_id: Clé d'Intéropérabilité du bâtiment dans la BDNB.
 
-          cat_org: CatÃ©gorie de l'organisation selon la base RPLS.
+          cat_org: Catégorie de l'organisation selon la base RPLS.
 
-          cat_org_simplifie: CatÃ©gorie de l'organisation - simplifiÃ©e
+          cat_org_simplifie: Catégorie de l'organisation - simplifiée
 
-          code_departement_insee: (bdnb) Code dÃ©partement INSEE dans lequel se trouve le bÃ¢timent
+          code_departement_insee: (bdnb) Code département INSEE dans lequel se trouve le bâtiment
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          dans_majic_pm_ou_etablissement: IdentifiÃ© comme Ã©tablissement ou dans majic_pm - permet de filtrer les
-              Ã©lÃ©ments en open data
+          dans_majic_pm_ou_etablissement: Identifié comme établissement ou dans majic_pm - permet de filtrer les éléments
+              en open data
 
-          date_creation: La date de crÃ©ation de l'unitÃ© lÃ©gale - correspond Ã la date qui figure dans
-              la dÃ©claration dÃ©posÃ©e au Centres de FormalitÃ©s des Entreprises (CFE)
-              compÃ©tent.
+          date_creation: La date de création de l'unité légale - correspond à la date qui figure dans la
+              déclaration déposée au Centres de Formalités des Entreprises (CFE) compétent.
 
-          date_dernier_traitement: Date du dernier traitement de l'unitÃ© lÃ©gale dans le rÃ©pertoire Sirene.
+          date_dernier_traitement: Date du dernier traitement de l'unité légale dans le répertoire Sirene.
 
-          denomination_personne_morale: DÃ©nomination de la personne morale.
+          denomination_personne_morale: Dénomination de la personne morale.
 
-          etablissement: IdentifiÃ© comme Ã©tablissement
+          etablissement: Identifié comme établissement
 
-          etat_administratif_actif: Ã‰tat administratif de l'unitÃ© lÃ©gale (siren). Si l'unitÃ© lÃ©gale est
-              signalÃ©e comme active alors la variable est indiquÃ©e comme 'Vrai'.
+          etat_administratif_actif: à‰tat administratif de l'unité légale (siren). Si l'unité légale est signalée
+              comme active alors la variable est indiquée comme 'Vrai'.
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) Nombre de locaux dÃ©clarÃ©s dans majic_pm.
+          nb_locaux_open: (majic_pm) Nombre de locaux déclarés dans majic_pm.
 
           nb_siret_actifs: Nombre de siret actifs.
 
@@ -115,15 +114,15 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
 
           order: Ordering
 
-          personne_type: Permet de diffÃ©rencier les personnes physiques des personnes morales.
+          personne_type: Permet de différencier les personnes physiques des personnes morales.
 
-          proprietaire_open: Permet de filtrer les propriÃ©taires de type open
+          proprietaire_open: Permet de filtrer les propriétaires de type open
 
           select: Filtering Columns
 
           siren: Siren de la personne morale.
 
-          siren_dans_sirene: Le Siren est prÃ©sent dans la base sirene.
+          siren_dans_sirene: Le Siren est présent dans la base sirene.
 
           extra_headers: Send extra headers
 
@@ -225,38 +224,37 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeSirenCompletListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les siren.
+        Table de relation entre les bâtiments de la BDNB et les siren.
 
         Args:
-          batiment_groupe_id: ClÃ© d'IntÃ©ropÃ©rabilitÃ© du bÃ¢timent dans la BDNB.
+          batiment_groupe_id: Clé d'Intéropérabilité du bâtiment dans la BDNB.
 
-          cat_org: CatÃ©gorie de l'organisation selon la base RPLS.
+          cat_org: Catégorie de l'organisation selon la base RPLS.
 
-          cat_org_simplifie: CatÃ©gorie de l'organisation - simplifiÃ©e
+          cat_org_simplifie: Catégorie de l'organisation - simplifiée
 
-          code_departement_insee: (bdnb) Code dÃ©partement INSEE dans lequel se trouve le bÃ¢timent
+          code_departement_insee: (bdnb) Code département INSEE dans lequel se trouve le bâtiment
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          dans_majic_pm_ou_etablissement: IdentifiÃ© comme Ã©tablissement ou dans majic_pm - permet de filtrer les
-              Ã©lÃ©ments en open data
+          dans_majic_pm_ou_etablissement: Identifié comme établissement ou dans majic_pm - permet de filtrer les éléments
+              en open data
 
-          date_creation: La date de crÃ©ation de l'unitÃ© lÃ©gale - correspond Ã la date qui figure dans
-              la dÃ©claration dÃ©posÃ©e au Centres de FormalitÃ©s des Entreprises (CFE)
-              compÃ©tent.
+          date_creation: La date de création de l'unité légale - correspond à la date qui figure dans la
+              déclaration déposée au Centres de Formalités des Entreprises (CFE) compétent.
 
-          date_dernier_traitement: Date du dernier traitement de l'unitÃ© lÃ©gale dans le rÃ©pertoire Sirene.
+          date_dernier_traitement: Date du dernier traitement de l'unité légale dans le répertoire Sirene.
 
-          denomination_personne_morale: DÃ©nomination de la personne morale.
+          denomination_personne_morale: Dénomination de la personne morale.
 
-          etablissement: IdentifiÃ© comme Ã©tablissement
+          etablissement: Identifié comme établissement
 
-          etat_administratif_actif: Ã‰tat administratif de l'unitÃ© lÃ©gale (siren). Si l'unitÃ© lÃ©gale est
-              signalÃ©e comme active alors la variable est indiquÃ©e comme 'Vrai'.
+          etat_administratif_actif: à‰tat administratif de l'unité légale (siren). Si l'unité légale est signalée
+              comme active alors la variable est indiquée comme 'Vrai'.
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) Nombre de locaux dÃ©clarÃ©s dans majic_pm.
+          nb_locaux_open: (majic_pm) Nombre de locaux déclarés dans majic_pm.
 
           nb_siret_actifs: Nombre de siret actifs.
 
@@ -264,15 +262,15 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
 
           order: Ordering
 
-          personne_type: Permet de diffÃ©rencier les personnes physiques des personnes morales.
+          personne_type: Permet de différencier les personnes physiques des personnes morales.
 
-          proprietaire_open: Permet de filtrer les propriÃ©taires de type open
+          proprietaire_open: Permet de filtrer les propriétaires de type open
 
           select: Filtering Columns
 
           siren: Siren de la personne morale.
 
-          siren_dans_sirene: Le Siren est prÃ©sent dans la base sirene.
+          siren_dans_sirene: Le Siren est présent dans la base sirene.
 
           extra_headers: Send extra headers
 

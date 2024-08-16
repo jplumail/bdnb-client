@@ -11,19 +11,18 @@ __all__ = ["IrisContexteGeographiqueListParams"]
 
 class IrisContexteGeographiqueListParams(TypedDict, total=False):
     action_coeur_ville_code_anct: str
-    """Code anct des communes sÃ©lectionnÃ©es pour le programme Action cÅ“ur de ville"""
+    """Code anct des communes sélectionnées pour le programme Action cÅ“ur de ville"""
 
     action_coeur_ville_libelle: str
-    """LibellÃ© des communes sÃ©lectionnÃ©es pour le programme Action cÅ“ur de ville"""
+    """Libellé des communes sélectionnées pour le programme Action cÅ“ur de ville"""
 
     aire_attraction_ville_catg: str
     """
-    CatÃ©gorie de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement
-    2020
+    Catégorie de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
     """
 
     aire_attraction_ville_catg_libelle: str
-    """LibellÃ© de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020"""
+    """Libellé de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020"""
 
     aire_attraction_ville_code_insee: str
     """
@@ -33,27 +32,26 @@ class IrisContexteGeographiqueListParams(TypedDict, total=False):
 
     aire_attraction_ville_libelle: str
     """
-    LibellÃ© des Aires d'Attractions urbaines des Villes (AAV2020) - recensement
-    2020
+    Libellé des Aires d'Attractions urbaines des Villes (AAV2020) - recensement 2020
     """
 
     aire_urbaine_fonctionnelle_eurostat: str
     """Code des cities et des aires urbaines fonctionnelles (FUA) - eurostat"""
 
     aire_urbaine_fonctionnelle_libelle: str
-    """LibellÃ© des cities et des aires urbaines fonctionnelles (FUA) - eurostat"""
+    """Libellé des cities et des aires urbaines fonctionnelles (FUA) - eurostat"""
 
     bassin_vie_catg: str
-    """CatÃ©gorie des bassins de vie 2022 (BV2022)"""
+    """Catégorie des bassins de vie 2022 (BV2022)"""
 
     bassin_vie_catg_libelle: str
-    """LibellÃ© de la catÃ©gorie des bassins de vie 2022 (BV2022)"""
+    """Libellé de la catégorie des bassins de vie 2022 (BV2022)"""
 
     bassin_vie_code_insee: str
     """Code insee des bassins de vie 2022 (BV2022)"""
 
     bassin_vie_libelle: str
-    """LibellÃ© des bassins de vie 2022 (BV2022)"""
+    """Libellé des bassins de vie 2022 (BV2022)"""
 
     code_departement_insee: str
     """Code departement INSEE"""
@@ -63,30 +61,29 @@ class IrisContexteGeographiqueListParams(TypedDict, total=False):
 
     contrat_relance_trans_eco_code_anct: str
     """
-    Code anct des iris dans le Contrat de relance et de transition Ã©cologique
-    (CRTE)
+    Code anct des iris dans le Contrat de relance et de transition écologique (CRTE)
     """
 
     contrat_relance_trans_eco_libelle: str
     """
-    LibellÃ©s des communes/iris dans le Contrat de relance et de transition
-    Ã©cologique (CRTE)
+    Libellés des communes/iris dans le Contrat de relance et de transition
+    écologique (CRTE)
     """
 
     en_littoral: str
-    """Iris situÃ© en littoral"""
+    """Iris situé en littoral"""
 
     en_montagne: str
-    """iris situÃ© en montagne"""
+    """iris situé en montagne"""
 
     geom_iris: str
-    """GÃ©omÃ©trie de l'IRIS"""
+    """Géométrie de l'IRIS"""
 
     grille_communale_densite_catg: str
-    """CatÃ©gorie de la Grille communale de densitÃ©"""
+    """Catégorie de la Grille communale de densité"""
 
     grille_communale_densite_catg_libelle: str
-    """LibellÃ© de la catÃ©gorie de la Grille communale de densitÃ©"""
+    """Libellé de la catégorie de la Grille communale de densité"""
 
     limit: str
     """Limiting and Pagination"""
@@ -107,29 +104,29 @@ class IrisContexteGeographiqueListParams(TypedDict, total=False):
     """Code anct - programme territoires d'industrie"""
 
     territoires_industrie_libelle: str
-    """LibellÃ© - programme territoires d'industrie"""
+    """Libellé - programme territoires d'industrie"""
 
     unite_urbaine_catg: str
-    """CatÃ©gorie des unitÃ©s urbaines"""
+    """Catégorie des unités urbaines"""
 
     unite_urbaine_catg_libelle: str
-    """LibellÃ© de la catÃ©gorie des unitÃ©s urbaines"""
+    """Libellé de la catégorie des unités urbaines"""
 
     unite_urbaine_code_insee: str
-    """Code INSEE des unitÃ©s urbaines"""
+    """Code INSEE des unités urbaines"""
 
     unite_urbaine_libelle: str
-    """LibellÃ© des unitÃ©s urbaines"""
+    """Libellé des unités urbaines"""
 
     zone_aide_finalite_reg_catg: str
     """
-    CatÃ©gorie des zones dâ€™aides Ã finalitÃ© rÃ©gionale (AFR) pour la pÃ©riode
+    Catégorie des zones dâ€™aides à finalité régionale (AFR) pour la période
     2022-2027
     """
 
     zone_aide_finalite_reg_code_anct: str
     """
-    Code anct des zones dâ€™aides Ã finalitÃ© rÃ©gionale (AFR) pour la pÃ©riode
+    Code anct des zones dâ€™aides à finalité régionale (AFR) pour la période
     2022-2027
     """
 
@@ -137,7 +134,7 @@ class IrisContexteGeographiqueListParams(TypedDict, total=False):
     """Code insee des zones d'emploi"""
 
     zone_emploi_libelle: str
-    """LibellÃ© des zones d'emploi"""
+    """Libellé des zones d'emploi"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

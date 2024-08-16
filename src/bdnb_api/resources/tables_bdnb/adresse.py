@@ -69,37 +69,37 @@ class AdresseResource(SyncAPIResource):
         """Table de description des adresses.
 
         Les adresses dans la BDNB sont un
-        sous-ensemble des adresses BAN de type `housenumber` (adressage au numÃ©ro) et
-        uniquement localisÃ© en France hexagonale et Corse. Des adresses ARCEP viennent
-        complÃ©ter les adresses BAN quand ces adresses n'existent pas dans la BAN. Les
-        gÃ©olocalisants ponctuels sont au format Lambert-93 (ESPG:2154).
+        sous-ensemble des adresses BAN de type `housenumber` (adressage au numéro) et
+        uniquement localisé en France hexagonale et Corse. Des adresses ARCEP viennent
+        compléter les adresses BAN quand ces adresses n'existent pas dans la BAN. Les
+        géolocalisants ponctuels sont au format Lambert-93 (ESPG:2154).
 
         Args:
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_postal: Code postal
 
-          geom_adresse: GÃ©omÃ©trie de l'adresse (Lambert-93)
+          geom_adresse: Géométrie de l'adresse (Lambert-93)
 
-          libelle_adresse: LibellÃ© complet de l'adresse
+          libelle_adresse: Libellé complet de l'adresse
 
-          libelle_commune: LibellÃ© de la commune
+          libelle_commune: Libellé de la commune
 
           limit: Limiting and Pagination
 
           nom_voie: Nom de la voie
 
-          numero: NumÃ©ro de l'adresse
+          numero: Numéro de l'adresse
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          rep: Indice de rÃ©pÃ©tition du numÃ©ro de l'adresse
+          rep: Indice de répétition du numéro de l'adresse
 
           select: Filtering Columns
 
@@ -199,37 +199,37 @@ class AsyncAdresseResource(AsyncAPIResource):
         """Table de description des adresses.
 
         Les adresses dans la BDNB sont un
-        sous-ensemble des adresses BAN de type `housenumber` (adressage au numÃ©ro) et
-        uniquement localisÃ© en France hexagonale et Corse. Des adresses ARCEP viennent
-        complÃ©ter les adresses BAN quand ces adresses n'existent pas dans la BAN. Les
-        gÃ©olocalisants ponctuels sont au format Lambert-93 (ESPG:2154).
+        sous-ensemble des adresses BAN de type `housenumber` (adressage au numéro) et
+        uniquement localisé en France hexagonale et Corse. Des adresses ARCEP viennent
+        compléter les adresses BAN quand ces adresses n'existent pas dans la BAN. Les
+        géolocalisants ponctuels sont au format Lambert-93 (ESPG:2154).
 
         Args:
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_postal: Code postal
 
-          geom_adresse: GÃ©omÃ©trie de l'adresse (Lambert-93)
+          geom_adresse: Géométrie de l'adresse (Lambert-93)
 
-          libelle_adresse: LibellÃ© complet de l'adresse
+          libelle_adresse: Libellé complet de l'adresse
 
-          libelle_commune: LibellÃ© de la commune
+          libelle_commune: Libellé de la commune
 
           limit: Limiting and Pagination
 
           nom_voie: Nom de la voie
 
-          numero: NumÃ©ro de l'adresse
+          numero: Numéro de l'adresse
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          rep: Indice de rÃ©pÃ©tition du numÃ©ro de l'adresse
+          rep: Indice de répétition du numéro de l'adresse
 
           select: Filtering Columns
 

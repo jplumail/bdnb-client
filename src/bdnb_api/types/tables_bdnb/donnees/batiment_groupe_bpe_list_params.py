@@ -11,13 +11,13 @@ __all__ = ["BatimentGroupeBpeListParams"]
 
 class BatimentGroupeBpeListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     l_type_equipement: str
-    """(bpe) Liste des Ã©quipements recensÃ©s par la base BPE"""
+    """(bpe) Liste des équipements recensés par la base BPE"""
 
     limit: str
     """Limiting and Pagination"""

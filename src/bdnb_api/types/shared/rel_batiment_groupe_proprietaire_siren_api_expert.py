@@ -12,13 +12,13 @@ class RelBatimentGroupeProprietaireSirenAPIExpert(BaseModel):
     """TODO"""
 
     dans_majic_pm: Optional[bool] = None
-    """(majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm"""
 
     is_bailleur: Optional[bool] = None
-    """Vrai si le propriÃ©taire est un bailleur social"""
+    """Vrai si le propriétaire est un bailleur social"""
 
     nb_locaux_open: Optional[int] = None
-    """(majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) nombre de locaux déclarés dans majic_pm"""
 
     siren: Optional[str] = None
-    """NumÃ©ro de SIREN de la personne morale (FF)"""
+    """Numéro de SIREN de la personne morale (FF)"""

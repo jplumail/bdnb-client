@@ -59,13 +59,13 @@ class RelBatimentGroupeMerimeeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeMerimeeListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les Ã©lÃ©ments de la table
+        Table de relation entre les bâtiments de la BDNB et les éléments de la table
         merimee
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           distance_batiment_historique: (mer) Distance entre le batiment_historique et le batiment_construction (si
               moins de 500m) [m]
@@ -154,13 +154,13 @@ class AsyncRelBatimentGroupeMerimeeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeMerimeeListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les Ã©lÃ©ments de la table
+        Table de relation entre les bâtiments de la BDNB et les éléments de la table
         merimee
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           distance_batiment_historique: (mer) Distance entre le batiment_historique et le batiment_construction (si
               moins de 500m) [m]

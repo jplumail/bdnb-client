@@ -64,23 +64,22 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeRncListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les Ã©lÃ©ments de la table
-        RNC
+        Table de relation entre les bâtiments de la BDNB et les éléments de la table RNC
 
         Args:
-          adresse_brut: adresse brute envoyÃ©e au gÃ©ocodeur
+          adresse_brut: adresse brute envoyée au géocodeur
 
-          adresse_geocodee: libelle de l'adresse retournÃ©e par le gÃ©ocodeur
+          adresse_geocodee: libelle de l'adresse retournée par le géocodeur
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          fiabilite_geocodage: fiabilitÃ© du gÃ©ocodage
+          fiabilite_geocodage: fiabilité du géocodage
 
-          fiabilite_globale: fiabilitÃ© du global du croisement
+          fiabilite_globale: fiabilité du global du croisement
 
           limit: Limiting and Pagination
 
@@ -90,7 +89,7 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
 
           order: Ordering
 
-          parcelle_id: (ffo:idpar) Identifiant de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+          parcelle_id: (ffo:idpar) Identifiant de parcelle (Concaténation de ccodep, ccocom, ccopre,
               ccosec, dnupla)
 
           select: Filtering Columns
@@ -179,23 +178,22 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeRncListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les Ã©lÃ©ments de la table
-        RNC
+        Table de relation entre les bâtiments de la BDNB et les éléments de la table RNC
 
         Args:
-          adresse_brut: adresse brute envoyÃ©e au gÃ©ocodeur
+          adresse_brut: adresse brute envoyée au géocodeur
 
-          adresse_geocodee: libelle de l'adresse retournÃ©e par le gÃ©ocodeur
+          adresse_geocodee: libelle de l'adresse retournée par le géocodeur
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          fiabilite_geocodage: fiabilitÃ© du gÃ©ocodage
+          fiabilite_geocodage: fiabilité du géocodage
 
-          fiabilite_globale: fiabilitÃ© du global du croisement
+          fiabilite_globale: fiabilité du global du croisement
 
           limit: Limiting and Pagination
 
@@ -205,7 +203,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
 
           order: Ordering
 
-          parcelle_id: (ffo:idpar) Identifiant de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+          parcelle_id: (ffo:idpar) Identifiant de parcelle (Concaténation de ccodep, ccocom, ccopre,
               ccosec, dnupla)
 
           select: Filtering Columns

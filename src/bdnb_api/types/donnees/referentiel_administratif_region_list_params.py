@@ -11,13 +11,13 @@ __all__ = ["ReferentielAdministratifRegionListParams"]
 
 class ReferentielAdministratifRegionListParams(TypedDict, total=False):
     code_region_insee: str
-    """Code rÃ©gion INSEE"""
+    """Code région INSEE"""
 
     geom_region: str
-    """GÃ©omÃ©trie de la rÃ©gion"""
+    """Géométrie de la région"""
 
     libelle_region: str
-    """LibellÃ© de la rÃ©gion"""
+    """Libellé de la région"""
 
     limit: str
     """Limiting and Pagination"""

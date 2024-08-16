@@ -236,426 +236,420 @@ class AdressesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AdressListResponse:
         """
-        Jointure des tables mÃ©tiers avec la table batiment_groupe
+        Jointure des tables métiers avec la table batiment_groupe
 
         Args:
-          arrete_2021: prÃ©cise si le DPE est un DPE qui est issu de la nouvelle rÃ©forme du DPE
-              (arrÃªtÃ© du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification
-              antÃ©rieure de 2012.
+          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+              du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
+              de 2012.
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          classe_bilan_dpe: Classe du DPE issu de la synthÃ¨se du double seuil sur les consommations
-              Ã©nergie primaire et les Ã©missions de CO2 sur les 5 usages
+          classe_bilan_dpe: Classe du DPE issu de la synthèse du double seuil sur les consommations énergie
+              primaire et les émissions de CO2 sur les 5 usages
               (ecs/chauffage/climatisation/eclairage/auxiliaires). valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          classe_conso_energie_arrete_2012: classe d'Ã©mission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          classe_conso_energie_arrete_2012: classe d'émission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
+              uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février 2012
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          cle_interop_adr_principale_ban: ClÃ© d'interopÃ©rabilitÃ© de l'adresse principale (issue de la BAN)
+          cle_interop_adr_principale_ban: Clé d'interopérabilité de l'adresse principale (issue de la BAN)
 
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_iris: Code iris INSEE
 
           code_qp: identifiant de la table qpv
 
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage,
-              ECS , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages énergie primaire rapportée au m2 (Chauffage, ECS
+              , Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012
 
           conso_5_usages_ep_m2: consommation annuelle 5 usages
-              (ecs/chauffage/climatisation/eclairage/auxiliaires) en Ã©nergie primaire
-              (dÃ©duit de la production pv autoconsommÃ©e) (kWhep/mÂ²/an). valable uniquement
-              pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              (ecs/chauffage/climatisation/eclairage/auxiliaires) en énergie primaire (déduit
+              de la production pv autoconsommée) (kWhep/mÂ²/an). valable uniquement pour les
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          conso_pro_dle_elec_2020: Consommation professionnelle Ã©lectrique [kWh/an]
+          conso_pro_dle_elec_2020: Consommation professionnelle électrique [kWh/an]
 
           conso_pro_dle_gaz_2020: Consommation professionnelle gaz [kWh/an]
 
-          conso_res_dle_elec_2020: Consommation rÃ©sidentielle Ã©lectrique [kWh/an]
+          conso_res_dle_elec_2020: Consommation résidentielle électrique [kWh/an]
 
-          conso_res_dle_gaz_2020: Consommation rÃ©sidentielle gaz [kWh/an]
+          conso_res_dle_gaz_2020: Consommation résidentielle gaz [kWh/an]
 
-          date_reception_dpe: date de rÃ©ception du DPE dans la base de donnÃ©es de l'ADEME
+          date_reception_dpe: date de réception du DPE dans la base de données de l'ADEME
 
           difference_rel_valeur_fonciere_etat_initial_renove_categorie: categorie de la difference relative de valeur fonciere avant et apres renovation
               (verbose)
 
-          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage, ECS
-              , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012 (kgCO2/m2/an).
+          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages énergie primaire rapportée au m2 (Chauffage, ECS ,
+              Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012 (kgCO2/m2/an).
 
-          emission_ges_5_usages_m2: emission GES totale 5 usages rapportÃ©e au mÂ² (dÃ©duit de la production pv
-              autoconsommÃ©e)
-              (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an). valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en
-              vigueur actuellement)
+          emission_ges_5_usages_m2: emission GES totale 5 usages rapportée au mÂ² (déduit de la production pv
+              autoconsommée) (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an).
+              valable uniquement pour les DPE appliquant la méthode de l'arràªté du 31 mars
+              2021 (en vigueur actuellement)
 
-          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrÃ©es du
+          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrées du
               DPE.
 
-          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation Ã©nergÃ©tique finale avant
-              rÃ©novation [kWh/m2/an]
-
-          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation énergétique primaire avant rénovation
+              [kWh/m2/an]
+
+          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rénovation
               [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_risque_canicule: Estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule: Estimation du risque canicule avant rénovation [1-5]
 
-          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rénovation [1-5]
 
-          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations Ã©nergÃ©tiques finales aprÃ¨s
-              un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [kWh/m2/an]
+          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations énergétiques finales après un
+              scénario de rénovation globale "standard" (isolation des principaux composants
+              d'enveloppe et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario
-              de rÃ©novation globale "standard" (isolation des principaux composants
-              d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kgeqC02/m2/an]
+          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kgeqC02/m2/an]
 
-          etat_renove_ges_estim_lower: Estimation basse des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
-
-          etat_renove_ges_estim_mean: Estimation moyenne des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
-
-          etat_renove_ges_estim_upper: Estimation haute des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
-
-          etat_renove_risque_canicule: Estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
-
-          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
-
-          etiquette_dpe_initial_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'Ã©tiquette dpe avec la plus grande
-              probabilitÃ© avant rÃ©novation [1 Ã 5]. Cet indicateur se lit de 1 = peu fiable
-              Ã 5 = fiable.
-
-          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du
-              bÃ¢timent. Si le champs vaut F-G alors F la premiÃ¨re Ã©tiquette est
-              l'Ã©tiquette la plus probable , G la seconde Ã©tiquette la plus probable.
-
-          etiquette_dpe_initial_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. Si
-              etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
-              0.95 alors il y a 95% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit
-              classÃ© F ou G.
-
-          etiquette_dpe_renove_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_inc: Incertitude de classe sur l'Ã©tiquette dpe avec la plus grande probabilitÃ©
-              aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [1-5]
-
-          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-
-          etiquette_dpe_renove_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-
-          etiquette_dpe_renove_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
+          etat_renove_ges_estim_lower: Estimation basse des émissions de GES après un scénario de rénovation globale
               "standard" (isolation des principaux composants d'enveloppe et changement de
-              systÃ¨me Ã©nergÃ©tique de chauffage)
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etiquette_dpe_synthese_particulier_simple: Etiquette DPE selon l'arrÃªtÃ© 2021. Si un DPE existe, l'Ã©tiquette provient
-              d'un DPE de l'AEDME, sinon, il s'agit d'une simulation.
+          etat_renove_ges_estim_mean: Estimation moyenne des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
+
+          etat_renove_ges_estim_upper: Estimation haute des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
+
+          etat_renove_risque_canicule: Estimation du risque canicule après rénovation [1-5]
+
+          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule après rénovation [1-5]
+
+          etiquette_dpe_initial_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'étiquette dpe avec la plus grande
+              probabilité avant rénovation [1 à 5]. Cet indicateur se lit de 1 = peu fiable à
+              5 = fiable.
+
+          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilité pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_map_2nd: 2 étiquettes ayant la plus grande probabilité pour l'état actuel du bâtiment. Si
+              le champs vaut F-G alors F la première étiquette est l'étiquette la plus
+              probable , G la seconde étiquette la plus probable.
+
+          etiquette_dpe_initial_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité pour l'état actuel du bâtiment. Si
+              etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
+              0.95 alors il y a 95% de chance que l'étiquette DPE de ce bâtiment soit classé F
+              ou G.
+
+          etiquette_dpe_renove_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_inc: Incertitude de classe sur l'étiquette dpe avec la plus grande probabilité après
+              un scénario de rénovation globale "standard" (isolation des principaux
+              composants d'enveloppe et changement de système énergétique de chauffage) [1-5]
+
+          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilité après un scénario de rénovation
+              globale "standard" (isolation des principaux composants d'enveloppe et
+              changement de système énergétique de chauffage)
+
+          etiquette_dpe_renove_map_2nd: 2 étiquettes ayant la plus grande probabilité après un scénario de rénovation
+              globale "standard" (isolation des principaux composants d'enveloppe et
+              changement de système énergétique de chauffage)
+
+          etiquette_dpe_renove_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité après un scénario de rénovation globale "standard"
+              (isolation des principaux composants d'enveloppe et changement de système
+              énergétique de chauffage)
+
+          etiquette_dpe_synthese_particulier_simple: Etiquette DPE selon l'arràªté 2021. Si un DPE existe, l'étiquette provient d'un
+              DPE de l'AEDME, sinon, il s'agit d'une simulation.
 
           etiquette_dpe_synthese_particulier_source: TODO
 
-          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrÃ©e. coefficient entre 0
+          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrée. coefficient entre 0
               et 1
 
           gisement_gain_conso_finale_total: (cstb) Estimation du gisement de gain de consommation finale total (kWh/m2/an)
 
-          gisement_gain_energetique_mean: (cstb) Estilation du gain Ã©nergÃ©tique moyen (kWh/m2/an)
+          gisement_gain_energetique_mean: (cstb) Estilation du gain énergétique moyen (kWh/m2/an)
 
           gisement_gain_ges_mean: (cstb) Estimation du gain de ges moyen (kgCO2/m2/an)
 
           identifiant_dpe: identifiant de la table des DPE ademe
 
-          l_cle_interop_adr: Liste de clÃ©s d'interopÃ©rabilitÃ© de l'adresse postale
+          l_cle_interop_adr: Liste de clés d'interopérabilité de l'adresse postale
 
-          l_denomination_proprietaire: Liste de dÃ©nominations de propriÃ©taires
+          l_denomination_proprietaire: Liste de dénominations de propriétaires
 
-          l_libelle_adr: Liste de libellÃ© complet de l'adresse
+          l_libelle_adr: Liste de libellé complet de l'adresse
 
-          l_orientation_baie_vitree: liste des orientations des baies vitrÃ©es (enum version BDNB)
+          l_orientation_baie_vitree: liste des orientations des baies vitrées (enum version BDNB)
 
-          l_parcelle_id: Liste d'identifiants de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+          l_parcelle_id: Liste d'identifiants de parcelle (Concaténation de ccodep, ccocom, ccopre,
               ccosec, dnupla)
 
           l_siren: Liste d'identifiants siren
 
-          libelle_adr_principale_ban: LibellÃ© complet de l'adresse principale (issue de la BAN)
+          libelle_adr_principale_ban: Libellé complet de l'adresse principale (issue de la BAN)
 
-          libelle_commune_insee: (insee) LibellÃ© de la commune accueillant le groupe de bÃ¢timent
+          libelle_commune_insee: (insee) Libellé de la commune accueillant le groupe de bâtiment
 
-          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considÃ©rÃ© comme
-              valide si l'adresse est une adresse ban et que le batiment_groupe est associÃ© Ã
+          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considéré comme
+              valide si l'adresse est une adresse ban et que le batiment_groupe est associé à
               des fichiers fonciers
 
           limit: Limiting and Pagination
 
-          materiaux_structure_mur_exterieur: matÃ©riaux ou principe constructif principal utilisÃ© pour les murs extÃ©rieurs
+          materiaux_structure_mur_exterieur: matériaux ou principe constructif principal utilisé pour les murs extérieurs
               (enum version BDNB)
 
-          materiaux_structure_mur_exterieur_simplifie: materiaux principal utiliÃ© pour les murs extÃ©rieur simplifiÃ©. Cette
-              information peut Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers Fonciers
-              ou DPE pour le moment)
+          materiaux_structure_mur_exterieur_simplifie: materiaux principal utilié pour les murs extérieur simplifié. Cette information
+              peut àªtre récupérée de différentes sources (Fichiers Fonciers ou DPE pour le
+              moment)
 
-          nb_adresse_valid_ban: Nombre d'adresses valides diffÃ©rentes provenant de la BAN qui desservent le
-              groupe de bÃ¢timent
+          nb_adresse_valid_ban: Nombre d'adresses valides différentes provenant de la BAN qui desservent le
+              groupe de bâtiment
 
-          nb_classe_bilan_dpe_a: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_a: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe A
 
-          nb_classe_bilan_dpe_b: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_b: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe B
 
-          nb_classe_bilan_dpe_c: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_c: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe C
 
-          nb_classe_bilan_dpe_d: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_d: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe D
 
-          nb_classe_bilan_dpe_e: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_e: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe E
 
-          nb_classe_bilan_dpe_f: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_f: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe F
 
-          nb_classe_bilan_dpe_g: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_g: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe G
 
-          nb_classe_conso_energie_arrete_2012_a: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique A. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_a: (dpe) Nombre de DPE de la classe énergétique A. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_b: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique B. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_b: (dpe) Nombre de DPE de la classe énergétique B. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_c: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique C. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_c: (dpe) Nombre de DPE de la classe énergétique C. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_d: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique D. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_d: (dpe) Nombre de DPE de la classe énergétique D. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_e: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique E. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_e: (dpe) Nombre de DPE de la classe énergétique E. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_f: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique F. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_f: (dpe) Nombre de DPE de la classe énergétique F. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_g: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique G. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_g: (dpe) Nombre de DPE de la classe énergétique G. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_nc: (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'Ã©tiquette Ã©nergie
-              (DPE dits vierges). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_nc: (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'étiquette énergie
+              (DPE dits vierges). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012
 
           nb_log: (rnc) Nombre de logements
 
-          nb_niveau: (ffo) Nombre de niveau du bÃ¢timent (ex: RDC = 1, R+1 = 2, etc..)
+          nb_niveau: (ffo) Nombre de niveau du bâtiment (ex: RDC = 1, R+1 = 2, etc..)
 
-          nb_pdl_pro_dle_elec_2020: Nombre de points de livraison Ã©lectrique professionnels [kWh/an]
+          nb_pdl_pro_dle_elec_2020: Nombre de points de livraison électrique professionnels [kWh/an]
 
           nb_pdl_pro_dle_gaz_2020: Nombre de points de livraison gaz professionnels [kWh/an]
 
-          nb_pdl_res_dle_elec_2020: Nombre de points de livraison Ã©lectrique rÃ©sidentiels [kWh/an]
+          nb_pdl_res_dle_elec_2020: Nombre de points de livraison électrique résidentiels [kWh/an]
 
-          nb_pdl_res_dle_gaz_2020: Nombre de points de livraison gaz rÃ©sidentiels [kWh/an]
+          nb_pdl_res_dle_gaz_2020: Nombre de points de livraison gaz résidentiels [kWh/an]
 
-          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrÃ©es sur les murs extÃ©rieurs
+          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrées sur les murs extérieurs
 
-          presence_balcon: prÃ©sence de balcons identifiÃ©s par analyse des coefficients de masques
-              solaires du DPE.
+          presence_balcon: présence de balcons identifiés par analyse des coefficients de masques solaires
+              du DPE.
 
-          quartier_prioritaire: Est situÃ© dans un quartier prioritaire
+          quartier_prioritaire: Est situé dans un quartier prioritaire
 
-          s_geom_groupe: Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe)
+          s_geom_groupe: Surface au sol de la géométrie du bâtiment groupe (geom_groupe)
 
           select: Filtering Columns
 
-          surface_emprise_sol: Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe)
+          surface_emprise_sol: Surface au sol de la géométrie du bâtiment groupe (geom_groupe)
 
-          surface_facade_ext: Estimation de la surface de faÃ§ade donnant sur l'exterieur [mÂ²]
+          surface_facade_ext: Estimation de la surface de faà§ade donnant sur l'exterieur [mÂ²]
 
-          surface_facade_mitoyenne: Estimation de la surface de faÃ§ade donnant sur un autre bÃ¢timent [mÂ²]
+          surface_facade_mitoyenne: Estimation de la surface de faà§ade donnant sur un autre bâtiment [mÂ²]
 
-          surface_facade_totale: Estimation de la surface totale de faÃ§ade (murs + baies) [mÂ²]
+          surface_facade_totale: Estimation de la surface totale de faà§ade (murs + baies) [mÂ²]
 
-          surface_facade_vitree: Estimation de la surface de faÃ§ade vitrÃ©e [mÂ²]
+          surface_facade_vitree: Estimation de la surface de faà§ade vitrée [mÂ²]
 
-          traversant: indicateur du cÃ´tÃ© traversant du logement.
+          traversant: indicateur du cà´té traversant du logement.
 
-          type_dpe: type de DPE. Permet de prÃ©ciser le type de DPE (arrÃªtÃ© 2012/arrÃªtÃ© 2021),
-              son objet (logement, immeuble de logement, tertiaire) et la mÃ©thode de calcul
-              utilisÃ© (3CL conventionel,facture ou RT2012/RE2020)
+          type_dpe: type de DPE. Permet de préciser le type de DPE (arràªté 2012/arràªté 2021), son
+              objet (logement, immeuble de logement, tertiaire) et la méthode de calcul
+              utilisé (3CL conventionel,facture ou RT2012/RE2020)
 
-          type_fermeture: type de fermeture principale installÃ©e sur les baies vitrÃ©es du DPE
+          type_fermeture: type de fermeture principale installée sur les baies vitrées du DPE
               (volet,persienne etc..) (enum version BDNB)
 
-          type_gaz_lame: type de gaz injectÃ© principalement dans la lame entre les vitrages des baies
-              vitrÃ©es du DPE (double vitrage ou triple vitrage uniquement) (enum version
-              BDNB)
+          type_gaz_lame: type de gaz injecté principalement dans la lame entre les vitrages des baies
+              vitrées du DPE (double vitrage ou triple vitrage uniquement) (enum version BDNB)
 
-          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_bas: type d'isolation principal des planchers bas dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_bas: type d'isolation principal des planchers bas déperditifs pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_haut: type d'isolation principal des planchers hauts dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_haut: type d'isolation principal des planchers hauts déperditifs pour le DPE (enum
               version BDNB)
 
-          type_materiaux_menuiserie: type de matÃ©riaux principal des menuiseries des baies vitrÃ©es du DPE (enum
+          type_materiaux_menuiserie: type de matériaux principal des menuiseries des baies vitrées du DPE (enum
               version BDNB)
 
           type_plancher_bas_deperditif: materiaux ou principe constructif principal des planchers bas (enum version
               BDNB)
 
-          type_vitrage: type de vitrage principal des baies vitrÃ©es du DPE (enum version BDNB)
+          type_vitrage: type de vitrage principal des baies vitrées du DPE (enum version BDNB)
 
-          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrÃ©es en incluant le
-              calcul de la rÃ©sistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
+          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrées en incluant le
+              calcul de la résistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
 
-          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extÃ©rieurs (W/mÂ²/K)
+          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extérieurs (W/mÂ²/K)
 
           u_plancher_bas_final_deperditif: Coefficient de transmission thermique moyen des planchers bas en prenant en
-              compte l'attÃ©nuation forfaitaire du U lorsqu'en contact avec le sol de la
-              mÃ©thode 3CL(W/mÂ²/K)
+              compte l'atténuation forfaitaire du U lorsqu'en contact avec le sol de la
+              méthode 3CL(W/mÂ²/K)
 
           valeur_fonciere_etat_initial_incertitude: incertitude de l'estimation de la valeur fonciere avant renovation
 
-          vitrage_vir: le vitrage a Ã©tÃ© traitÃ© avec un traitement Ã isolation renforcÃ© ce qui le
-              rend plus performant d'un point de vue thermique.
+          vitrage_vir: le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
+              plus performant d'un point de vue thermique.
 
-          volume_brut: Volume brut du bÃ¢timent [m3]
+          volume_brut: Volume brut du bâtiment [m3]
 
           extra_headers: Send extra headers
 
@@ -1085,426 +1079,420 @@ class AsyncAdressesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AdressListResponse:
         """
-        Jointure des tables mÃ©tiers avec la table batiment_groupe
+        Jointure des tables métiers avec la table batiment_groupe
 
         Args:
-          arrete_2021: prÃ©cise si le DPE est un DPE qui est issu de la nouvelle rÃ©forme du DPE
-              (arrÃªtÃ© du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification
-              antÃ©rieure de 2012.
+          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+              du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
+              de 2012.
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          classe_bilan_dpe: Classe du DPE issu de la synthÃ¨se du double seuil sur les consommations
-              Ã©nergie primaire et les Ã©missions de CO2 sur les 5 usages
+          classe_bilan_dpe: Classe du DPE issu de la synthèse du double seuil sur les consommations énergie
+              primaire et les émissions de CO2 sur les 5 usages
               (ecs/chauffage/climatisation/eclairage/auxiliaires). valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          classe_conso_energie_arrete_2012: classe d'Ã©mission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          classe_conso_energie_arrete_2012: classe d'émission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
+              uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février 2012
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          cle_interop_adr_principale_ban: ClÃ© d'interopÃ©rabilitÃ© de l'adresse principale (issue de la BAN)
+          cle_interop_adr_principale_ban: Clé d'interopérabilité de l'adresse principale (issue de la BAN)
 
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_iris: Code iris INSEE
 
           code_qp: identifiant de la table qpv
 
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage,
-              ECS , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages énergie primaire rapportée au m2 (Chauffage, ECS
+              , Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012
 
           conso_5_usages_ep_m2: consommation annuelle 5 usages
-              (ecs/chauffage/climatisation/eclairage/auxiliaires) en Ã©nergie primaire
-              (dÃ©duit de la production pv autoconsommÃ©e) (kWhep/mÂ²/an). valable uniquement
-              pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              (ecs/chauffage/climatisation/eclairage/auxiliaires) en énergie primaire (déduit
+              de la production pv autoconsommée) (kWhep/mÂ²/an). valable uniquement pour les
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          conso_pro_dle_elec_2020: Consommation professionnelle Ã©lectrique [kWh/an]
+          conso_pro_dle_elec_2020: Consommation professionnelle électrique [kWh/an]
 
           conso_pro_dle_gaz_2020: Consommation professionnelle gaz [kWh/an]
 
-          conso_res_dle_elec_2020: Consommation rÃ©sidentielle Ã©lectrique [kWh/an]
+          conso_res_dle_elec_2020: Consommation résidentielle électrique [kWh/an]
 
-          conso_res_dle_gaz_2020: Consommation rÃ©sidentielle gaz [kWh/an]
+          conso_res_dle_gaz_2020: Consommation résidentielle gaz [kWh/an]
 
-          date_reception_dpe: date de rÃ©ception du DPE dans la base de donnÃ©es de l'ADEME
+          date_reception_dpe: date de réception du DPE dans la base de données de l'ADEME
 
           difference_rel_valeur_fonciere_etat_initial_renove_categorie: categorie de la difference relative de valeur fonciere avant et apres renovation
               (verbose)
 
-          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage, ECS
-              , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012 (kgCO2/m2/an).
+          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages énergie primaire rapportée au m2 (Chauffage, ECS ,
+              Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012 (kgCO2/m2/an).
 
-          emission_ges_5_usages_m2: emission GES totale 5 usages rapportÃ©e au mÂ² (dÃ©duit de la production pv
-              autoconsommÃ©e)
-              (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an). valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en
-              vigueur actuellement)
+          emission_ges_5_usages_m2: emission GES totale 5 usages rapportée au mÂ² (déduit de la production pv
+              autoconsommée) (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an).
+              valable uniquement pour les DPE appliquant la méthode de l'arràªté du 31 mars
+              2021 (en vigueur actuellement)
 
-          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrÃ©es du
+          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrées du
               DPE.
 
-          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation Ã©nergÃ©tique finale avant
-              rÃ©novation [kWh/m2/an]
-
-          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation énergétique primaire avant rénovation
+              [kWh/m2/an]
+
+          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rénovation
               [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_risque_canicule: Estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule: Estimation du risque canicule avant rénovation [1-5]
 
-          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rénovation [1-5]
 
-          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations Ã©nergÃ©tiques finales aprÃ¨s
-              un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [kWh/m2/an]
+          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations énergétiques finales après un
+              scénario de rénovation globale "standard" (isolation des principaux composants
+              d'enveloppe et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario
-              de rÃ©novation globale "standard" (isolation des principaux composants
-              d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kgeqC02/m2/an]
+          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kgeqC02/m2/an]
 
-          etat_renove_ges_estim_lower: Estimation basse des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
-
-          etat_renove_ges_estim_mean: Estimation moyenne des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
-
-          etat_renove_ges_estim_upper: Estimation haute des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
-
-          etat_renove_risque_canicule: Estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
-
-          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
-
-          etiquette_dpe_initial_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'Ã©tiquette dpe avec la plus grande
-              probabilitÃ© avant rÃ©novation [1 Ã 5]. Cet indicateur se lit de 1 = peu fiable
-              Ã 5 = fiable.
-
-          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent
-
-          etiquette_dpe_initial_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du
-              bÃ¢timent. Si le champs vaut F-G alors F la premiÃ¨re Ã©tiquette est
-              l'Ã©tiquette la plus probable , G la seconde Ã©tiquette la plus probable.
-
-          etiquette_dpe_initial_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. Si
-              etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
-              0.95 alors il y a 95% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit
-              classÃ© F ou G.
-
-          etiquette_dpe_renove_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
-              chauffage)
-
-          etiquette_dpe_renove_inc: Incertitude de classe sur l'Ã©tiquette dpe avec la plus grande probabilitÃ©
-              aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [1-5]
-
-          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-
-          etiquette_dpe_renove_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-
-          etiquette_dpe_renove_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
+          etat_renove_ges_estim_lower: Estimation basse des émissions de GES après un scénario de rénovation globale
               "standard" (isolation des principaux composants d'enveloppe et changement de
-              systÃ¨me Ã©nergÃ©tique de chauffage)
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etiquette_dpe_synthese_particulier_simple: Etiquette DPE selon l'arrÃªtÃ© 2021. Si un DPE existe, l'Ã©tiquette provient
-              d'un DPE de l'AEDME, sinon, il s'agit d'une simulation.
+          etat_renove_ges_estim_mean: Estimation moyenne des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
+
+          etat_renove_ges_estim_upper: Estimation haute des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
+
+          etat_renove_risque_canicule: Estimation du risque canicule après rénovation [1-5]
+
+          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule après rénovation [1-5]
+
+          etiquette_dpe_initial_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'étiquette dpe avec la plus grande
+              probabilité avant rénovation [1 à 5]. Cet indicateur se lit de 1 = peu fiable à
+              5 = fiable.
+
+          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilité pour l'état actuel du bâtiment
+
+          etiquette_dpe_initial_map_2nd: 2 étiquettes ayant la plus grande probabilité pour l'état actuel du bâtiment. Si
+              le champs vaut F-G alors F la première étiquette est l'étiquette la plus
+              probable , G la seconde étiquette la plus probable.
+
+          etiquette_dpe_initial_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité pour l'état actuel du bâtiment. Si
+              etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
+              0.95 alors il y a 95% de chance que l'étiquette DPE de ce bâtiment soit classé F
+              ou G.
+
+          etiquette_dpe_renove_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
+              chauffage)
+
+          etiquette_dpe_renove_inc: Incertitude de classe sur l'étiquette dpe avec la plus grande probabilité après
+              un scénario de rénovation globale "standard" (isolation des principaux
+              composants d'enveloppe et changement de système énergétique de chauffage) [1-5]
+
+          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilité après un scénario de rénovation
+              globale "standard" (isolation des principaux composants d'enveloppe et
+              changement de système énergétique de chauffage)
+
+          etiquette_dpe_renove_map_2nd: 2 étiquettes ayant la plus grande probabilité après un scénario de rénovation
+              globale "standard" (isolation des principaux composants d'enveloppe et
+              changement de système énergétique de chauffage)
+
+          etiquette_dpe_renove_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité après un scénario de rénovation globale "standard"
+              (isolation des principaux composants d'enveloppe et changement de système
+              énergétique de chauffage)
+
+          etiquette_dpe_synthese_particulier_simple: Etiquette DPE selon l'arràªté 2021. Si un DPE existe, l'étiquette provient d'un
+              DPE de l'AEDME, sinon, il s'agit d'une simulation.
 
           etiquette_dpe_synthese_particulier_source: TODO
 
-          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrÃ©e. coefficient entre 0
+          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrée. coefficient entre 0
               et 1
 
           gisement_gain_conso_finale_total: (cstb) Estimation du gisement de gain de consommation finale total (kWh/m2/an)
 
-          gisement_gain_energetique_mean: (cstb) Estilation du gain Ã©nergÃ©tique moyen (kWh/m2/an)
+          gisement_gain_energetique_mean: (cstb) Estilation du gain énergétique moyen (kWh/m2/an)
 
           gisement_gain_ges_mean: (cstb) Estimation du gain de ges moyen (kgCO2/m2/an)
 
           identifiant_dpe: identifiant de la table des DPE ademe
 
-          l_cle_interop_adr: Liste de clÃ©s d'interopÃ©rabilitÃ© de l'adresse postale
+          l_cle_interop_adr: Liste de clés d'interopérabilité de l'adresse postale
 
-          l_denomination_proprietaire: Liste de dÃ©nominations de propriÃ©taires
+          l_denomination_proprietaire: Liste de dénominations de propriétaires
 
-          l_libelle_adr: Liste de libellÃ© complet de l'adresse
+          l_libelle_adr: Liste de libellé complet de l'adresse
 
-          l_orientation_baie_vitree: liste des orientations des baies vitrÃ©es (enum version BDNB)
+          l_orientation_baie_vitree: liste des orientations des baies vitrées (enum version BDNB)
 
-          l_parcelle_id: Liste d'identifiants de parcelle (ConcatÃ©nation de ccodep, ccocom, ccopre,
+          l_parcelle_id: Liste d'identifiants de parcelle (Concaténation de ccodep, ccocom, ccopre,
               ccosec, dnupla)
 
           l_siren: Liste d'identifiants siren
 
-          libelle_adr_principale_ban: LibellÃ© complet de l'adresse principale (issue de la BAN)
+          libelle_adr_principale_ban: Libellé complet de l'adresse principale (issue de la BAN)
 
-          libelle_commune_insee: (insee) LibellÃ© de la commune accueillant le groupe de bÃ¢timent
+          libelle_commune_insee: (insee) Libellé de la commune accueillant le groupe de bâtiment
 
-          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considÃ©rÃ© comme
-              valide si l'adresse est une adresse ban et que le batiment_groupe est associÃ© Ã
+          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considéré comme
+              valide si l'adresse est une adresse ban et que le batiment_groupe est associé à
               des fichiers fonciers
 
           limit: Limiting and Pagination
 
-          materiaux_structure_mur_exterieur: matÃ©riaux ou principe constructif principal utilisÃ© pour les murs extÃ©rieurs
+          materiaux_structure_mur_exterieur: matériaux ou principe constructif principal utilisé pour les murs extérieurs
               (enum version BDNB)
 
-          materiaux_structure_mur_exterieur_simplifie: materiaux principal utiliÃ© pour les murs extÃ©rieur simplifiÃ©. Cette
-              information peut Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers Fonciers
-              ou DPE pour le moment)
+          materiaux_structure_mur_exterieur_simplifie: materiaux principal utilié pour les murs extérieur simplifié. Cette information
+              peut àªtre récupérée de différentes sources (Fichiers Fonciers ou DPE pour le
+              moment)
 
-          nb_adresse_valid_ban: Nombre d'adresses valides diffÃ©rentes provenant de la BAN qui desservent le
-              groupe de bÃ¢timent
+          nb_adresse_valid_ban: Nombre d'adresses valides différentes provenant de la BAN qui desservent le
+              groupe de bâtiment
 
-          nb_classe_bilan_dpe_a: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_a: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe A
 
-          nb_classe_bilan_dpe_b: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_b: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe B
 
-          nb_classe_bilan_dpe_c: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_c: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe C
 
-          nb_classe_bilan_dpe_d: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_d: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe D
 
-          nb_classe_bilan_dpe_e: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_e: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe E
 
-          nb_classe_bilan_dpe_f: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_f: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe F
 
-          nb_classe_bilan_dpe_g: (dpe) Nombre de DPE avec une Ã©tiquette bilan DPE (double seuil Ã©nergie/ges) de
+          nb_classe_bilan_dpe_g: (dpe) Nombre de DPE avec une étiquette bilan DPE (double seuil énergie/ges) de
               classe G
 
-          nb_classe_conso_energie_arrete_2012_a: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique A. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_a: (dpe) Nombre de DPE de la classe énergétique A. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_b: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique B. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_b: (dpe) Nombre de DPE de la classe énergétique B. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_c: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique C. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_c: (dpe) Nombre de DPE de la classe énergétique C. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_d: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique D. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_d: (dpe) Nombre de DPE de la classe énergétique D. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_e: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique E. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_e: (dpe) Nombre de DPE de la classe énergétique E. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_f: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique F. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_f: (dpe) Nombre de DPE de la classe énergétique F. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_g: (dpe) Nombre de DPE de la classe Ã©nergÃ©tique G. valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_g: (dpe) Nombre de DPE de la classe énergétique G. valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 8 février 2012
 
-          nb_classe_conso_energie_arrete_2012_nc: (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'Ã©tiquette Ã©nergie
-              (DPE dits vierges). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          nb_classe_conso_energie_arrete_2012_nc: (dpe) Nombre de DPE n'ayant pas fait l'objet d'un calcul d'étiquette énergie
+              (DPE dits vierges). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012
 
           nb_log: (rnc) Nombre de logements
 
-          nb_niveau: (ffo) Nombre de niveau du bÃ¢timent (ex: RDC = 1, R+1 = 2, etc..)
+          nb_niveau: (ffo) Nombre de niveau du bâtiment (ex: RDC = 1, R+1 = 2, etc..)
 
-          nb_pdl_pro_dle_elec_2020: Nombre de points de livraison Ã©lectrique professionnels [kWh/an]
+          nb_pdl_pro_dle_elec_2020: Nombre de points de livraison électrique professionnels [kWh/an]
 
           nb_pdl_pro_dle_gaz_2020: Nombre de points de livraison gaz professionnels [kWh/an]
 
-          nb_pdl_res_dle_elec_2020: Nombre de points de livraison Ã©lectrique rÃ©sidentiels [kWh/an]
+          nb_pdl_res_dle_elec_2020: Nombre de points de livraison électrique résidentiels [kWh/an]
 
-          nb_pdl_res_dle_gaz_2020: Nombre de points de livraison gaz rÃ©sidentiels [kWh/an]
+          nb_pdl_res_dle_gaz_2020: Nombre de points de livraison gaz résidentiels [kWh/an]
 
-          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrÃ©es sur les murs extÃ©rieurs
+          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrées sur les murs extérieurs
 
-          presence_balcon: prÃ©sence de balcons identifiÃ©s par analyse des coefficients de masques
-              solaires du DPE.
+          presence_balcon: présence de balcons identifiés par analyse des coefficients de masques solaires
+              du DPE.
 
-          quartier_prioritaire: Est situÃ© dans un quartier prioritaire
+          quartier_prioritaire: Est situé dans un quartier prioritaire
 
-          s_geom_groupe: Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe)
+          s_geom_groupe: Surface au sol de la géométrie du bâtiment groupe (geom_groupe)
 
           select: Filtering Columns
 
-          surface_emprise_sol: Surface au sol de la gÃ©omÃ©trie du bÃ¢timent groupe (geom_groupe)
+          surface_emprise_sol: Surface au sol de la géométrie du bâtiment groupe (geom_groupe)
 
-          surface_facade_ext: Estimation de la surface de faÃ§ade donnant sur l'exterieur [mÂ²]
+          surface_facade_ext: Estimation de la surface de faà§ade donnant sur l'exterieur [mÂ²]
 
-          surface_facade_mitoyenne: Estimation de la surface de faÃ§ade donnant sur un autre bÃ¢timent [mÂ²]
+          surface_facade_mitoyenne: Estimation de la surface de faà§ade donnant sur un autre bâtiment [mÂ²]
 
-          surface_facade_totale: Estimation de la surface totale de faÃ§ade (murs + baies) [mÂ²]
+          surface_facade_totale: Estimation de la surface totale de faà§ade (murs + baies) [mÂ²]
 
-          surface_facade_vitree: Estimation de la surface de faÃ§ade vitrÃ©e [mÂ²]
+          surface_facade_vitree: Estimation de la surface de faà§ade vitrée [mÂ²]
 
-          traversant: indicateur du cÃ´tÃ© traversant du logement.
+          traversant: indicateur du cà´té traversant du logement.
 
-          type_dpe: type de DPE. Permet de prÃ©ciser le type de DPE (arrÃªtÃ© 2012/arrÃªtÃ© 2021),
-              son objet (logement, immeuble de logement, tertiaire) et la mÃ©thode de calcul
-              utilisÃ© (3CL conventionel,facture ou RT2012/RE2020)
+          type_dpe: type de DPE. Permet de préciser le type de DPE (arràªté 2012/arràªté 2021), son
+              objet (logement, immeuble de logement, tertiaire) et la méthode de calcul
+              utilisé (3CL conventionel,facture ou RT2012/RE2020)
 
-          type_fermeture: type de fermeture principale installÃ©e sur les baies vitrÃ©es du DPE
+          type_fermeture: type de fermeture principale installée sur les baies vitrées du DPE
               (volet,persienne etc..) (enum version BDNB)
 
-          type_gaz_lame: type de gaz injectÃ© principalement dans la lame entre les vitrages des baies
-              vitrÃ©es du DPE (double vitrage ou triple vitrage uniquement) (enum version
-              BDNB)
+          type_gaz_lame: type de gaz injecté principalement dans la lame entre les vitrages des baies
+              vitrées du DPE (double vitrage ou triple vitrage uniquement) (enum version BDNB)
 
-          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_bas: type d'isolation principal des planchers bas dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_bas: type d'isolation principal des planchers bas déperditifs pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_haut: type d'isolation principal des planchers hauts dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_haut: type d'isolation principal des planchers hauts déperditifs pour le DPE (enum
               version BDNB)
 
-          type_materiaux_menuiserie: type de matÃ©riaux principal des menuiseries des baies vitrÃ©es du DPE (enum
+          type_materiaux_menuiserie: type de matériaux principal des menuiseries des baies vitrées du DPE (enum
               version BDNB)
 
           type_plancher_bas_deperditif: materiaux ou principe constructif principal des planchers bas (enum version
               BDNB)
 
-          type_vitrage: type de vitrage principal des baies vitrÃ©es du DPE (enum version BDNB)
+          type_vitrage: type de vitrage principal des baies vitrées du DPE (enum version BDNB)
 
-          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrÃ©es en incluant le
-              calcul de la rÃ©sistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
+          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrées en incluant le
+              calcul de la résistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
 
-          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extÃ©rieurs (W/mÂ²/K)
+          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extérieurs (W/mÂ²/K)
 
           u_plancher_bas_final_deperditif: Coefficient de transmission thermique moyen des planchers bas en prenant en
-              compte l'attÃ©nuation forfaitaire du U lorsqu'en contact avec le sol de la
-              mÃ©thode 3CL(W/mÂ²/K)
+              compte l'atténuation forfaitaire du U lorsqu'en contact avec le sol de la
+              méthode 3CL(W/mÂ²/K)
 
           valeur_fonciere_etat_initial_incertitude: incertitude de l'estimation de la valeur fonciere avant renovation
 
-          vitrage_vir: le vitrage a Ã©tÃ© traitÃ© avec un traitement Ã isolation renforcÃ© ce qui le
-              rend plus performant d'un point de vue thermique.
+          vitrage_vir: le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
+              plus performant d'un point de vue thermique.
 
-          volume_brut: Volume brut du bÃ¢timent [m3]
+          volume_brut: Volume brut du bâtiment [m3]
 
           extra_headers: Send extra headers
 

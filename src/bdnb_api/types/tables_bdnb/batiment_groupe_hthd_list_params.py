@@ -11,16 +11,16 @@ __all__ = ["BatimentGroupeHthdListParams"]
 
 class BatimentGroupeHthdListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     l_nom_pdl: str
     """(hthd) Liste des noms des points de livraisons centraux"""
 
     l_type_pdl: str
-    """(hthd) Liste de type de bÃ¢timent desservis par les PDL"""
+    """(hthd) Liste de type de bâtiment desservis par les PDL"""
 
     limit: str
     """Limiting and Pagination"""

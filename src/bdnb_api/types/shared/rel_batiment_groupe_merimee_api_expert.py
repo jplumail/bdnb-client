@@ -9,10 +9,10 @@ __all__ = ["RelBatimentGroupeMerimeeAPIExpert"]
 
 class RelBatimentGroupeMerimeeAPIExpert(BaseModel):
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     distance_batiment_historique: Optional[int] = None
     """

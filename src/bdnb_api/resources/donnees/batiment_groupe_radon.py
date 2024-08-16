@@ -58,14 +58,14 @@ class BatimentGroupeRadonResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeRadonListResponse:
         """
-        Informations sur l'alÃ©a Radon Ã l'Ã©chelle du bÃ¢timent
+        Informations sur l'aléa Radon à l'échelle du bâtiment
 
         Args:
           alea: (radon) alea du risque radon
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -147,14 +147,14 @@ class AsyncBatimentGroupeRadonResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeRadonListResponse:
         """
-        Informations sur l'alÃ©a Radon Ã l'Ã©chelle du bÃ¢timent
+        Informations sur l'aléa Radon à l'échelle du bâtiment
 
         Args:
           alea: (radon) alea du risque radon
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 

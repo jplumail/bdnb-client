@@ -11,22 +11,22 @@ __all__ = ["BatimentGroupeRncListParams"]
 
 class BatimentGroupeRncListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     copro_dans_pvd: str
     """
-    (rnc) au moins une des coproprietÃ©s est dans le programme petites villes de
+    (rnc) au moins une des coproprietés est dans le programme petites villes de
     demain
     """
 
     l_annee_construction: str
-    """Liste des annÃ©es de construction"""
+    """Liste des années de construction"""
 
     l_nom_copro: str
-    """(rnc) liste des noms des copropriÃ©tÃ©s"""
+    """(rnc) liste des noms des copropriétés"""
 
     l_siret: str
     """liste de siret"""
@@ -47,9 +47,9 @@ class BatimentGroupeRncListParams(TypedDict, total=False):
     """Nombre total de lots"""
 
     numero_immat_principal: str
-    """numÃ©ro d'immatriculation principal associÃ© au bÃ¢timent groupe.
+    """numéro d'immatriculation principal associé au bâtiment groupe.
 
-    (numÃ©ro d'immatriculation copropriÃ©tÃ© qui comporte le plus de lots)
+    (numéro d'immatriculation copropriété qui comporte le plus de lots)
     """
 
     offset: str
@@ -59,7 +59,7 @@ class BatimentGroupeRncListParams(TypedDict, total=False):
     """Ordering"""
 
     periode_construction_max: str
-    """(rnc) PÃ©riode de construction du local le plus rÃ©cent"""
+    """(rnc) Période de construction du local le plus récent"""
 
     select: str
     """Filtering Columns"""

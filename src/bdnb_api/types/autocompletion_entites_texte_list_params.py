@@ -11,19 +11,19 @@ __all__ = ["AutocompletionEntitesTexteListParams"]
 
 class AutocompletionEntitesTexteListParams(TypedDict, total=False):
     code: str
-    """code de l'entitÃ©"""
+    """code de l'entité"""
 
     geom: str
-    """geometrie de l'entitÃ© s'il y en a une"""
+    """geometrie de l'entité s'il y en a une"""
 
     limit: str
     """Limiting and Pagination"""
 
     nom: str
-    """nom d'entitÃ©"""
+    """nom d'entité"""
 
     nom_unaccent: str
-    """nom d'entitÃ© sans accent"""
+    """nom d'entité sans accent"""
 
     offset: str
     """Limiting and Pagination"""
@@ -41,7 +41,7 @@ class AutocompletionEntitesTexteListParams(TypedDict, total=False):
     """Filtering Columns"""
 
     type_entite: str
-    """type de l'entitÃ©"""
+    """type de l'entité"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

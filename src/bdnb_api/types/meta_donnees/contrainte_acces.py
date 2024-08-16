@@ -9,10 +9,10 @@ __all__ = ["ContrainteAcces"]
 
 class ContrainteAcces(BaseModel):
     contrainte_acces: str
-    """DÃ©nomination de la contrainte d'accÃ¨s
+    """Dénomination de la contrainte d'accès
 
     Note: This is a Primary Key.<pk/>
     """
 
     description: Optional[str] = None
-    """Description de la sÃ©rie de donnÃ©es"""
+    """Description de la série de données"""

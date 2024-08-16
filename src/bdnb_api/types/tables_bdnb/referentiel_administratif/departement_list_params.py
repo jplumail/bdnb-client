@@ -11,16 +11,16 @@ __all__ = ["DepartementListParams"]
 
 class DepartementListParams(TypedDict, total=False):
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_region_insee: str
-    """Code rÃ©gion INSEE"""
+    """Code région INSEE"""
 
     geom_departement: str
-    """GÃ©omÃ©trie du dÃ©partement"""
+    """Géométrie du département"""
 
     libelle_departement: str
-    """LibellÃ© dÃ©partement INSEE"""
+    """Libellé département INSEE"""
 
     limit: str
     """Limiting and Pagination"""

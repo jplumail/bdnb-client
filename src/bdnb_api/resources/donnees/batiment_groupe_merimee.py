@@ -60,25 +60,25 @@ class BatimentGroupeMerimeeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeMerimeeListResponse:
         """
-        Informations MÃ©rimÃ©e (bÃ¢timents classÃ©s aux Monuments Historiques)
-        agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Informations Mérimée (bâtiments classés aux Monuments Historiques) agrégées à
+        l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          distance_batiment_historique_plus_proche: (mer) Distance au bÃ¢timent historique le plus proche (si moins de 500m) [m]
+          distance_batiment_historique_plus_proche: (mer) Distance au bâtiment historique le plus proche (si moins de 500m) [m]
 
           limit: Limiting and Pagination
 
-          nom_batiment_historique_plus_proche: (mer:tico) nom du bÃ¢timent historique le plus proche
+          nom_batiment_historique_plus_proche: (mer:tico) nom du bâtiment historique le plus proche
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          perimetre_bat_historique: Vrai si l'entitÃ© est dans le pÃ©rimÃ¨tre d'un bÃ¢timent historique
+          perimetre_bat_historique: Vrai si l'entité est dans le périmètre d'un bâtiment historique
 
           select: Filtering Columns
 
@@ -158,25 +158,25 @@ class AsyncBatimentGroupeMerimeeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeMerimeeListResponse:
         """
-        Informations MÃ©rimÃ©e (bÃ¢timents classÃ©s aux Monuments Historiques)
-        agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Informations Mérimée (bâtiments classés aux Monuments Historiques) agrégées à
+        l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          distance_batiment_historique_plus_proche: (mer) Distance au bÃ¢timent historique le plus proche (si moins de 500m) [m]
+          distance_batiment_historique_plus_proche: (mer) Distance au bâtiment historique le plus proche (si moins de 500m) [m]
 
           limit: Limiting and Pagination
 
-          nom_batiment_historique_plus_proche: (mer:tico) nom du bÃ¢timent historique le plus proche
+          nom_batiment_historique_plus_proche: (mer:tico) nom du bâtiment historique le plus proche
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          perimetre_bat_historique: Vrai si l'entitÃ© est dans le pÃ©rimÃ¨tre d'un bÃ¢timent historique
+          perimetre_bat_historique: Vrai si l'entité est dans le périmètre d'un bâtiment historique
 
           select: Filtering Columns
 

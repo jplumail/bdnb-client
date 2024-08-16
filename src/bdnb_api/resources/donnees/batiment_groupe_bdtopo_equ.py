@@ -60,19 +60,18 @@ class BatimentGroupeBdtopoEquResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeBdtopoEquListResponse:
         """
-        Informations de la BDTopo, couche Ã©quipement, agrÃ©gÃ©es Ã l'Ã©chelle du
-        bÃ¢timent
+        Informations de la BDTopo, couche équipement, agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_nature: (ign) CatÃ©gorie de nature du bÃ¢timent
+          l_nature: (ign) Catégorie de nature du bâtiment
 
-          l_nature_detaillee: (ign) CatÃ©gorie dÃ©taillÃ©e de nature de l'Ã©quipement
+          l_nature_detaillee: (ign) Catégorie détaillée de nature de l'équipement
 
-          l_toponyme: (ign) Toponymie de l'Ã©quipement
+          l_toponyme: (ign) Toponymie de l'équipement
 
           limit: Limiting and Pagination
 
@@ -158,19 +157,18 @@ class AsyncBatimentGroupeBdtopoEquResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeBdtopoEquListResponse:
         """
-        Informations de la BDTopo, couche Ã©quipement, agrÃ©gÃ©es Ã l'Ã©chelle du
-        bÃ¢timent
+        Informations de la BDTopo, couche équipement, agrégées à l'échelle du bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_nature: (ign) CatÃ©gorie de nature du bÃ¢timent
+          l_nature: (ign) Catégorie de nature du bâtiment
 
-          l_nature_detaillee: (ign) CatÃ©gorie dÃ©taillÃ©e de nature de l'Ã©quipement
+          l_nature_detaillee: (ign) Catégorie détaillée de nature de l'équipement
 
-          l_toponyme: (ign) Toponymie de l'Ã©quipement
+          l_toponyme: (ign) Toponymie de l'équipement
 
           limit: Limiting and Pagination
 

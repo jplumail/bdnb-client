@@ -73,45 +73,43 @@ class RelBatimentGroupeSiretCompletResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeSiretCompletListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les SIRET.
+        Table de relation entre les bâtiments de la BDNB et les SIRET.
 
         Args:
-          activite_registre_metier: ActivitÃ© principale de l'Ã©tablissement au Registre des MÃ©tiers. Cette
-              variable, complÃ©mentaire Ã l'activitÃ© principale de l'Ã©tablissement, ne
-              concerne que les Ã©tablissements relevant de l'artisanat (artisans,
-              artisans-commerÃ§ants et sociÃ©tÃ©s artisanales). Elle caractÃ©rise l'activitÃ©
-              selon la Nomenclature d'ActivitÃ©s FranÃ§aise de l'Artisanat (NAFA). La variable
-              n'est pas disponible au niveau unitÃ© lÃ©gale.
+          activite_registre_metier: Activité principale de l'établissement au Registre des Métiers. Cette variable,
+              complémentaire à l'activité principale de l'établissement, ne concerne que les
+              établissements relevant de l'artisanat (artisans, artisans-commerà§ants et
+              sociétés artisanales). Elle caractérise l'activité selon la Nomenclature
+              d'Activités Franà§aise de l'Artisanat (NAFA). La variable n'est pas disponible
+              au niveau unité légale.
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_activite_principale: Code de l'activitÃ© principale de l'Ã©tablissement, lors de son inscription au
-              rÃ©pertoire APET. Il permet l'identification de la branche d'activitÃ©
-              principale pour chaque Ã©tablissement.
+          code_activite_principale: Code de l'activité principale de l'établissement, lors de son inscription au
+              répertoire APET. Il permet l'identification de la branche d'activité principale
+              pour chaque établissement.
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          date_creation: La date de crÃ©ation de l'unitÃ© lÃ©gale - correspond Ã la date qui figure dans
-              la dÃ©claration dÃ©posÃ©e au Centres de FormalitÃ©s des Entreprises (CFE)
-              compÃ©tent.
+          date_creation: La date de création de l'unité légale - correspond à la date qui figure dans la
+              déclaration déposée au Centres de Formalités des Entreprises (CFE) compétent.
 
-          date_dernier_traitement: Date du dernier traitement de l'unitÃ© lÃ©gale dans le rÃ©pertoire Sirene.
+          date_dernier_traitement: Date du dernier traitement de l'unité légale dans le répertoire Sirene.
 
-          denomination_etablissement: Cette variable dÃ©signe le nom sous lequel l'Ã©tablissement est connu du grand
-              public (nom commercial de l'Ã©tablissement).
+          denomination_etablissement: Cette variable désigne le nom sous lequel l'établissement est connu du grand
+              public (nom commercial de l'établissement).
 
-          etat_administratif_actif: Ã‰tat administratif de l'Ã©tablissement. Si l'Ã©tablissement est signalÃ© comme
-              actif alors la variable est indiquÃ©e comme 'Vrai'.
+          etat_administratif_actif: à‰tat administratif de l'établissement. Si l'établissement est signalé comme
+              actif alors la variable est indiquée comme 'Vrai'.
 
-          libelle_activite_principale: LibellÃ© de l'activitÃ© principale de l'Ã©tablissement, lors de son inscription
-              au rÃ©pertoire APET.
+          libelle_activite_principale: Libellé de l'activité principale de l'établissement, lors de son inscription au
+              répertoire APET.
 
           limit: Limiting and Pagination
 
-          nic: NumÃ©ro interne de classement (Nic) de l'Ã©tablissement siÃ¨ge de
-              l'Ã©tablissement.
+          nic: Numéro interne de classement (Nic) de l'établissement siège de l'établissement.
 
           offset: Limiting and Pagination
 
@@ -119,11 +117,11 @@ class RelBatimentGroupeSiretCompletResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          siege_social: Indique si l'Ã©tablissement est le siÃ¨ge social
+          siege_social: Indique si l'établissement est le siège social
 
-          siren: Siret de l'Ã©tablissement.
+          siren: Siret de l'établissement.
 
-          siret: Siret de l'Ã©tablissement.
+          siret: Siret de l'établissement.
 
           extra_headers: Send extra headers
 
@@ -219,45 +217,43 @@ class AsyncRelBatimentGroupeSiretCompletResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelBatimentGroupeSiretCompletListResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les SIRET.
+        Table de relation entre les bâtiments de la BDNB et les SIRET.
 
         Args:
-          activite_registre_metier: ActivitÃ© principale de l'Ã©tablissement au Registre des MÃ©tiers. Cette
-              variable, complÃ©mentaire Ã l'activitÃ© principale de l'Ã©tablissement, ne
-              concerne que les Ã©tablissements relevant de l'artisanat (artisans,
-              artisans-commerÃ§ants et sociÃ©tÃ©s artisanales). Elle caractÃ©rise l'activitÃ©
-              selon la Nomenclature d'ActivitÃ©s FranÃ§aise de l'Artisanat (NAFA). La variable
-              n'est pas disponible au niveau unitÃ© lÃ©gale.
+          activite_registre_metier: Activité principale de l'établissement au Registre des Métiers. Cette variable,
+              complémentaire à l'activité principale de l'établissement, ne concerne que les
+              établissements relevant de l'artisanat (artisans, artisans-commerà§ants et
+              sociétés artisanales). Elle caractérise l'activité selon la Nomenclature
+              d'Activités Franà§aise de l'Artisanat (NAFA). La variable n'est pas disponible
+              au niveau unité légale.
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_activite_principale: Code de l'activitÃ© principale de l'Ã©tablissement, lors de son inscription au
-              rÃ©pertoire APET. Il permet l'identification de la branche d'activitÃ©
-              principale pour chaque Ã©tablissement.
+          code_activite_principale: Code de l'activité principale de l'établissement, lors de son inscription au
+              répertoire APET. Il permet l'identification de la branche d'activité principale
+              pour chaque établissement.
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          date_creation: La date de crÃ©ation de l'unitÃ© lÃ©gale - correspond Ã la date qui figure dans
-              la dÃ©claration dÃ©posÃ©e au Centres de FormalitÃ©s des Entreprises (CFE)
-              compÃ©tent.
+          date_creation: La date de création de l'unité légale - correspond à la date qui figure dans la
+              déclaration déposée au Centres de Formalités des Entreprises (CFE) compétent.
 
-          date_dernier_traitement: Date du dernier traitement de l'unitÃ© lÃ©gale dans le rÃ©pertoire Sirene.
+          date_dernier_traitement: Date du dernier traitement de l'unité légale dans le répertoire Sirene.
 
-          denomination_etablissement: Cette variable dÃ©signe le nom sous lequel l'Ã©tablissement est connu du grand
-              public (nom commercial de l'Ã©tablissement).
+          denomination_etablissement: Cette variable désigne le nom sous lequel l'établissement est connu du grand
+              public (nom commercial de l'établissement).
 
-          etat_administratif_actif: Ã‰tat administratif de l'Ã©tablissement. Si l'Ã©tablissement est signalÃ© comme
-              actif alors la variable est indiquÃ©e comme 'Vrai'.
+          etat_administratif_actif: à‰tat administratif de l'établissement. Si l'établissement est signalé comme
+              actif alors la variable est indiquée comme 'Vrai'.
 
-          libelle_activite_principale: LibellÃ© de l'activitÃ© principale de l'Ã©tablissement, lors de son inscription
-              au rÃ©pertoire APET.
+          libelle_activite_principale: Libellé de l'activité principale de l'établissement, lors de son inscription au
+              répertoire APET.
 
           limit: Limiting and Pagination
 
-          nic: NumÃ©ro interne de classement (Nic) de l'Ã©tablissement siÃ¨ge de
-              l'Ã©tablissement.
+          nic: Numéro interne de classement (Nic) de l'établissement siège de l'établissement.
 
           offset: Limiting and Pagination
 
@@ -265,11 +261,11 @@ class AsyncRelBatimentGroupeSiretCompletResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          siege_social: Indique si l'Ã©tablissement est le siÃ¨ge social
+          siege_social: Indique si l'établissement est le siège social
 
-          siren: Siret de l'Ã©tablissement.
+          siren: Siret de l'établissement.
 
-          siret: Siret de l'Ã©tablissement.
+          siret: Siret de l'établissement.
 
           extra_headers: Send extra headers
 

@@ -81,75 +81,75 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> IrisSimulationsValeurVerteListResponse:
         """
-        Simulation des gains en valeur fonciÃ¨re liÃ©s Ã un potentiel changement de
-        classe DPE pour un logement du bÃ¢timent (en valeur relative)
+        Simulation des gains en valeur foncière liés à un potentiel changement de classe
+        DPE pour un logement du bâtiment (en valeur relative)
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          gain_classe_b_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_b_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE B vers A.
 
-          gain_classe_c_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_c_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE C vers A.
 
-          gain_classe_c_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_c_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE C vers B.
 
-          gain_classe_d_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_d_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE D vers A.
 
-          gain_classe_d_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_d_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE D vers B.
 
-          gain_classe_d_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_d_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE D vers C.
 
-          gain_classe_e_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers A.
 
-          gain_classe_e_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers B.
 
-          gain_classe_e_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers C.
 
-          gain_classe_e_vers_d: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_d: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers D.
 
-          gain_classe_f_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers A.
 
-          gain_classe_f_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers B.
 
-          gain_classe_f_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers C.
 
-          gain_classe_f_vers_d: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_d: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers D.
 
-          gain_classe_f_vers_e: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_e: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers E.
 
-          gain_classe_g_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers A.
 
-          gain_classe_g_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers B.
 
-          gain_classe_g_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers C.
 
-          gain_classe_g_vers_d: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_d: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers D.
 
-          gain_classe_g_vers_e: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_e: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers E.
 
-          gain_classe_g_vers_f: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_f: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers F.
 
           limit: Limiting and Pagination
@@ -158,8 +158,8 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
 
           order: Ordering
 
-          renovation: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule une
-              rÃ©novation.
+          renovation: (simulations) gain en % de la valeur immobilière lorsqu'on simule une
+              rénovation.
 
           select: Filtering Columns
 
@@ -277,75 +277,75 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> IrisSimulationsValeurVerteListResponse:
         """
-        Simulation des gains en valeur fonciÃ¨re liÃ©s Ã un potentiel changement de
-        classe DPE pour un logement du bÃ¢timent (en valeur relative)
+        Simulation des gains en valeur foncière liés à un potentiel changement de classe
+        DPE pour un logement du bâtiment (en valeur relative)
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          gain_classe_b_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_b_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE B vers A.
 
-          gain_classe_c_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_c_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE C vers A.
 
-          gain_classe_c_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_c_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE C vers B.
 
-          gain_classe_d_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_d_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE D vers A.
 
-          gain_classe_d_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_d_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE D vers B.
 
-          gain_classe_d_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_d_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE D vers C.
 
-          gain_classe_e_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers A.
 
-          gain_classe_e_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers B.
 
-          gain_classe_e_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers C.
 
-          gain_classe_e_vers_d: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_e_vers_d: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE E vers D.
 
-          gain_classe_f_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers A.
 
-          gain_classe_f_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers B.
 
-          gain_classe_f_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers C.
 
-          gain_classe_f_vers_d: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_d: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers D.
 
-          gain_classe_f_vers_e: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_f_vers_e: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE F vers E.
 
-          gain_classe_g_vers_a: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_a: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers A.
 
-          gain_classe_g_vers_b: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_b: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers B.
 
-          gain_classe_g_vers_c: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_c: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers C.
 
-          gain_classe_g_vers_d: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_d: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers D.
 
-          gain_classe_g_vers_e: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_e: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers E.
 
-          gain_classe_g_vers_f: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule le changement
+          gain_classe_g_vers_f: (simulations) gain en % de la valeur immobilière lorsqu'on simule le changement
               de DPE G vers F.
 
           limit: Limiting and Pagination
@@ -354,8 +354,8 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
 
           order: Ordering
 
-          renovation: (simulations) gain en % de la valeur immobiliÃ¨re lorsqu'on simule une
-              rÃ©novation.
+          renovation: (simulations) gain en % de la valeur immobilière lorsqu'on simule une
+              rénovation.
 
           select: Filtering Columns
 

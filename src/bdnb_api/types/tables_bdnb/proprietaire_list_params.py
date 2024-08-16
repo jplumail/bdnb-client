@@ -11,28 +11,28 @@ __all__ = ["ProprietaireListParams"]
 
 class ProprietaireListParams(TypedDict, total=False):
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_postal: str
     """Code postal"""
 
     dans_majic_pm: str
-    """(majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm"""
 
     denomination: str
-    """DÃ©nomination du propriÃ©taire (FF)"""
+    """Dénomination du propriétaire (FF)"""
 
     forme_juridique: str
-    """Forme juridique du propriÃ©taire (FF)"""
+    """Forme juridique du propriétaire (FF)"""
 
     libelle_commune: str
-    """LibellÃ© de la commune"""
+    """Libellé de la commune"""
 
     limit: str
     """Limiting and Pagination"""
 
     nb_locaux_open: str
-    """(majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm"""
+    """(majic_pm) nombre de locaux déclarés dans majic_pm"""
 
     offset: str
     """Limiting and Pagination"""
@@ -42,16 +42,16 @@ class ProprietaireListParams(TypedDict, total=False):
 
     personne_id: str
     """
-    ConcatÃ©nation de code dÃ©partement et du numÃ©ro de personne Majic3 (FF)
-    (appelÃ© aussi NUMÃ‰RO PERSONNE PRESENT DANS Lâ€™APPLICATION MAJIC dans les
-    fichiers des locaux des personnes morales)
+    Concaténation de code département et du numéro de personne Majic3 (FF) (appelé
+    aussi NUMà‰RO PERSONNE PRESENT DANS Lâ€™APPLICATION MAJIC dans les fichiers des
+    locaux des personnes morales)
     """
 
     select: str
     """Filtering Columns"""
 
     siren: str
-    """NumÃ©ro de SIREN de la personne morale (FF)"""
+    """Numéro de SIREN de la personne morale (FF)"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

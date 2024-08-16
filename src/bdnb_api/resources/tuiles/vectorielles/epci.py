@@ -44,7 +44,7 @@ class EpciResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif EPCI.
+        """Tuiles vectorielles pour le référentiel administratif EPCI.
 
         Z 6->10
 
@@ -95,7 +95,7 @@ class AsyncEpciResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncBinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif EPCI.
+        """Tuiles vectorielles pour le référentiel administratif EPCI.
 
         Z 6->10
 

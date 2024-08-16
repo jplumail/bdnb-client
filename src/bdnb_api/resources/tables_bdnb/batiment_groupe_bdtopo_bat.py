@@ -64,28 +64,28 @@ class BatimentGroupeBdtopoBatResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeBdtopoBatListResponse:
         """
-        Informations de la BDTopo, couche bÃ¢ti, agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Informations de la BDTopo, couche bâti, agrégées à l'échelle du bâtiment
 
         Args:
           altitude_sol_mean: (ign) Altitude au sol moyenne [m]
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          hauteur_mean: (ign) Hauteur moyenne des bÃ¢timents [m]
+          hauteur_mean: (ign) Hauteur moyenne des bâtiments [m]
 
-          l_etat: (ign) Etat des bÃ¢timents
+          l_etat: (ign) Etat des bâtiments
 
-          l_nature: (ign) CatÃ©gorie de nature du bÃ¢timent
+          l_nature: (ign) Catégorie de nature du bâtiment
 
-          l_usage_1: (ign) Usage principal du bÃ¢timent
+          l_usage_1: (ign) Usage principal du bâtiment
 
-          l_usage_2: (ign) Usage secondaire du bÃ¢timent
+          l_usage_2: (ign) Usage secondaire du bâtiment
 
           limit: Limiting and Pagination
 
-          max_hauteur: (ign) Hauteur maximale des bÃ¢timents [m]
+          max_hauteur: (ign) Hauteur maximale des bâtiments [m]
 
           offset: Limiting and Pagination
 
@@ -177,28 +177,28 @@ class AsyncBatimentGroupeBdtopoBatResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeBdtopoBatListResponse:
         """
-        Informations de la BDTopo, couche bÃ¢ti, agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent
+        Informations de la BDTopo, couche bâti, agrégées à l'échelle du bâtiment
 
         Args:
           altitude_sol_mean: (ign) Altitude au sol moyenne [m]
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          hauteur_mean: (ign) Hauteur moyenne des bÃ¢timents [m]
+          hauteur_mean: (ign) Hauteur moyenne des bâtiments [m]
 
-          l_etat: (ign) Etat des bÃ¢timents
+          l_etat: (ign) Etat des bâtiments
 
-          l_nature: (ign) CatÃ©gorie de nature du bÃ¢timent
+          l_nature: (ign) Catégorie de nature du bâtiment
 
-          l_usage_1: (ign) Usage principal du bÃ¢timent
+          l_usage_1: (ign) Usage principal du bâtiment
 
-          l_usage_2: (ign) Usage secondaire du bÃ¢timent
+          l_usage_2: (ign) Usage secondaire du bâtiment
 
           limit: Limiting and Pagination
 
-          max_hauteur: (ign) Hauteur maximale des bÃ¢timents [m]
+          max_hauteur: (ign) Hauteur maximale des bâtiments [m]
 
           offset: Limiting and Pagination
 

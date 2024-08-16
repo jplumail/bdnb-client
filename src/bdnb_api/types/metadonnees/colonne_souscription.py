@@ -9,7 +9,7 @@ __all__ = ["ColonneSouscription"]
 
 class ColonneSouscription(BaseModel):
     contrainte_acces: str
-    """Contrainte d'accÃ¨s Ã la donnÃ©es
+    """Contrainte d'accès à la données
 
     Note: This is a Primary Key.<pk/>
     """
@@ -21,13 +21,13 @@ class ColonneSouscription(BaseModel):
     """
 
     nom_table: str
-    """Nom de la table rattachÃ©e
+    """Nom de la table rattachée
 
     Note: This is a Primary Key.<pk/>
     """
 
     nom_table_implementation: str
-    """Nom de la table d'implÃ©mentation
+    """Nom de la table d'implémentation
 
     Note: This is a Primary Key.<pk/>
     """
@@ -42,7 +42,7 @@ class ColonneSouscription(BaseModel):
     """Description de la table"""
 
     index: Optional[bool] = None
-    """la colonne est indexÃ©e dans la table"""
+    """la colonne est indexée dans la table"""
 
     route: Optional[str] = None
     """Chemin dans l'API"""
@@ -51,4 +51,4 @@ class ColonneSouscription(BaseModel):
     """Type sql de la colonne"""
 
     unite: Optional[str] = None
-    """UnitÃ© de la colonne"""
+    """Unité de la colonne"""

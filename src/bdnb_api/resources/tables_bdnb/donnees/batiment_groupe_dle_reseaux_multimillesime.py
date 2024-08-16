@@ -71,23 +71,23 @@ class BatimentGroupeDleReseauxMultimillesimeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDleReseauxMultimillesimeListResponse:
         """
-        DonnÃ©es de consommations des donnÃ©es locales de l'Ã©nergie du SDES pour le
-        vecteur rÃ©seau de chaleur agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent. Attention les
-        donnÃ©es sur les rÃ©seaux de chaleurs sont aujourd'hui bien moins fiable que les
-        vecteurs gaz ou Ã©lÃ©ctricitÃ©.
+        Données de consommations des données locales de l'énergie du SDES pour le
+        vecteur réseau de chaleur agrégées à l'échelle du bâtiment. Attention les
+        données sur les réseaux de chaleurs sont aujourd'hui bien moins fiable que les
+        vecteurs gaz ou éléctricité.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           conso_pro: Consommation professionnelle [kWh/an]
 
           conso_pro_par_pdl: Consommation professionnelle par point de livraison [kWh/pdl.an]
 
-          conso_res: Consommation rÃ©sidentielle [kWh/an]
+          conso_res: Consommation résidentielle [kWh/an]
 
-          conso_res_par_pdl: Consommation rÃ©sidentielle par point de livraison [kWh/pdl.an]
+          conso_res_par_pdl: Consommation résidentielle par point de livraison [kWh/pdl.an]
 
           conso_tot: Consommation totale [kWh/an]
 
@@ -97,11 +97,11 @@ class BatimentGroupeDleReseauxMultimillesimeResource(SyncAPIResource):
 
           limit: Limiting and Pagination
 
-          millesime: MillÃ©sime des donnÃ©es
+          millesime: Millésime des données
 
           nb_pdl_pro: Nombre de points de livraisons professionel
 
-          nb_pdl_res: Nombre de points de livraisons rÃ©sidentiel
+          nb_pdl_res: Nombre de points de livraisons résidentiel
 
           nb_pdl_tot: Nombre total de points de livraisons
 
@@ -111,7 +111,7 @@ class BatimentGroupeDleReseauxMultimillesimeResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          type_reseau: type du rÃ©seau de chaleur
+          type_reseau: type du réseau de chaleur
 
           extra_headers: Send extra headers
 
@@ -207,23 +207,23 @@ class AsyncBatimentGroupeDleReseauxMultimillesimeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDleReseauxMultimillesimeListResponse:
         """
-        DonnÃ©es de consommations des donnÃ©es locales de l'Ã©nergie du SDES pour le
-        vecteur rÃ©seau de chaleur agrÃ©gÃ©es Ã l'Ã©chelle du bÃ¢timent. Attention les
-        donnÃ©es sur les rÃ©seaux de chaleurs sont aujourd'hui bien moins fiable que les
-        vecteurs gaz ou Ã©lÃ©ctricitÃ©.
+        Données de consommations des données locales de l'énergie du SDES pour le
+        vecteur réseau de chaleur agrégées à l'échelle du bâtiment. Attention les
+        données sur les réseaux de chaleurs sont aujourd'hui bien moins fiable que les
+        vecteurs gaz ou éléctricité.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           conso_pro: Consommation professionnelle [kWh/an]
 
           conso_pro_par_pdl: Consommation professionnelle par point de livraison [kWh/pdl.an]
 
-          conso_res: Consommation rÃ©sidentielle [kWh/an]
+          conso_res: Consommation résidentielle [kWh/an]
 
-          conso_res_par_pdl: Consommation rÃ©sidentielle par point de livraison [kWh/pdl.an]
+          conso_res_par_pdl: Consommation résidentielle par point de livraison [kWh/pdl.an]
 
           conso_tot: Consommation totale [kWh/an]
 
@@ -233,11 +233,11 @@ class AsyncBatimentGroupeDleReseauxMultimillesimeResource(AsyncAPIResource):
 
           limit: Limiting and Pagination
 
-          millesime: MillÃ©sime des donnÃ©es
+          millesime: Millésime des données
 
           nb_pdl_pro: Nombre de points de livraisons professionel
 
-          nb_pdl_res: Nombre de points de livraisons rÃ©sidentiel
+          nb_pdl_res: Nombre de points de livraisons résidentiel
 
           nb_pdl_tot: Nombre total de points de livraisons
 
@@ -247,7 +247,7 @@ class AsyncBatimentGroupeDleReseauxMultimillesimeResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          type_reseau: type du rÃ©seau de chaleur
+          type_reseau: type du réseau de chaleur
 
           extra_headers: Send extra headers
 

@@ -59,18 +59,18 @@ class RelColonneJeuDeDonneesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelColonneJeuDeDonneeListResponse:
         """
-        Quels jeux de donnÃ©es ont servis Ã crÃ©er quelles colonnes ?
+        Quels jeux de données ont servis à créer quelles colonnes ?
 
         Args:
-          denomination_serie: DÃ©nomination du jeu de donnÃ©es
+          denomination_serie: Dénomination du jeu de données
 
           limit: Limiting and Pagination
 
-          millesime_jeu_de_donnees: MillÃ©sime du jeu de donnÃ©es
+          millesime_jeu_de_donnees: Millésime du jeu de données
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
           offset: Limiting and Pagination
 
@@ -152,18 +152,18 @@ class AsyncRelColonneJeuDeDonneesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> RelColonneJeuDeDonneeListResponse:
         """
-        Quels jeux de donnÃ©es ont servis Ã crÃ©er quelles colonnes ?
+        Quels jeux de données ont servis à créer quelles colonnes ?
 
         Args:
-          denomination_serie: DÃ©nomination du jeu de donnÃ©es
+          denomination_serie: Dénomination du jeu de données
 
           limit: Limiting and Pagination
 
-          millesime_jeu_de_donnees: MillÃ©sime du jeu de donnÃ©es
+          millesime_jeu_de_donnees: Millésime du jeu de données
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
           offset: Limiting and Pagination
 

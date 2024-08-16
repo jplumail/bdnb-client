@@ -11,10 +11,10 @@ __all__ = ["ContrainteAcceRetrieveParams"]
 
 class ContrainteAcceRetrieveParams(TypedDict, total=False):
     contrainte_acces: str
-    """DÃ©nomination de la contrainte d'accÃ¨s"""
+    """Dénomination de la contrainte d'accès"""
 
     description: str
-    """Description de la sÃ©rie de donnÃ©es"""
+    """Description de la série de données"""
 
     limit: str
     """Limiting and Pagination"""

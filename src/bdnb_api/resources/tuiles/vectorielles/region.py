@@ -44,7 +44,7 @@ class RegionResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif rÃ©gion.
+        """Tuiles vectorielles pour le référentiel administratif région.
 
         Z = 0->6
 
@@ -95,7 +95,7 @@ class AsyncRegionResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncBinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif rÃ©gion.
+        """Tuiles vectorielles pour le référentiel administratif région.
 
         Z = 0->6
 

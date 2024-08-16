@@ -11,16 +11,16 @@ __all__ = ["TablesBdnbRetrieveBatimentGroupeQpvParams"]
 
 class TablesBdnbRetrieveBatimentGroupeQpvParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     limit: str
     """Limiting and Pagination"""
 
     nom_quartier: str
-    """Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent"""
+    """Nom du quartier prioritaire dans lequel se trouve le bâtiment"""
 
     offset: str
     """Limiting and Pagination"""

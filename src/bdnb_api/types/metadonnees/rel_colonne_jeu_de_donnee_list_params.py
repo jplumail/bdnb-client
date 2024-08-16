@@ -11,19 +11,19 @@ __all__ = ["RelColonneJeuDeDonneeListParams"]
 
 class RelColonneJeuDeDonneeListParams(TypedDict, total=False):
     denomination_serie: str
-    """DÃ©nomination du jeu de donnÃ©es"""
+    """Dénomination du jeu de données"""
 
     limit: str
     """Limiting and Pagination"""
 
     millesime_jeu_de_donnees: str
-    """MillÃ©sime du jeu de donnÃ©es"""
+    """Millésime du jeu de données"""
 
     nom_colonne: str
     """Nom de la colonne"""
 
     nom_table: str
-    """Nom de la table rattachÃ©e"""
+    """Nom de la table rattachée"""
 
     offset: str
     """Limiting and Pagination"""

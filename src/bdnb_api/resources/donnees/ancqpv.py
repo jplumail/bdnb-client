@@ -66,11 +66,11 @@ class AncqpvResource(SyncAPIResource):
 
           commune_qp: TODO
 
-          geom: GÃ©ometrie de l'entitÃ©
+          geom: Géometrie de l'entité
 
           limit: Limiting and Pagination
 
-          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
@@ -159,11 +159,11 @@ class AsyncAncqpvResource(AsyncAPIResource):
 
           commune_qp: TODO
 
-          geom: GÃ©ometrie de l'entitÃ©
+          geom: Géometrie de l'entité
 
           limit: Limiting and Pagination
 
-          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_qp: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 

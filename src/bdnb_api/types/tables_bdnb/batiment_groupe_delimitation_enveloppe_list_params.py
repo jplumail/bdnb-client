@@ -11,14 +11,14 @@ __all__ = ["BatimentGroupeDelimitationEnveloppeListParams"]
 
 class BatimentGroupeDelimitationEnveloppeListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     delimitation_enveloppe_dict: str
     """
-    Liste de toutes les parois extÃ©rieures constitutives d''un bÃ¢timent (murs,
+    Liste de toutes les parois extérieures constitutives d''un bâtiment (murs,
     planchers haut/bas).
     """
 

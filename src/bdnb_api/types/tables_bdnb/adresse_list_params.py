@@ -11,25 +11,25 @@ __all__ = ["AdresseListParams"]
 
 class AdresseListParams(TypedDict, total=False):
     cle_interop_adr: str
-    """ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale"""
+    """Clé d'interopérabilité de l'adresse postale"""
 
     code_commune_insee: str
     """Code INSEE de la commune"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_postal: str
     """Code postal"""
 
     geom_adresse: str
-    """GÃ©omÃ©trie de l'adresse (Lambert-93)"""
+    """Géométrie de l'adresse (Lambert-93)"""
 
     libelle_adresse: str
-    """LibellÃ© complet de l'adresse"""
+    """Libellé complet de l'adresse"""
 
     libelle_commune: str
-    """LibellÃ© de la commune"""
+    """Libellé de la commune"""
 
     limit: str
     """Limiting and Pagination"""
@@ -38,7 +38,7 @@ class AdresseListParams(TypedDict, total=False):
     """Nom de la voie"""
 
     numero: str
-    """NumÃ©ro de l'adresse"""
+    """Numéro de l'adresse"""
 
     offset: str
     """Limiting and Pagination"""
@@ -47,7 +47,7 @@ class AdresseListParams(TypedDict, total=False):
     """Ordering"""
 
     rep: str
-    """Indice de rÃ©pÃ©tition du numÃ©ro de l'adresse"""
+    """Indice de répétition du numéro de l'adresse"""
 
     select: str
     """Filtering Columns"""

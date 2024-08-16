@@ -162,67 +162,64 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDpeRepresentatifLogementListResponse:
-        """Table qui contient les DPE reprÃ©sentatifs de chaque bÃ¢timent de logement.
+        """Table qui contient les DPE représentatifs de chaque bâtiment de logement.
 
-        Le
-        DPE reprÃ©sentatif est soit un DPE issu de l'ancien arrÃªtÃ© qui n'est plus en
-        vigueur (arrÃªtÃ© 2012) ou d'un nouveau DPE (arrÃªtÃ© 2021). Pour filtrer ancien
-        et nouveau DPE utiliser le boolÃ©en `arrete_2021`
+        Le DPE
+        représentatif est soit un DPE issu de l'ancien arràªté qui n'est plus en vigueur
+        (arràªté 2012) ou d'un nouveau DPE (arràªté 2021). Pour filtrer ancien et
+        nouveau DPE utiliser le booléen `arrete_2021`
 
         Args:
-          annee_construction_dpe: (dpe representatif) annÃ©e de construction du logement (dpe)
+          annee_construction_dpe: (dpe representatif) année de construction du logement (dpe)
 
-          arrete_2021: prÃ©cise si le DPE est un DPE qui est issu de la nouvelle rÃ©forme du DPE
-              (arrÃªtÃ© du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification
-              antÃ©rieure de 2012.
+          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+              du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
+              de 2012.
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          chauffage_solaire: prÃ©sence de chauffage solaire
+          chauffage_solaire: présence de chauffage solaire
 
-          classe_bilan_dpe: Classe du DPE issu de la synthÃ¨se du double seuil sur les consommations
-              Ã©nergie primaire et les Ã©missions de CO2 sur les 5 usages
+          classe_bilan_dpe: Classe du DPE issu de la synthèse du double seuil sur les consommations énergie
+              primaire et les émissions de CO2 sur les 5 usages
               (ecs/chauffage/climatisation/eclairage/auxiliaires). valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          classe_conso_energie_arrete_2012: classe d'Ã©mission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          classe_conso_energie_arrete_2012: classe d'émission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
+              uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février 2012
 
-          classe_emission_ges: classe d'Ã©mission GES du DPE 5 usages (chauffage, ECS, climatisation,
-              Ã©clairage et auxiliaires). valable uniquement pour les DPE appliquant la
-              mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur actuellement)
+          classe_emission_ges: classe d'émission GES du DPE 5 usages (chauffage, ECS, climatisation, éclairage
+              et auxiliaires). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
           classe_emission_ges_arrete_2012: classe d'emission GES du DPE 3 usages (Chauffage, ECS , Climatisation). valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+              uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février 2012
 
           classe_inertie: classe d'inertie du DPE (enum version BDNB)
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage,
-              ECS , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages énergie primaire rapportée au m2 (Chauffage, ECS
+              , Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012
 
           conso_5_usages_ef_m2: consommation annuelle 5 usages
-              (ecs/chauffage/climatisation/eclairage/auxiliaires)en Ã©nergie finale (dÃ©duit
-              de la production pv autoconsommÃ©e) (kWhef/mÂ²/an). valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              (ecs/chauffage/climatisation/eclairage/auxiliaires)en énergie finale (déduit de
+              la production pv autoconsommée) (kWhef/mÂ²/an). valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
           conso_5_usages_ep_m2: consommation annuelle 5 usages
-              (ecs/chauffage/climatisation/eclairage/auxiliaires) en Ã©nergie primaire
-              (dÃ©duit de la production pv autoconsommÃ©e) (kWhep/mÂ²/an). valable uniquement
-              pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              (ecs/chauffage/climatisation/eclairage/auxiliaires) en énergie primaire (déduit
+              de la production pv autoconsommée) (kWhep/mÂ²/an). valable uniquement pour les
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          date_etablissement_dpe: date de l'Ã©tablissement du dpe
+          date_etablissement_dpe: date de l'établissement du dpe
 
-          date_reception_dpe: date de rÃ©ception du DPE dans la base de donnÃ©es de l'ADEME
+          date_reception_dpe: date de réception du DPE dans la base de données de l'ADEME
 
-          deperdition_baie_vitree: somme des dÃ©perditions par les baies vitrÃ©es du DPE (W/K)
+          deperdition_baie_vitree: somme des déperditions par les baies vitrées du DPE (W/K)
 
-          deperdition_mur: somme des dÃ©perditions par les murs du DPE (W/K)
+          deperdition_mur: somme des déperditions par les murs du DPE (W/K)
 
           deperdition_plancher_bas: somme des deperditions par les planchers bas du logement (W/K)
 
@@ -232,61 +229,60 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
 
           deperdition_porte: somme des deperditions par les portes du DPE (W/K)
 
-          ecs_solaire: prÃ©sence d'ecs solaire
+          ecs_solaire: présence d'ecs solaire
 
-          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage, ECS
-              , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012 (kgCO2/m2/an).
+          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages énergie primaire rapportée au m2 (Chauffage, ECS ,
+              Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012 (kgCO2/m2/an).
 
-          emission_ges_5_usages_m2: emission GES totale 5 usages rapportÃ©e au mÂ² (dÃ©duit de la production pv
-              autoconsommÃ©e)
-              (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an). valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en
-              vigueur actuellement)
+          emission_ges_5_usages_m2: emission GES totale 5 usages rapportée au mÂ² (déduit de la production pv
+              autoconsommée) (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an).
+              valable uniquement pour les DPE appliquant la méthode de l'arràªté du 31 mars
+              2021 (en vigueur actuellement)
 
-          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extÃ©rieurs estimÃ©e Ã partir de la
-              diffÃ©rence entre le U de mur et le U de mur nu. Dans le cas d'une Ã©paisseur
-              dÃ©clarÃ©e c'est directement l'Ã©paisseur dÃ©clarÃ©e qui est considÃ©rÃ©e, dans
-              le cas contraire l'Ã©paisseur est estimÃ©e aussi pour les U conventionels de la
-              mÃ©thode 3CL DPE.
+          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extérieurs estimée à partir de la
+              différence entre le U de mur et le U de mur nu. Dans le cas d'une épaisseur
+              déclarée c'est directement l'épaisseur déclarée qui est considérée, dans le cas
+              contraire l'épaisseur est estimée aussi pour les U conventionels de la méthode
+              3CL DPE.
 
-          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrÃ©es du
+          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrées du
               DPE.
 
-          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportÃ©e ni
+          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportée ni
               les doublages)
 
-          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrÃ©e. coefficient entre 0
+          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrée. coefficient entre 0
               et 1
 
           identifiant_dpe: identifiant de la table des DPE ademe
 
-          l_local_non_chauffe_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          l_local_non_chauffe_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          l_local_non_chauffe_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          l_local_non_chauffe_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          l_orientation_baie_vitree: liste des orientations des baies vitrÃ©es (enum version BDNB)
+          l_orientation_baie_vitree: liste des orientations des baies vitrées (enum version BDNB)
 
-          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extÃ©rieur (enum version BDNB)
+          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extérieur (enum version BDNB)
 
           limit: Limiting and Pagination
 
-          local_non_chauffe_principal_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          local_non_chauffe_principal_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          materiaux_structure_mur_exterieur: matÃ©riaux ou principe constructif principal utilisÃ© pour les murs extÃ©rieurs
+          materiaux_structure_mur_exterieur: matériaux ou principe constructif principal utilisé pour les murs extérieurs
               (enum version BDNB)
 
-          nb_generateur_chauffage: nombre de gÃ©nÃ©rateurs de chauffage
+          nb_generateur_chauffage: nombre de générateurs de chauffage
 
-          nb_generateur_ecs: nombre de gÃ©nÃ©rateurs d'ecs
+          nb_generateur_ecs: nombre de générateurs d'ecs
 
           nb_installation_chauffage: nombre d'installation de chauffage
 
@@ -300,129 +296,128 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
 
           order: Ordering
 
-          periode_construction_dpe: pÃ©riode de construction selon la segmentation par grandes pÃ©riodes
-              "Ã©nergÃ©tiques" du DPE.
+          periode_construction_dpe: période de construction selon la segmentation par grandes périodes
+              "énergétiques" du DPE.
 
-          plusieurs_facade_exposee: y a plusieurs facades exposÃ©es au vent
+          plusieurs_facade_exposee: y a plusieurs facades exposées au vent
 
-          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrÃ©es sur les murs extÃ©rieurs
+          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrées sur les murs extérieurs
 
-          presence_balcon: prÃ©sence de balcons identifiÃ©s par analyse des coefficients de masques
-              solaires du DPE.
+          presence_balcon: présence de balcons identifiés par analyse des coefficients de masques solaires
+              du DPE.
 
           select: Filtering Columns
 
           surface_habitable_immeuble: surface habitable totale de l'immeuble dans le cas d'un DPE appartement avec
               usage collectif ou d'un DPE immeuble.(surface habitable au sens du DPE)
 
-          surface_habitable_logement: surface habitable du logement renseignÃ©e sauf dans le cas du dpe Ã l'immeuble.
+          surface_habitable_logement: surface habitable du logement renseignée sauf dans le cas du dpe à l'immeuble.
               (surface habitable au sens du DPE)
 
-          surface_mur_deperditif: somme de la surface de murs donnant sur des locaux non chauffÃ©s et sur
-              l'extÃ©rieur (surfaces dÃ©perditives)
+          surface_mur_deperditif: somme de la surface de murs donnant sur des locaux non chauffés et sur
+              l'extérieur (surfaces déperditives)
 
-          surface_mur_exterieur: somme de la surface surface de murs donnant sur l'extÃ©rieur
+          surface_mur_exterieur: somme de la surface surface de murs donnant sur l'extérieur
 
           surface_mur_totale: somme de la surface de murs totale
 
-          surface_plancher_bas_deperditif: somme de la surface de plancher bas donnant sur des locaux non chauffÃ©s et sur
-              l'extÃ©rieur (surfaces dÃ©perditives)
+          surface_plancher_bas_deperditif: somme de la surface de plancher bas donnant sur des locaux non chauffés et sur
+              l'extérieur (surfaces déperditives)
 
           surface_plancher_bas_totale: somme de la surface de plancher bas totale
 
-          surface_plancher_haut_deperditif: somme de la surface de plancher haut donnant sur des locaux non chauffÃ©s et sur
-              l'extÃ©rieur (surfaces dÃ©perditives)
+          surface_plancher_haut_deperditif: somme de la surface de plancher haut donnant sur des locaux non chauffés et sur
+              l'extérieur (surfaces déperditives)
 
           surface_plancher_haut_totale: somme de la surface de plancher haut totale
 
           surface_porte: somme de la surface de portes du DPE
 
-          surface_vitree_est: somme de la surface de baies vitrÃ©es orientÃ©es est du DPE
+          surface_vitree_est: somme de la surface de baies vitrées orientées est du DPE
 
-          surface_vitree_horizontal: somme de la surface de baies vitrÃ©es horizontales du DPE (velux la plupart du
+          surface_vitree_horizontal: somme de la surface de baies vitrées horizontales du DPE (velux la plupart du
               temps)
 
-          surface_vitree_nord: somme de la surface de baies vitrÃ©es orientÃ©es nord du DPE
+          surface_vitree_nord: somme de la surface de baies vitrées orientées nord du DPE
 
-          surface_vitree_ouest: somme de la surface de baies vitrÃ©es orientÃ©es ouest du DPE
+          surface_vitree_ouest: somme de la surface de baies vitrées orientées ouest du DPE
 
-          surface_vitree_sud: somme de la surface de baies vitrÃ©es orientÃ©es sud du DPE
+          surface_vitree_sud: somme de la surface de baies vitrées orientées sud du DPE
 
-          traversant: indicateur du cÃ´tÃ© traversant du logement.
+          traversant: indicateur du cà´té traversant du logement.
 
           type_adjacence_principal_plancher_bas: type d'adjacence principale des planchers bas (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
           type_adjacence_principal_plancher_haut: type d'adjacence principale des planchers haut (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
-          type_batiment_dpe: type de bÃ¢timent au sens du DPE (maison, appartement ou immeuble). Cette
-              colonne est renseignÃ©e uniquement si la source d'information est un DPE.
+          type_batiment_dpe: type de bâtiment au sens du DPE (maison, appartement ou immeuble). Cette colonne
+              est renseignée uniquement si la source d'information est un DPE.
 
-          type_dpe: type de DPE. Permet de prÃ©ciser le type de DPE (arrÃªtÃ© 2012/arrÃªtÃ© 2021),
-              son objet (logement, immeuble de logement, tertiaire) et la mÃ©thode de calcul
-              utilisÃ© (3CL conventionel,facture ou RT2012/RE2020)
+          type_dpe: type de DPE. Permet de préciser le type de DPE (arràªté 2012/arràªté 2021), son
+              objet (logement, immeuble de logement, tertiaire) et la méthode de calcul
+              utilisé (3CL conventionel,facture ou RT2012/RE2020)
 
-          type_energie_chauffage: type d'Ã©nergie pour le gÃ©nÃ©rateur de chauffage principal (enum version
-              simplifiÃ©e BDNB)
+          type_energie_chauffage: type d'énergie pour le générateur de chauffage principal (enum version
+              simplifiée BDNB)
 
-          type_energie_chauffage_appoint: type d'Ã©nergie pour le gÃ©nÃ©rateur de chauffage d'appoint (enum version
-              simplifiÃ©e BDNB)
+          type_energie_chauffage_appoint: type d'énergie pour le générateur de chauffage d'appoint (enum version
+              simplifiée BDNB)
 
-          type_energie_climatisation: type d'Ã©nergie pour le gÃ©nÃ©rateur de climatisation principal (enum version
-              simplifiÃ©e BDNB)
+          type_energie_climatisation: type d'énergie pour le générateur de climatisation principal (enum version
+              simplifiée BDNB)
 
-          type_energie_ecs: type d'Ã©nergie pour le gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) principal
-              (enum version simplifiÃ©e BDNB)
+          type_energie_ecs: type d'énergie pour le générateur d'eau chaude sanitaire (ECS) principal (enum
+              version simplifiée BDNB)
 
-          type_energie_ecs_appoint: type d'Ã©nergie pour le gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) d'appoint
-              (enum version simplifiÃ©e BDNB)
+          type_energie_ecs_appoint: type d'énergie pour le générateur d'eau chaude sanitaire (ECS) d'appoint (enum
+              version simplifiée BDNB)
 
-          type_fermeture: type de fermeture principale installÃ©e sur les baies vitrÃ©es du DPE
+          type_fermeture: type de fermeture principale installée sur les baies vitrées du DPE
               (volet,persienne etc..) (enum version BDNB)
 
-          type_gaz_lame: type de gaz injectÃ© principalement dans la lame entre les vitrages des baies
-              vitrÃ©es du DPE (double vitrage ou triple vitrage uniquement) (enum version
-              BDNB)
+          type_gaz_lame: type de gaz injecté principalement dans la lame entre les vitrages des baies
+              vitrées du DPE (double vitrage ou triple vitrage uniquement) (enum version BDNB)
 
-          type_generateur_chauffage: type de gÃ©nÃ©rateur de chauffage principal (enum version simplifiÃ©e BDNB)
+          type_generateur_chauffage: type de générateur de chauffage principal (enum version simplifiée BDNB)
 
-          type_generateur_chauffage_anciennete: anciennetÃ© du gÃ©nÃ©rateur de chauffage principal
+          type_generateur_chauffage_anciennete: ancienneté du générateur de chauffage principal
 
-          type_generateur_chauffage_anciennete_appoint: anciennetÃ© du gÃ©nÃ©rateur de chauffage d'appoint
+          type_generateur_chauffage_anciennete_appoint: ancienneté du générateur de chauffage d'appoint
 
-          type_generateur_chauffage_appoint: type de gÃ©nÃ©rateur de chauffage d'appoint (enum version simplifiÃ©e BDNB)
+          type_generateur_chauffage_appoint: type de générateur de chauffage d'appoint (enum version simplifiée BDNB)
 
-          type_generateur_climatisation: type de gÃ©nÃ©rateur de climatisation principal (enum version simplifiÃ©e BDNB)
+          type_generateur_climatisation: type de générateur de climatisation principal (enum version simplifiée BDNB)
 
-          type_generateur_climatisation_anciennete: anciennetÃ© du gÃ©nÃ©rateur de climatisation principal
+          type_generateur_climatisation_anciennete: ancienneté du générateur de climatisation principal
 
-          type_generateur_ecs: type de gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) principal (enum version
-              simplifiÃ©e BDNB)
+          type_generateur_ecs: type de générateur d'eau chaude sanitaire (ECS) principal (enum version
+              simplifiée BDNB)
 
-          type_generateur_ecs_anciennete: anciennetÃ© du gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) principal
+          type_generateur_ecs_anciennete: ancienneté du générateur d'eau chaude sanitaire (ECS) principal
 
-          type_generateur_ecs_anciennete_appoint: anciennetÃ© du gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) d'appoint
+          type_generateur_ecs_anciennete_appoint: ancienneté du générateur d'eau chaude sanitaire (ECS) d'appoint
 
-          type_generateur_ecs_appoint: type de gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) d'appoint (enum version
-              simplifiÃ©e BDNB)
+          type_generateur_ecs_appoint: type de générateur d'eau chaude sanitaire (ECS) d'appoint (enum version
+              simplifiée BDNB)
 
           type_installation_chauffage: type d'installation de chauffage (collectif ou individuel) (enum version
-              simplifiÃ©e BDNB)
+              simplifiée BDNB)
 
           type_installation_ecs: type d'installation d'eau chaude sanitaire (ECS) (collectif ou individuel) (enum
-              version simplifiÃ©e BDNB)
+              version simplifiée BDNB)
 
-          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_bas: type d'isolation principal des planchers bas dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_bas: type d'isolation principal des planchers bas déperditifs pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_haut: type d'isolation principal des planchers hauts dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_haut: type d'isolation principal des planchers hauts déperditifs pour le DPE (enum
               version BDNB)
 
-          type_materiaux_menuiserie: type de matÃ©riaux principal des menuiseries des baies vitrÃ©es du DPE (enum
+          type_materiaux_menuiserie: type de matériaux principal des menuiseries des baies vitrées du DPE (enum
               version BDNB)
 
           type_plancher_bas_deperditif: materiaux ou principe constructif principal des planchers bas (enum version
@@ -437,34 +432,34 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
 
           type_ventilation: type de ventilation (enum version BDNB)
 
-          type_vitrage: type de vitrage principal des baies vitrÃ©es du DPE (enum version BDNB)
+          type_vitrage: type de vitrage principal des baies vitrées du DPE (enum version BDNB)
 
-          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrÃ©es en incluant le
-              calcul de la rÃ©sistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
+          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrées en incluant le
+              calcul de la résistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
 
-          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extÃ©rieurs (W/mÂ²/K)
+          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extérieurs (W/mÂ²/K)
 
           u_plancher_bas_brut_deperditif: Coefficient de transmission thermique moyen des planchers bas brut.
 
           u_plancher_bas_final_deperditif: Coefficient de transmission thermique moyen des planchers bas en prenant en
-              compte l'attÃ©nuation forfaitaire du U lorsqu'en contact avec le sol de la
-              mÃ©thode 3CL(W/mÂ²/K)
+              compte l'atténuation forfaitaire du U lorsqu'en contact avec le sol de la
+              méthode 3CL(W/mÂ²/K)
 
           u_plancher_haut_deperditif: Coefficient de transmission thermique moyen des planchers hauts (W/mÂ²/K)
 
           u_porte: Coefficient de transmission thermique moyen des portes (W/mÂ²/K)
 
-          uw: Coefficient de transmission thermique moyen des baies vitrÃ©es sans prise en
+          uw: Coefficient de transmission thermique moyen des baies vitrées sans prise en
               compte des fermeture (W/mÂ²/K)
 
-          version: version du DPE (arrÃªtÃ© 2021). CenumÃ©ro de version permet de tracer les
-              Ã©volutions de modÃ¨le de donnÃ©es, decontexte rÃ©glementaire et de contrÃ´le
-              mis en place sur les DPE. Chaque nouvelle version induit un certain nombre de
-              changements substantiels. Certaines donnÃ©es ne sont disponible ou obligatoires
-              qu'Ã partir d'une certaine version
+          version: version du DPE (arràªté 2021). Cenuméro de version permet de tracer les
+              évolutions de modèle de données, decontexte réglementaire et de contrà´le mis en
+              place sur les DPE. Chaque nouvelle version induit un certain nombre de
+              changements substantiels. Certaines données ne sont disponible ou obligatoires
+              qu'à partir d'une certaine version
 
-          vitrage_vir: le vitrage a Ã©tÃ© traitÃ© avec un traitement Ã isolation renforcÃ© ce qui le
-              rend plus performant d'un point de vue thermique.
+          vitrage_vir: le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
+              plus performant d'un point de vue thermique.
 
           extra_headers: Send extra headers
 
@@ -743,67 +738,64 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeDpeRepresentatifLogementListResponse:
-        """Table qui contient les DPE reprÃ©sentatifs de chaque bÃ¢timent de logement.
+        """Table qui contient les DPE représentatifs de chaque bâtiment de logement.
 
-        Le
-        DPE reprÃ©sentatif est soit un DPE issu de l'ancien arrÃªtÃ© qui n'est plus en
-        vigueur (arrÃªtÃ© 2012) ou d'un nouveau DPE (arrÃªtÃ© 2021). Pour filtrer ancien
-        et nouveau DPE utiliser le boolÃ©en `arrete_2021`
+        Le DPE
+        représentatif est soit un DPE issu de l'ancien arràªté qui n'est plus en vigueur
+        (arràªté 2012) ou d'un nouveau DPE (arràªté 2021). Pour filtrer ancien et
+        nouveau DPE utiliser le booléen `arrete_2021`
 
         Args:
-          annee_construction_dpe: (dpe representatif) annÃ©e de construction du logement (dpe)
+          annee_construction_dpe: (dpe representatif) année de construction du logement (dpe)
 
-          arrete_2021: prÃ©cise si le DPE est un DPE qui est issu de la nouvelle rÃ©forme du DPE
-              (arrÃªtÃ© du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification
-              antÃ©rieure de 2012.
+          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+              du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
+              de 2012.
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          chauffage_solaire: prÃ©sence de chauffage solaire
+          chauffage_solaire: présence de chauffage solaire
 
-          classe_bilan_dpe: Classe du DPE issu de la synthÃ¨se du double seuil sur les consommations
-              Ã©nergie primaire et les Ã©missions de CO2 sur les 5 usages
+          classe_bilan_dpe: Classe du DPE issu de la synthèse du double seuil sur les consommations énergie
+              primaire et les émissions de CO2 sur les 5 usages
               (ecs/chauffage/climatisation/eclairage/auxiliaires). valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          classe_conso_energie_arrete_2012: classe d'Ã©mission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          classe_conso_energie_arrete_2012: classe d'émission GES du DPE 3 usages (Chauffage, ECS, Climatisation). Valable
+              uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février 2012
 
-          classe_emission_ges: classe d'Ã©mission GES du DPE 5 usages (chauffage, ECS, climatisation,
-              Ã©clairage et auxiliaires). valable uniquement pour les DPE appliquant la
-              mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur actuellement)
+          classe_emission_ges: classe d'émission GES du DPE 5 usages (chauffage, ECS, climatisation, éclairage
+              et auxiliaires). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
           classe_emission_ges_arrete_2012: classe d'emission GES du DPE 3 usages (Chauffage, ECS , Climatisation). valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 8 fÃ©vrier 2012
+              uniquement pour les DPE appliquant la méthode de l'arràªté du 8 février 2012
 
           classe_inertie: classe d'inertie du DPE (enum version BDNB)
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage,
-              ECS , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012
+          conso_3_usages_ep_m2_arrete_2012: consommation annuelle 3 usages énergie primaire rapportée au m2 (Chauffage, ECS
+              , Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012
 
           conso_5_usages_ef_m2: consommation annuelle 5 usages
-              (ecs/chauffage/climatisation/eclairage/auxiliaires)en Ã©nergie finale (dÃ©duit
-              de la production pv autoconsommÃ©e) (kWhef/mÂ²/an). valable uniquement pour les
-              DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              (ecs/chauffage/climatisation/eclairage/auxiliaires)en énergie finale (déduit de
+              la production pv autoconsommée) (kWhef/mÂ²/an). valable uniquement pour les DPE
+              appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
           conso_5_usages_ep_m2: consommation annuelle 5 usages
-              (ecs/chauffage/climatisation/eclairage/auxiliaires) en Ã©nergie primaire
-              (dÃ©duit de la production pv autoconsommÃ©e) (kWhep/mÂ²/an). valable uniquement
-              pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en vigueur
-              actuellement)
+              (ecs/chauffage/climatisation/eclairage/auxiliaires) en énergie primaire (déduit
+              de la production pv autoconsommée) (kWhep/mÂ²/an). valable uniquement pour les
+              DPE appliquant la méthode de l'arràªté du 31 mars 2021 (en vigueur actuellement)
 
-          date_etablissement_dpe: date de l'Ã©tablissement du dpe
+          date_etablissement_dpe: date de l'établissement du dpe
 
-          date_reception_dpe: date de rÃ©ception du DPE dans la base de donnÃ©es de l'ADEME
+          date_reception_dpe: date de réception du DPE dans la base de données de l'ADEME
 
-          deperdition_baie_vitree: somme des dÃ©perditions par les baies vitrÃ©es du DPE (W/K)
+          deperdition_baie_vitree: somme des déperditions par les baies vitrées du DPE (W/K)
 
-          deperdition_mur: somme des dÃ©perditions par les murs du DPE (W/K)
+          deperdition_mur: somme des déperditions par les murs du DPE (W/K)
 
           deperdition_plancher_bas: somme des deperditions par les planchers bas du logement (W/K)
 
@@ -813,61 +805,60 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
 
           deperdition_porte: somme des deperditions par les portes du DPE (W/K)
 
-          ecs_solaire: prÃ©sence d'ecs solaire
+          ecs_solaire: présence d'ecs solaire
 
-          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages Ã©nergie primaire rapportÃ©e au m2 (Chauffage, ECS
-              , Climatisation). valable uniquement pour les DPE appliquant la mÃ©thode de
-              l'arrÃªtÃ© du 8 fÃ©vrier 2012 (kgCO2/m2/an).
+          emission_ges_3_usages_ep_m2_arrete_2012: emission GES totale 3 usages énergie primaire rapportée au m2 (Chauffage, ECS ,
+              Climatisation). valable uniquement pour les DPE appliquant la méthode de
+              l'arràªté du 8 février 2012 (kgCO2/m2/an).
 
-          emission_ges_5_usages_m2: emission GES totale 5 usages rapportÃ©e au mÂ² (dÃ©duit de la production pv
-              autoconsommÃ©e)
-              (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an). valable
-              uniquement pour les DPE appliquant la mÃ©thode de l'arrÃªtÃ© du 31 mars 2021 (en
-              vigueur actuellement)
+          emission_ges_5_usages_m2: emission GES totale 5 usages rapportée au mÂ² (déduit de la production pv
+              autoconsommée) (ecs/chauffage/climatisation/eclairage/auxiliaires)(kgCO2/m2/an).
+              valable uniquement pour les DPE appliquant la méthode de l'arràªté du 31 mars
+              2021 (en vigueur actuellement)
 
-          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extÃ©rieurs estimÃ©e Ã partir de la
-              diffÃ©rence entre le U de mur et le U de mur nu. Dans le cas d'une Ã©paisseur
-              dÃ©clarÃ©e c'est directement l'Ã©paisseur dÃ©clarÃ©e qui est considÃ©rÃ©e, dans
-              le cas contraire l'Ã©paisseur est estimÃ©e aussi pour les U conventionels de la
-              mÃ©thode 3CL DPE.
+          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extérieurs estimée à partir de la
+              différence entre le U de mur et le U de mur nu. Dans le cas d'une épaisseur
+              déclarée c'est directement l'épaisseur déclarée qui est considérée, dans le cas
+              contraire l'épaisseur est estimée aussi pour les U conventionels de la méthode
+              3CL DPE.
 
-          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrÃ©es du
+          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrées du
               DPE.
 
-          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportÃ©e ni
+          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportée ni
               les doublages)
 
-          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrÃ©e. coefficient entre 0
+          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrée. coefficient entre 0
               et 1
 
           identifiant_dpe: identifiant de la table des DPE ademe
 
-          l_local_non_chauffe_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          l_local_non_chauffe_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          l_local_non_chauffe_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          l_local_non_chauffe_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          l_orientation_baie_vitree: liste des orientations des baies vitrÃ©es (enum version BDNB)
+          l_orientation_baie_vitree: liste des orientations des baies vitrées (enum version BDNB)
 
-          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extÃ©rieur (enum version BDNB)
+          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extérieur (enum version BDNB)
 
           limit: Limiting and Pagination
 
-          local_non_chauffe_principal_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          local_non_chauffe_principal_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          materiaux_structure_mur_exterieur: matÃ©riaux ou principe constructif principal utilisÃ© pour les murs extÃ©rieurs
+          materiaux_structure_mur_exterieur: matériaux ou principe constructif principal utilisé pour les murs extérieurs
               (enum version BDNB)
 
-          nb_generateur_chauffage: nombre de gÃ©nÃ©rateurs de chauffage
+          nb_generateur_chauffage: nombre de générateurs de chauffage
 
-          nb_generateur_ecs: nombre de gÃ©nÃ©rateurs d'ecs
+          nb_generateur_ecs: nombre de générateurs d'ecs
 
           nb_installation_chauffage: nombre d'installation de chauffage
 
@@ -881,129 +872,128 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
 
           order: Ordering
 
-          periode_construction_dpe: pÃ©riode de construction selon la segmentation par grandes pÃ©riodes
-              "Ã©nergÃ©tiques" du DPE.
+          periode_construction_dpe: période de construction selon la segmentation par grandes périodes
+              "énergétiques" du DPE.
 
-          plusieurs_facade_exposee: y a plusieurs facades exposÃ©es au vent
+          plusieurs_facade_exposee: y a plusieurs facades exposées au vent
 
-          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrÃ©es sur les murs extÃ©rieurs
+          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrées sur les murs extérieurs
 
-          presence_balcon: prÃ©sence de balcons identifiÃ©s par analyse des coefficients de masques
-              solaires du DPE.
+          presence_balcon: présence de balcons identifiés par analyse des coefficients de masques solaires
+              du DPE.
 
           select: Filtering Columns
 
           surface_habitable_immeuble: surface habitable totale de l'immeuble dans le cas d'un DPE appartement avec
               usage collectif ou d'un DPE immeuble.(surface habitable au sens du DPE)
 
-          surface_habitable_logement: surface habitable du logement renseignÃ©e sauf dans le cas du dpe Ã l'immeuble.
+          surface_habitable_logement: surface habitable du logement renseignée sauf dans le cas du dpe à l'immeuble.
               (surface habitable au sens du DPE)
 
-          surface_mur_deperditif: somme de la surface de murs donnant sur des locaux non chauffÃ©s et sur
-              l'extÃ©rieur (surfaces dÃ©perditives)
+          surface_mur_deperditif: somme de la surface de murs donnant sur des locaux non chauffés et sur
+              l'extérieur (surfaces déperditives)
 
-          surface_mur_exterieur: somme de la surface surface de murs donnant sur l'extÃ©rieur
+          surface_mur_exterieur: somme de la surface surface de murs donnant sur l'extérieur
 
           surface_mur_totale: somme de la surface de murs totale
 
-          surface_plancher_bas_deperditif: somme de la surface de plancher bas donnant sur des locaux non chauffÃ©s et sur
-              l'extÃ©rieur (surfaces dÃ©perditives)
+          surface_plancher_bas_deperditif: somme de la surface de plancher bas donnant sur des locaux non chauffés et sur
+              l'extérieur (surfaces déperditives)
 
           surface_plancher_bas_totale: somme de la surface de plancher bas totale
 
-          surface_plancher_haut_deperditif: somme de la surface de plancher haut donnant sur des locaux non chauffÃ©s et sur
-              l'extÃ©rieur (surfaces dÃ©perditives)
+          surface_plancher_haut_deperditif: somme de la surface de plancher haut donnant sur des locaux non chauffés et sur
+              l'extérieur (surfaces déperditives)
 
           surface_plancher_haut_totale: somme de la surface de plancher haut totale
 
           surface_porte: somme de la surface de portes du DPE
 
-          surface_vitree_est: somme de la surface de baies vitrÃ©es orientÃ©es est du DPE
+          surface_vitree_est: somme de la surface de baies vitrées orientées est du DPE
 
-          surface_vitree_horizontal: somme de la surface de baies vitrÃ©es horizontales du DPE (velux la plupart du
+          surface_vitree_horizontal: somme de la surface de baies vitrées horizontales du DPE (velux la plupart du
               temps)
 
-          surface_vitree_nord: somme de la surface de baies vitrÃ©es orientÃ©es nord du DPE
+          surface_vitree_nord: somme de la surface de baies vitrées orientées nord du DPE
 
-          surface_vitree_ouest: somme de la surface de baies vitrÃ©es orientÃ©es ouest du DPE
+          surface_vitree_ouest: somme de la surface de baies vitrées orientées ouest du DPE
 
-          surface_vitree_sud: somme de la surface de baies vitrÃ©es orientÃ©es sud du DPE
+          surface_vitree_sud: somme de la surface de baies vitrées orientées sud du DPE
 
-          traversant: indicateur du cÃ´tÃ© traversant du logement.
+          traversant: indicateur du cà´té traversant du logement.
 
           type_adjacence_principal_plancher_bas: type d'adjacence principale des planchers bas (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
           type_adjacence_principal_plancher_haut: type d'adjacence principale des planchers haut (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
-          type_batiment_dpe: type de bÃ¢timent au sens du DPE (maison, appartement ou immeuble). Cette
-              colonne est renseignÃ©e uniquement si la source d'information est un DPE.
+          type_batiment_dpe: type de bâtiment au sens du DPE (maison, appartement ou immeuble). Cette colonne
+              est renseignée uniquement si la source d'information est un DPE.
 
-          type_dpe: type de DPE. Permet de prÃ©ciser le type de DPE (arrÃªtÃ© 2012/arrÃªtÃ© 2021),
-              son objet (logement, immeuble de logement, tertiaire) et la mÃ©thode de calcul
-              utilisÃ© (3CL conventionel,facture ou RT2012/RE2020)
+          type_dpe: type de DPE. Permet de préciser le type de DPE (arràªté 2012/arràªté 2021), son
+              objet (logement, immeuble de logement, tertiaire) et la méthode de calcul
+              utilisé (3CL conventionel,facture ou RT2012/RE2020)
 
-          type_energie_chauffage: type d'Ã©nergie pour le gÃ©nÃ©rateur de chauffage principal (enum version
-              simplifiÃ©e BDNB)
+          type_energie_chauffage: type d'énergie pour le générateur de chauffage principal (enum version
+              simplifiée BDNB)
 
-          type_energie_chauffage_appoint: type d'Ã©nergie pour le gÃ©nÃ©rateur de chauffage d'appoint (enum version
-              simplifiÃ©e BDNB)
+          type_energie_chauffage_appoint: type d'énergie pour le générateur de chauffage d'appoint (enum version
+              simplifiée BDNB)
 
-          type_energie_climatisation: type d'Ã©nergie pour le gÃ©nÃ©rateur de climatisation principal (enum version
-              simplifiÃ©e BDNB)
+          type_energie_climatisation: type d'énergie pour le générateur de climatisation principal (enum version
+              simplifiée BDNB)
 
-          type_energie_ecs: type d'Ã©nergie pour le gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) principal
-              (enum version simplifiÃ©e BDNB)
+          type_energie_ecs: type d'énergie pour le générateur d'eau chaude sanitaire (ECS) principal (enum
+              version simplifiée BDNB)
 
-          type_energie_ecs_appoint: type d'Ã©nergie pour le gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) d'appoint
-              (enum version simplifiÃ©e BDNB)
+          type_energie_ecs_appoint: type d'énergie pour le générateur d'eau chaude sanitaire (ECS) d'appoint (enum
+              version simplifiée BDNB)
 
-          type_fermeture: type de fermeture principale installÃ©e sur les baies vitrÃ©es du DPE
+          type_fermeture: type de fermeture principale installée sur les baies vitrées du DPE
               (volet,persienne etc..) (enum version BDNB)
 
-          type_gaz_lame: type de gaz injectÃ© principalement dans la lame entre les vitrages des baies
-              vitrÃ©es du DPE (double vitrage ou triple vitrage uniquement) (enum version
-              BDNB)
+          type_gaz_lame: type de gaz injecté principalement dans la lame entre les vitrages des baies
+              vitrées du DPE (double vitrage ou triple vitrage uniquement) (enum version BDNB)
 
-          type_generateur_chauffage: type de gÃ©nÃ©rateur de chauffage principal (enum version simplifiÃ©e BDNB)
+          type_generateur_chauffage: type de générateur de chauffage principal (enum version simplifiée BDNB)
 
-          type_generateur_chauffage_anciennete: anciennetÃ© du gÃ©nÃ©rateur de chauffage principal
+          type_generateur_chauffage_anciennete: ancienneté du générateur de chauffage principal
 
-          type_generateur_chauffage_anciennete_appoint: anciennetÃ© du gÃ©nÃ©rateur de chauffage d'appoint
+          type_generateur_chauffage_anciennete_appoint: ancienneté du générateur de chauffage d'appoint
 
-          type_generateur_chauffage_appoint: type de gÃ©nÃ©rateur de chauffage d'appoint (enum version simplifiÃ©e BDNB)
+          type_generateur_chauffage_appoint: type de générateur de chauffage d'appoint (enum version simplifiée BDNB)
 
-          type_generateur_climatisation: type de gÃ©nÃ©rateur de climatisation principal (enum version simplifiÃ©e BDNB)
+          type_generateur_climatisation: type de générateur de climatisation principal (enum version simplifiée BDNB)
 
-          type_generateur_climatisation_anciennete: anciennetÃ© du gÃ©nÃ©rateur de climatisation principal
+          type_generateur_climatisation_anciennete: ancienneté du générateur de climatisation principal
 
-          type_generateur_ecs: type de gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) principal (enum version
-              simplifiÃ©e BDNB)
+          type_generateur_ecs: type de générateur d'eau chaude sanitaire (ECS) principal (enum version
+              simplifiée BDNB)
 
-          type_generateur_ecs_anciennete: anciennetÃ© du gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) principal
+          type_generateur_ecs_anciennete: ancienneté du générateur d'eau chaude sanitaire (ECS) principal
 
-          type_generateur_ecs_anciennete_appoint: anciennetÃ© du gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) d'appoint
+          type_generateur_ecs_anciennete_appoint: ancienneté du générateur d'eau chaude sanitaire (ECS) d'appoint
 
-          type_generateur_ecs_appoint: type de gÃ©nÃ©rateur d'eau chaude sanitaire (ECS) d'appoint (enum version
-              simplifiÃ©e BDNB)
+          type_generateur_ecs_appoint: type de générateur d'eau chaude sanitaire (ECS) d'appoint (enum version
+              simplifiée BDNB)
 
           type_installation_chauffage: type d'installation de chauffage (collectif ou individuel) (enum version
-              simplifiÃ©e BDNB)
+              simplifiée BDNB)
 
           type_installation_ecs: type d'installation d'eau chaude sanitaire (ECS) (collectif ou individuel) (enum
-              version simplifiÃ©e BDNB)
+              version simplifiée BDNB)
 
-          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_bas: type d'isolation principal des planchers bas dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_bas: type d'isolation principal des planchers bas déperditifs pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_haut: type d'isolation principal des planchers hauts dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_haut: type d'isolation principal des planchers hauts déperditifs pour le DPE (enum
               version BDNB)
 
-          type_materiaux_menuiserie: type de matÃ©riaux principal des menuiseries des baies vitrÃ©es du DPE (enum
+          type_materiaux_menuiserie: type de matériaux principal des menuiseries des baies vitrées du DPE (enum
               version BDNB)
 
           type_plancher_bas_deperditif: materiaux ou principe constructif principal des planchers bas (enum version
@@ -1018,34 +1008,34 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
 
           type_ventilation: type de ventilation (enum version BDNB)
 
-          type_vitrage: type de vitrage principal des baies vitrÃ©es du DPE (enum version BDNB)
+          type_vitrage: type de vitrage principal des baies vitrées du DPE (enum version BDNB)
 
-          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrÃ©es en incluant le
-              calcul de la rÃ©sistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
+          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrées en incluant le
+              calcul de la résistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
 
-          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extÃ©rieurs (W/mÂ²/K)
+          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extérieurs (W/mÂ²/K)
 
           u_plancher_bas_brut_deperditif: Coefficient de transmission thermique moyen des planchers bas brut.
 
           u_plancher_bas_final_deperditif: Coefficient de transmission thermique moyen des planchers bas en prenant en
-              compte l'attÃ©nuation forfaitaire du U lorsqu'en contact avec le sol de la
-              mÃ©thode 3CL(W/mÂ²/K)
+              compte l'atténuation forfaitaire du U lorsqu'en contact avec le sol de la
+              méthode 3CL(W/mÂ²/K)
 
           u_plancher_haut_deperditif: Coefficient de transmission thermique moyen des planchers hauts (W/mÂ²/K)
 
           u_porte: Coefficient de transmission thermique moyen des portes (W/mÂ²/K)
 
-          uw: Coefficient de transmission thermique moyen des baies vitrÃ©es sans prise en
+          uw: Coefficient de transmission thermique moyen des baies vitrées sans prise en
               compte des fermeture (W/mÂ²/K)
 
-          version: version du DPE (arrÃªtÃ© 2021). CenumÃ©ro de version permet de tracer les
-              Ã©volutions de modÃ¨le de donnÃ©es, decontexte rÃ©glementaire et de contrÃ´le
-              mis en place sur les DPE. Chaque nouvelle version induit un certain nombre de
-              changements substantiels. Certaines donnÃ©es ne sont disponible ou obligatoires
-              qu'Ã partir d'une certaine version
+          version: version du DPE (arràªté 2021). Cenuméro de version permet de tracer les
+              évolutions de modèle de données, decontexte réglementaire et de contrà´le mis en
+              place sur les DPE. Chaque nouvelle version induit un certain nombre de
+              changements substantiels. Certaines données ne sont disponible ou obligatoires
+              qu'à partir d'une certaine version
 
-          vitrage_vir: le vitrage a Ã©tÃ© traitÃ© avec un traitement Ã isolation renforcÃ© ce qui le
-              rend plus performant d'un point de vue thermique.
+          vitrage_vir: le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
+              plus performant d'un point de vue thermique.
 
           extra_headers: Send extra headers
 

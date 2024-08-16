@@ -57,17 +57,17 @@ class FournisseurResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> FournisseurRetrieveResponse:
-        """Liste des colonnes de la base = attributs = modalitÃ©s = champs des tables.
+        """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
-        champs portent des droits d'accÃ¨s
+        champs portent des droits d'accès
 
         Args:
-          acronyme: Acronyme du fournisseur de donnÃ©es
+          acronyme: Acronyme du fournisseur de données
 
-          denomination_fournisseur: DÃ©nomination du fournisseur de donnÃ©es
+          denomination_fournisseur: Dénomination du fournisseur de données
 
-          description: Description du fournisseur de donnÃ©es
+          description: Description du fournisseur de données
 
           limit: Limiting and Pagination
 
@@ -148,17 +148,17 @@ class AsyncFournisseurResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> FournisseurRetrieveResponse:
-        """Liste des colonnes de la base = attributs = modalitÃ©s = champs des tables.
+        """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
-        champs portent des droits d'accÃ¨s
+        champs portent des droits d'accès
 
         Args:
-          acronyme: Acronyme du fournisseur de donnÃ©es
+          acronyme: Acronyme du fournisseur de données
 
-          denomination_fournisseur: DÃ©nomination du fournisseur de donnÃ©es
+          denomination_fournisseur: Dénomination du fournisseur de données
 
-          description: Description du fournisseur de donnÃ©es
+          description: Description du fournisseur de données
 
           limit: Limiting and Pagination
 

@@ -44,7 +44,7 @@ class DepartementResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif dÃ©partement.
+        """Tuiles vectorielles pour le référentiel administratif département.
 
         0->9
 
@@ -95,7 +95,7 @@ class AsyncDepartementResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncBinaryAPIResponse:
-        """Tuiles vectorielles pour le rÃ©fÃ©rentiel administratif dÃ©partement.
+        """Tuiles vectorielles pour le référentiel administratif département.
 
         0->9
 

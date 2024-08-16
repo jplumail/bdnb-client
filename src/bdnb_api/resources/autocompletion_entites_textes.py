@@ -62,19 +62,19 @@ class AutocompletionEntitesTextesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AutocompletionEntitesTexteListResponse:
         """
-        table utilisÃ©e pour l'autocomplÃ©tion de champs textuelles des entitÃ©s dans la
+        table utilisée pour l'autocomplétion de champs textuelles des entités dans la
         base
 
         Args:
-          code: code de l'entitÃ©
+          code: code de l'entité
 
-          geom: geometrie de l'entitÃ© s'il y en a une
+          geom: geometrie de l'entité s'il y en a une
 
           limit: Limiting and Pagination
 
-          nom: nom d'entitÃ©
+          nom: nom d'entité
 
-          nom_unaccent: nom d'entitÃ© sans accent
+          nom_unaccent: nom d'entité sans accent
 
           offset: Limiting and Pagination
 
@@ -86,7 +86,7 @@ class AutocompletionEntitesTextesResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          type_entite: type de l'entitÃ©
+          type_entite: type de l'entité
 
           extra_headers: Send extra headers
 
@@ -168,19 +168,19 @@ class AsyncAutocompletionEntitesTextesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AutocompletionEntitesTexteListResponse:
         """
-        table utilisÃ©e pour l'autocomplÃ©tion de champs textuelles des entitÃ©s dans la
+        table utilisée pour l'autocomplétion de champs textuelles des entités dans la
         base
 
         Args:
-          code: code de l'entitÃ©
+          code: code de l'entité
 
-          geom: geometrie de l'entitÃ© s'il y en a une
+          geom: geometrie de l'entité s'il y en a une
 
           limit: Limiting and Pagination
 
-          nom: nom d'entitÃ©
+          nom: nom d'entité
 
-          nom_unaccent: nom d'entitÃ© sans accent
+          nom_unaccent: nom d'entité sans accent
 
           offset: Limiting and Pagination
 
@@ -192,7 +192,7 @@ class AsyncAutocompletionEntitesTextesResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          type_entite: type de l'entitÃ©
+          type_entite: type de l'entité
 
           extra_headers: Send extra headers
 

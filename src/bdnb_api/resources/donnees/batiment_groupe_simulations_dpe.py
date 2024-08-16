@@ -124,215 +124,212 @@ class BatimentGroupeSimulationsDpeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeSimulationsDpeListResponse:
         """
-        Simulations CSTB des Ã©tiquettes DPE estimÃ©es pour les bÃ¢timents de logement
-        en France. Les rÃ©sultats estimÃ©s sont fournis avec des indicateurs qui sont
-        pour la plupart des probabilitÃ©s. Version actuelle 2023-01-20-v073.4
+        Simulations CSTB des étiquettes DPE estimées pour les bâtiments de logement en
+        France. Les résultats estimés sont fournis avec des indicateurs qui sont pour la
+        plupart des probabilités. Version actuelle 2023-01-20-v073.4
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation Ã©nergÃ©tique finale avant
-              rÃ©novation [kWh/m2/an]
-
-          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation énergétique primaire avant rénovation
+              [kWh/m2/an]
+
+          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rénovation
               [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_risque_canicule: Estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule: Estimation du risque canicule avant rénovation [1-5]
 
-          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rénovation [1-5]
 
-          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations Ã©nergÃ©tiques finales aprÃ¨s
-              un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [kWh/m2/an]
+          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations énergétiques finales après un
+              scénario de rénovation globale "standard" (isolation des principaux composants
+              d'enveloppe et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario
-              de rÃ©novation globale "standard" (isolation des principaux composants
-              d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kgeqC02/m2/an]
+          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kgeqC02/m2/an]
 
-          etat_renove_ges_estim_lower: Estimation basse des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_ges_estim_lower: Estimation basse des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_ges_estim_mean: Estimation moyenne des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_ges_estim_mean: Estimation moyenne des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_ges_estim_upper: Estimation haute des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_ges_estim_upper: Estimation haute des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_risque_canicule: Estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
+          etat_renove_risque_canicule: Estimation du risque canicule après rénovation [1-5]
 
-          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
+          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule après rénovation [1-5]
 
-          etiquette_dpe_initial_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_error: Erreur sur la simulation de DPE pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_error: Erreur sur la simulation de DPE pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'Ã©tiquette dpe avec la plus grande
-              probabilitÃ© avant rÃ©novation [1 Ã 5]. Cet indicateur se lit de 1 = peu fiable
-              Ã 5 = fiable.
+          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'étiquette dpe avec la plus grande
+              probabilité avant rénovation [1 à 5]. Cet indicateur se lit de 1 = peu fiable à
+              5 = fiable.
 
-          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilité pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du
-              bÃ¢timent. Si le champs vaut F-G alors F la premiÃ¨re Ã©tiquette est
-              l'Ã©tiquette la plus probable , G la seconde Ã©tiquette la plus probable.
+          etiquette_dpe_initial_map_2nd: 2 étiquettes ayant la plus grande probabilité pour l'état actuel du bâtiment. Si
+              le champs vaut F-G alors F la première étiquette est l'étiquette la plus
+              probable , G la seconde étiquette la plus probable.
 
-          etiquette_dpe_initial_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. Si
+          etiquette_dpe_initial_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité pour l'état actuel du bâtiment. Si
               etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
-              0.95 alors il y a 95% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit
-              classÃ© F ou G.
+              0.95 alors il y a 95% de chance que l'étiquette DPE de ce bâtiment soit classé F
+              ou G.
 
-          etiquette_dpe_initial_map_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE Ã©gale Ã l'Ã©tiquette ayant
-              la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. C'est la
-              probabilitÃ© d'avoir pour ce bÃ¢timent l'Ã©tiquette etiquette_dpe_initial_map.
-              Si etiquette_dpe_initial_map = F et que etiquette_dpe_initial_map_prob = 0.64
-              alors il y a 64% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit classÃ© F
+          etiquette_dpe_initial_map_prob: Probabilité que le bâtiment ait une étiquette DPE égale à l'étiquette ayant la
+              plus grande probabilité pour l'état actuel du bâtiment. C'est la probabilité
+              d'avoir pour ce bâtiment l'étiquette etiquette_dpe_initial_map. Si
+              etiquette_dpe_initial_map = F et que etiquette_dpe_initial_map_prob = 0.64 alors
+              il y a 64% de chance que l'étiquette DPE de ce bâtiment soit classé F
 
-          etiquette_dpe_renove_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_error: Erreur sur la simulation de DPE avant rÃ©novation
+          etiquette_dpe_renove_error: Erreur sur la simulation de DPE avant rénovation
 
-          etiquette_dpe_renove_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_inc: Incertitude de classe sur l'Ã©tiquette dpe avec la plus grande probabilitÃ©
-              aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [1-5]
+          etiquette_dpe_renove_inc: Incertitude de classe sur l'étiquette dpe avec la plus grande probabilité après
+              un scénario de rénovation globale "standard" (isolation des principaux
+              composants d'enveloppe et changement de système énergétique de chauffage) [1-5]
 
-          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation
+          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilité après un scénario de rénovation
               globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage)
+              changement de système énergétique de chauffage)
 
-          etiquette_dpe_renove_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
+          etiquette_dpe_renove_map_2nd: 2 étiquettes ayant la plus grande probabilité après un scénario de rénovation
+              globale "standard" (isolation des principaux composants d'enveloppe et
+              changement de système énergétique de chauffage)
 
-          etiquette_dpe_renove_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
-              "standard" (isolation des principaux composants d'enveloppe et changement de
-              systÃ¨me Ã©nergÃ©tique de chauffage)
+          etiquette_dpe_renove_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité après un scénario de rénovation globale "standard"
+              (isolation des principaux composants d'enveloppe et changement de système
+              énergétique de chauffage)
 
-          etiquette_dpe_renove_map_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE Ã©gale Ã l'Ã©tiquette ayant
-              la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
-              "standard" (isolation des principaux composants d'enveloppe et changement de
-              systÃ¨me Ã©nergÃ©tique de chauffage)
+          etiquette_dpe_renove_map_prob: Probabilité que le bâtiment ait une étiquette DPE égale à l'étiquette ayant la
+              plus grande probabilité après un scénario de rénovation globale "standard"
+              (isolation des principaux composants d'enveloppe et changement de système
+              énergétique de chauffage)
 
           gisement_gain_conso_finale_total: Estimation du gisement de gain de consommation finale total
 
-          gisement_gain_energetique_mean: Estimation du gain Ã©nergÃ©tique moyen
+          gisement_gain_energetique_mean: Estimation du gain énergétique moyen
 
-          gisement_gain_ges_mean: Estimation moyenne du gisement de gain sur les Ã©missions de gaz Ã effets de
+          gisement_gain_ges_mean: Estimation moyenne du gisement de gain sur les émissions de gaz à effets de
               serre
 
-          indecence_energetique_initial: probabilitÃ© du bÃ¢timent d'Ãªtre en indÃ©cence Ã©nergÃ©tique dans son Ã©tat
-              initial
+          indecence_energetique_initial: probabilité du bâtiment d'àªtre en indécence énergétique dans son état initial
 
-          indecence_energetique_renove: probabilitÃ© du bÃ¢timent d'Ãªtre en indÃ©cence Ã©nergÃ©tique dans son Ã©tat
-              rÃ©novÃ© (rÃ©novation globale)
+          indecence_energetique_renove: probabilité du bâtiment d'àªtre en indécence énergétique dans son état rénové
+              (rénovation globale)
 
           limit: Limiting and Pagination
 
@@ -342,25 +339,25 @@ class BatimentGroupeSimulationsDpeResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          surface_deperditive: Estimation de la surface dÃ©perditive du bÃ¢timent [mÂ²]
+          surface_deperditive: Estimation de la surface déperditive du bâtiment [mÂ²]
 
-          surface_deperditive_verticale: Estimation de la surface dÃ©perditive verticale du bÃ¢timent [mÂ²]
+          surface_deperditive_verticale: Estimation de la surface déperditive verticale du bâtiment [mÂ²]
 
           surface_enveloppe: Estimation de la surface de l'enveloppe [mÂ²]
 
-          surface_facade_ext: Estimation de la surface de faÃ§ade donnant sur l'exterieur [mÂ²]
+          surface_facade_ext: Estimation de la surface de faà§ade donnant sur l'exterieur [mÂ²]
 
-          surface_facade_mitoyenne: Estimation de la surface de faÃ§ade donnant sur un autre bÃ¢timent [mÂ²]
+          surface_facade_mitoyenne: Estimation de la surface de faà§ade donnant sur un autre bâtiment [mÂ²]
 
-          surface_facade_totale: Estimation de la surface totale de faÃ§ade (murs + baies) [mÂ²]
+          surface_facade_totale: Estimation de la surface totale de faà§ade (murs + baies) [mÂ²]
 
-          surface_facade_vitree: Estimation de la surface de faÃ§ade vitrÃ©e [mÂ²]
+          surface_facade_vitree: Estimation de la surface de faà§ade vitrée [mÂ²]
 
-          surface_toiture: Estimation de la surface de toiture du bÃ¢timent [mÂ²]
+          surface_toiture: Estimation de la surface de toiture du bâtiment [mÂ²]
 
-          surface_verticale: Estimation de la surface verticale du bÃ¢timent [mÂ²]
+          surface_verticale: Estimation de la surface verticale du bâtiment [mÂ²]
 
-          volume_brut: Volume brut du bÃ¢timent [m3]
+          volume_brut: Volume brut du bâtiment [m3]
 
           extra_headers: Send extra headers
 
@@ -566,215 +563,212 @@ class AsyncBatimentGroupeSimulationsDpeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeSimulationsDpeListResponse:
         """
-        Simulations CSTB des Ã©tiquettes DPE estimÃ©es pour les bÃ¢timents de logement
-        en France. Les rÃ©sultats estimÃ©s sont fournis avec des indicateurs qui sont
-        pour la plupart des probabilitÃ©s. Version actuelle 2023-01-20-v073.4
+        Simulations CSTB des étiquettes DPE estimées pour les bâtiments de logement en
+        France. Les résultats estimés sont fournis avec des indicateurs qui sont pour la
+        plupart des probabilités. Version actuelle 2023-01-20-v073.4
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation Ã©nergÃ©tique finale avant
-              rÃ©novation [kWh/m2/an]
-
-          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_inc: Incertitude des estimations de consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale avant rÃ©novation
+          etat_initial_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_lower: Estimation basse de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique primaire avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation énergétique primaire avant rénovation
               [kWh/m2/an]
 
-          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rÃ©novation
+          etat_initial_consommation_energie_primaire_estim_upper: Estimation haute de la consommation énergétique primaire avant rénovation
+              [kWh/m2/an]
+
+          etat_initial_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES avant rénovation
               [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_lower: Estimation basse de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_mean: Estimation moyenne de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rÃ©novation [kgeqC02/m2/an]
+          etat_initial_ges_estim_upper: Estimation haute de la consommation de GES avant rénovation [kgeqC02/m2/an]
 
-          etat_initial_risque_canicule: Estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule: Estimation du risque canicule avant rénovation [1-5]
 
-          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rÃ©novation [1-5]
+          etat_initial_risque_canicule_inc: Incertitude de l'estimation du risque canicule avant rénovation [1-5]
 
-          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations Ã©nergÃ©tiques finales aprÃ¨s
-              un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [kWh/m2/an]
+          etat_renove_consommation_energie_estim_inc: Incertitude sur les estimations des consommations énergétiques finales après un
+              scénario de rénovation globale "standard" (isolation des principaux composants
+              d'enveloppe et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_lower: Estimation basse de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario
-              de rÃ©novation globale "standard" (isolation des principaux composants
-              d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_mean: Estimation moyenne de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation Ã©nergÃ©tique finale aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_estim_upper: Estimation haute de la consommation énergétique finale après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_lower: Estimation basse de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_mean: Estimation moyenne de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'Ã©nergie primaire aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_consommation_energie_primaire_estim_upper: Estimation haute de la consommation d'énergie primaire après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kgeqC02/m2/an]
+          etat_renove_consommation_ges_estim_inc: Incertitude sur l'estimation de consommation de GES après un scénario de
+              rénovation globale "standard" (isolation des principaux composants d'enveloppe
+              et changement de système énergétique de chauffage) [kgeqC02/m2/an]
 
-          etat_renove_ges_estim_lower: Estimation basse des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_ges_estim_lower: Estimation basse des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_ges_estim_mean: Estimation moyenne des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_ges_estim_mean: Estimation moyenne des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_ges_estim_upper: Estimation haute des Ã©missions de GES aprÃ¨s un scÃ©nario de rÃ©novation
-              globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage) [kWh/m2/an]
+          etat_renove_ges_estim_upper: Estimation haute des émissions de GES après un scénario de rénovation globale
+              "standard" (isolation des principaux composants d'enveloppe et changement de
+              système énergétique de chauffage) [kWh/m2/an]
 
-          etat_renove_risque_canicule: Estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
+          etat_renove_risque_canicule: Estimation du risque canicule après rénovation [1-5]
 
-          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule aprÃ¨s rÃ©novation [1-5]
+          etat_renove_risque_canicule_inc: Incertitude de l'estimation du risque canicule après rénovation [1-5]
 
-          etiquette_dpe_initial_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_error: Erreur sur la simulation de DPE pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_error: Erreur sur la simulation de DPE pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'Ã©tiquette dpe avec la plus grande
-              probabilitÃ© avant rÃ©novation [1 Ã 5]. Cet indicateur se lit de 1 = peu fiable
-              Ã 5 = fiable.
+          etiquette_dpe_initial_inc: Classe d'incertitude de classe sur l'étiquette dpe avec la plus grande
+              probabilité avant rénovation [1 à 5]. Cet indicateur se lit de 1 = peu fiable à
+              5 = fiable.
 
-          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent
+          etiquette_dpe_initial_map: Etiquette ayant la plus grande probabilité pour l'état actuel du bâtiment
 
-          etiquette_dpe_initial_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du
-              bÃ¢timent. Si le champs vaut F-G alors F la premiÃ¨re Ã©tiquette est
-              l'Ã©tiquette la plus probable , G la seconde Ã©tiquette la plus probable.
+          etiquette_dpe_initial_map_2nd: 2 étiquettes ayant la plus grande probabilité pour l'état actuel du bâtiment. Si
+              le champs vaut F-G alors F la première étiquette est l'étiquette la plus
+              probable , G la seconde étiquette la plus probable.
 
-          etiquette_dpe_initial_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. Si
+          etiquette_dpe_initial_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité pour l'état actuel du bâtiment. Si
               etiquette_dpe_initial_map_2nd = F-G et que etiquette_dpe_initial_map_2nd_prob =
-              0.95 alors il y a 95% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit
-              classÃ© F ou G.
+              0.95 alors il y a 95% de chance que l'étiquette DPE de ce bâtiment soit classé F
+              ou G.
 
-          etiquette_dpe_initial_map_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE Ã©gale Ã l'Ã©tiquette ayant
-              la plus grande probabilitÃ© pour l'Ã©tat actuel du bÃ¢timent. C'est la
-              probabilitÃ© d'avoir pour ce bÃ¢timent l'Ã©tiquette etiquette_dpe_initial_map.
-              Si etiquette_dpe_initial_map = F et que etiquette_dpe_initial_map_prob = 0.64
-              alors il y a 64% de chance que l'Ã©tiquette DPE de ce bÃ¢timent soit classÃ© F
+          etiquette_dpe_initial_map_prob: Probabilité que le bâtiment ait une étiquette DPE égale à l'étiquette ayant la
+              plus grande probabilité pour l'état actuel du bâtiment. C'est la probabilité
+              d'avoir pour ce bâtiment l'étiquette etiquette_dpe_initial_map. Si
+              etiquette_dpe_initial_map = F et que etiquette_dpe_initial_map_prob = 0.64 alors
+              il y a 64% de chance que l'étiquette DPE de ce bâtiment soit classé F
 
-          etiquette_dpe_renove_a: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette A dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_a: Estimation de la probabilité d'avoir des logements d'étiquette A dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_b: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette B dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_b: Estimation de la probabilité d'avoir des logements d'étiquette B dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_c: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette C dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_c: Estimation de la probabilité d'avoir des logements d'étiquette C dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_d: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette D dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_d: Estimation de la probabilité d'avoir des logements d'étiquette D dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_e: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette E dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_e: Estimation de la probabilité d'avoir des logements d'étiquette E dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_error: Erreur sur la simulation de DPE avant rÃ©novation
+          etiquette_dpe_renove_error: Erreur sur la simulation de DPE avant rénovation
 
-          etiquette_dpe_renove_f: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette F dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_f: Estimation de la probabilité d'avoir des logements d'étiquette F dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_g: Estimation de la probabilitÃ© d'avoir des logements d'Ã©tiquette G dans le
-              bÃ¢timent aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des
-              principaux composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de
+          etiquette_dpe_renove_g: Estimation de la probabilité d'avoir des logements d'étiquette G dans le
+              bâtiment après un scénario de rénovation globale "standard" (isolation des
+              principaux composants d'enveloppe et changement de système énergétique de
               chauffage)
 
-          etiquette_dpe_renove_inc: Incertitude de classe sur l'Ã©tiquette dpe avec la plus grande probabilitÃ©
-              aprÃ¨s un scÃ©nario de rÃ©novation globale "standard" (isolation des principaux
-              composants d'enveloppe et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
-              [1-5]
+          etiquette_dpe_renove_inc: Incertitude de classe sur l'étiquette dpe avec la plus grande probabilité après
+              un scénario de rénovation globale "standard" (isolation des principaux
+              composants d'enveloppe et changement de système énergétique de chauffage) [1-5]
 
-          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation
+          etiquette_dpe_renove_map: Etiquette ayant la plus grande probabilité après un scénario de rénovation
               globale "standard" (isolation des principaux composants d'enveloppe et
-              changement de systÃ¨me Ã©nergÃ©tique de chauffage)
+              changement de système énergétique de chauffage)
 
-          etiquette_dpe_renove_map_2nd: 2 Ã©tiquettes ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de
-              rÃ©novation globale "standard" (isolation des principaux composants d'enveloppe
-              et changement de systÃ¨me Ã©nergÃ©tique de chauffage)
+          etiquette_dpe_renove_map_2nd: 2 étiquettes ayant la plus grande probabilité après un scénario de rénovation
+              globale "standard" (isolation des principaux composants d'enveloppe et
+              changement de système énergétique de chauffage)
 
-          etiquette_dpe_renove_map_2nd_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE parmi les 2 Ã©tiquettes
-              ayant la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
-              "standard" (isolation des principaux composants d'enveloppe et changement de
-              systÃ¨me Ã©nergÃ©tique de chauffage)
+          etiquette_dpe_renove_map_2nd_prob: Probabilité que le bâtiment ait une étiquette DPE parmi les 2 étiquettes ayant
+              la plus grande probabilité après un scénario de rénovation globale "standard"
+              (isolation des principaux composants d'enveloppe et changement de système
+              énergétique de chauffage)
 
-          etiquette_dpe_renove_map_prob: ProbabilitÃ© que le bÃ¢timent ait une Ã©tiquette DPE Ã©gale Ã l'Ã©tiquette ayant
-              la plus grande probabilitÃ© aprÃ¨s un scÃ©nario de rÃ©novation globale
-              "standard" (isolation des principaux composants d'enveloppe et changement de
-              systÃ¨me Ã©nergÃ©tique de chauffage)
+          etiquette_dpe_renove_map_prob: Probabilité que le bâtiment ait une étiquette DPE égale à l'étiquette ayant la
+              plus grande probabilité après un scénario de rénovation globale "standard"
+              (isolation des principaux composants d'enveloppe et changement de système
+              énergétique de chauffage)
 
           gisement_gain_conso_finale_total: Estimation du gisement de gain de consommation finale total
 
-          gisement_gain_energetique_mean: Estimation du gain Ã©nergÃ©tique moyen
+          gisement_gain_energetique_mean: Estimation du gain énergétique moyen
 
-          gisement_gain_ges_mean: Estimation moyenne du gisement de gain sur les Ã©missions de gaz Ã effets de
+          gisement_gain_ges_mean: Estimation moyenne du gisement de gain sur les émissions de gaz à effets de
               serre
 
-          indecence_energetique_initial: probabilitÃ© du bÃ¢timent d'Ãªtre en indÃ©cence Ã©nergÃ©tique dans son Ã©tat
-              initial
+          indecence_energetique_initial: probabilité du bâtiment d'àªtre en indécence énergétique dans son état initial
 
-          indecence_energetique_renove: probabilitÃ© du bÃ¢timent d'Ãªtre en indÃ©cence Ã©nergÃ©tique dans son Ã©tat
-              rÃ©novÃ© (rÃ©novation globale)
+          indecence_energetique_renove: probabilité du bâtiment d'àªtre en indécence énergétique dans son état rénové
+              (rénovation globale)
 
           limit: Limiting and Pagination
 
@@ -784,25 +778,25 @@ class AsyncBatimentGroupeSimulationsDpeResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          surface_deperditive: Estimation de la surface dÃ©perditive du bÃ¢timent [mÂ²]
+          surface_deperditive: Estimation de la surface déperditive du bâtiment [mÂ²]
 
-          surface_deperditive_verticale: Estimation de la surface dÃ©perditive verticale du bÃ¢timent [mÂ²]
+          surface_deperditive_verticale: Estimation de la surface déperditive verticale du bâtiment [mÂ²]
 
           surface_enveloppe: Estimation de la surface de l'enveloppe [mÂ²]
 
-          surface_facade_ext: Estimation de la surface de faÃ§ade donnant sur l'exterieur [mÂ²]
+          surface_facade_ext: Estimation de la surface de faà§ade donnant sur l'exterieur [mÂ²]
 
-          surface_facade_mitoyenne: Estimation de la surface de faÃ§ade donnant sur un autre bÃ¢timent [mÂ²]
+          surface_facade_mitoyenne: Estimation de la surface de faà§ade donnant sur un autre bâtiment [mÂ²]
 
-          surface_facade_totale: Estimation de la surface totale de faÃ§ade (murs + baies) [mÂ²]
+          surface_facade_totale: Estimation de la surface totale de faà§ade (murs + baies) [mÂ²]
 
-          surface_facade_vitree: Estimation de la surface de faÃ§ade vitrÃ©e [mÂ²]
+          surface_facade_vitree: Estimation de la surface de faà§ade vitrée [mÂ²]
 
-          surface_toiture: Estimation de la surface de toiture du bÃ¢timent [mÂ²]
+          surface_toiture: Estimation de la surface de toiture du bâtiment [mÂ²]
 
-          surface_verticale: Estimation de la surface verticale du bÃ¢timent [mÂ²]
+          surface_verticale: Estimation de la surface verticale du bâtiment [mÂ²]
 
-          volume_brut: Volume brut du bÃ¢timent [m3]
+          volume_brut: Volume brut du bâtiment [m3]
 
           extra_headers: Send extra headers
 

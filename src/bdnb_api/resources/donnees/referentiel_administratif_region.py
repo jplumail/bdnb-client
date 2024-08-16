@@ -58,15 +58,15 @@ class ReferentielAdministratifRegionResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ReferentielAdministratifRegionListResponse:
         """
-        DonnÃ©es sur contours des rÃ©gions, issues de l'agrÃ©gation des IRIS Grande
-        Echelle fournies par l'IGN pour le compte de l'INSEE
+        Données sur contours des régions, issues de l'agrégation des IRIS Grande Echelle
+        fournies par l'IGN pour le compte de l'INSEE
 
         Args:
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          geom_region: GÃ©omÃ©trie de la rÃ©gion
+          geom_region: Géométrie de la région
 
-          libelle_region: LibellÃ© de la rÃ©gion
+          libelle_region: Libellé de la région
 
           limit: Limiting and Pagination
 
@@ -148,15 +148,15 @@ class AsyncReferentielAdministratifRegionResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ReferentielAdministratifRegionListResponse:
         """
-        DonnÃ©es sur contours des rÃ©gions, issues de l'agrÃ©gation des IRIS Grande
-        Echelle fournies par l'IGN pour le compte de l'INSEE
+        Données sur contours des régions, issues de l'agrégation des IRIS Grande Echelle
+        fournies par l'IGN pour le compte de l'INSEE
 
         Args:
-          code_region_insee: Code rÃ©gion INSEE
+          code_region_insee: Code région INSEE
 
-          geom_region: GÃ©omÃ©trie de la rÃ©gion
+          geom_region: Géométrie de la région
 
-          libelle_region: LibellÃ© de la rÃ©gion
+          libelle_region: Libellé de la région
 
           limit: Limiting and Pagination
 

@@ -14,16 +14,16 @@ class TablesBdnbRetrieveReferentielAdministratifIrisParams(TypedDict, total=Fals
     """Code INSEE de la commune"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_iris: str
     """Code iris INSEE"""
 
     geom_iris: str
-    """GÃ©omÃ©trie de l'IRIS"""
+    """Géométrie de l'IRIS"""
 
     libelle_iris: str
-    """LibellÃ© de l'iris"""
+    """Libellé de l'iris"""
 
     limit: str
     """Limiting and Pagination"""

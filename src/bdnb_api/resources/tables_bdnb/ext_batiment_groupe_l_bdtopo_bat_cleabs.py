@@ -63,11 +63,11 @@ class ExtBatimentGroupeLBdtopoBatCleabsResource(SyncAPIResource):
         TODO
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_bdtopo_bat_cleabs: Liste d'identifiants de la table bÃ¢timent de la BDTOPO
+          l_bdtopo_bat_cleabs: Liste d'identifiants de la table bâtiment de la BDTOPO
 
           limit: Limiting and Pagination
 
@@ -152,11 +152,11 @@ class AsyncExtBatimentGroupeLBdtopoBatCleabsResource(AsyncAPIResource):
         TODO
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_bdtopo_bat_cleabs: Liste d'identifiants de la table bÃ¢timent de la BDTOPO
+          l_bdtopo_bat_cleabs: Liste d'identifiants de la table bâtiment de la BDTOPO
 
           limit: Limiting and Pagination
 

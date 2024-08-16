@@ -87,56 +87,53 @@ class IrisContexteGeographiqueResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> IrisContexteGeographiqueListResponse:
         """
-        Contexte gÃ©ographique des iris, comme par exemple leur situation gÃ©ographique
-        et la densitÃ© urbaine.
+        Contexte géographique des iris, comme par exemple leur situation géographique et
+        la densité urbaine.
 
         Args:
-          action_coeur_ville_code_anct: Code anct des communes sÃ©lectionnÃ©es pour le programme Action cÅ“ur de ville
+          action_coeur_ville_code_anct: Code anct des communes sélectionnées pour le programme Action cÅ“ur de ville
 
-          action_coeur_ville_libelle: LibellÃ© des communes sÃ©lectionnÃ©es pour le programme Action cÅ“ur de ville
+          action_coeur_ville_libelle: Libellé des communes sélectionnées pour le programme Action cÅ“ur de ville
 
-          aire_attraction_ville_catg: CatÃ©gorie de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement
-              2020
+          aire_attraction_ville_catg: Catégorie de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
 
-          aire_attraction_ville_catg_libelle: LibellÃ© de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
+          aire_attraction_ville_catg_libelle: Libellé de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
 
           aire_attraction_ville_code_insee: Code insee des Aires d'Attractions urbaines des Villes (AAV2020) - recensement
               2020
 
-          aire_attraction_ville_libelle: LibellÃ© des Aires d'Attractions urbaines des Villes (AAV2020) - recensement
-              2020
+          aire_attraction_ville_libelle: Libellé des Aires d'Attractions urbaines des Villes (AAV2020) - recensement 2020
 
           aire_urbaine_fonctionnelle_eurostat: Code des cities et des aires urbaines fonctionnelles (FUA) - eurostat
 
-          aire_urbaine_fonctionnelle_libelle: LibellÃ© des cities et des aires urbaines fonctionnelles (FUA) - eurostat
+          aire_urbaine_fonctionnelle_libelle: Libellé des cities et des aires urbaines fonctionnelles (FUA) - eurostat
 
-          bassin_vie_catg: CatÃ©gorie des bassins de vie 2022 (BV2022)
+          bassin_vie_catg: Catégorie des bassins de vie 2022 (BV2022)
 
-          bassin_vie_catg_libelle: LibellÃ© de la catÃ©gorie des bassins de vie 2022 (BV2022)
+          bassin_vie_catg_libelle: Libellé de la catégorie des bassins de vie 2022 (BV2022)
 
           bassin_vie_code_insee: Code insee des bassins de vie 2022 (BV2022)
 
-          bassin_vie_libelle: LibellÃ© des bassins de vie 2022 (BV2022)
+          bassin_vie_libelle: Libellé des bassins de vie 2022 (BV2022)
 
           code_departement_insee: Code departement INSEE
 
           code_iris: Code iris INSEE
 
-          contrat_relance_trans_eco_code_anct: Code anct des iris dans le Contrat de relance et de transition Ã©cologique
-              (CRTE)
+          contrat_relance_trans_eco_code_anct: Code anct des iris dans le Contrat de relance et de transition écologique (CRTE)
 
-          contrat_relance_trans_eco_libelle: LibellÃ©s des communes/iris dans le Contrat de relance et de transition
-              Ã©cologique (CRTE)
+          contrat_relance_trans_eco_libelle: Libellés des communes/iris dans le Contrat de relance et de transition
+              écologique (CRTE)
 
-          en_littoral: Iris situÃ© en littoral
+          en_littoral: Iris situé en littoral
 
-          en_montagne: iris situÃ© en montagne
+          en_montagne: iris situé en montagne
 
-          geom_iris: GÃ©omÃ©trie de l'IRIS
+          geom_iris: Géométrie de l'IRIS
 
-          grille_communale_densite_catg: CatÃ©gorie de la Grille communale de densitÃ©
+          grille_communale_densite_catg: Catégorie de la Grille communale de densité
 
-          grille_communale_densite_catg_libelle: LibellÃ© de la catÃ©gorie de la Grille communale de densitÃ©
+          grille_communale_densite_catg_libelle: Libellé de la catégorie de la Grille communale de densité
 
           limit: Limiting and Pagination
 
@@ -150,25 +147,25 @@ class IrisContexteGeographiqueResource(SyncAPIResource):
 
           territoires_industrie_code_anct: Code anct - programme territoires d'industrie
 
-          territoires_industrie_libelle: LibellÃ© - programme territoires d'industrie
+          territoires_industrie_libelle: Libellé - programme territoires d'industrie
 
-          unite_urbaine_catg: CatÃ©gorie des unitÃ©s urbaines
+          unite_urbaine_catg: Catégorie des unités urbaines
 
-          unite_urbaine_catg_libelle: LibellÃ© de la catÃ©gorie des unitÃ©s urbaines
+          unite_urbaine_catg_libelle: Libellé de la catégorie des unités urbaines
 
-          unite_urbaine_code_insee: Code INSEE des unitÃ©s urbaines
+          unite_urbaine_code_insee: Code INSEE des unités urbaines
 
-          unite_urbaine_libelle: LibellÃ© des unitÃ©s urbaines
+          unite_urbaine_libelle: Libellé des unités urbaines
 
-          zone_aide_finalite_reg_catg: CatÃ©gorie des zones dâ€™aides Ã finalitÃ© rÃ©gionale (AFR) pour la pÃ©riode
+          zone_aide_finalite_reg_catg: Catégorie des zones dâ€™aides à finalité régionale (AFR) pour la période
               2022-2027
 
-          zone_aide_finalite_reg_code_anct: Code anct des zones dâ€™aides Ã finalitÃ© rÃ©gionale (AFR) pour la pÃ©riode
+          zone_aide_finalite_reg_code_anct: Code anct des zones dâ€™aides à finalité régionale (AFR) pour la période
               2022-2027
 
           zone_emploi_code_insee: Code insee des zones d'emploi
 
-          zone_emploi_libelle: LibellÃ© des zones d'emploi
+          zone_emploi_libelle: Libellé des zones d'emploi
 
           extra_headers: Send extra headers
 
@@ -300,56 +297,53 @@ class AsyncIrisContexteGeographiqueResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> IrisContexteGeographiqueListResponse:
         """
-        Contexte gÃ©ographique des iris, comme par exemple leur situation gÃ©ographique
-        et la densitÃ© urbaine.
+        Contexte géographique des iris, comme par exemple leur situation géographique et
+        la densité urbaine.
 
         Args:
-          action_coeur_ville_code_anct: Code anct des communes sÃ©lectionnÃ©es pour le programme Action cÅ“ur de ville
+          action_coeur_ville_code_anct: Code anct des communes sélectionnées pour le programme Action cÅ“ur de ville
 
-          action_coeur_ville_libelle: LibellÃ© des communes sÃ©lectionnÃ©es pour le programme Action cÅ“ur de ville
+          action_coeur_ville_libelle: Libellé des communes sélectionnées pour le programme Action cÅ“ur de ville
 
-          aire_attraction_ville_catg: CatÃ©gorie de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement
-              2020
+          aire_attraction_ville_catg: Catégorie de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
 
-          aire_attraction_ville_catg_libelle: LibellÃ© de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
+          aire_attraction_ville_catg_libelle: Libellé de l'Aire d'Attraction urbaine des Villes (AAV2020) - recensement 2020
 
           aire_attraction_ville_code_insee: Code insee des Aires d'Attractions urbaines des Villes (AAV2020) - recensement
               2020
 
-          aire_attraction_ville_libelle: LibellÃ© des Aires d'Attractions urbaines des Villes (AAV2020) - recensement
-              2020
+          aire_attraction_ville_libelle: Libellé des Aires d'Attractions urbaines des Villes (AAV2020) - recensement 2020
 
           aire_urbaine_fonctionnelle_eurostat: Code des cities et des aires urbaines fonctionnelles (FUA) - eurostat
 
-          aire_urbaine_fonctionnelle_libelle: LibellÃ© des cities et des aires urbaines fonctionnelles (FUA) - eurostat
+          aire_urbaine_fonctionnelle_libelle: Libellé des cities et des aires urbaines fonctionnelles (FUA) - eurostat
 
-          bassin_vie_catg: CatÃ©gorie des bassins de vie 2022 (BV2022)
+          bassin_vie_catg: Catégorie des bassins de vie 2022 (BV2022)
 
-          bassin_vie_catg_libelle: LibellÃ© de la catÃ©gorie des bassins de vie 2022 (BV2022)
+          bassin_vie_catg_libelle: Libellé de la catégorie des bassins de vie 2022 (BV2022)
 
           bassin_vie_code_insee: Code insee des bassins de vie 2022 (BV2022)
 
-          bassin_vie_libelle: LibellÃ© des bassins de vie 2022 (BV2022)
+          bassin_vie_libelle: Libellé des bassins de vie 2022 (BV2022)
 
           code_departement_insee: Code departement INSEE
 
           code_iris: Code iris INSEE
 
-          contrat_relance_trans_eco_code_anct: Code anct des iris dans le Contrat de relance et de transition Ã©cologique
-              (CRTE)
+          contrat_relance_trans_eco_code_anct: Code anct des iris dans le Contrat de relance et de transition écologique (CRTE)
 
-          contrat_relance_trans_eco_libelle: LibellÃ©s des communes/iris dans le Contrat de relance et de transition
-              Ã©cologique (CRTE)
+          contrat_relance_trans_eco_libelle: Libellés des communes/iris dans le Contrat de relance et de transition
+              écologique (CRTE)
 
-          en_littoral: Iris situÃ© en littoral
+          en_littoral: Iris situé en littoral
 
-          en_montagne: iris situÃ© en montagne
+          en_montagne: iris situé en montagne
 
-          geom_iris: GÃ©omÃ©trie de l'IRIS
+          geom_iris: Géométrie de l'IRIS
 
-          grille_communale_densite_catg: CatÃ©gorie de la Grille communale de densitÃ©
+          grille_communale_densite_catg: Catégorie de la Grille communale de densité
 
-          grille_communale_densite_catg_libelle: LibellÃ© de la catÃ©gorie de la Grille communale de densitÃ©
+          grille_communale_densite_catg_libelle: Libellé de la catégorie de la Grille communale de densité
 
           limit: Limiting and Pagination
 
@@ -363,25 +357,25 @@ class AsyncIrisContexteGeographiqueResource(AsyncAPIResource):
 
           territoires_industrie_code_anct: Code anct - programme territoires d'industrie
 
-          territoires_industrie_libelle: LibellÃ© - programme territoires d'industrie
+          territoires_industrie_libelle: Libellé - programme territoires d'industrie
 
-          unite_urbaine_catg: CatÃ©gorie des unitÃ©s urbaines
+          unite_urbaine_catg: Catégorie des unités urbaines
 
-          unite_urbaine_catg_libelle: LibellÃ© de la catÃ©gorie des unitÃ©s urbaines
+          unite_urbaine_catg_libelle: Libellé de la catégorie des unités urbaines
 
-          unite_urbaine_code_insee: Code INSEE des unitÃ©s urbaines
+          unite_urbaine_code_insee: Code INSEE des unités urbaines
 
-          unite_urbaine_libelle: LibellÃ© des unitÃ©s urbaines
+          unite_urbaine_libelle: Libellé des unités urbaines
 
-          zone_aide_finalite_reg_catg: CatÃ©gorie des zones dâ€™aides Ã finalitÃ© rÃ©gionale (AFR) pour la pÃ©riode
+          zone_aide_finalite_reg_catg: Catégorie des zones dâ€™aides à finalité régionale (AFR) pour la période
               2022-2027
 
-          zone_aide_finalite_reg_code_anct: Code anct des zones dâ€™aides Ã finalitÃ© rÃ©gionale (AFR) pour la pÃ©riode
+          zone_aide_finalite_reg_code_anct: Code anct des zones dâ€™aides à finalité régionale (AFR) pour la période
               2022-2027
 
           zone_emploi_code_insee: Code insee des zones d'emploi
 
-          zone_emploi_libelle: LibellÃ© des zones d'emploi
+          zone_emploi_libelle: Libellé des zones d'emploi
 
           extra_headers: Send extra headers
 

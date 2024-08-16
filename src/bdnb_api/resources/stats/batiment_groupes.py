@@ -51,22 +51,22 @@ class BatimentGroupesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeJsonStats:
         """
-        AgrÃ©gation et calcul de statistiques filtrÃ©es
+        Agrégation et calcul de statistiques filtrées
 
         Args:
-          groupby: colonnes de group by (agrÃ©gation)
+          groupby: colonnes de group by (agrégation)
 
-          colonnes: colonnes pour lesquelles il faut calculer des statistiques (separÃ©es par
+          colonnes: colonnes pour lesquelles il faut calculer des statistiques (separées par
               virgules, pas d'espaces). Par default retourne toutes les colonnes ("\\**")
 
-          epsg: EPSG de sortie pour les gÃ©omÃ©tries. Exemple : 4326
+          epsg: EPSG de sortie pour les géométries. Exemple : 4326
 
-          filter: filtre Ã appliquer Ã la population de bÃ¢timents avec syntaxe PostgREST pour les
+          filter: filtre à appliquer à la population de bâtiments avec syntaxe PostgREST pour les
               operateurs
 
           output_format: type de sortie. valeurs possibles: json, geojson, raw_query raw_query retourne
-              pas les donnÃ©es agrÃ©gÃ©es mais uniquement la requÃªte SQL d'agrÃ©gation (pour
-              dÃ©bogage)
+              pas les données agrégées mais uniquement la requàªte SQL d'agrégation (pour
+              débogage)
 
           extra_headers: Send extra headers
 
@@ -123,22 +123,22 @@ class AsyncBatimentGroupesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeJsonStats:
         """
-        AgrÃ©gation et calcul de statistiques filtrÃ©es
+        Agrégation et calcul de statistiques filtrées
 
         Args:
-          groupby: colonnes de group by (agrÃ©gation)
+          groupby: colonnes de group by (agrégation)
 
-          colonnes: colonnes pour lesquelles il faut calculer des statistiques (separÃ©es par
+          colonnes: colonnes pour lesquelles il faut calculer des statistiques (separées par
               virgules, pas d'espaces). Par default retourne toutes les colonnes ("\\**")
 
-          epsg: EPSG de sortie pour les gÃ©omÃ©tries. Exemple : 4326
+          epsg: EPSG de sortie pour les géométries. Exemple : 4326
 
-          filter: filtre Ã appliquer Ã la population de bÃ¢timents avec syntaxe PostgREST pour les
+          filter: filtre à appliquer à la population de bâtiments avec syntaxe PostgREST pour les
               operateurs
 
           output_format: type de sortie. valeurs possibles: json, geojson, raw_query raw_query retourne
-              pas les donnÃ©es agrÃ©gÃ©es mais uniquement la requÃªte SQL d'agrÃ©gation (pour
-              dÃ©bogage)
+              pas les données agrégées mais uniquement la requàªte SQL d'agrégation (pour
+              débogage)
 
           extra_headers: Send extra headers
 

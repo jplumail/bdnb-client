@@ -13,24 +13,24 @@ class GeocodageListParams(TypedDict, total=False):
 
     autocomplete: int
     """
-    Avec autocomplete on peut dÃ©sactiver les traitements dâ€™auto-complÃ©tion
+    Avec autocomplete on peut désactiver les traitements dâ€™auto-complétion
     autocomplete=0
     """
 
     citycode: str
-    """Limite du nombre de rÃ©ponses"""
+    """Limite du nombre de réponses"""
 
     lat: str
-    """latitude. Avec lat et lon on peut donner une prioritÃ© gÃ©ographique"""
+    """latitude. Avec lat et lon on peut donner une priorité géographique"""
 
     limit: int
-    """Limite du nombre de rÃ©ponses"""
+    """Limite du nombre de réponses"""
 
     lon: str
-    """longitude. Avec lat et lon on peut donner une prioritÃ© gÃ©ographique"""
+    """longitude. Avec lat et lon on peut donner une priorité géographique"""
 
     postcode: str
-    """Limite du nombre de rÃ©ponses"""
+    """Limite du nombre de réponses"""
 
     type: Literal["street", "housenumber", "locality", "municipality"]
-    """Limite du nombre de rÃ©ponses"""
+    """Limite du nombre de réponses"""

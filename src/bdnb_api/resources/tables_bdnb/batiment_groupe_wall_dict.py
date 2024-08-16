@@ -58,14 +58,14 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeWallDictListResponse:
         """
-        Table contenant les donnÃ©es de prÃ©traitements de gÃ©omÃ©trie des groupes de
-        bÃ¢timents : liste des parois, orientations, surfaces, pÃ©rimÃ¨tres, adjacences
-        et masques solaire
+        Table contenant les données de prétraitements de géométrie des groupes de
+        bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
+        masques solaire
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -75,23 +75,23 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          wall_dict: liste de toutes les parois extÃ©rieures constitutives d'un bÃ¢timent (murs,
-              planchers haut/bas). Collection de dictionnaires avec les clÃ©s suivantes
+          wall_dict: liste de toutes les parois extérieures constitutives d'un bâtiment (murs,
+              planchers haut/bas). Collection de dictionnaires avec les clés suivantes
 
               - z0 : altitude au pied de la construction
               - azimuth : orientation de la paroi. (0 -> Sud)
               - hauteur : hauteur de la face (0 pour les parois horizontales)
-              - inclination : 90-> vertical. 0 -> orientÃ© vers le bas (sol). 180: orientÃ©
-                vers le haut (plancher haut)
+              - inclination : 90-> vertical. 0 -> orienté vers le bas (sol). 180: orienté vers
+                le haut (plancher haut)
               - cat_adj : Type d'adjacence de la paroi. "adjacent" : touche une autre paroi
-                (mur mitoyen). "non_adjacent" : en contact avec l'ambiance extÃ©rieure
+                (mur mitoyen). "non_adjacent" : en contact avec l'ambiance extérieure
               - wall_type: floor | roof | vertical
               - wall_id : identifiant de la paroie
               - area: surface de la paroie
               - altitude : TODO
-              - perimeter : pÃ©rimÃ¨tre de la face
+              - perimeter : périmètre de la face
               - shading_mask_36 (ARRAY): "Masque solaire : Elevation de l'occultation par
-                tranche de 10Âº Ã partir de l'azimuth 0 (Sud)"
+                tranche de 10Âº à partir de l'azimuth 0 (Sud)"
 
           extra_headers: Send extra headers
 
@@ -165,14 +165,14 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeWallDictListResponse:
         """
-        Table contenant les donnÃ©es de prÃ©traitements de gÃ©omÃ©trie des groupes de
-        bÃ¢timents : liste des parois, orientations, surfaces, pÃ©rimÃ¨tres, adjacences
-        et masques solaire
+        Table contenant les données de prétraitements de géométrie des groupes de
+        bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
+        masques solaire
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -182,23 +182,23 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          wall_dict: liste de toutes les parois extÃ©rieures constitutives d'un bÃ¢timent (murs,
-              planchers haut/bas). Collection de dictionnaires avec les clÃ©s suivantes
+          wall_dict: liste de toutes les parois extérieures constitutives d'un bâtiment (murs,
+              planchers haut/bas). Collection de dictionnaires avec les clés suivantes
 
               - z0 : altitude au pied de la construction
               - azimuth : orientation de la paroi. (0 -> Sud)
               - hauteur : hauteur de la face (0 pour les parois horizontales)
-              - inclination : 90-> vertical. 0 -> orientÃ© vers le bas (sol). 180: orientÃ©
-                vers le haut (plancher haut)
+              - inclination : 90-> vertical. 0 -> orienté vers le bas (sol). 180: orienté vers
+                le haut (plancher haut)
               - cat_adj : Type d'adjacence de la paroi. "adjacent" : touche une autre paroi
-                (mur mitoyen). "non_adjacent" : en contact avec l'ambiance extÃ©rieure
+                (mur mitoyen). "non_adjacent" : en contact avec l'ambiance extérieure
               - wall_type: floor | roof | vertical
               - wall_id : identifiant de la paroie
               - area: surface de la paroie
               - altitude : TODO
-              - perimeter : pÃ©rimÃ¨tre de la face
+              - perimeter : périmètre de la face
               - shading_mask_36 (ARRAY): "Masque solaire : Elevation de l'occultation par
-                tranche de 10Âº Ã partir de l'azimuth 0 (Sud)"
+                tranche de 10Âº à partir de l'azimuth 0 (Sud)"
 
           extra_headers: Send extra headers
 

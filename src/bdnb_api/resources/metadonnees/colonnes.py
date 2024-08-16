@@ -67,33 +67,33 @@ class ColonnesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ColonneListResponse:
-        """Liste des colonnes de la base = attributs = modalitÃ©s = champs des tables.
+        """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
-        champs portent des droits d'accÃ¨s
+        champs portent des droits d'accès
 
         Args:
-          api_expert: Disponible pour les abonnÃ©s de l'API Expert
+          api_expert: Disponible pour les abonnés de l'API Expert
 
           api_open: Disponible sans souscription
 
           colonne_gorenove_legacy: Nom de la colonne dans l'ancienne API gorenove /v2/gorenove/buildings
 
-          contrainte_acces: Contrainte d'accÃ¨s Ã la donnÃ©es
+          contrainte_acces: Contrainte d'accès à la données
 
           description: Description de la table dans la base postgres
 
           description_table: Description de la table
 
-          index: la colonne est indexÃ©e dans la table
+          index: la colonne est indexée dans la table
 
-          libelle_metier: libelle Ã utiliser dans les application web
+          libelle_metier: libelle à utiliser dans les application web
 
           limit: Limiting and Pagination
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
           offset: Limiting and Pagination
 
@@ -105,7 +105,7 @@ class ColonnesResource(SyncAPIResource):
 
           type: Type sql de la colonne
 
-          unite: UnitÃ© de la colonne
+          unite: Unité de la colonne
 
           extra_headers: Send extra headers
 
@@ -198,33 +198,33 @@ class AsyncColonnesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ColonneListResponse:
-        """Liste des colonnes de la base = attributs = modalitÃ©s = champs des tables.
+        """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
-        champs portent des droits d'accÃ¨s
+        champs portent des droits d'accès
 
         Args:
-          api_expert: Disponible pour les abonnÃ©s de l'API Expert
+          api_expert: Disponible pour les abonnés de l'API Expert
 
           api_open: Disponible sans souscription
 
           colonne_gorenove_legacy: Nom de la colonne dans l'ancienne API gorenove /v2/gorenove/buildings
 
-          contrainte_acces: Contrainte d'accÃ¨s Ã la donnÃ©es
+          contrainte_acces: Contrainte d'accès à la données
 
           description: Description de la table dans la base postgres
 
           description_table: Description de la table
 
-          index: la colonne est indexÃ©e dans la table
+          index: la colonne est indexée dans la table
 
-          libelle_metier: libelle Ã utiliser dans les application web
+          libelle_metier: libelle à utiliser dans les application web
 
           limit: Limiting and Pagination
 
           nom_colonne: Nom de la colonne
 
-          nom_table: Nom de la table rattachÃ©e
+          nom_table: Nom de la table rattachée
 
           offset: Limiting and Pagination
 
@@ -236,7 +236,7 @@ class AsyncColonnesResource(AsyncAPIResource):
 
           type: Type sql de la colonne
 
-          unite: UnitÃ© de la colonne
+          unite: Unité de la colonne
 
           extra_headers: Send extra headers
 

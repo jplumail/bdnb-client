@@ -12,16 +12,16 @@ class ReferentielAdministratifIrisAPIExpert(BaseModel):
     """Code INSEE de la commune"""
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     code_iris: Optional[str] = None
     """Code iris INSEE"""
 
     geom_iris: Optional[str] = None
-    """GÃ©omÃ©trie de l'IRIS"""
+    """Géométrie de l'IRIS"""
 
     libelle_iris: Optional[str] = None
-    """LibellÃ© de l'iris"""
+    """Libellé de l'iris"""
 
     type_iris: Optional[str] = None
     """Type de l'IRIS"""

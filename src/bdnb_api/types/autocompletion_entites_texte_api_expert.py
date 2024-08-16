@@ -9,16 +9,16 @@ __all__ = ["AutocompletionEntitesTexteAPIExpert"]
 
 class AutocompletionEntitesTexteAPIExpert(BaseModel):
     code: Optional[str] = None
-    """code de l'entitÃ©"""
+    """code de l'entité"""
 
     geom: Optional[str] = None
-    """geometrie de l'entitÃ© s'il y en a une"""
+    """geometrie de l'entité s'il y en a une"""
 
     nom: Optional[str] = None
-    """nom d'entitÃ©"""
+    """nom d'entité"""
 
     nom_unaccent: Optional[str] = None
-    """nom d'entitÃ© sans accent"""
+    """nom d'entité sans accent"""
 
     origine_code: Optional[str] = None
     """nom de la table de la colonne d'origine du code"""
@@ -27,4 +27,4 @@ class AutocompletionEntitesTexteAPIExpert(BaseModel):
     """nom de la table de la colonne d'origine du nom"""
 
     type_entite: Optional[str] = None
-    """type de l'entitÃ©"""
+    """type de l'entité"""

@@ -14,31 +14,31 @@ class BatimentGroupeBdtopoBatListParams(TypedDict, total=False):
     """(ign) Altitude au sol moyenne [m]"""
 
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     hauteur_mean: str
-    """(ign) Hauteur moyenne des bÃ¢timents [m]"""
+    """(ign) Hauteur moyenne des bâtiments [m]"""
 
     l_etat: str
-    """(ign) Etat des bÃ¢timents"""
+    """(ign) Etat des bâtiments"""
 
     l_nature: str
-    """(ign) CatÃ©gorie de nature du bÃ¢timent"""
+    """(ign) Catégorie de nature du bâtiment"""
 
     l_usage_1: str
-    """(ign) Usage principal du bÃ¢timent"""
+    """(ign) Usage principal du bâtiment"""
 
     l_usage_2: str
-    """(ign) Usage secondaire du bÃ¢timent"""
+    """(ign) Usage secondaire du bâtiment"""
 
     limit: str
     """Limiting and Pagination"""
 
     max_hauteur: str
-    """(ign) Hauteur maximale des bÃ¢timents [m]"""
+    """(ign) Hauteur maximale des bâtiments [m]"""
 
     offset: str
     """Limiting and Pagination"""

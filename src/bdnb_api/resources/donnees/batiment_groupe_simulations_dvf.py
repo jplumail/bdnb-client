@@ -74,29 +74,29 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeSimulationsDvfListResponse:
         """
-        Simulations des valeurs fonciÃ¨res des bÃ¢timents
+        Simulations des valeurs foncières des bâtiments
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          classe_dpe_conso_initial: classe dpe a l'echelle bÃ¢timent predit dans son etat initial
+          classe_dpe_conso_initial: classe dpe a l'echelle bâtiment predit dans son etat initial
 
-          classe_dpe_conso_renove: classe dpe a l'echelle bÃ¢timent predit dans son etat renove
+          classe_dpe_conso_renove: classe dpe a l'echelle bâtiment predit dans son etat renove
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          difference_abs_valeur_fonciere_etat_initial_renove: difference absolue entre la valeur fonciÃ¨re avant et apres renovation [â‚¬/mÂ²]
+          difference_abs_valeur_fonciere_etat_initial_renove: difference absolue entre la valeur foncière avant et apres renovation [â‚¬/mÂ²]
 
           difference_rel_valeur_fonciere_etat_initial_renove: difference relative de valeur fonciere avant et apres renovation
 
           difference_rel_valeur_fonciere_etat_initial_renove_categorie: categorie de la difference relative de valeur fonciere avant et apres renovation
               (verbose)
 
-          difference_rel_valeur_fonciere_initial_mean_iris: difference relative de la valeur fonciere avant renovation par rapport Ã la
-              moyenne Ã l'iris predite sans renovation
+          difference_rel_valeur_fonciere_initial_mean_iris: difference relative de la valeur fonciere avant renovation par rapport à la
+              moyenne à l'iris predite sans renovation
 
-          difference_rel_valeur_fonciere_renove_mean_iris: difference relative de la valeur fonciere apres renovation par rapport Ã la
-              moyenne Ã l'iris predite sans renovation
+          difference_rel_valeur_fonciere_renove_mean_iris: difference relative de la valeur fonciere apres renovation par rapport à la
+              moyenne à l'iris predite sans renovation
 
           limit: Limiting and Pagination
 
@@ -108,7 +108,7 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          usage_niveau_1_txt: indicateurs d'usage simplifiÃ© du bÃ¢timent (verbose)
+          usage_niveau_1_txt: indicateurs d'usage simplifié du bâtiment (verbose)
 
           valeur_fonciere_etat_initial_estim_lower: Estimation basse de la valeur fonciere avant renovation [â‚¬/mÂ²]
 
@@ -230,29 +230,29 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BatimentGroupeSimulationsDvfListResponse:
         """
-        Simulations des valeurs fonciÃ¨res des bÃ¢timents
+        Simulations des valeurs foncières des bâtiments
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          classe_dpe_conso_initial: classe dpe a l'echelle bÃ¢timent predit dans son etat initial
+          classe_dpe_conso_initial: classe dpe a l'echelle bâtiment predit dans son etat initial
 
-          classe_dpe_conso_renove: classe dpe a l'echelle bÃ¢timent predit dans son etat renove
+          classe_dpe_conso_renove: classe dpe a l'echelle bâtiment predit dans son etat renove
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          difference_abs_valeur_fonciere_etat_initial_renove: difference absolue entre la valeur fonciÃ¨re avant et apres renovation [â‚¬/mÂ²]
+          difference_abs_valeur_fonciere_etat_initial_renove: difference absolue entre la valeur foncière avant et apres renovation [â‚¬/mÂ²]
 
           difference_rel_valeur_fonciere_etat_initial_renove: difference relative de valeur fonciere avant et apres renovation
 
           difference_rel_valeur_fonciere_etat_initial_renove_categorie: categorie de la difference relative de valeur fonciere avant et apres renovation
               (verbose)
 
-          difference_rel_valeur_fonciere_initial_mean_iris: difference relative de la valeur fonciere avant renovation par rapport Ã la
-              moyenne Ã l'iris predite sans renovation
+          difference_rel_valeur_fonciere_initial_mean_iris: difference relative de la valeur fonciere avant renovation par rapport à la
+              moyenne à l'iris predite sans renovation
 
-          difference_rel_valeur_fonciere_renove_mean_iris: difference relative de la valeur fonciere apres renovation par rapport Ã la
-              moyenne Ã l'iris predite sans renovation
+          difference_rel_valeur_fonciere_renove_mean_iris: difference relative de la valeur fonciere apres renovation par rapport à la
+              moyenne à l'iris predite sans renovation
 
           limit: Limiting and Pagination
 
@@ -264,7 +264,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          usage_niveau_1_txt: indicateurs d'usage simplifiÃ© du bÃ¢timent (verbose)
+          usage_niveau_1_txt: indicateurs d'usage simplifié du bâtiment (verbose)
 
           valeur_fonciere_etat_initial_estim_lower: Estimation basse de la valeur fonciere avant renovation [â‚¬/mÂ²]
 

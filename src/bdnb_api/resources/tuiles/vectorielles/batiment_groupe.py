@@ -45,7 +45,7 @@ class BatimentGroupeResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BinaryAPIResponse:
         """
-        Tuiles vectorielles des groupes de bÃ¢timents BDNB (Souscription Api Expert).
+        Tuiles vectorielles des groupes de bâtiments BDNB (Souscription Api Expert).
         Zoom = 14
 
         Args:
@@ -96,7 +96,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncBinaryAPIResponse:
         """
-        Tuiles vectorielles des groupes de bÃ¢timents BDNB (Souscription Api Expert).
+        Tuiles vectorielles des groupes de bâtiments BDNB (Souscription Api Expert).
         Zoom = 14
 
         Args:

@@ -15,7 +15,7 @@ class AncqpvAPIExpert(BaseModel):
     """TODO"""
 
     geom: Optional[str] = None
-    """GÃ©ometrie de l'entitÃ©"""
+    """Géometrie de l'entité"""
 
     nom_qp: Optional[str] = None
-    """Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent"""
+    """Nom du quartier prioritaire dans lequel se trouve le bâtiment"""

@@ -11,7 +11,7 @@ __all__ = ["ColonnesSouscriptionListParams"]
 
 class ColonnesSouscriptionListParams(TypedDict, total=False):
     contrainte_acces: str
-    """Contrainte d'accÃ¨s Ã la donnÃ©es"""
+    """Contrainte d'accès à la données"""
 
     description: str
     """Description de la table dans la base postgres"""
@@ -20,7 +20,7 @@ class ColonnesSouscriptionListParams(TypedDict, total=False):
     """Description de la table"""
 
     index: str
-    """la colonne est indexÃ©e dans la table"""
+    """la colonne est indexée dans la table"""
 
     limit: str
     """Limiting and Pagination"""
@@ -29,10 +29,10 @@ class ColonnesSouscriptionListParams(TypedDict, total=False):
     """Nom de la colonne"""
 
     nom_table: str
-    """Nom de la table rattachÃ©e"""
+    """Nom de la table rattachée"""
 
     nom_table_implementation: str
-    """Nom de la table d'implÃ©mentation"""
+    """Nom de la table d'implémentation"""
 
     offset: str
     """Limiting and Pagination"""
@@ -52,7 +52,7 @@ class ColonnesSouscriptionListParams(TypedDict, total=False):
     """Type sql de la colonne"""
 
     unite: str
-    """UnitÃ© de la colonne"""
+    """Unité de la colonne"""
 
     prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 

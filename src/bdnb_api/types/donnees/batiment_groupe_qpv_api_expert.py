@@ -9,13 +9,13 @@ __all__ = ["BatimentGroupeQpvAPIExpert"]
 
 class BatimentGroupeQpvAPIExpert(BaseModel):
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB
+    """Identifiant du groupe de bâtiment au sens de la BDNB
 
     Note: This is a Primary Key.<pk/>
     """
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     nom_quartier: Optional[str] = None
-    """Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent"""
+    """Nom du quartier prioritaire dans lequel se trouve le bâtiment"""

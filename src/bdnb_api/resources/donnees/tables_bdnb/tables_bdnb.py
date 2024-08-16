@@ -100,19 +100,19 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeBdtopoZoacResponse:
         """
-        Informations de la BDTopo, couche zone d'activitÃ©, agrÃ©gÃ©es Ã l'Ã©chelle du
-        bÃ¢timent
+        Informations de la BDTopo, couche zone d'activité, agrégées à l'échelle du
+        bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_nature: (ign) CatÃ©gorie de nature du bÃ¢timent
+          l_nature: (ign) Catégorie de nature du bâtiment
 
-          l_nature_detaillee: (ign) CatÃ©gorie dÃ©taillÃ©e de nature de l'Ã©quipement
+          l_nature_detaillee: (ign) Catégorie détaillée de nature de l'équipement
 
-          l_toponyme: (ign) Toponymie de l'Ã©quipement
+          l_toponyme: (ign) Toponymie de l'équipement
 
           limit: Limiting and Pagination
 
@@ -203,82 +203,82 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeDvfOpenStatistiqueResponse:
         """
-        DonnÃ©es statistiques des mutations issues des valeurs DVF open data Ã
-        l'Ã©chelle du bÃ¢timent groupe.
+        Données statistiques des mutations issues des valeurs DVF open data à l'échelle
+        du bâtiment groupe.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
-          nb_appartement_mutee: Nombre d'appartements qui ont mutÃ©s sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_appartement_mutee: Nombre d'appartements qui ont mutés sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_dependance_mutee: Nombre de dÃ©pendances qui ont mutÃ©es sur le batiment_groupe (sur la pÃ©riode
-              de rÃ©fÃ©rence des DVF).
+          nb_dependance_mutee: Nombre de dépendances qui ont mutées sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_locaux_mutee: Nombre de locaux qui ont mutÃ©s sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_locaux_mutee: Nombre de locaux qui ont mutés sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_locaux_tertiaire_mutee: Nombre de locaux tertiaires qui ont mutÃ©s sur le batiment_groupe (sur la
-              pÃ©riode de rÃ©fÃ©rence des DVF).
+          nb_locaux_tertiaire_mutee: Nombre de locaux tertiaires qui ont mutés sur le batiment_groupe (sur la période
+              de référence des DVF).
 
-          nb_maisons_mutee: Nombre de maisons qui ont mutÃ©es sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_maisons_mutee: Nombre de maisons qui ont mutées sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_mutation: Nombre de mutations qui ont eu lieu sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_mutation: Nombre de mutations qui ont eu lieu sur le batiment_groupe (sur la période de
+              référence des DVF).
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          prix_m2_local_max: Prix maximale au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_max: Prix maximale au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_local_median: Prix mÃ©dian au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_median: Prix médian au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_local_min: Prix minimale au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_min: Prix minimale au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_local_moyen: Prix moyen au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_moyen: Prix moyen au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_max: Prix maximale au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_max: Prix maximale au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_median: Prix mÃ©dian au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_median: Prix médian au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_min: Prix minimale au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_min: Prix minimale au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_moyen: Prix moyen au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_moyen: Prix moyen au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
           select: Filtering Columns
 
-          valeur_fonciere_max: (dv3f) valeur fonciÃ¨re maximale parmi les locaux du bÃ¢timent rapportÃ© au mÂ²
+          valeur_fonciere_max: (dv3f) valeur foncière maximale parmi les locaux du bâtiment rapporté au mÂ²
               habitable (SHAB)[â‚¬/mÂ²]
 
-          valeur_fonciere_median: Valeur fonciÃ¨re mÃ©diane en euros calculÃ©e sur l'ensemble des mutations qui
-              ont eu lieu sur le batiment_groupe.
+          valeur_fonciere_median: Valeur foncière médiane en euros calculée sur l'ensemble des mutations qui ont
+              eu lieu sur le batiment_groupe.
 
-          valeur_fonciere_min: (dv3f) valeur fonciÃ¨re minimale parmi les locaux du bÃ¢timent rapportÃ© au mÂ²
+          valeur_fonciere_min: (dv3f) valeur foncière minimale parmi les locaux du bâtiment rapporté au mÂ²
               habitable (SHAB) [â‚¬/mÂ²]
 
-          valeur_fonciere_moyenne: Valeur fonciÃ¨re moyenne en euros calculÃ©e sur l'ensemble des mutations qui ont
+          valeur_fonciere_moyenne: Valeur foncière moyenne en euros calculée sur l'ensemble des mutations qui ont
               eu lieu sur le batiment_groupe.
 
           extra_headers: Send extra headers
@@ -363,22 +363,22 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeGeospxResponse:
         """
-        MÃ©triques du bÃ¢timent par rapport Ã son environnement gÃ©ospatial.
+        Métriques du bâtiment par rapport à son environnement géospatial.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          croisement_geospx_reussi: le croisement gÃ©ospatial entre la BDTOPO et les fichiers fonciers est
-              considÃ©rÃ©e comme rÃ©ussi
+          croisement_geospx_reussi: le croisement géospatial entre la BDTOPO et les fichiers fonciers est considérée
+              comme réussi
 
-          fiabilite_adresse: FiabilitÃ© des adresses du bÃ¢timent : "vrai" si les Fichiers Fonciers et BDTOpo
-              partagent au moins une mÃªme adresse BAN
+          fiabilite_adresse: Fiabilité des adresses du bâtiment : "vrai" si les Fichiers Fonciers et BDTOpo
+              partagent au moins une màªme adresse BAN
 
-          fiabilite_emprise_sol: FiabilitÃ© de l'emprise au sol du bÃ¢timent
+          fiabilite_emprise_sol: Fiabilité de l'emprise au sol du bâtiment
 
-          fiabilite_hauteur: FiabilitÃ© de la hauteur du bÃ¢timent
+          fiabilite_hauteur: Fiabilité de la hauteur du bâtiment
 
           limit: Limiting and Pagination
 
@@ -453,17 +453,17 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeQpvResponse:
         """
-        Informations sur les Quartiers Prioritaires de la Ville agrÃ©gÃ©es Ã l'Ã©chelle
-        du bÃ¢timent
+        Informations sur les Quartiers Prioritaires de la Ville agrégées à l'échelle du
+        bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
-          nom_quartier: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_quartier: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
@@ -573,117 +573,114 @@ class TablesBdnbResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeSyntheseEnveloppeResponse:
-        """Table de synthÃ¨se des informations sur l'enveloppe du bÃ¢timent.
+        """Table de synthèse des informations sur l'enveloppe du bâtiment.
 
         Elle contient
-        des informations sur les performances Ã©nergÃ©tiques des parois, leurs
-        caractÃ©ristiques technique et les types de matÃ©riaux utilisÃ©s. Cette
-        premiÃ¨re version ne contient que des informations issues des DPE ou fichiers
-        fonciers.
+        des informations sur les performances énergétiques des parois, leurs
+        caractéristiques technique et les types de matériaux utilisés. Cette première
+        version ne contient que des informations issues des DPE ou fichiers fonciers.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
           classe_inertie: classe d'inertie du DPE (enum version BDNB)
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extÃ©rieurs estimÃ©e Ã partir de la
-              diffÃ©rence entre le U de mur et le U de mur nu. Dans le cas d'une Ã©paisseur
-              dÃ©clarÃ©e c'est directement l'Ã©paisseur dÃ©clarÃ©e qui est considÃ©rÃ©e, dans
-              le cas contraire l'Ã©paisseur est estimÃ©e aussi pour les U conventionels de la
-              mÃ©thode 3CL DPE.
+          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extérieurs estimée à partir de la
+              différence entre le U de mur et le U de mur nu. Dans le cas d'une épaisseur
+              déclarée c'est directement l'épaisseur déclarée qui est considérée, dans le cas
+              contraire l'épaisseur est estimée aussi pour les U conventionels de la méthode
+              3CL DPE.
 
-          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrÃ©es du
+          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrées du
               DPE.
 
-          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportÃ©e ni
+          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportée ni
               les doublages)
 
-          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrÃ©e. coefficient entre 0
+          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrée. coefficient entre 0
               et 1
 
-          l_local_non_chauffe_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          l_local_non_chauffe_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          l_local_non_chauffe_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          l_local_non_chauffe_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          l_orientation_baie_vitree: liste des orientations des baies vitrÃ©es (enum version BDNB)
+          l_orientation_baie_vitree: liste des orientations des baies vitrées (enum version BDNB)
 
-          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extÃ©rieur (enum version BDNB)
+          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extérieur (enum version BDNB)
 
           limit: Limiting and Pagination
 
-          local_non_chauffe_principal_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          local_non_chauffe_principal_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          materiaux_structure_mur_exterieur: matÃ©riaux ou principe constructif principal utilisÃ© pour les murs extÃ©rieurs
+          materiaux_structure_mur_exterieur: matériaux ou principe constructif principal utilisé pour les murs extérieurs
               (enum version BDNB)
 
-          materiaux_structure_mur_exterieur_simplifie: materiaux principal utiliÃ© pour les murs extÃ©rieur simplifiÃ©. Cette
-              information peut Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers Fonciers
-              ou DPE pour le moment)
-
-          materiaux_toiture_simplifie: materiaux principal utiliÃ© pour la toiture simplifiÃ©. Cette information peut
-              Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers Fonciers ou DPE pour le
+          materiaux_structure_mur_exterieur_simplifie: materiaux principal utilié pour les murs extérieur simplifié. Cette information
+              peut àªtre récupérée de différentes sources (Fichiers Fonciers ou DPE pour le
               moment)
+
+          materiaux_toiture_simplifie: materiaux principal utilié pour la toiture simplifié. Cette information peut
+              àªtre récupérée de différentes sources (Fichiers Fonciers ou DPE pour le moment)
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrÃ©es sur les murs extÃ©rieurs
+          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrées sur les murs extérieurs
 
-          presence_balcon: prÃ©sence de balcons identifiÃ©s par analyse des coefficients de masques
-              solaires du DPE.
+          presence_balcon: présence de balcons identifiés par analyse des coefficients de masques solaires
+              du DPE.
 
-          score_fiabilite: score de fiabilitÃ© attribuÃ© aux informations affichÃ©es. En fonction de la
-              source principale et du recoupement des informations de plusieurs sources le
-              score peut Ãªtre plus ou moins Ã©levÃ©. Le score maximal de confiance est de 10,
-              le score minimal de 1. des informations recoupÃ©es par plusieurs sources ont un
-              score de confiance plus Ã©levÃ© que des informations fournies par une unique
-              source (voir mÃ©thodo)
+          score_fiabilite: score de fiabilité attribué aux informations affichées. En fonction de la source
+              principale et du recoupement des informations de plusieurs sources le score peut
+              àªtre plus ou moins élevé. Le score maximal de confiance est de 10, le score
+              minimal de 1. des informations recoupées par plusieurs sources ont un score de
+              confiance plus élevé que des informations fournies par une unique source (voir
+              méthodo)
 
           select: Filtering Columns
 
-          source_information_principale: base de donnÃ©es source principale d'oÃ¹ est tirÃ©e directement les informations
-              sur les systÃ¨mes Ã©nergÃ©tiques du bÃ¢timent. (pour l'instant pas de
-              combinaisons de sources voir mÃ©thodo)
+          source_information_principale: base de données source principale d'oà¹ est tirée directement les informations
+              sur les systèmes énergétiques du bâtiment. (pour l'instant pas de combinaisons
+              de sources voir méthodo)
 
-          traversant: indicateur du cÃ´tÃ© traversant du logement.
+          traversant: indicateur du cà´té traversant du logement.
 
           type_adjacence_principal_plancher_bas: type d'adjacence principale des planchers bas (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
           type_adjacence_principal_plancher_haut: type d'adjacence principale des planchers haut (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
-          type_batiment_dpe: type de bÃ¢timent au sens du DPE (maison, appartement ou immeuble). Cette
-              colonne est renseignÃ©e uniquement si la source d'information est un DPE.
+          type_batiment_dpe: type de bâtiment au sens du DPE (maison, appartement ou immeuble). Cette colonne
+              est renseignée uniquement si la source d'information est un DPE.
 
-          type_fermeture: type de fermeture principale installÃ©e sur les baies vitrÃ©es du DPE
+          type_fermeture: type de fermeture principale installée sur les baies vitrées du DPE
               (volet,persienne etc..) (enum version BDNB)
 
-          type_gaz_lame: type de gaz injectÃ© principalement dans la lame entre les vitrages des baies
-              vitrÃ©es du DPE (double vitrage ou triple vitrage uniquement) (enum version
-              BDNB)
+          type_gaz_lame: type de gaz injecté principalement dans la lame entre les vitrages des baies
+              vitrées du DPE (double vitrage ou triple vitrage uniquement) (enum version BDNB)
 
-          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_bas: type d'isolation principal des planchers bas dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_bas: type d'isolation principal des planchers bas déperditifs pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_haut: type d'isolation principal des planchers hauts dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_haut: type d'isolation principal des planchers hauts déperditifs pour le DPE (enum
               version BDNB)
 
-          type_materiaux_menuiserie: type de matÃ©riaux principal des menuiseries des baies vitrÃ©es du DPE (enum
+          type_materiaux_menuiserie: type de matériaux principal des menuiseries des baies vitrées du DPE (enum
               version BDNB)
 
           type_plancher_bas_deperditif: materiaux ou principe constructif principal des planchers bas (enum version
@@ -694,28 +691,28 @@ class TablesBdnbResource(SyncAPIResource):
 
           type_porte: type de porte du DPE (enum version DPE 2021)
 
-          type_vitrage: type de vitrage principal des baies vitrÃ©es du DPE (enum version BDNB)
+          type_vitrage: type de vitrage principal des baies vitrées du DPE (enum version BDNB)
 
-          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrÃ©es en incluant le
-              calcul de la rÃ©sistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
+          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrées en incluant le
+              calcul de la résistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
 
-          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extÃ©rieurs (W/mÂ²/K)
+          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extérieurs (W/mÂ²/K)
 
           u_plancher_bas_brut_deperditif: Coefficient de transmission thermique moyen des planchers bas brut.
 
           u_plancher_bas_final_deperditif: Coefficient de transmission thermique moyen des planchers bas en prenant en
-              compte l'attÃ©nuation forfaitaire du U lorsqu'en contact avec le sol de la
-              mÃ©thode 3CL(W/mÂ²/K)
+              compte l'atténuation forfaitaire du U lorsqu'en contact avec le sol de la
+              méthode 3CL(W/mÂ²/K)
 
           u_plancher_haut_deperditif: Coefficient de transmission thermique moyen des planchers hauts (W/mÂ²/K)
 
           u_porte: Coefficient de transmission thermique moyen des portes (W/mÂ²/K)
 
-          uw: Coefficient de transmission thermique moyen des baies vitrÃ©es sans prise en
+          uw: Coefficient de transmission thermique moyen des baies vitrées sans prise en
               compte des fermeture (W/mÂ²/K)
 
-          vitrage_vir: le vitrage a Ã©tÃ© traitÃ© avec un traitement Ã isolation renforcÃ© ce qui le
-              rend plus performant d'un point de vue thermique.
+          vitrage_vir: le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
+              plus performant d'un point de vue thermique.
 
           extra_headers: Send extra headers
 
@@ -823,19 +820,18 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveReferentielAdministratifIrisResponse:
         """
-        DonnÃ©es sur les IRIS Grande Echelle fournies par l'IGN pour le compte de
-        l'INSEE
+        Données sur les IRIS Grande Echelle fournies par l'IGN pour le compte de l'INSEE
 
         Args:
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_iris: Code iris INSEE
 
-          geom_iris: GÃ©omÃ©trie de l'IRIS
+          geom_iris: Géométrie de l'IRIS
 
-          libelle_iris: LibellÃ© de l'iris
+          libelle_iris: Libellé de l'iris
 
           limit: Limiting and Pagination
 
@@ -915,29 +911,29 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentConstructionAdresseResponse:
         """
-        Table de relation entre les adresses postales BAN/Arcep et les entrÃ©es de la
-        table [batiment_construction]. Pour plus d'informations voir la mÃ©thodologie
-        dÃ©taillÃ©e d'association des adresses aux bÃ¢timents, publiÃ©e sur le site de
-        la BDNB.
+        Table de relation entre les adresses postales BAN/Arcep et les entrées de la
+        table [batiment_construction]. Pour plus d'informations voir la méthodologie
+        détaillée d'association des adresses aux bâtiments, publiée sur le site de la
+        BDNB.
 
         Args:
-          adresse_principale: BoolÃ©en prÃ©cisant si l'adresse courante est l'une des adresses principales de
-              la construction ou non. Une relation est taguÃ©e comme `principale` si l'adresse
-              qui la compose obtient le score de fiabilitÃ© le plus important parmi toutes les
-              adresses desservant une mÃªme construction. Il se peut, par consÃ©quent, qu'une
+          adresse_principale: Booléen précisant si l'adresse courante est l'une des adresses principales de la
+              construction ou non. Une relation est taguée comme `principale` si l'adresse qui
+              la compose obtient le score de fiabilité le plus important parmi toutes les
+              adresses desservant une màªme construction. Il se peut, par conséquent, qu'une
               construction ait plusieurs adresses principales : toutes celles ayant le score
-              de fiabilitÃ© le plus haut pour cette construction.
+              de fiabilité le plus haut pour cette construction.
 
-          batiment_construction_id: Identifiant unique du bÃ¢timent physique de la BDNB -> cleabs (ign) + index de
+          batiment_construction_id: Identifiant unique du bâtiment physique de la BDNB -> cleabs (ign) + index de
               sub-division (si construction sur plusieurs parcelles)
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          distance_batiment_construction_adresse: Distance entre le gÃ©olocalisant adresse et la gÃ©omÃ©trie de bÃ¢timent
+          distance_batiment_construction_adresse: Distance entre le géolocalisant adresse et la géométrie de bâtiment
 
-          fiabilite: Niveau de fiabilitÃ©
+          fiabilite: Niveau de fiabilité
 
           limit: Limiting and Pagination
 
@@ -1016,22 +1012,22 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentGroupeAdresseResponse:
         """
-        Table de relation entre les adresses et les groupes de bÃ¢timent
+        Table de relation entre les adresses et les groupes de bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          classe: Classe de mÃ©thodologie de croisement Ã l'adresse (Fichiers_fonciers, Cadastre)
+          classe: Classe de méthodologie de croisement à l'adresse (Fichiers_fonciers, Cadastre)
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          geom_bat_adresse: GÃ©olocalisant du trait reliant le point adresse Ã la gÃ©omÃ©trie du bÃ¢timent
+          geom_bat_adresse: Géolocalisant du trait reliant le point adresse à la géométrie du bâtiment
               groupe (Lambert-93, SRID=2154)
 
-          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considÃ©rÃ© comme
-              valide si l'adresse est une adresse ban et que le batiment_groupe est associÃ© Ã
+          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considéré comme
+              valide si l'adresse est une adresse ban et que le batiment_groupe est associé à
               des fichiers fonciers
 
           limit: Limiting and Pagination
@@ -1040,9 +1036,9 @@ class TablesBdnbResource(SyncAPIResource):
 
           order: Ordering
 
-          origine: Origine de l'entrÃ©e bÃ¢timent. Elle provient soit des donnÃ©es fonciÃ¨res
-              (Fichiers Fonciers), soit d'un croisement gÃ©ospatial entre le Cadastre, la
-              BDTopo et des bases de donnÃ©es mÃ©tiers (ex: BPE ou MÃ©rimÃ©e)
+          origine: Origine de l'entrée bâtiment. Elle provient soit des données foncières (Fichiers
+              Fonciers), soit d'un croisement géospatial entre le Cadastre, la BDTopo et des
+              bases de données métiers (ex: BPE ou Mérimée)
 
           select: Filtering Columns
 
@@ -1114,19 +1110,19 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentGroupeProprietaireSirenResponse:
         """
-        Table de relation entre les propriÃ©taires et les groupes de bÃ¢timent (la
-        version open filtre sur la colonne `dans_majic_pm)
+        Table de relation entre les propriétaires et les groupes de bâtiment (la version
+        open filtre sur la colonne `dans_majic_pm)
 
         Args:
           bat_prop_denomination_proprietaire: TODO
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          is_bailleur: Vrai si le propriÃ©taire est un bailleur social
+          is_bailleur: Vrai si le propriétaire est un bailleur social
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm
+          nb_locaux_open: (majic_pm) nombre de locaux déclarés dans majic_pm
 
           offset: Limiting and Pagination
 
@@ -1134,7 +1130,7 @@ class TablesBdnbResource(SyncAPIResource):
 
           select: Filtering Columns
 
-          siren: NumÃ©ro de SIREN de la personne morale (FF)
+          siren: Numéro de SIREN de la personne morale (FF)
 
           extra_headers: Send extra headers
 
@@ -1201,16 +1197,15 @@ class TablesBdnbResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentGroupeQpvResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les Ã©lÃ©ments de la table
-        QPV
+        Table de relation entre les bâtiments de la BDNB et les éléments de la table QPV
 
         Args:
-          batiment_construction_id: Identifiant unique du bÃ¢timent physique de la BDNB -> cleabs (ign) + index de
+          batiment_construction_id: Identifiant unique du bâtiment physique de la BDNB -> cleabs (ign) + index de
               sub-division (si construction sur plusieurs parcelles)
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
@@ -1297,19 +1292,19 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeBdtopoZoacResponse:
         """
-        Informations de la BDTopo, couche zone d'activitÃ©, agrÃ©gÃ©es Ã l'Ã©chelle du
-        bÃ¢timent
+        Informations de la BDTopo, couche zone d'activité, agrégées à l'échelle du
+        bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          l_nature: (ign) CatÃ©gorie de nature du bÃ¢timent
+          l_nature: (ign) Catégorie de nature du bâtiment
 
-          l_nature_detaillee: (ign) CatÃ©gorie dÃ©taillÃ©e de nature de l'Ã©quipement
+          l_nature_detaillee: (ign) Catégorie détaillée de nature de l'équipement
 
-          l_toponyme: (ign) Toponymie de l'Ã©quipement
+          l_toponyme: (ign) Toponymie de l'équipement
 
           limit: Limiting and Pagination
 
@@ -1400,82 +1395,82 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeDvfOpenStatistiqueResponse:
         """
-        DonnÃ©es statistiques des mutations issues des valeurs DVF open data Ã
-        l'Ã©chelle du bÃ¢timent groupe.
+        Données statistiques des mutations issues des valeurs DVF open data à l'échelle
+        du bâtiment groupe.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
-          nb_appartement_mutee: Nombre d'appartements qui ont mutÃ©s sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_appartement_mutee: Nombre d'appartements qui ont mutés sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_dependance_mutee: Nombre de dÃ©pendances qui ont mutÃ©es sur le batiment_groupe (sur la pÃ©riode
-              de rÃ©fÃ©rence des DVF).
+          nb_dependance_mutee: Nombre de dépendances qui ont mutées sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_locaux_mutee: Nombre de locaux qui ont mutÃ©s sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_locaux_mutee: Nombre de locaux qui ont mutés sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_locaux_tertiaire_mutee: Nombre de locaux tertiaires qui ont mutÃ©s sur le batiment_groupe (sur la
-              pÃ©riode de rÃ©fÃ©rence des DVF).
+          nb_locaux_tertiaire_mutee: Nombre de locaux tertiaires qui ont mutés sur le batiment_groupe (sur la période
+              de référence des DVF).
 
-          nb_maisons_mutee: Nombre de maisons qui ont mutÃ©es sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_maisons_mutee: Nombre de maisons qui ont mutées sur le batiment_groupe (sur la période de
+              référence des DVF).
 
-          nb_mutation: Nombre de mutations qui ont eu lieu sur le batiment_groupe (sur la pÃ©riode de
-              rÃ©fÃ©rence des DVF).
+          nb_mutation: Nombre de mutations qui ont eu lieu sur le batiment_groupe (sur la période de
+              référence des DVF).
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          prix_m2_local_max: Prix maximale au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_max: Prix maximale au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_local_median: Prix mÃ©dian au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_median: Prix médian au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_local_min: Prix minimale au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_min: Prix minimale au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_local_moyen: Prix moyen au m2 de bÃ¢ti en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_local_moyen: Prix moyen au m2 de bâti en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_max: Prix maximale au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_max: Prix maximale au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_median: Prix mÃ©dian au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_median: Prix médian au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_min: Prix minimale au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_min: Prix minimale au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
-          prix_m2_terrain_moyen: Prix moyen au m2 de terrain en euros calculÃ© Ã partir des transactions dont
-              uniquement des locaux (rÃ©sidences individuelles + dÃ©pendances) ou (rÃ©sidences
-              collectives + dÃ©pendances) ont mutÃ©es
+          prix_m2_terrain_moyen: Prix moyen au m2 de terrain en euros calculé à partir des transactions dont
+              uniquement des locaux (résidences individuelles + dépendances) ou (résidences
+              collectives + dépendances) ont mutées
 
           select: Filtering Columns
 
-          valeur_fonciere_max: (dv3f) valeur fonciÃ¨re maximale parmi les locaux du bÃ¢timent rapportÃ© au mÂ²
+          valeur_fonciere_max: (dv3f) valeur foncière maximale parmi les locaux du bâtiment rapporté au mÂ²
               habitable (SHAB)[â‚¬/mÂ²]
 
-          valeur_fonciere_median: Valeur fonciÃ¨re mÃ©diane en euros calculÃ©e sur l'ensemble des mutations qui
-              ont eu lieu sur le batiment_groupe.
+          valeur_fonciere_median: Valeur foncière médiane en euros calculée sur l'ensemble des mutations qui ont
+              eu lieu sur le batiment_groupe.
 
-          valeur_fonciere_min: (dv3f) valeur fonciÃ¨re minimale parmi les locaux du bÃ¢timent rapportÃ© au mÂ²
+          valeur_fonciere_min: (dv3f) valeur foncière minimale parmi les locaux du bâtiment rapporté au mÂ²
               habitable (SHAB) [â‚¬/mÂ²]
 
-          valeur_fonciere_moyenne: Valeur fonciÃ¨re moyenne en euros calculÃ©e sur l'ensemble des mutations qui ont
+          valeur_fonciere_moyenne: Valeur foncière moyenne en euros calculée sur l'ensemble des mutations qui ont
               eu lieu sur le batiment_groupe.
 
           extra_headers: Send extra headers
@@ -1560,22 +1555,22 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeGeospxResponse:
         """
-        MÃ©triques du bÃ¢timent par rapport Ã son environnement gÃ©ospatial.
+        Métriques du bâtiment par rapport à son environnement géospatial.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          croisement_geospx_reussi: le croisement gÃ©ospatial entre la BDTOPO et les fichiers fonciers est
-              considÃ©rÃ©e comme rÃ©ussi
+          croisement_geospx_reussi: le croisement géospatial entre la BDTOPO et les fichiers fonciers est considérée
+              comme réussi
 
-          fiabilite_adresse: FiabilitÃ© des adresses du bÃ¢timent : "vrai" si les Fichiers Fonciers et BDTOpo
-              partagent au moins une mÃªme adresse BAN
+          fiabilite_adresse: Fiabilité des adresses du bâtiment : "vrai" si les Fichiers Fonciers et BDTOpo
+              partagent au moins une màªme adresse BAN
 
-          fiabilite_emprise_sol: FiabilitÃ© de l'emprise au sol du bÃ¢timent
+          fiabilite_emprise_sol: Fiabilité de l'emprise au sol du bâtiment
 
-          fiabilite_hauteur: FiabilitÃ© de la hauteur du bÃ¢timent
+          fiabilite_hauteur: Fiabilité de la hauteur du bâtiment
 
           limit: Limiting and Pagination
 
@@ -1650,17 +1645,17 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeQpvResponse:
         """
-        Informations sur les Quartiers Prioritaires de la Ville agrÃ©gÃ©es Ã l'Ã©chelle
-        du bÃ¢timent
+        Informations sur les Quartiers Prioritaires de la Ville agrégées à l'échelle du
+        bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 
-          nom_quartier: Nom du quartier prioritaire dans lequel se trouve le bÃ¢timent
+          nom_quartier: Nom du quartier prioritaire dans lequel se trouve le bâtiment
 
           offset: Limiting and Pagination
 
@@ -1770,117 +1765,114 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveBatimentGroupeSyntheseEnveloppeResponse:
-        """Table de synthÃ¨se des informations sur l'enveloppe du bÃ¢timent.
+        """Table de synthèse des informations sur l'enveloppe du bâtiment.
 
         Elle contient
-        des informations sur les performances Ã©nergÃ©tiques des parois, leurs
-        caractÃ©ristiques technique et les types de matÃ©riaux utilisÃ©s. Cette
-        premiÃ¨re version ne contient que des informations issues des DPE ou fichiers
-        fonciers.
+        des informations sur les performances énergétiques des parois, leurs
+        caractéristiques technique et les types de matériaux utilisés. Cette première
+        version ne contient que des informations issues des DPE ou fichiers fonciers.
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
           classe_inertie: classe d'inertie du DPE (enum version BDNB)
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extÃ©rieurs estimÃ©e Ã partir de la
-              diffÃ©rence entre le U de mur et le U de mur nu. Dans le cas d'une Ã©paisseur
-              dÃ©clarÃ©e c'est directement l'Ã©paisseur dÃ©clarÃ©e qui est considÃ©rÃ©e, dans
-              le cas contraire l'Ã©paisseur est estimÃ©e aussi pour les U conventionels de la
-              mÃ©thode 3CL DPE.
+          epaisseur_isolation_mur_exterieur_estim: epaisseur d'isolation moyenne des murs extérieurs estimée à partir de la
+              différence entre le U de mur et le U de mur nu. Dans le cas d'une épaisseur
+              déclarée c'est directement l'épaisseur déclarée qui est considérée, dans le cas
+              contraire l'épaisseur est estimée aussi pour les U conventionels de la méthode
+              3CL DPE.
 
-          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrÃ©es du
+          epaisseur_lame: epaisseur principale de la lame de gaz entre vitrages pour les baies vitrées du
               DPE.
 
-          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportÃ©e ni
+          epaisseur_structure_mur_exterieur: epaisseur moyenne de la partie structure du mur (sans l'isolation rapportée ni
               les doublages)
 
-          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrÃ©e. coefficient entre 0
+          facteur_solaire_baie_vitree: facteur de transmission du flux solaire par la baie vitrée. coefficient entre 0
               et 1
 
-          l_local_non_chauffe_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          l_local_non_chauffe_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          l_local_non_chauffe_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          l_local_non_chauffe_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          l_local_non_chauffe_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          l_orientation_baie_vitree: liste des orientations des baies vitrÃ©es (enum version BDNB)
+          l_orientation_baie_vitree: liste des orientations des baies vitrées (enum version BDNB)
 
-          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extÃ©rieur (enum version BDNB)
+          l_orientation_mur_exterieur: liste des orientations des murs donnant sur l'extérieur (enum version BDNB)
 
           limit: Limiting and Pagination
 
-          local_non_chauffe_principal_mur: liste des locaux non chauffÃ©s en contact avec les murs (enum DPE 2021)
+          local_non_chauffe_principal_mur: liste des locaux non chauffés en contact avec les murs (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffÃ©s en contact avec les planchers bas (enum DPE 2021)
+          local_non_chauffe_principal_plancher_bas: liste des locaux non chauffés en contact avec les planchers bas (enum DPE 2021)
 
-          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffÃ©s en contact avec les planchers hauts (enum
+          local_non_chauffe_principal_plancher_haut: liste des locaux non chauffés en contact avec les planchers hauts (enum
               DPE 2021)
 
-          materiaux_structure_mur_exterieur: matÃ©riaux ou principe constructif principal utilisÃ© pour les murs extÃ©rieurs
+          materiaux_structure_mur_exterieur: matériaux ou principe constructif principal utilisé pour les murs extérieurs
               (enum version BDNB)
 
-          materiaux_structure_mur_exterieur_simplifie: materiaux principal utiliÃ© pour les murs extÃ©rieur simplifiÃ©. Cette
-              information peut Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers Fonciers
-              ou DPE pour le moment)
-
-          materiaux_toiture_simplifie: materiaux principal utiliÃ© pour la toiture simplifiÃ©. Cette information peut
-              Ãªtre rÃ©cupÃ©rÃ©e de diffÃ©rentes sources (Fichiers Fonciers ou DPE pour le
+          materiaux_structure_mur_exterieur_simplifie: materiaux principal utilié pour les murs extérieur simplifié. Cette information
+              peut àªtre récupérée de différentes sources (Fichiers Fonciers ou DPE pour le
               moment)
+
+          materiaux_toiture_simplifie: materiaux principal utilié pour la toiture simplifié. Cette information peut
+              àªtre récupérée de différentes sources (Fichiers Fonciers ou DPE pour le moment)
 
           offset: Limiting and Pagination
 
           order: Ordering
 
-          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrÃ©es sur les murs extÃ©rieurs
+          pourcentage_surface_baie_vitree_exterieur: pourcentage de surface de baies vitrées sur les murs extérieurs
 
-          presence_balcon: prÃ©sence de balcons identifiÃ©s par analyse des coefficients de masques
-              solaires du DPE.
+          presence_balcon: présence de balcons identifiés par analyse des coefficients de masques solaires
+              du DPE.
 
-          score_fiabilite: score de fiabilitÃ© attribuÃ© aux informations affichÃ©es. En fonction de la
-              source principale et du recoupement des informations de plusieurs sources le
-              score peut Ãªtre plus ou moins Ã©levÃ©. Le score maximal de confiance est de 10,
-              le score minimal de 1. des informations recoupÃ©es par plusieurs sources ont un
-              score de confiance plus Ã©levÃ© que des informations fournies par une unique
-              source (voir mÃ©thodo)
+          score_fiabilite: score de fiabilité attribué aux informations affichées. En fonction de la source
+              principale et du recoupement des informations de plusieurs sources le score peut
+              àªtre plus ou moins élevé. Le score maximal de confiance est de 10, le score
+              minimal de 1. des informations recoupées par plusieurs sources ont un score de
+              confiance plus élevé que des informations fournies par une unique source (voir
+              méthodo)
 
           select: Filtering Columns
 
-          source_information_principale: base de donnÃ©es source principale d'oÃ¹ est tirÃ©e directement les informations
-              sur les systÃ¨mes Ã©nergÃ©tiques du bÃ¢timent. (pour l'instant pas de
-              combinaisons de sources voir mÃ©thodo)
+          source_information_principale: base de données source principale d'oà¹ est tirée directement les informations
+              sur les systèmes énergétiques du bâtiment. (pour l'instant pas de combinaisons
+              de sources voir méthodo)
 
-          traversant: indicateur du cÃ´tÃ© traversant du logement.
+          traversant: indicateur du cà´té traversant du logement.
 
           type_adjacence_principal_plancher_bas: type d'adjacence principale des planchers bas (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
           type_adjacence_principal_plancher_haut: type d'adjacence principale des planchers haut (sont ils en contact avec
-              l'extÃ©rieur ou un local non chauffÃ©) (enum DPE 2021)
+              l'extérieur ou un local non chauffé) (enum DPE 2021)
 
-          type_batiment_dpe: type de bÃ¢timent au sens du DPE (maison, appartement ou immeuble). Cette
-              colonne est renseignÃ©e uniquement si la source d'information est un DPE.
+          type_batiment_dpe: type de bâtiment au sens du DPE (maison, appartement ou immeuble). Cette colonne
+              est renseignée uniquement si la source d'information est un DPE.
 
-          type_fermeture: type de fermeture principale installÃ©e sur les baies vitrÃ©es du DPE
+          type_fermeture: type de fermeture principale installée sur les baies vitrées du DPE
               (volet,persienne etc..) (enum version BDNB)
 
-          type_gaz_lame: type de gaz injectÃ© principalement dans la lame entre les vitrages des baies
-              vitrÃ©es du DPE (double vitrage ou triple vitrage uniquement) (enum version
-              BDNB)
+          type_gaz_lame: type de gaz injecté principalement dans la lame entre les vitrages des baies
+              vitrées du DPE (double vitrage ou triple vitrage uniquement) (enum version BDNB)
 
-          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extÃ©rieur pour le DPE (enum
+          type_isolation_mur_exterieur: type d'isolation principal des murs donnant sur l'extérieur pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_bas: type d'isolation principal des planchers bas dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_bas: type d'isolation principal des planchers bas déperditifs pour le DPE (enum
               version BDNB)
 
-          type_isolation_plancher_haut: type d'isolation principal des planchers hauts dÃ©perditifs pour le DPE (enum
+          type_isolation_plancher_haut: type d'isolation principal des planchers hauts déperditifs pour le DPE (enum
               version BDNB)
 
-          type_materiaux_menuiserie: type de matÃ©riaux principal des menuiseries des baies vitrÃ©es du DPE (enum
+          type_materiaux_menuiserie: type de matériaux principal des menuiseries des baies vitrées du DPE (enum
               version BDNB)
 
           type_plancher_bas_deperditif: materiaux ou principe constructif principal des planchers bas (enum version
@@ -1891,28 +1883,28 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
 
           type_porte: type de porte du DPE (enum version DPE 2021)
 
-          type_vitrage: type de vitrage principal des baies vitrÃ©es du DPE (enum version BDNB)
+          type_vitrage: type de vitrage principal des baies vitrées du DPE (enum version BDNB)
 
-          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrÃ©es en incluant le
-              calcul de la rÃ©sistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
+          u_baie_vitree: Coefficient de transmission thermique moyen des baies vitrées en incluant le
+              calcul de la résistance additionelle des fermetures (calcul Ujn) (W/mÂ²/K)
 
-          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extÃ©rieurs (W/mÂ²/K)
+          u_mur_exterieur: Coefficient de transmission thermique moyen des murs extérieurs (W/mÂ²/K)
 
           u_plancher_bas_brut_deperditif: Coefficient de transmission thermique moyen des planchers bas brut.
 
           u_plancher_bas_final_deperditif: Coefficient de transmission thermique moyen des planchers bas en prenant en
-              compte l'attÃ©nuation forfaitaire du U lorsqu'en contact avec le sol de la
-              mÃ©thode 3CL(W/mÂ²/K)
+              compte l'atténuation forfaitaire du U lorsqu'en contact avec le sol de la
+              méthode 3CL(W/mÂ²/K)
 
           u_plancher_haut_deperditif: Coefficient de transmission thermique moyen des planchers hauts (W/mÂ²/K)
 
           u_porte: Coefficient de transmission thermique moyen des portes (W/mÂ²/K)
 
-          uw: Coefficient de transmission thermique moyen des baies vitrÃ©es sans prise en
+          uw: Coefficient de transmission thermique moyen des baies vitrées sans prise en
               compte des fermeture (W/mÂ²/K)
 
-          vitrage_vir: le vitrage a Ã©tÃ© traitÃ© avec un traitement Ã isolation renforcÃ© ce qui le
-              rend plus performant d'un point de vue thermique.
+          vitrage_vir: le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
+              plus performant d'un point de vue thermique.
 
           extra_headers: Send extra headers
 
@@ -2020,19 +2012,18 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveReferentielAdministratifIrisResponse:
         """
-        DonnÃ©es sur les IRIS Grande Echelle fournies par l'IGN pour le compte de
-        l'INSEE
+        Données sur les IRIS Grande Echelle fournies par l'IGN pour le compte de l'INSEE
 
         Args:
           code_commune_insee: Code INSEE de la commune
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           code_iris: Code iris INSEE
 
-          geom_iris: GÃ©omÃ©trie de l'IRIS
+          geom_iris: Géométrie de l'IRIS
 
-          libelle_iris: LibellÃ© de l'iris
+          libelle_iris: Libellé de l'iris
 
           limit: Limiting and Pagination
 
@@ -2112,29 +2103,29 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentConstructionAdresseResponse:
         """
-        Table de relation entre les adresses postales BAN/Arcep et les entrÃ©es de la
-        table [batiment_construction]. Pour plus d'informations voir la mÃ©thodologie
-        dÃ©taillÃ©e d'association des adresses aux bÃ¢timents, publiÃ©e sur le site de
-        la BDNB.
+        Table de relation entre les adresses postales BAN/Arcep et les entrées de la
+        table [batiment_construction]. Pour plus d'informations voir la méthodologie
+        détaillée d'association des adresses aux bâtiments, publiée sur le site de la
+        BDNB.
 
         Args:
-          adresse_principale: BoolÃ©en prÃ©cisant si l'adresse courante est l'une des adresses principales de
-              la construction ou non. Une relation est taguÃ©e comme `principale` si l'adresse
-              qui la compose obtient le score de fiabilitÃ© le plus important parmi toutes les
-              adresses desservant une mÃªme construction. Il se peut, par consÃ©quent, qu'une
+          adresse_principale: Booléen précisant si l'adresse courante est l'une des adresses principales de la
+              construction ou non. Une relation est taguée comme `principale` si l'adresse qui
+              la compose obtient le score de fiabilité le plus important parmi toutes les
+              adresses desservant une màªme construction. Il se peut, par conséquent, qu'une
               construction ait plusieurs adresses principales : toutes celles ayant le score
-              de fiabilitÃ© le plus haut pour cette construction.
+              de fiabilité le plus haut pour cette construction.
 
-          batiment_construction_id: Identifiant unique du bÃ¢timent physique de la BDNB -> cleabs (ign) + index de
+          batiment_construction_id: Identifiant unique du bâtiment physique de la BDNB -> cleabs (ign) + index de
               sub-division (si construction sur plusieurs parcelles)
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          distance_batiment_construction_adresse: Distance entre le gÃ©olocalisant adresse et la gÃ©omÃ©trie de bÃ¢timent
+          distance_batiment_construction_adresse: Distance entre le géolocalisant adresse et la géométrie de bâtiment
 
-          fiabilite: Niveau de fiabilitÃ©
+          fiabilite: Niveau de fiabilité
 
           limit: Limiting and Pagination
 
@@ -2213,22 +2204,22 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentGroupeAdresseResponse:
         """
-        Table de relation entre les adresses et les groupes de bÃ¢timent
+        Table de relation entre les adresses et les groupes de bâtiment
 
         Args:
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          classe: Classe de mÃ©thodologie de croisement Ã l'adresse (Fichiers_fonciers, Cadastre)
+          classe: Classe de méthodologie de croisement à l'adresse (Fichiers_fonciers, Cadastre)
 
-          cle_interop_adr: ClÃ© d'interopÃ©rabilitÃ© de l'adresse postale
+          cle_interop_adr: Clé d'interopérabilité de l'adresse postale
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
-          geom_bat_adresse: GÃ©olocalisant du trait reliant le point adresse Ã la gÃ©omÃ©trie du bÃ¢timent
+          geom_bat_adresse: Géolocalisant du trait reliant le point adresse à la géométrie du bâtiment
               groupe (Lambert-93, SRID=2154)
 
-          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considÃ©rÃ© comme
-              valide si l'adresse est une adresse ban et que le batiment_groupe est associÃ© Ã
+          lien_valide: [DEPRECIEE] (bdnb) un couple (batiment_groupe ; adresse) est considéré comme
+              valide si l'adresse est une adresse ban et que le batiment_groupe est associé à
               des fichiers fonciers
 
           limit: Limiting and Pagination
@@ -2237,9 +2228,9 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
 
           order: Ordering
 
-          origine: Origine de l'entrÃ©e bÃ¢timent. Elle provient soit des donnÃ©es fonciÃ¨res
-              (Fichiers Fonciers), soit d'un croisement gÃ©ospatial entre le Cadastre, la
-              BDTopo et des bases de donnÃ©es mÃ©tiers (ex: BPE ou MÃ©rimÃ©e)
+          origine: Origine de l'entrée bâtiment. Elle provient soit des données foncières (Fichiers
+              Fonciers), soit d'un croisement géospatial entre le Cadastre, la BDTopo et des
+              bases de données métiers (ex: BPE ou Mérimée)
 
           select: Filtering Columns
 
@@ -2311,19 +2302,19 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentGroupeProprietaireSirenResponse:
         """
-        Table de relation entre les propriÃ©taires et les groupes de bÃ¢timent (la
-        version open filtre sur la colonne `dans_majic_pm)
+        Table de relation entre les propriétaires et les groupes de bâtiment (la version
+        open filtre sur la colonne `dans_majic_pm)
 
         Args:
           bat_prop_denomination_proprietaire: TODO
 
-          dans_majic_pm: (majic_pm) Ce propriÃ©taire possÃ¨de des bÃ¢timents dÃ©clarÃ©s dans majic_pm
+          dans_majic_pm: (majic_pm) Ce propriétaire possède des bâtiments déclarés dans majic_pm
 
-          is_bailleur: Vrai si le propriÃ©taire est un bailleur social
+          is_bailleur: Vrai si le propriétaire est un bailleur social
 
           limit: Limiting and Pagination
 
-          nb_locaux_open: (majic_pm) nombre de locaux dÃ©clarÃ©s dans majic_pm
+          nb_locaux_open: (majic_pm) nombre de locaux déclarés dans majic_pm
 
           offset: Limiting and Pagination
 
@@ -2331,7 +2322,7 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
 
           select: Filtering Columns
 
-          siren: NumÃ©ro de SIREN de la personne morale (FF)
+          siren: Numéro de SIREN de la personne morale (FF)
 
           extra_headers: Send extra headers
 
@@ -2398,16 +2389,15 @@ class AsyncTablesBdnbResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> TablesBdnbRetrieveRelBatimentGroupeQpvResponse:
         """
-        Table de relation entre les bÃ¢timents de la BDNB et les Ã©lÃ©ments de la table
-        QPV
+        Table de relation entre les bâtiments de la BDNB et les éléments de la table QPV
 
         Args:
-          batiment_construction_id: Identifiant unique du bÃ¢timent physique de la BDNB -> cleabs (ign) + index de
+          batiment_construction_id: Identifiant unique du bâtiment physique de la BDNB -> cleabs (ign) + index de
               sub-division (si construction sur plusieurs parcelles)
 
-          batiment_groupe_id: Identifiant du groupe de bÃ¢timent au sens de la BDNB
+          batiment_groupe_id: Identifiant du groupe de bâtiment au sens de la BDNB
 
-          code_departement_insee: Code dÃ©partement INSEE
+          code_departement_insee: Code département INSEE
 
           limit: Limiting and Pagination
 

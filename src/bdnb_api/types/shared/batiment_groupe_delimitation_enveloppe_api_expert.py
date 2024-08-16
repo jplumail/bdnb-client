@@ -9,13 +9,13 @@ __all__ = ["BatimentGroupeDelimitationEnveloppeAPIExpert"]
 
 class BatimentGroupeDelimitationEnveloppeAPIExpert(BaseModel):
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     delimitation_enveloppe_dict: Optional[str] = None
     """
-    Liste de toutes les parois extÃ©rieures constitutives d''un bÃ¢timent (murs,
+    Liste de toutes les parois extérieures constitutives d''un bâtiment (murs,
     planchers haut/bas).
     """

@@ -11,19 +11,19 @@ __all__ = ["BatimentGroupeMerimeeListParams"]
 
 class BatimentGroupeMerimeeListParams(TypedDict, total=False):
     batiment_groupe_id: str
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB"""
+    """Identifiant du groupe de bâtiment au sens de la BDNB"""
 
     code_departement_insee: str
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     distance_batiment_historique_plus_proche: str
-    """(mer) Distance au bÃ¢timent historique le plus proche (si moins de 500m) [m]"""
+    """(mer) Distance au bâtiment historique le plus proche (si moins de 500m) [m]"""
 
     limit: str
     """Limiting and Pagination"""
 
     nom_batiment_historique_plus_proche: str
-    """(mer:tico) nom du bÃ¢timent historique le plus proche"""
+    """(mer:tico) nom du bâtiment historique le plus proche"""
 
     offset: str
     """Limiting and Pagination"""
@@ -32,7 +32,7 @@ class BatimentGroupeMerimeeListParams(TypedDict, total=False):
     """Ordering"""
 
     perimetre_bat_historique: str
-    """Vrai si l'entitÃ© est dans le pÃ©rimÃ¨tre d'un bÃ¢timent historique"""
+    """Vrai si l'entité est dans le périmètre d'un bâtiment historique"""
 
     select: str
     """Filtering Columns"""

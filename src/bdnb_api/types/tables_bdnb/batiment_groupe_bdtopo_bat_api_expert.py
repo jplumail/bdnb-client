@@ -12,28 +12,28 @@ class BatimentGroupeBdtopoBatAPIExpert(BaseModel):
     """(ign) Altitude au sol moyenne [m]"""
 
     batiment_groupe_id: Optional[str] = None
-    """Identifiant du groupe de bÃ¢timent au sens de la BDNB
+    """Identifiant du groupe de bâtiment au sens de la BDNB
 
     Note: This is a Primary Key.<pk/>
     """
 
     code_departement_insee: Optional[str] = None
-    """Code dÃ©partement INSEE"""
+    """Code département INSEE"""
 
     hauteur_mean: Optional[int] = None
-    """(ign) Hauteur moyenne des bÃ¢timents [m]"""
+    """(ign) Hauteur moyenne des bâtiments [m]"""
 
     l_etat: Optional[List[str]] = None
-    """(ign) Etat des bÃ¢timents"""
+    """(ign) Etat des bâtiments"""
 
     l_nature: Optional[List[str]] = None
-    """(ign) CatÃ©gorie de nature du bÃ¢timent"""
+    """(ign) Catégorie de nature du bâtiment"""
 
     l_usage_1: Optional[List[str]] = None
-    """(ign) Usage principal du bÃ¢timent"""
+    """(ign) Usage principal du bâtiment"""
 
     l_usage_2: Optional[List[str]] = None
-    """(ign) Usage secondaire du bÃ¢timent"""
+    """(ign) Usage secondaire du bâtiment"""
 
     max_hauteur: Optional[int] = None
-    """(ign) Hauteur maximale des bÃ¢timents [m]"""
+    """(ign) Hauteur maximale des bâtiments [m]"""
