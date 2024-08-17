@@ -25,7 +25,7 @@ from ._utils import (
 )
 from ._version import __version__
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
-from ._exceptions import BdnbAPIError, APIStatusError
+from ._exceptions import APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
@@ -56,12 +56,10 @@ class BdnbAPI(SyncAPIClient):
     with_streaming_response: BdnbAPIWithStreamedResponse
 
     # client options
-    api_key: str
 
     def __init__(
         self,
         *,
-        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -81,18 +79,7 @@ class BdnbAPI(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous bdnb-api client instance.
-
-        This automatically infers the `api_key` argument from the `BDNB_API_KEY` environment variable if it is not provided.
-        """
-        if api_key is None:
-            api_key = os.environ.get("BDNB_API_KEY")
-        if api_key is None:
-            raise BdnbAPIError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the BDNB_API_KEY environment variable"
-            )
-        self.api_key = api_key
-
+        """Construct a new synchronous bdnb-api client instance."""
         if base_url is None:
             base_url = os.environ.get("BDNB_API_BASE_URL")
         if base_url is None:
@@ -125,12 +112,6 @@ class BdnbAPI(SyncAPIClient):
 
     @property
     @override
-    def auth_headers(self) -> dict[str, str]:
-        api_key = self.api_key
-        return {"X-Gravitee-Api-Key": api_key}
-
-    @property
-    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
@@ -141,7 +122,6 @@ class BdnbAPI(SyncAPIClient):
     def copy(
         self,
         *,
-        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -175,7 +155,6 @@ class BdnbAPI(SyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            api_key=api_key or self.api_key,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -234,12 +213,10 @@ class AsyncBdnbAPI(AsyncAPIClient):
     with_streaming_response: AsyncBdnbAPIWithStreamedResponse
 
     # client options
-    api_key: str
 
     def __init__(
         self,
         *,
-        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -259,18 +236,7 @@ class AsyncBdnbAPI(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async bdnb-api client instance.
-
-        This automatically infers the `api_key` argument from the `BDNB_API_KEY` environment variable if it is not provided.
-        """
-        if api_key is None:
-            api_key = os.environ.get("BDNB_API_KEY")
-        if api_key is None:
-            raise BdnbAPIError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the BDNB_API_KEY environment variable"
-            )
-        self.api_key = api_key
-
+        """Construct a new async bdnb-api client instance."""
         if base_url is None:
             base_url = os.environ.get("BDNB_API_BASE_URL")
         if base_url is None:
@@ -303,12 +269,6 @@ class AsyncBdnbAPI(AsyncAPIClient):
 
     @property
     @override
-    def auth_headers(self) -> dict[str, str]:
-        api_key = self.api_key
-        return {"X-Gravitee-Api-Key": api_key}
-
-    @property
-    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
@@ -319,7 +279,6 @@ class AsyncBdnbAPI(AsyncAPIClient):
     def copy(
         self,
         *,
-        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -353,7 +312,6 @@ class AsyncBdnbAPI(AsyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            api_key=api_key or self.api_key,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
