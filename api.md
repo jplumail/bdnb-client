@@ -41,18 +41,6 @@ Methods:
 
 - <code title="get /autocompletion_entites_texte">client.autocompletion.<a href="./src/bdnb_api/resources/autocompletion.py">list</a>(\*\*<a href="src/bdnb_api/types/autocompletion_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/autocompletion_list_response.py">AutocompletionListResponse</a></code>
 
-# Geocodage
-
-Types:
-
-```python
-from bdnb_api.types import GeocodageListResponse
-```
-
-Methods:
-
-- <code title="get /geocodage">client.geocodage.<a href="./src/bdnb_api/resources/geocodage.py">list</a>(\*\*<a href="src/bdnb_api/types/geocodage_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/geocodage_list_response.py">object</a></code>
-
 # Stats
 
 ## BatimentGroupes
