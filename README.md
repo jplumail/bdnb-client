@@ -28,7 +28,7 @@ from bdnb_api import BdnbAPI
 
 client = BdnbAPI()
 
-polygon_create_response = client.donnees.batiment_groupe_complet.polygon.create()
+polygon_list_response = client.donnees.batiment_groupe_complet.polygon.list()
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -48,7 +48,7 @@ client = AsyncBdnbAPI()
 
 
 async def main() -> None:
-    polygon_create_response = await client.donnees.batiment_groupe_complet.polygon.create()
+    polygon_list_response = await client.donnees.batiment_groupe_complet.polygon.list()
 
 
 asyncio.run(main())
@@ -81,7 +81,7 @@ from bdnb_api import BdnbAPI
 client = BdnbAPI()
 
 try:
-    client.donnees.batiment_groupe_complet.polygon.create()
+    client.donnees.batiment_groupe_complet.polygon.list()
 except bdnb_api.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -124,7 +124,7 @@ client = BdnbAPI(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).donnees.batiment_groupe_complet.polygon.create()
+client.with_options(max_retries=5).donnees.batiment_groupe_complet.polygon.list()
 ```
 
 ### Timeouts
@@ -147,7 +147,7 @@ client = BdnbAPI(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).donnees.batiment_groupe_complet.polygon.create()
+client.with_options(timeout=5.0).donnees.batiment_groupe_complet.polygon.list()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -186,10 +186,10 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from bdnb_api import BdnbAPI
 
 client = BdnbAPI()
-response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.create()
+response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
 print(response.headers.get('X-My-Header'))
 
-polygon = response.parse()  # get the object that `donnees.batiment_groupe_complet.polygon.create()` would have returned
+polygon = response.parse()  # get the object that `donnees.batiment_groupe_complet.polygon.list()` would have returned
 print(polygon)
 ```
 
@@ -204,7 +204,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.donnees.batiment_groupe_complet.polygon.with_streaming_response.create() as response:
+with client.donnees.batiment_groupe_complet.polygon.with_streaming_response.list() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():

@@ -3,7 +3,7 @@
 from typing import List
 from typing_extensions import TypeAlias
 
-from ..meta_donnees.rel_colonne_jeu_de_donnees import RelColonneJeuDeDonnees
+from .rel_colonne_jeu_de_donnees import RelColonneJeuDeDonnees
 
 __all__ = ["RelColonneJeuDeDonneeListResponse"]
 
