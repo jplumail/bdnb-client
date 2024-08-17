@@ -10,15 +10,23 @@ from .ancqpv import (
     AncqpvResourceWithStreamingResponse,
     AsyncAncqpvResourceWithStreamingResponse,
 )
+from .adresse import (
+    AdresseResource,
+    AsyncAdresseResource,
+    AdresseResourceWithRawResponse,
+    AsyncAdresseResourceWithRawResponse,
+    AdresseResourceWithStreamingResponse,
+    AsyncAdresseResourceWithStreamingResponse,
+)
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
-from .tables_bdnb import (
-    TablesBdnbResource,
-    AsyncTablesBdnbResource,
-    TablesBdnbResourceWithRawResponse,
-    AsyncTablesBdnbResourceWithRawResponse,
-    TablesBdnbResourceWithStreamingResponse,
-    AsyncTablesBdnbResourceWithStreamingResponse,
+from .proprietaire import (
+    ProprietaireResource,
+    AsyncProprietaireResource,
+    ProprietaireResourceWithRawResponse,
+    AsyncProprietaireResourceWithRawResponse,
+    ProprietaireResourceWithStreamingResponse,
+    AsyncProprietaireResourceWithStreamingResponse,
 )
 from .batiment_groupe import (
     BatimentGroupeResource,
@@ -28,6 +36,38 @@ from .batiment_groupe import (
     BatimentGroupeResourceWithStreamingResponse,
     AsyncBatimentGroupeResourceWithStreamingResponse,
 )
+from .batiment_groupe_bpe import (
+    BatimentGroupeBpeResource,
+    AsyncBatimentGroupeBpeResource,
+    BatimentGroupeBpeResourceWithRawResponse,
+    AsyncBatimentGroupeBpeResourceWithRawResponse,
+    BatimentGroupeBpeResourceWithStreamingResponse,
+    AsyncBatimentGroupeBpeResourceWithStreamingResponse,
+)
+from .batiment_groupe_qpv import (
+    BatimentGroupeQpvResource,
+    AsyncBatimentGroupeQpvResource,
+    BatimentGroupeQpvResourceWithRawResponse,
+    AsyncBatimentGroupeQpvResourceWithRawResponse,
+    BatimentGroupeQpvResourceWithStreamingResponse,
+    AsyncBatimentGroupeQpvResourceWithStreamingResponse,
+)
+from .batiment_groupe_rnc import (
+    BatimentGroupeRncResource,
+    AsyncBatimentGroupeRncResource,
+    BatimentGroupeRncResourceWithRawResponse,
+    AsyncBatimentGroupeRncResourceWithRawResponse,
+    BatimentGroupeRncResourceWithStreamingResponse,
+    AsyncBatimentGroupeRncResourceWithStreamingResponse,
+)
+from .batiment_groupe_hthd import (
+    BatimentGroupeHthdResource,
+    AsyncBatimentGroupeHthdResource,
+    BatimentGroupeHthdResourceWithRawResponse,
+    AsyncBatimentGroupeHthdResourceWithRawResponse,
+    BatimentGroupeHthdResourceWithStreamingResponse,
+    AsyncBatimentGroupeHthdResourceWithStreamingResponse,
+)
 from .batiment_groupe_radon import (
     BatimentGroupeRadonResource,
     AsyncBatimentGroupeRadonResource,
@@ -35,6 +75,14 @@ from .batiment_groupe_radon import (
     AsyncBatimentGroupeRadonResourceWithRawResponse,
     BatimentGroupeRadonResourceWithStreamingResponse,
     AsyncBatimentGroupeRadonResourceWithStreamingResponse,
+)
+from .batiment_groupe_geospx import (
+    BatimentGroupeGeospxResource,
+    AsyncBatimentGroupeGeospxResource,
+    BatimentGroupeGeospxResourceWithRawResponse,
+    AsyncBatimentGroupeGeospxResourceWithRawResponse,
+    BatimentGroupeGeospxResourceWithStreamingResponse,
+    AsyncBatimentGroupeGeospxResourceWithStreamingResponse,
 )
 from .batiments_construction import (
     BatimentsConstructionResource,
@@ -52,6 +100,14 @@ from .batiment_groupe_adresse import (
     BatimentGroupeAdresseResourceWithStreamingResponse,
     AsyncBatimentGroupeAdresseResourceWithStreamingResponse,
 )
+from .batiment_groupe_argiles import (
+    BatimentGroupeArgilesResource,
+    AsyncBatimentGroupeArgilesResource,
+    BatimentGroupeArgilesResourceWithRawResponse,
+    AsyncBatimentGroupeArgilesResourceWithRawResponse,
+    BatimentGroupeArgilesResourceWithStreamingResponse,
+    AsyncBatimentGroupeArgilesResourceWithStreamingResponse,
+)
 from .batiment_groupe_complet import (
     BatimentGroupeCompletResource,
     AsyncBatimentGroupeCompletResource,
@@ -59,6 +115,14 @@ from .batiment_groupe_complet import (
     AsyncBatimentGroupeCompletResourceWithRawResponse,
     BatimentGroupeCompletResourceWithStreamingResponse,
     AsyncBatimentGroupeCompletResourceWithStreamingResponse,
+)
+from .batiment_groupe_ffo_bat import (
+    BatimentGroupeFfoBatResource,
+    AsyncBatimentGroupeFfoBatResource,
+    BatimentGroupeFfoBatResourceWithRawResponse,
+    AsyncBatimentGroupeFfoBatResourceWithRawResponse,
+    BatimentGroupeFfoBatResourceWithStreamingResponse,
+    AsyncBatimentGroupeFfoBatResourceWithStreamingResponse,
 )
 from .batiment_groupe_merimee import (
     BatimentGroupeMerimeeResource,
@@ -68,7 +132,46 @@ from .batiment_groupe_merimee import (
     BatimentGroupeMerimeeResourceWithStreamingResponse,
     AsyncBatimentGroupeMerimeeResourceWithStreamingResponse,
 )
-from .tables_bdnb.tables_bdnb import TablesBdnbResource, AsyncTablesBdnbResource
+from .rel_batiment_groupe_qpv import (
+    RelBatimentGroupeQpvResource,
+    AsyncRelBatimentGroupeQpvResource,
+    RelBatimentGroupeQpvResourceWithRawResponse,
+    AsyncRelBatimentGroupeQpvResourceWithRawResponse,
+    RelBatimentGroupeQpvResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeQpvResourceWithStreamingResponse,
+)
+from .rel_batiment_groupe_rnc import (
+    RelBatimentGroupeRncResource,
+    AsyncRelBatimentGroupeRncResource,
+    RelBatimentGroupeRncResourceWithRawResponse,
+    AsyncRelBatimentGroupeRncResourceWithRawResponse,
+    RelBatimentGroupeRncResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeRncResourceWithStreamingResponse,
+)
+from .batiment_groupe_wall_dict import (
+    BatimentGroupeWallDictResource,
+    AsyncBatimentGroupeWallDictResource,
+    BatimentGroupeWallDictResourceWithRawResponse,
+    AsyncBatimentGroupeWallDictResourceWithRawResponse,
+    BatimentGroupeWallDictResourceWithStreamingResponse,
+    AsyncBatimentGroupeWallDictResourceWithStreamingResponse,
+)
+from .referentiel_administratif import (
+    ReferentielAdministratifResource,
+    AsyncReferentielAdministratifResource,
+    ReferentielAdministratifResourceWithRawResponse,
+    AsyncReferentielAdministratifResourceWithRawResponse,
+    ReferentielAdministratifResourceWithStreamingResponse,
+    AsyncReferentielAdministratifResourceWithStreamingResponse,
+)
+from .batiment_groupe_bdtopo_bat import (
+    BatimentGroupeBdtopoBatResource,
+    AsyncBatimentGroupeBdtopoBatResource,
+    BatimentGroupeBdtopoBatResourceWithRawResponse,
+    AsyncBatimentGroupeBdtopoBatResourceWithRawResponse,
+    BatimentGroupeBdtopoBatResourceWithStreamingResponse,
+    AsyncBatimentGroupeBdtopoBatResourceWithStreamingResponse,
+)
 from .batiment_groupe_bdtopo_equ import (
     BatimentGroupeBdtopoEquResource,
     AsyncBatimentGroupeBdtopoEquResource,
@@ -77,13 +180,29 @@ from .batiment_groupe_bdtopo_equ import (
     BatimentGroupeBdtopoEquResourceWithStreamingResponse,
     AsyncBatimentGroupeBdtopoEquResourceWithStreamingResponse,
 )
-from .batiments_groupes_complets import (
-    BatimentsGroupesCompletsResource,
-    AsyncBatimentsGroupesCompletsResource,
-    BatimentsGroupesCompletsResourceWithRawResponse,
-    AsyncBatimentsGroupesCompletsResourceWithRawResponse,
-    BatimentsGroupesCompletsResourceWithStreamingResponse,
-    AsyncBatimentsGroupesCompletsResourceWithStreamingResponse,
+from .iris_contexte_geographique import (
+    IrisContexteGeographiqueResource,
+    AsyncIrisContexteGeographiqueResource,
+    IrisContexteGeographiqueResourceWithRawResponse,
+    AsyncIrisContexteGeographiqueResourceWithRawResponse,
+    IrisContexteGeographiqueResourceWithStreamingResponse,
+    AsyncIrisContexteGeographiqueResourceWithStreamingResponse,
+)
+from .batiment_groupe_bdtopo_zoac import (
+    BatimentGroupeBdtopoZoacResource,
+    AsyncBatimentGroupeBdtopoZoacResource,
+    BatimentGroupeBdtopoZoacResourceWithRawResponse,
+    AsyncBatimentGroupeBdtopoZoacResourceWithRawResponse,
+    BatimentGroupeBdtopoZoacResourceWithStreamingResponse,
+    AsyncBatimentGroupeBdtopoZoacResourceWithStreamingResponse,
+)
+from .rel_batiment_groupe_adresse import (
+    RelBatimentGroupeAdresseResource,
+    AsyncRelBatimentGroupeAdresseResource,
+    RelBatimentGroupeAdresseResourceWithRawResponse,
+    AsyncRelBatimentGroupeAdresseResourceWithRawResponse,
+    RelBatimentGroupeAdresseResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeAdresseResourceWithStreamingResponse,
 )
 from .rel_batiment_groupe_merimee import (
     RelBatimentGroupeMerimeeResource,
@@ -117,6 +236,14 @@ from .batiment_groupe_dle_elec_2020 import (
     BatimentGroupeDleElec2020ResourceWithStreamingResponse,
     AsyncBatimentGroupeDleElec2020ResourceWithStreamingResponse,
 )
+from .iris_simulations_valeur_verte import (
+    IrisSimulationsValeurVerteResource,
+    AsyncIrisSimulationsValeurVerteResource,
+    IrisSimulationsValeurVerteResourceWithRawResponse,
+    AsyncIrisSimulationsValeurVerteResourceWithRawResponse,
+    IrisSimulationsValeurVerteResourceWithStreamingResponse,
+    AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse,
+)
 from .batiment_groupe_simulations_dpe import (
     BatimentGroupeSimulationsDpeResource,
     AsyncBatimentGroupeSimulationsDpeResource,
@@ -141,13 +268,45 @@ from .batiment_groupe_dle_reseaux_2020 import (
     BatimentGroupeDleReseaux2020ResourceWithStreamingResponse,
     AsyncBatimentGroupeDleReseaux2020ResourceWithStreamingResponse,
 )
-from .referentiel_administratif_region import (
-    ReferentielAdministratifRegionResource,
-    AsyncReferentielAdministratifRegionResource,
-    ReferentielAdministratifRegionResourceWithRawResponse,
-    AsyncReferentielAdministratifRegionResourceWithRawResponse,
-    ReferentielAdministratifRegionResourceWithStreamingResponse,
-    AsyncReferentielAdministratifRegionResourceWithStreamingResponse,
+from .rel_batiment_construction_adresse import (
+    RelBatimentConstructionAdresseResource,
+    AsyncRelBatimentConstructionAdresseResource,
+    RelBatimentConstructionAdresseResourceWithRawResponse,
+    AsyncRelBatimentConstructionAdresseResourceWithRawResponse,
+    RelBatimentConstructionAdresseResourceWithStreamingResponse,
+    AsyncRelBatimentConstructionAdresseResourceWithStreamingResponse,
+)
+from .rel_batiment_groupe_siren_complet import (
+    RelBatimentGroupeSirenCompletResource,
+    AsyncRelBatimentGroupeSirenCompletResource,
+    RelBatimentGroupeSirenCompletResourceWithRawResponse,
+    AsyncRelBatimentGroupeSirenCompletResourceWithRawResponse,
+    RelBatimentGroupeSirenCompletResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeSirenCompletResourceWithStreamingResponse,
+)
+from .rel_batiment_groupe_siret_complet import (
+    RelBatimentGroupeSiretCompletResource,
+    AsyncRelBatimentGroupeSiretCompletResource,
+    RelBatimentGroupeSiretCompletResourceWithRawResponse,
+    AsyncRelBatimentGroupeSiretCompletResourceWithRawResponse,
+    RelBatimentGroupeSiretCompletResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeSiretCompletResourceWithStreamingResponse,
+)
+from .batiment_groupe_synthese_enveloppe import (
+    BatimentGroupeSyntheseEnveloppeResource,
+    AsyncBatimentGroupeSyntheseEnveloppeResource,
+    BatimentGroupeSyntheseEnveloppeResourceWithRawResponse,
+    AsyncBatimentGroupeSyntheseEnveloppeResourceWithRawResponse,
+    BatimentGroupeSyntheseEnveloppeResourceWithStreamingResponse,
+    AsyncBatimentGroupeSyntheseEnveloppeResourceWithStreamingResponse,
+)
+from .batiment_groupe_dvf_open_statistique import (
+    BatimentGroupeDvfOpenStatistiqueResource,
+    AsyncBatimentGroupeDvfOpenStatistiqueResource,
+    BatimentGroupeDvfOpenStatistiqueResourceWithRawResponse,
+    AsyncBatimentGroupeDvfOpenStatistiqueResourceWithRawResponse,
+    BatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse,
+    AsyncBatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse,
 )
 from .batiment_groupe_dle_gaz_multimillesime import (
     BatimentGroupeDleGazMultimillesimeResource,
@@ -165,6 +324,22 @@ from .batiment_groupe_dvf_open_representatif import (
     BatimentGroupeDvfOpenRepresentatifResourceWithStreamingResponse,
     AsyncBatimentGroupeDvfOpenRepresentatifResourceWithStreamingResponse,
 )
+from .rel_batiment_groupe_proprietaire_siren import (
+    RelBatimentGroupeProprietaireSirenResource,
+    AsyncRelBatimentGroupeProprietaireSirenResource,
+    RelBatimentGroupeProprietaireSirenResourceWithRawResponse,
+    AsyncRelBatimentGroupeProprietaireSirenResourceWithRawResponse,
+    RelBatimentGroupeProprietaireSirenResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeProprietaireSirenResourceWithStreamingResponse,
+)
+from .batiment_groupe_dle_elec_multimillesime import (
+    BatimentGroupeDleElecMultimillesimeResource,
+    AsyncBatimentGroupeDleElecMultimillesimeResource,
+    BatimentGroupeDleElecMultimillesimeResourceWithRawResponse,
+    AsyncBatimentGroupeDleElecMultimillesimeResourceWithRawResponse,
+    BatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse,
+    AsyncBatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse,
+)
 from .batiment_groupe_dpe_statistique_logement import (
     BatimentGroupeDpeStatistiqueLogementResource,
     AsyncBatimentGroupeDpeStatistiqueLogementResource,
@@ -172,6 +347,14 @@ from .batiment_groupe_dpe_statistique_logement import (
     AsyncBatimentGroupeDpeStatistiqueLogementResourceWithRawResponse,
     BatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse,
     AsyncBatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse,
+)
+from .batiment_groupe_dle_reseaux_multimillesime import (
+    BatimentGroupeDleReseauxMultimillesimeResource,
+    AsyncBatimentGroupeDleReseauxMultimillesimeResource,
+    BatimentGroupeDleReseauxMultimillesimeResourceWithRawResponse,
+    AsyncBatimentGroupeDleReseauxMultimillesimeResourceWithRawResponse,
+    BatimentGroupeDleReseauxMultimillesimeResourceWithStreamingResponse,
+    AsyncBatimentGroupeDleReseauxMultimillesimeResourceWithStreamingResponse,
 )
 from .batiment_groupe_dpe_representatif_logement import (
     BatimentGroupeDpeRepresentatifLogementResource,
@@ -181,13 +364,21 @@ from .batiment_groupe_dpe_representatif_logement import (
     BatimentGroupeDpeRepresentatifLogementResourceWithStreamingResponse,
     AsyncBatimentGroupeDpeRepresentatifLogementResourceWithStreamingResponse,
 )
+from .rel_batiment_groupe_proprietaire_siren_open import (
+    RelBatimentGroupeProprietaireSirenOpenResource,
+    AsyncRelBatimentGroupeProprietaireSirenOpenResource,
+    RelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse,
+    AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse,
+    RelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse,
+    AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse,
+)
 from .batiment_groupe_complet.batiment_groupe_complet import (
     BatimentGroupeCompletResource,
     AsyncBatimentGroupeCompletResource,
 )
-from .batiments_groupes_complets.batiments_groupes_complets import (
-    BatimentsGroupesCompletsResource,
-    AsyncBatimentsGroupesCompletsResource,
+from .referentiel_administratif.referentiel_administratif import (
+    ReferentielAdministratifResource,
+    AsyncReferentielAdministratifResource,
 )
 
 __all__ = ["DonneesResource", "AsyncDonneesResource"]
@@ -195,16 +386,48 @@ __all__ = ["DonneesResource", "AsyncDonneesResource"]
 
 class DonneesResource(SyncAPIResource):
     @cached_property
+    def batiment_groupe_complet(self) -> BatimentGroupeCompletResource:
+        return BatimentGroupeCompletResource(self._client)
+
+    @cached_property
     def batiments_construction(self) -> BatimentsConstructionResource:
         return BatimentsConstructionResource(self._client)
 
     @cached_property
-    def batiments_groupes_complets(self) -> BatimentsGroupesCompletsResource:
-        return BatimentsGroupesCompletsResource(self._client)
+    def batiment_groupe_bdtopo_zoac(self) -> BatimentGroupeBdtopoZoacResource:
+        return BatimentGroupeBdtopoZoacResource(self._client)
 
     @cached_property
-    def tables_bdnb(self) -> TablesBdnbResource:
-        return TablesBdnbResource(self._client)
+    def batiment_groupe_geospx(self) -> BatimentGroupeGeospxResource:
+        return BatimentGroupeGeospxResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren(self) -> RelBatimentGroupeProprietaireSirenResource:
+        return RelBatimentGroupeProprietaireSirenResource(self._client)
+
+    @cached_property
+    def batiment_groupe_dvf_open_statistique(self) -> BatimentGroupeDvfOpenStatistiqueResource:
+        return BatimentGroupeDvfOpenStatistiqueResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_qpv(self) -> RelBatimentGroupeQpvResource:
+        return RelBatimentGroupeQpvResource(self._client)
+
+    @cached_property
+    def batiment_groupe_qpv(self) -> BatimentGroupeQpvResource:
+        return BatimentGroupeQpvResource(self._client)
+
+    @cached_property
+    def rel_batiment_construction_adresse(self) -> RelBatimentConstructionAdresseResource:
+        return RelBatimentConstructionAdresseResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_adresse(self) -> RelBatimentGroupeAdresseResource:
+        return RelBatimentGroupeAdresseResource(self._client)
+
+    @cached_property
+    def batiment_groupe_synthese_enveloppe(self) -> BatimentGroupeSyntheseEnveloppeResource:
+        return BatimentGroupeSyntheseEnveloppeResource(self._client)
 
     @cached_property
     def batiment_groupe_simulations_dpe(self) -> BatimentGroupeSimulationsDpeResource:
@@ -237,10 +460,6 @@ class DonneesResource(SyncAPIResource):
     @cached_property
     def batiment_groupe_merimee(self) -> BatimentGroupeMerimeeResource:
         return BatimentGroupeMerimeeResource(self._client)
-
-    @cached_property
-    def referentiel_administratif_region(self) -> ReferentielAdministratifRegionResource:
-        return ReferentielAdministratifRegionResource(self._client)
 
     @cached_property
     def batiment_groupe_dle_reseaux_2020(self) -> BatimentGroupeDleReseaux2020Resource:
@@ -279,8 +498,76 @@ class DonneesResource(SyncAPIResource):
         return BatimentGroupeDpeStatistiqueLogementResource(self._client)
 
     @cached_property
-    def batiment_groupe_complet(self) -> BatimentGroupeCompletResource:
-        return BatimentGroupeCompletResource(self._client)
+    def iris_simulations_valeur_verte(self) -> IrisSimulationsValeurVerteResource:
+        return IrisSimulationsValeurVerteResource(self._client)
+
+    @cached_property
+    def iris_contexte_geographique(self) -> IrisContexteGeographiqueResource:
+        return IrisContexteGeographiqueResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_siren_complet(self) -> RelBatimentGroupeSirenCompletResource:
+        return RelBatimentGroupeSirenCompletResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_siret_complet(self) -> RelBatimentGroupeSiretCompletResource:
+        return RelBatimentGroupeSiretCompletResource(self._client)
+
+    @cached_property
+    def batiment_groupe_dle_reseaux_multimillesime(self) -> BatimentGroupeDleReseauxMultimillesimeResource:
+        return BatimentGroupeDleReseauxMultimillesimeResource(self._client)
+
+    @cached_property
+    def batiment_groupe_rnc(self) -> BatimentGroupeRncResource:
+        return BatimentGroupeRncResource(self._client)
+
+    @cached_property
+    def batiment_groupe_bpe(self) -> BatimentGroupeBpeResource:
+        return BatimentGroupeBpeResource(self._client)
+
+    @cached_property
+    def batiment_groupe_ffo_bat(self) -> BatimentGroupeFfoBatResource:
+        return BatimentGroupeFfoBatResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_rnc(self) -> RelBatimentGroupeRncResource:
+        return RelBatimentGroupeRncResource(self._client)
+
+    @cached_property
+    def batiment_groupe_argiles(self) -> BatimentGroupeArgilesResource:
+        return BatimentGroupeArgilesResource(self._client)
+
+    @cached_property
+    def batiment_groupe_hthd(self) -> BatimentGroupeHthdResource:
+        return BatimentGroupeHthdResource(self._client)
+
+    @cached_property
+    def proprietaire(self) -> ProprietaireResource:
+        return ProprietaireResource(self._client)
+
+    @cached_property
+    def batiment_groupe_bdtopo_bat(self) -> BatimentGroupeBdtopoBatResource:
+        return BatimentGroupeBdtopoBatResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren_open(self) -> RelBatimentGroupeProprietaireSirenOpenResource:
+        return RelBatimentGroupeProprietaireSirenOpenResource(self._client)
+
+    @cached_property
+    def batiment_groupe_dle_elec_multimillesime(self) -> BatimentGroupeDleElecMultimillesimeResource:
+        return BatimentGroupeDleElecMultimillesimeResource(self._client)
+
+    @cached_property
+    def adresse(self) -> AdresseResource:
+        return AdresseResource(self._client)
+
+    @cached_property
+    def batiment_groupe_wall_dict(self) -> BatimentGroupeWallDictResource:
+        return BatimentGroupeWallDictResource(self._client)
+
+    @cached_property
+    def referentiel_administratif(self) -> ReferentielAdministratifResource:
+        return ReferentielAdministratifResource(self._client)
 
     @cached_property
     def with_raw_response(self) -> DonneesResourceWithRawResponse:
@@ -293,16 +580,48 @@ class DonneesResource(SyncAPIResource):
 
 class AsyncDonneesResource(AsyncAPIResource):
     @cached_property
+    def batiment_groupe_complet(self) -> AsyncBatimentGroupeCompletResource:
+        return AsyncBatimentGroupeCompletResource(self._client)
+
+    @cached_property
     def batiments_construction(self) -> AsyncBatimentsConstructionResource:
         return AsyncBatimentsConstructionResource(self._client)
 
     @cached_property
-    def batiments_groupes_complets(self) -> AsyncBatimentsGroupesCompletsResource:
-        return AsyncBatimentsGroupesCompletsResource(self._client)
+    def batiment_groupe_bdtopo_zoac(self) -> AsyncBatimentGroupeBdtopoZoacResource:
+        return AsyncBatimentGroupeBdtopoZoacResource(self._client)
 
     @cached_property
-    def tables_bdnb(self) -> AsyncTablesBdnbResource:
-        return AsyncTablesBdnbResource(self._client)
+    def batiment_groupe_geospx(self) -> AsyncBatimentGroupeGeospxResource:
+        return AsyncBatimentGroupeGeospxResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren(self) -> AsyncRelBatimentGroupeProprietaireSirenResource:
+        return AsyncRelBatimentGroupeProprietaireSirenResource(self._client)
+
+    @cached_property
+    def batiment_groupe_dvf_open_statistique(self) -> AsyncBatimentGroupeDvfOpenStatistiqueResource:
+        return AsyncBatimentGroupeDvfOpenStatistiqueResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_qpv(self) -> AsyncRelBatimentGroupeQpvResource:
+        return AsyncRelBatimentGroupeQpvResource(self._client)
+
+    @cached_property
+    def batiment_groupe_qpv(self) -> AsyncBatimentGroupeQpvResource:
+        return AsyncBatimentGroupeQpvResource(self._client)
+
+    @cached_property
+    def rel_batiment_construction_adresse(self) -> AsyncRelBatimentConstructionAdresseResource:
+        return AsyncRelBatimentConstructionAdresseResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_adresse(self) -> AsyncRelBatimentGroupeAdresseResource:
+        return AsyncRelBatimentGroupeAdresseResource(self._client)
+
+    @cached_property
+    def batiment_groupe_synthese_enveloppe(self) -> AsyncBatimentGroupeSyntheseEnveloppeResource:
+        return AsyncBatimentGroupeSyntheseEnveloppeResource(self._client)
 
     @cached_property
     def batiment_groupe_simulations_dpe(self) -> AsyncBatimentGroupeSimulationsDpeResource:
@@ -335,10 +654,6 @@ class AsyncDonneesResource(AsyncAPIResource):
     @cached_property
     def batiment_groupe_merimee(self) -> AsyncBatimentGroupeMerimeeResource:
         return AsyncBatimentGroupeMerimeeResource(self._client)
-
-    @cached_property
-    def referentiel_administratif_region(self) -> AsyncReferentielAdministratifRegionResource:
-        return AsyncReferentielAdministratifRegionResource(self._client)
 
     @cached_property
     def batiment_groupe_dle_reseaux_2020(self) -> AsyncBatimentGroupeDleReseaux2020Resource:
@@ -377,8 +692,76 @@ class AsyncDonneesResource(AsyncAPIResource):
         return AsyncBatimentGroupeDpeStatistiqueLogementResource(self._client)
 
     @cached_property
-    def batiment_groupe_complet(self) -> AsyncBatimentGroupeCompletResource:
-        return AsyncBatimentGroupeCompletResource(self._client)
+    def iris_simulations_valeur_verte(self) -> AsyncIrisSimulationsValeurVerteResource:
+        return AsyncIrisSimulationsValeurVerteResource(self._client)
+
+    @cached_property
+    def iris_contexte_geographique(self) -> AsyncIrisContexteGeographiqueResource:
+        return AsyncIrisContexteGeographiqueResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_siren_complet(self) -> AsyncRelBatimentGroupeSirenCompletResource:
+        return AsyncRelBatimentGroupeSirenCompletResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_siret_complet(self) -> AsyncRelBatimentGroupeSiretCompletResource:
+        return AsyncRelBatimentGroupeSiretCompletResource(self._client)
+
+    @cached_property
+    def batiment_groupe_dle_reseaux_multimillesime(self) -> AsyncBatimentGroupeDleReseauxMultimillesimeResource:
+        return AsyncBatimentGroupeDleReseauxMultimillesimeResource(self._client)
+
+    @cached_property
+    def batiment_groupe_rnc(self) -> AsyncBatimentGroupeRncResource:
+        return AsyncBatimentGroupeRncResource(self._client)
+
+    @cached_property
+    def batiment_groupe_bpe(self) -> AsyncBatimentGroupeBpeResource:
+        return AsyncBatimentGroupeBpeResource(self._client)
+
+    @cached_property
+    def batiment_groupe_ffo_bat(self) -> AsyncBatimentGroupeFfoBatResource:
+        return AsyncBatimentGroupeFfoBatResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_rnc(self) -> AsyncRelBatimentGroupeRncResource:
+        return AsyncRelBatimentGroupeRncResource(self._client)
+
+    @cached_property
+    def batiment_groupe_argiles(self) -> AsyncBatimentGroupeArgilesResource:
+        return AsyncBatimentGroupeArgilesResource(self._client)
+
+    @cached_property
+    def batiment_groupe_hthd(self) -> AsyncBatimentGroupeHthdResource:
+        return AsyncBatimentGroupeHthdResource(self._client)
+
+    @cached_property
+    def proprietaire(self) -> AsyncProprietaireResource:
+        return AsyncProprietaireResource(self._client)
+
+    @cached_property
+    def batiment_groupe_bdtopo_bat(self) -> AsyncBatimentGroupeBdtopoBatResource:
+        return AsyncBatimentGroupeBdtopoBatResource(self._client)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren_open(self) -> AsyncRelBatimentGroupeProprietaireSirenOpenResource:
+        return AsyncRelBatimentGroupeProprietaireSirenOpenResource(self._client)
+
+    @cached_property
+    def batiment_groupe_dle_elec_multimillesime(self) -> AsyncBatimentGroupeDleElecMultimillesimeResource:
+        return AsyncBatimentGroupeDleElecMultimillesimeResource(self._client)
+
+    @cached_property
+    def adresse(self) -> AsyncAdresseResource:
+        return AsyncAdresseResource(self._client)
+
+    @cached_property
+    def batiment_groupe_wall_dict(self) -> AsyncBatimentGroupeWallDictResource:
+        return AsyncBatimentGroupeWallDictResource(self._client)
+
+    @cached_property
+    def referentiel_administratif(self) -> AsyncReferentielAdministratifResource:
+        return AsyncReferentielAdministratifResource(self._client)
 
     @cached_property
     def with_raw_response(self) -> AsyncDonneesResourceWithRawResponse:
@@ -394,16 +777,52 @@ class DonneesResourceWithRawResponse:
         self._donnees = donnees
 
     @cached_property
+    def batiment_groupe_complet(self) -> BatimentGroupeCompletResourceWithRawResponse:
+        return BatimentGroupeCompletResourceWithRawResponse(self._donnees.batiment_groupe_complet)
+
+    @cached_property
     def batiments_construction(self) -> BatimentsConstructionResourceWithRawResponse:
         return BatimentsConstructionResourceWithRawResponse(self._donnees.batiments_construction)
 
     @cached_property
-    def batiments_groupes_complets(self) -> BatimentsGroupesCompletsResourceWithRawResponse:
-        return BatimentsGroupesCompletsResourceWithRawResponse(self._donnees.batiments_groupes_complets)
+    def batiment_groupe_bdtopo_zoac(self) -> BatimentGroupeBdtopoZoacResourceWithRawResponse:
+        return BatimentGroupeBdtopoZoacResourceWithRawResponse(self._donnees.batiment_groupe_bdtopo_zoac)
 
     @cached_property
-    def tables_bdnb(self) -> TablesBdnbResourceWithRawResponse:
-        return TablesBdnbResourceWithRawResponse(self._donnees.tables_bdnb)
+    def batiment_groupe_geospx(self) -> BatimentGroupeGeospxResourceWithRawResponse:
+        return BatimentGroupeGeospxResourceWithRawResponse(self._donnees.batiment_groupe_geospx)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren(self) -> RelBatimentGroupeProprietaireSirenResourceWithRawResponse:
+        return RelBatimentGroupeProprietaireSirenResourceWithRawResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren
+        )
+
+    @cached_property
+    def batiment_groupe_dvf_open_statistique(self) -> BatimentGroupeDvfOpenStatistiqueResourceWithRawResponse:
+        return BatimentGroupeDvfOpenStatistiqueResourceWithRawResponse(
+            self._donnees.batiment_groupe_dvf_open_statistique
+        )
+
+    @cached_property
+    def rel_batiment_groupe_qpv(self) -> RelBatimentGroupeQpvResourceWithRawResponse:
+        return RelBatimentGroupeQpvResourceWithRawResponse(self._donnees.rel_batiment_groupe_qpv)
+
+    @cached_property
+    def batiment_groupe_qpv(self) -> BatimentGroupeQpvResourceWithRawResponse:
+        return BatimentGroupeQpvResourceWithRawResponse(self._donnees.batiment_groupe_qpv)
+
+    @cached_property
+    def rel_batiment_construction_adresse(self) -> RelBatimentConstructionAdresseResourceWithRawResponse:
+        return RelBatimentConstructionAdresseResourceWithRawResponse(self._donnees.rel_batiment_construction_adresse)
+
+    @cached_property
+    def rel_batiment_groupe_adresse(self) -> RelBatimentGroupeAdresseResourceWithRawResponse:
+        return RelBatimentGroupeAdresseResourceWithRawResponse(self._donnees.rel_batiment_groupe_adresse)
+
+    @cached_property
+    def batiment_groupe_synthese_enveloppe(self) -> BatimentGroupeSyntheseEnveloppeResourceWithRawResponse:
+        return BatimentGroupeSyntheseEnveloppeResourceWithRawResponse(self._donnees.batiment_groupe_synthese_enveloppe)
 
     @cached_property
     def batiment_groupe_simulations_dpe(self) -> BatimentGroupeSimulationsDpeResourceWithRawResponse:
@@ -440,10 +859,6 @@ class DonneesResourceWithRawResponse:
     @cached_property
     def batiment_groupe_merimee(self) -> BatimentGroupeMerimeeResourceWithRawResponse:
         return BatimentGroupeMerimeeResourceWithRawResponse(self._donnees.batiment_groupe_merimee)
-
-    @cached_property
-    def referentiel_administratif_region(self) -> ReferentielAdministratifRegionResourceWithRawResponse:
-        return ReferentielAdministratifRegionResourceWithRawResponse(self._donnees.referentiel_administratif_region)
 
     @cached_property
     def batiment_groupe_dle_reseaux_2020(self) -> BatimentGroupeDleReseaux2020ResourceWithRawResponse:
@@ -488,8 +903,86 @@ class DonneesResourceWithRawResponse:
         )
 
     @cached_property
-    def batiment_groupe_complet(self) -> BatimentGroupeCompletResourceWithRawResponse:
-        return BatimentGroupeCompletResourceWithRawResponse(self._donnees.batiment_groupe_complet)
+    def iris_simulations_valeur_verte(self) -> IrisSimulationsValeurVerteResourceWithRawResponse:
+        return IrisSimulationsValeurVerteResourceWithRawResponse(self._donnees.iris_simulations_valeur_verte)
+
+    @cached_property
+    def iris_contexte_geographique(self) -> IrisContexteGeographiqueResourceWithRawResponse:
+        return IrisContexteGeographiqueResourceWithRawResponse(self._donnees.iris_contexte_geographique)
+
+    @cached_property
+    def rel_batiment_groupe_siren_complet(self) -> RelBatimentGroupeSirenCompletResourceWithRawResponse:
+        return RelBatimentGroupeSirenCompletResourceWithRawResponse(self._donnees.rel_batiment_groupe_siren_complet)
+
+    @cached_property
+    def rel_batiment_groupe_siret_complet(self) -> RelBatimentGroupeSiretCompletResourceWithRawResponse:
+        return RelBatimentGroupeSiretCompletResourceWithRawResponse(self._donnees.rel_batiment_groupe_siret_complet)
+
+    @cached_property
+    def batiment_groupe_dle_reseaux_multimillesime(
+        self,
+    ) -> BatimentGroupeDleReseauxMultimillesimeResourceWithRawResponse:
+        return BatimentGroupeDleReseauxMultimillesimeResourceWithRawResponse(
+            self._donnees.batiment_groupe_dle_reseaux_multimillesime
+        )
+
+    @cached_property
+    def batiment_groupe_rnc(self) -> BatimentGroupeRncResourceWithRawResponse:
+        return BatimentGroupeRncResourceWithRawResponse(self._donnees.batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_bpe(self) -> BatimentGroupeBpeResourceWithRawResponse:
+        return BatimentGroupeBpeResourceWithRawResponse(self._donnees.batiment_groupe_bpe)
+
+    @cached_property
+    def batiment_groupe_ffo_bat(self) -> BatimentGroupeFfoBatResourceWithRawResponse:
+        return BatimentGroupeFfoBatResourceWithRawResponse(self._donnees.batiment_groupe_ffo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_rnc(self) -> RelBatimentGroupeRncResourceWithRawResponse:
+        return RelBatimentGroupeRncResourceWithRawResponse(self._donnees.rel_batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_argiles(self) -> BatimentGroupeArgilesResourceWithRawResponse:
+        return BatimentGroupeArgilesResourceWithRawResponse(self._donnees.batiment_groupe_argiles)
+
+    @cached_property
+    def batiment_groupe_hthd(self) -> BatimentGroupeHthdResourceWithRawResponse:
+        return BatimentGroupeHthdResourceWithRawResponse(self._donnees.batiment_groupe_hthd)
+
+    @cached_property
+    def proprietaire(self) -> ProprietaireResourceWithRawResponse:
+        return ProprietaireResourceWithRawResponse(self._donnees.proprietaire)
+
+    @cached_property
+    def batiment_groupe_bdtopo_bat(self) -> BatimentGroupeBdtopoBatResourceWithRawResponse:
+        return BatimentGroupeBdtopoBatResourceWithRawResponse(self._donnees.batiment_groupe_bdtopo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren_open(
+        self,
+    ) -> RelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse:
+        return RelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren_open
+        )
+
+    @cached_property
+    def batiment_groupe_dle_elec_multimillesime(self) -> BatimentGroupeDleElecMultimillesimeResourceWithRawResponse:
+        return BatimentGroupeDleElecMultimillesimeResourceWithRawResponse(
+            self._donnees.batiment_groupe_dle_elec_multimillesime
+        )
+
+    @cached_property
+    def adresse(self) -> AdresseResourceWithRawResponse:
+        return AdresseResourceWithRawResponse(self._donnees.adresse)
+
+    @cached_property
+    def batiment_groupe_wall_dict(self) -> BatimentGroupeWallDictResourceWithRawResponse:
+        return BatimentGroupeWallDictResourceWithRawResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def referentiel_administratif(self) -> ReferentielAdministratifResourceWithRawResponse:
+        return ReferentielAdministratifResourceWithRawResponse(self._donnees.referentiel_administratif)
 
 
 class AsyncDonneesResourceWithRawResponse:
@@ -497,16 +990,56 @@ class AsyncDonneesResourceWithRawResponse:
         self._donnees = donnees
 
     @cached_property
+    def batiment_groupe_complet(self) -> AsyncBatimentGroupeCompletResourceWithRawResponse:
+        return AsyncBatimentGroupeCompletResourceWithRawResponse(self._donnees.batiment_groupe_complet)
+
+    @cached_property
     def batiments_construction(self) -> AsyncBatimentsConstructionResourceWithRawResponse:
         return AsyncBatimentsConstructionResourceWithRawResponse(self._donnees.batiments_construction)
 
     @cached_property
-    def batiments_groupes_complets(self) -> AsyncBatimentsGroupesCompletsResourceWithRawResponse:
-        return AsyncBatimentsGroupesCompletsResourceWithRawResponse(self._donnees.batiments_groupes_complets)
+    def batiment_groupe_bdtopo_zoac(self) -> AsyncBatimentGroupeBdtopoZoacResourceWithRawResponse:
+        return AsyncBatimentGroupeBdtopoZoacResourceWithRawResponse(self._donnees.batiment_groupe_bdtopo_zoac)
 
     @cached_property
-    def tables_bdnb(self) -> AsyncTablesBdnbResourceWithRawResponse:
-        return AsyncTablesBdnbResourceWithRawResponse(self._donnees.tables_bdnb)
+    def batiment_groupe_geospx(self) -> AsyncBatimentGroupeGeospxResourceWithRawResponse:
+        return AsyncBatimentGroupeGeospxResourceWithRawResponse(self._donnees.batiment_groupe_geospx)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren(self) -> AsyncRelBatimentGroupeProprietaireSirenResourceWithRawResponse:
+        return AsyncRelBatimentGroupeProprietaireSirenResourceWithRawResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren
+        )
+
+    @cached_property
+    def batiment_groupe_dvf_open_statistique(self) -> AsyncBatimentGroupeDvfOpenStatistiqueResourceWithRawResponse:
+        return AsyncBatimentGroupeDvfOpenStatistiqueResourceWithRawResponse(
+            self._donnees.batiment_groupe_dvf_open_statistique
+        )
+
+    @cached_property
+    def rel_batiment_groupe_qpv(self) -> AsyncRelBatimentGroupeQpvResourceWithRawResponse:
+        return AsyncRelBatimentGroupeQpvResourceWithRawResponse(self._donnees.rel_batiment_groupe_qpv)
+
+    @cached_property
+    def batiment_groupe_qpv(self) -> AsyncBatimentGroupeQpvResourceWithRawResponse:
+        return AsyncBatimentGroupeQpvResourceWithRawResponse(self._donnees.batiment_groupe_qpv)
+
+    @cached_property
+    def rel_batiment_construction_adresse(self) -> AsyncRelBatimentConstructionAdresseResourceWithRawResponse:
+        return AsyncRelBatimentConstructionAdresseResourceWithRawResponse(
+            self._donnees.rel_batiment_construction_adresse
+        )
+
+    @cached_property
+    def rel_batiment_groupe_adresse(self) -> AsyncRelBatimentGroupeAdresseResourceWithRawResponse:
+        return AsyncRelBatimentGroupeAdresseResourceWithRawResponse(self._donnees.rel_batiment_groupe_adresse)
+
+    @cached_property
+    def batiment_groupe_synthese_enveloppe(self) -> AsyncBatimentGroupeSyntheseEnveloppeResourceWithRawResponse:
+        return AsyncBatimentGroupeSyntheseEnveloppeResourceWithRawResponse(
+            self._donnees.batiment_groupe_synthese_enveloppe
+        )
 
     @cached_property
     def batiment_groupe_simulations_dpe(self) -> AsyncBatimentGroupeSimulationsDpeResourceWithRawResponse:
@@ -543,12 +1076,6 @@ class AsyncDonneesResourceWithRawResponse:
     @cached_property
     def batiment_groupe_merimee(self) -> AsyncBatimentGroupeMerimeeResourceWithRawResponse:
         return AsyncBatimentGroupeMerimeeResourceWithRawResponse(self._donnees.batiment_groupe_merimee)
-
-    @cached_property
-    def referentiel_administratif_region(self) -> AsyncReferentielAdministratifRegionResourceWithRawResponse:
-        return AsyncReferentielAdministratifRegionResourceWithRawResponse(
-            self._donnees.referentiel_administratif_region
-        )
 
     @cached_property
     def batiment_groupe_dle_reseaux_2020(self) -> AsyncBatimentGroupeDleReseaux2020ResourceWithRawResponse:
@@ -595,8 +1122,92 @@ class AsyncDonneesResourceWithRawResponse:
         )
 
     @cached_property
-    def batiment_groupe_complet(self) -> AsyncBatimentGroupeCompletResourceWithRawResponse:
-        return AsyncBatimentGroupeCompletResourceWithRawResponse(self._donnees.batiment_groupe_complet)
+    def iris_simulations_valeur_verte(self) -> AsyncIrisSimulationsValeurVerteResourceWithRawResponse:
+        return AsyncIrisSimulationsValeurVerteResourceWithRawResponse(self._donnees.iris_simulations_valeur_verte)
+
+    @cached_property
+    def iris_contexte_geographique(self) -> AsyncIrisContexteGeographiqueResourceWithRawResponse:
+        return AsyncIrisContexteGeographiqueResourceWithRawResponse(self._donnees.iris_contexte_geographique)
+
+    @cached_property
+    def rel_batiment_groupe_siren_complet(self) -> AsyncRelBatimentGroupeSirenCompletResourceWithRawResponse:
+        return AsyncRelBatimentGroupeSirenCompletResourceWithRawResponse(
+            self._donnees.rel_batiment_groupe_siren_complet
+        )
+
+    @cached_property
+    def rel_batiment_groupe_siret_complet(self) -> AsyncRelBatimentGroupeSiretCompletResourceWithRawResponse:
+        return AsyncRelBatimentGroupeSiretCompletResourceWithRawResponse(
+            self._donnees.rel_batiment_groupe_siret_complet
+        )
+
+    @cached_property
+    def batiment_groupe_dle_reseaux_multimillesime(
+        self,
+    ) -> AsyncBatimentGroupeDleReseauxMultimillesimeResourceWithRawResponse:
+        return AsyncBatimentGroupeDleReseauxMultimillesimeResourceWithRawResponse(
+            self._donnees.batiment_groupe_dle_reseaux_multimillesime
+        )
+
+    @cached_property
+    def batiment_groupe_rnc(self) -> AsyncBatimentGroupeRncResourceWithRawResponse:
+        return AsyncBatimentGroupeRncResourceWithRawResponse(self._donnees.batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_bpe(self) -> AsyncBatimentGroupeBpeResourceWithRawResponse:
+        return AsyncBatimentGroupeBpeResourceWithRawResponse(self._donnees.batiment_groupe_bpe)
+
+    @cached_property
+    def batiment_groupe_ffo_bat(self) -> AsyncBatimentGroupeFfoBatResourceWithRawResponse:
+        return AsyncBatimentGroupeFfoBatResourceWithRawResponse(self._donnees.batiment_groupe_ffo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_rnc(self) -> AsyncRelBatimentGroupeRncResourceWithRawResponse:
+        return AsyncRelBatimentGroupeRncResourceWithRawResponse(self._donnees.rel_batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_argiles(self) -> AsyncBatimentGroupeArgilesResourceWithRawResponse:
+        return AsyncBatimentGroupeArgilesResourceWithRawResponse(self._donnees.batiment_groupe_argiles)
+
+    @cached_property
+    def batiment_groupe_hthd(self) -> AsyncBatimentGroupeHthdResourceWithRawResponse:
+        return AsyncBatimentGroupeHthdResourceWithRawResponse(self._donnees.batiment_groupe_hthd)
+
+    @cached_property
+    def proprietaire(self) -> AsyncProprietaireResourceWithRawResponse:
+        return AsyncProprietaireResourceWithRawResponse(self._donnees.proprietaire)
+
+    @cached_property
+    def batiment_groupe_bdtopo_bat(self) -> AsyncBatimentGroupeBdtopoBatResourceWithRawResponse:
+        return AsyncBatimentGroupeBdtopoBatResourceWithRawResponse(self._donnees.batiment_groupe_bdtopo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren_open(
+        self,
+    ) -> AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse:
+        return AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren_open
+        )
+
+    @cached_property
+    def batiment_groupe_dle_elec_multimillesime(
+        self,
+    ) -> AsyncBatimentGroupeDleElecMultimillesimeResourceWithRawResponse:
+        return AsyncBatimentGroupeDleElecMultimillesimeResourceWithRawResponse(
+            self._donnees.batiment_groupe_dle_elec_multimillesime
+        )
+
+    @cached_property
+    def adresse(self) -> AsyncAdresseResourceWithRawResponse:
+        return AsyncAdresseResourceWithRawResponse(self._donnees.adresse)
+
+    @cached_property
+    def batiment_groupe_wall_dict(self) -> AsyncBatimentGroupeWallDictResourceWithRawResponse:
+        return AsyncBatimentGroupeWallDictResourceWithRawResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def referentiel_administratif(self) -> AsyncReferentielAdministratifResourceWithRawResponse:
+        return AsyncReferentielAdministratifResourceWithRawResponse(self._donnees.referentiel_administratif)
 
 
 class DonneesResourceWithStreamingResponse:
@@ -604,16 +1215,56 @@ class DonneesResourceWithStreamingResponse:
         self._donnees = donnees
 
     @cached_property
+    def batiment_groupe_complet(self) -> BatimentGroupeCompletResourceWithStreamingResponse:
+        return BatimentGroupeCompletResourceWithStreamingResponse(self._donnees.batiment_groupe_complet)
+
+    @cached_property
     def batiments_construction(self) -> BatimentsConstructionResourceWithStreamingResponse:
         return BatimentsConstructionResourceWithStreamingResponse(self._donnees.batiments_construction)
 
     @cached_property
-    def batiments_groupes_complets(self) -> BatimentsGroupesCompletsResourceWithStreamingResponse:
-        return BatimentsGroupesCompletsResourceWithStreamingResponse(self._donnees.batiments_groupes_complets)
+    def batiment_groupe_bdtopo_zoac(self) -> BatimentGroupeBdtopoZoacResourceWithStreamingResponse:
+        return BatimentGroupeBdtopoZoacResourceWithStreamingResponse(self._donnees.batiment_groupe_bdtopo_zoac)
 
     @cached_property
-    def tables_bdnb(self) -> TablesBdnbResourceWithStreamingResponse:
-        return TablesBdnbResourceWithStreamingResponse(self._donnees.tables_bdnb)
+    def batiment_groupe_geospx(self) -> BatimentGroupeGeospxResourceWithStreamingResponse:
+        return BatimentGroupeGeospxResourceWithStreamingResponse(self._donnees.batiment_groupe_geospx)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren(self) -> RelBatimentGroupeProprietaireSirenResourceWithStreamingResponse:
+        return RelBatimentGroupeProprietaireSirenResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren
+        )
+
+    @cached_property
+    def batiment_groupe_dvf_open_statistique(self) -> BatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse:
+        return BatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_dvf_open_statistique
+        )
+
+    @cached_property
+    def rel_batiment_groupe_qpv(self) -> RelBatimentGroupeQpvResourceWithStreamingResponse:
+        return RelBatimentGroupeQpvResourceWithStreamingResponse(self._donnees.rel_batiment_groupe_qpv)
+
+    @cached_property
+    def batiment_groupe_qpv(self) -> BatimentGroupeQpvResourceWithStreamingResponse:
+        return BatimentGroupeQpvResourceWithStreamingResponse(self._donnees.batiment_groupe_qpv)
+
+    @cached_property
+    def rel_batiment_construction_adresse(self) -> RelBatimentConstructionAdresseResourceWithStreamingResponse:
+        return RelBatimentConstructionAdresseResourceWithStreamingResponse(
+            self._donnees.rel_batiment_construction_adresse
+        )
+
+    @cached_property
+    def rel_batiment_groupe_adresse(self) -> RelBatimentGroupeAdresseResourceWithStreamingResponse:
+        return RelBatimentGroupeAdresseResourceWithStreamingResponse(self._donnees.rel_batiment_groupe_adresse)
+
+    @cached_property
+    def batiment_groupe_synthese_enveloppe(self) -> BatimentGroupeSyntheseEnveloppeResourceWithStreamingResponse:
+        return BatimentGroupeSyntheseEnveloppeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_synthese_enveloppe
+        )
 
     @cached_property
     def batiment_groupe_simulations_dpe(self) -> BatimentGroupeSimulationsDpeResourceWithStreamingResponse:
@@ -650,12 +1301,6 @@ class DonneesResourceWithStreamingResponse:
     @cached_property
     def batiment_groupe_merimee(self) -> BatimentGroupeMerimeeResourceWithStreamingResponse:
         return BatimentGroupeMerimeeResourceWithStreamingResponse(self._donnees.batiment_groupe_merimee)
-
-    @cached_property
-    def referentiel_administratif_region(self) -> ReferentielAdministratifRegionResourceWithStreamingResponse:
-        return ReferentielAdministratifRegionResourceWithStreamingResponse(
-            self._donnees.referentiel_administratif_region
-        )
 
     @cached_property
     def batiment_groupe_dle_reseaux_2020(self) -> BatimentGroupeDleReseaux2020ResourceWithStreamingResponse:
@@ -702,8 +1347,92 @@ class DonneesResourceWithStreamingResponse:
         )
 
     @cached_property
-    def batiment_groupe_complet(self) -> BatimentGroupeCompletResourceWithStreamingResponse:
-        return BatimentGroupeCompletResourceWithStreamingResponse(self._donnees.batiment_groupe_complet)
+    def iris_simulations_valeur_verte(self) -> IrisSimulationsValeurVerteResourceWithStreamingResponse:
+        return IrisSimulationsValeurVerteResourceWithStreamingResponse(self._donnees.iris_simulations_valeur_verte)
+
+    @cached_property
+    def iris_contexte_geographique(self) -> IrisContexteGeographiqueResourceWithStreamingResponse:
+        return IrisContexteGeographiqueResourceWithStreamingResponse(self._donnees.iris_contexte_geographique)
+
+    @cached_property
+    def rel_batiment_groupe_siren_complet(self) -> RelBatimentGroupeSirenCompletResourceWithStreamingResponse:
+        return RelBatimentGroupeSirenCompletResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_siren_complet
+        )
+
+    @cached_property
+    def rel_batiment_groupe_siret_complet(self) -> RelBatimentGroupeSiretCompletResourceWithStreamingResponse:
+        return RelBatimentGroupeSiretCompletResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_siret_complet
+        )
+
+    @cached_property
+    def batiment_groupe_dle_reseaux_multimillesime(
+        self,
+    ) -> BatimentGroupeDleReseauxMultimillesimeResourceWithStreamingResponse:
+        return BatimentGroupeDleReseauxMultimillesimeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_dle_reseaux_multimillesime
+        )
+
+    @cached_property
+    def batiment_groupe_rnc(self) -> BatimentGroupeRncResourceWithStreamingResponse:
+        return BatimentGroupeRncResourceWithStreamingResponse(self._donnees.batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_bpe(self) -> BatimentGroupeBpeResourceWithStreamingResponse:
+        return BatimentGroupeBpeResourceWithStreamingResponse(self._donnees.batiment_groupe_bpe)
+
+    @cached_property
+    def batiment_groupe_ffo_bat(self) -> BatimentGroupeFfoBatResourceWithStreamingResponse:
+        return BatimentGroupeFfoBatResourceWithStreamingResponse(self._donnees.batiment_groupe_ffo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_rnc(self) -> RelBatimentGroupeRncResourceWithStreamingResponse:
+        return RelBatimentGroupeRncResourceWithStreamingResponse(self._donnees.rel_batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_argiles(self) -> BatimentGroupeArgilesResourceWithStreamingResponse:
+        return BatimentGroupeArgilesResourceWithStreamingResponse(self._donnees.batiment_groupe_argiles)
+
+    @cached_property
+    def batiment_groupe_hthd(self) -> BatimentGroupeHthdResourceWithStreamingResponse:
+        return BatimentGroupeHthdResourceWithStreamingResponse(self._donnees.batiment_groupe_hthd)
+
+    @cached_property
+    def proprietaire(self) -> ProprietaireResourceWithStreamingResponse:
+        return ProprietaireResourceWithStreamingResponse(self._donnees.proprietaire)
+
+    @cached_property
+    def batiment_groupe_bdtopo_bat(self) -> BatimentGroupeBdtopoBatResourceWithStreamingResponse:
+        return BatimentGroupeBdtopoBatResourceWithStreamingResponse(self._donnees.batiment_groupe_bdtopo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren_open(
+        self,
+    ) -> RelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse:
+        return RelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren_open
+        )
+
+    @cached_property
+    def batiment_groupe_dle_elec_multimillesime(
+        self,
+    ) -> BatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse:
+        return BatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_dle_elec_multimillesime
+        )
+
+    @cached_property
+    def adresse(self) -> AdresseResourceWithStreamingResponse:
+        return AdresseResourceWithStreamingResponse(self._donnees.adresse)
+
+    @cached_property
+    def batiment_groupe_wall_dict(self) -> BatimentGroupeWallDictResourceWithStreamingResponse:
+        return BatimentGroupeWallDictResourceWithStreamingResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def referentiel_administratif(self) -> ReferentielAdministratifResourceWithStreamingResponse:
+        return ReferentielAdministratifResourceWithStreamingResponse(self._donnees.referentiel_administratif)
 
 
 class AsyncDonneesResourceWithStreamingResponse:
@@ -711,16 +1440,60 @@ class AsyncDonneesResourceWithStreamingResponse:
         self._donnees = donnees
 
     @cached_property
+    def batiment_groupe_complet(self) -> AsyncBatimentGroupeCompletResourceWithStreamingResponse:
+        return AsyncBatimentGroupeCompletResourceWithStreamingResponse(self._donnees.batiment_groupe_complet)
+
+    @cached_property
     def batiments_construction(self) -> AsyncBatimentsConstructionResourceWithStreamingResponse:
         return AsyncBatimentsConstructionResourceWithStreamingResponse(self._donnees.batiments_construction)
 
     @cached_property
-    def batiments_groupes_complets(self) -> AsyncBatimentsGroupesCompletsResourceWithStreamingResponse:
-        return AsyncBatimentsGroupesCompletsResourceWithStreamingResponse(self._donnees.batiments_groupes_complets)
+    def batiment_groupe_bdtopo_zoac(self) -> AsyncBatimentGroupeBdtopoZoacResourceWithStreamingResponse:
+        return AsyncBatimentGroupeBdtopoZoacResourceWithStreamingResponse(self._donnees.batiment_groupe_bdtopo_zoac)
 
     @cached_property
-    def tables_bdnb(self) -> AsyncTablesBdnbResourceWithStreamingResponse:
-        return AsyncTablesBdnbResourceWithStreamingResponse(self._donnees.tables_bdnb)
+    def batiment_groupe_geospx(self) -> AsyncBatimentGroupeGeospxResourceWithStreamingResponse:
+        return AsyncBatimentGroupeGeospxResourceWithStreamingResponse(self._donnees.batiment_groupe_geospx)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren(
+        self,
+    ) -> AsyncRelBatimentGroupeProprietaireSirenResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeProprietaireSirenResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren
+        )
+
+    @cached_property
+    def batiment_groupe_dvf_open_statistique(
+        self,
+    ) -> AsyncBatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse:
+        return AsyncBatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_dvf_open_statistique
+        )
+
+    @cached_property
+    def rel_batiment_groupe_qpv(self) -> AsyncRelBatimentGroupeQpvResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeQpvResourceWithStreamingResponse(self._donnees.rel_batiment_groupe_qpv)
+
+    @cached_property
+    def batiment_groupe_qpv(self) -> AsyncBatimentGroupeQpvResourceWithStreamingResponse:
+        return AsyncBatimentGroupeQpvResourceWithStreamingResponse(self._donnees.batiment_groupe_qpv)
+
+    @cached_property
+    def rel_batiment_construction_adresse(self) -> AsyncRelBatimentConstructionAdresseResourceWithStreamingResponse:
+        return AsyncRelBatimentConstructionAdresseResourceWithStreamingResponse(
+            self._donnees.rel_batiment_construction_adresse
+        )
+
+    @cached_property
+    def rel_batiment_groupe_adresse(self) -> AsyncRelBatimentGroupeAdresseResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeAdresseResourceWithStreamingResponse(self._donnees.rel_batiment_groupe_adresse)
+
+    @cached_property
+    def batiment_groupe_synthese_enveloppe(self) -> AsyncBatimentGroupeSyntheseEnveloppeResourceWithStreamingResponse:
+        return AsyncBatimentGroupeSyntheseEnveloppeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_synthese_enveloppe
+        )
 
     @cached_property
     def batiment_groupe_simulations_dpe(self) -> AsyncBatimentGroupeSimulationsDpeResourceWithStreamingResponse:
@@ -759,12 +1532,6 @@ class AsyncDonneesResourceWithStreamingResponse:
     @cached_property
     def batiment_groupe_merimee(self) -> AsyncBatimentGroupeMerimeeResourceWithStreamingResponse:
         return AsyncBatimentGroupeMerimeeResourceWithStreamingResponse(self._donnees.batiment_groupe_merimee)
-
-    @cached_property
-    def referentiel_administratif_region(self) -> AsyncReferentielAdministratifRegionResourceWithStreamingResponse:
-        return AsyncReferentielAdministratifRegionResourceWithStreamingResponse(
-            self._donnees.referentiel_administratif_region
-        )
 
     @cached_property
     def batiment_groupe_dle_reseaux_2020(self) -> AsyncBatimentGroupeDleReseaux2020ResourceWithStreamingResponse:
@@ -819,5 +1586,89 @@ class AsyncDonneesResourceWithStreamingResponse:
         )
 
     @cached_property
-    def batiment_groupe_complet(self) -> AsyncBatimentGroupeCompletResourceWithStreamingResponse:
-        return AsyncBatimentGroupeCompletResourceWithStreamingResponse(self._donnees.batiment_groupe_complet)
+    def iris_simulations_valeur_verte(self) -> AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse:
+        return AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse(self._donnees.iris_simulations_valeur_verte)
+
+    @cached_property
+    def iris_contexte_geographique(self) -> AsyncIrisContexteGeographiqueResourceWithStreamingResponse:
+        return AsyncIrisContexteGeographiqueResourceWithStreamingResponse(self._donnees.iris_contexte_geographique)
+
+    @cached_property
+    def rel_batiment_groupe_siren_complet(self) -> AsyncRelBatimentGroupeSirenCompletResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeSirenCompletResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_siren_complet
+        )
+
+    @cached_property
+    def rel_batiment_groupe_siret_complet(self) -> AsyncRelBatimentGroupeSiretCompletResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeSiretCompletResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_siret_complet
+        )
+
+    @cached_property
+    def batiment_groupe_dle_reseaux_multimillesime(
+        self,
+    ) -> AsyncBatimentGroupeDleReseauxMultimillesimeResourceWithStreamingResponse:
+        return AsyncBatimentGroupeDleReseauxMultimillesimeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_dle_reseaux_multimillesime
+        )
+
+    @cached_property
+    def batiment_groupe_rnc(self) -> AsyncBatimentGroupeRncResourceWithStreamingResponse:
+        return AsyncBatimentGroupeRncResourceWithStreamingResponse(self._donnees.batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_bpe(self) -> AsyncBatimentGroupeBpeResourceWithStreamingResponse:
+        return AsyncBatimentGroupeBpeResourceWithStreamingResponse(self._donnees.batiment_groupe_bpe)
+
+    @cached_property
+    def batiment_groupe_ffo_bat(self) -> AsyncBatimentGroupeFfoBatResourceWithStreamingResponse:
+        return AsyncBatimentGroupeFfoBatResourceWithStreamingResponse(self._donnees.batiment_groupe_ffo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_rnc(self) -> AsyncRelBatimentGroupeRncResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeRncResourceWithStreamingResponse(self._donnees.rel_batiment_groupe_rnc)
+
+    @cached_property
+    def batiment_groupe_argiles(self) -> AsyncBatimentGroupeArgilesResourceWithStreamingResponse:
+        return AsyncBatimentGroupeArgilesResourceWithStreamingResponse(self._donnees.batiment_groupe_argiles)
+
+    @cached_property
+    def batiment_groupe_hthd(self) -> AsyncBatimentGroupeHthdResourceWithStreamingResponse:
+        return AsyncBatimentGroupeHthdResourceWithStreamingResponse(self._donnees.batiment_groupe_hthd)
+
+    @cached_property
+    def proprietaire(self) -> AsyncProprietaireResourceWithStreamingResponse:
+        return AsyncProprietaireResourceWithStreamingResponse(self._donnees.proprietaire)
+
+    @cached_property
+    def batiment_groupe_bdtopo_bat(self) -> AsyncBatimentGroupeBdtopoBatResourceWithStreamingResponse:
+        return AsyncBatimentGroupeBdtopoBatResourceWithStreamingResponse(self._donnees.batiment_groupe_bdtopo_bat)
+
+    @cached_property
+    def rel_batiment_groupe_proprietaire_siren_open(
+        self,
+    ) -> AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse:
+        return AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse(
+            self._donnees.rel_batiment_groupe_proprietaire_siren_open
+        )
+
+    @cached_property
+    def batiment_groupe_dle_elec_multimillesime(
+        self,
+    ) -> AsyncBatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse:
+        return AsyncBatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_dle_elec_multimillesime
+        )
+
+    @cached_property
+    def adresse(self) -> AsyncAdresseResourceWithStreamingResponse:
+        return AsyncAdresseResourceWithStreamingResponse(self._donnees.adresse)
+
+    @cached_property
+    def batiment_groupe_wall_dict(self) -> AsyncBatimentGroupeWallDictResourceWithStreamingResponse:
+        return AsyncBatimentGroupeWallDictResourceWithStreamingResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def referentiel_administratif(self) -> AsyncReferentielAdministratifResourceWithStreamingResponse:
+        return AsyncReferentielAdministratifResourceWithStreamingResponse(self._donnees.referentiel_administratif)
