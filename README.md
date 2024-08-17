@@ -33,7 +33,7 @@ polygon_list_response = client.donnees.batiment_groupe_complet.polygon.list()
 
 While you can provide an `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `BDNB_API_API_KEY="My API Key"` to your `.env` file
+to add `BDNB_API_KEY="My API Key"` to your `.env` file
 so that your API Key is not stored in source control.
 
 ## Async usage
