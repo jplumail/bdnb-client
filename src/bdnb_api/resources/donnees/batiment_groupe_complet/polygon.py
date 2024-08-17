@@ -20,8 +20,8 @@ from ...._response import (
     async_to_streamed_response_wrapper,
 )
 from ...._base_client import make_request_options
-from ....types.donnees.batiment_groupe_complet import polygon_create_params
-from ....types.donnees.batiment_groupe_complet.polygon_create_response import PolygonCreateResponse
+from ....types.donnees.batiment_groupe_complet import polygon_list_params
+from ....types.donnees.batiment_groupe_complet.polygon_list_response import PolygonListResponse
 
 __all__ = ["PolygonResource", "AsyncPolygonResource"]
 
@@ -35,7 +35,7 @@ class PolygonResource(SyncAPIResource):
     def with_streaming_response(self) -> PolygonResourceWithStreamingResponse:
         return PolygonResourceWithStreamingResponse(self)
 
-    def create(
+    def list(
         self,
         *,
         limit: str | NotGiven = NOT_GIVEN,
@@ -47,7 +47,7 @@ class PolygonResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PolygonCreateResponse:
+    ) -> PolygonListResponse:
         """
         récupérer les bâtiments qui sont à l'intérieur d'un polygone
 
@@ -67,16 +67,16 @@ class PolygonResource(SyncAPIResource):
                     "coordinates": coordinates,
                     "type": type,
                 },
-                polygon_create_params.PolygonCreateParams,
+                polygon_list_params.PolygonListParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform({"limit": limit}, polygon_create_params.PolygonCreateParams),
+                query=maybe_transform({"limit": limit}, polygon_list_params.PolygonListParams),
             ),
-            cast_to=PolygonCreateResponse,
+            cast_to=PolygonListResponse,
         )
 
 
@@ -89,7 +89,7 @@ class AsyncPolygonResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncPolygonResourceWithStreamingResponse:
         return AsyncPolygonResourceWithStreamingResponse(self)
 
-    async def create(
+    async def list(
         self,
         *,
         limit: str | NotGiven = NOT_GIVEN,
@@ -101,7 +101,7 @@ class AsyncPolygonResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PolygonCreateResponse:
+    ) -> PolygonListResponse:
         """
         récupérer les bâtiments qui sont à l'intérieur d'un polygone
 
@@ -121,16 +121,16 @@ class AsyncPolygonResource(AsyncAPIResource):
                     "coordinates": coordinates,
                     "type": type,
                 },
-                polygon_create_params.PolygonCreateParams,
+                polygon_list_params.PolygonListParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform({"limit": limit}, polygon_create_params.PolygonCreateParams),
+                query=await async_maybe_transform({"limit": limit}, polygon_list_params.PolygonListParams),
             ),
-            cast_to=PolygonCreateResponse,
+            cast_to=PolygonListResponse,
         )
 
 
@@ -138,8 +138,8 @@ class PolygonResourceWithRawResponse:
     def __init__(self, polygon: PolygonResource) -> None:
         self._polygon = polygon
 
-        self.create = to_raw_response_wrapper(
-            polygon.create,
+        self.list = to_raw_response_wrapper(
+            polygon.list,
         )
 
 
@@ -147,8 +147,8 @@ class AsyncPolygonResourceWithRawResponse:
     def __init__(self, polygon: AsyncPolygonResource) -> None:
         self._polygon = polygon
 
-        self.create = async_to_raw_response_wrapper(
-            polygon.create,
+        self.list = async_to_raw_response_wrapper(
+            polygon.list,
         )
 
 
@@ -156,8 +156,8 @@ class PolygonResourceWithStreamingResponse:
     def __init__(self, polygon: PolygonResource) -> None:
         self._polygon = polygon
 
-        self.create = to_streamed_response_wrapper(
-            polygon.create,
+        self.list = to_streamed_response_wrapper(
+            polygon.list,
         )
 
 
@@ -165,6 +165,6 @@ class AsyncPolygonResourceWithStreamingResponse:
     def __init__(self, polygon: AsyncPolygonResource) -> None:
         self._polygon = polygon
 
-        self.create = async_to_streamed_response_wrapper(
-            polygon.create,
+        self.list = async_to_streamed_response_wrapper(
+            polygon.list,
         )

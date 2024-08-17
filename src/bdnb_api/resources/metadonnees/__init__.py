@@ -1,5 +1,21 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+from .info import (
+    InfoResource,
+    AsyncInfoResource,
+    InfoResourceWithRawResponse,
+    AsyncInfoResourceWithRawResponse,
+    InfoResourceWithStreamingResponse,
+    AsyncInfoResourceWithStreamingResponse,
+)
+from .table import (
+    TableResource,
+    AsyncTableResource,
+    TableResourceWithRawResponse,
+    AsyncTableResourceWithRawResponse,
+    TableResourceWithStreamingResponse,
+    AsyncTableResourceWithStreamingResponse,
+)
 from .colonnes import (
     ColonnesResource,
     AsyncColonnesResource,
@@ -7,6 +23,14 @@ from .colonnes import (
     AsyncColonnesResourceWithRawResponse,
     ColonnesResourceWithStreamingResponse,
     AsyncColonnesResourceWithStreamingResponse,
+)
+from .fournisseur import (
+    FournisseurResource,
+    AsyncFournisseurResource,
+    FournisseurResourceWithRawResponse,
+    AsyncFournisseurResourceWithRawResponse,
+    FournisseurResourceWithStreamingResponse,
+    AsyncFournisseurResourceWithStreamingResponse,
 )
 from .metadonnees import (
     MetadonneesResource,
@@ -23,6 +47,14 @@ from .jeu_de_donnees import (
     AsyncJeuDeDonneesResourceWithRawResponse,
     JeuDeDonneesResourceWithStreamingResponse,
     AsyncJeuDeDonneesResourceWithStreamingResponse,
+)
+from .contrainte_acces import (
+    ContrainteAccesResource,
+    AsyncContrainteAccesResource,
+    ContrainteAccesResourceWithRawResponse,
+    AsyncContrainteAccesResourceWithRawResponse,
+    ContrainteAccesResourceWithStreamingResponse,
+    AsyncContrainteAccesResourceWithStreamingResponse,
 )
 from .metadonnees_complets import (
     MetadonneesCompletsResource,
@@ -68,6 +100,18 @@ __all__ = [
     "AsyncMetadonneesCompletsResourceWithRawResponse",
     "MetadonneesCompletsResourceWithStreamingResponse",
     "AsyncMetadonneesCompletsResourceWithStreamingResponse",
+    "InfoResource",
+    "AsyncInfoResource",
+    "InfoResourceWithRawResponse",
+    "AsyncInfoResourceWithRawResponse",
+    "InfoResourceWithStreamingResponse",
+    "AsyncInfoResourceWithStreamingResponse",
+    "TableResource",
+    "AsyncTableResource",
+    "TableResourceWithRawResponse",
+    "AsyncTableResourceWithRawResponse",
+    "TableResourceWithStreamingResponse",
+    "AsyncTableResourceWithStreamingResponse",
     "RelColonneJeuDeDonneesResource",
     "AsyncRelColonneJeuDeDonneesResource",
     "RelColonneJeuDeDonneesResourceWithRawResponse",
@@ -80,6 +124,18 @@ __all__ = [
     "AsyncJeuDeDonneesResourceWithRawResponse",
     "JeuDeDonneesResourceWithStreamingResponse",
     "AsyncJeuDeDonneesResourceWithStreamingResponse",
+    "FournisseurResource",
+    "AsyncFournisseurResource",
+    "FournisseurResourceWithRawResponse",
+    "AsyncFournisseurResourceWithRawResponse",
+    "FournisseurResourceWithStreamingResponse",
+    "AsyncFournisseurResourceWithStreamingResponse",
+    "ContrainteAccesResource",
+    "AsyncContrainteAccesResource",
+    "ContrainteAccesResourceWithRawResponse",
+    "AsyncContrainteAccesResourceWithRawResponse",
+    "ContrainteAccesResourceWithStreamingResponse",
+    "AsyncContrainteAccesResourceWithStreamingResponse",
     "MetadonneesResource",
     "AsyncMetadonneesResource",
     "MetadonneesResourceWithRawResponse",
