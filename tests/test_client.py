@@ -326,9 +326,6 @@ class TestBdnbAPI:
         assert request.headers.get("x-foo") == "stainless"
         assert request.headers.get("x-stainless-lang") == "my-overriding-header"
 
-    def test_validate_headers(self) -> None:
-        client = BdnbAPI(base_url=base_url, api_key=api_key, _strict_response_validation=True)
-
     def test_default_query_option(self) -> None:
         client = BdnbAPI(
             base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={"query_param": "bar"}
@@ -1025,9 +1022,6 @@ class TestAsyncBdnbAPI:
         request = client2._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "stainless"
         assert request.headers.get("x-stainless-lang") == "my-overriding-header"
-
-    def test_validate_headers(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     def test_default_query_option(self) -> None:
         client = AsyncBdnbAPI(
