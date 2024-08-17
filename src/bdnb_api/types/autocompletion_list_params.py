@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from .._utils import PropertyInfo
 
@@ -42,8 +42,6 @@ class AutocompletionListParams(TypedDict, total=False):
 
     type_entite: str
     """type de l'entité"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

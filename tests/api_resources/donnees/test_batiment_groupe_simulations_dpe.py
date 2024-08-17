@@ -100,7 +100,6 @@ class TestBatimentGroupeSimulationsDpe:
             surface_toiture="surface_toiture",
             surface_verticale="surface_verticale",
             volume_brut="volume_brut",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -219,7 +218,6 @@ class TestAsyncBatimentGroupeSimulationsDpe:
             surface_toiture="surface_toiture",
             surface_verticale="surface_verticale",
             volume_brut="volume_brut",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

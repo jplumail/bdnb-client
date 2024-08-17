@@ -43,7 +43,6 @@ class TestBatimentGroupe:
             quartier_prioritaire="quartier_prioritaire",
             s_geom_groupe="s_geom_groupe",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -99,7 +98,6 @@ class TestAsyncBatimentGroupe:
             quartier_prioritaire="quartier_prioritaire",
             s_geom_groupe="s_geom_groupe",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

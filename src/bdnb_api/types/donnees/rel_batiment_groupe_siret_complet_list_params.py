@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Union
 from datetime import date
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -89,8 +89,6 @@ class RelBatimentGroupeSiretCompletListParams(TypedDict, total=False):
 
     siret: str
     """Siret de l'établissement."""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

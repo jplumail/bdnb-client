@@ -32,7 +32,6 @@ class TestBatimentGroupeRadon:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -77,7 +76,6 @@ class TestAsyncBatimentGroupeRadon:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

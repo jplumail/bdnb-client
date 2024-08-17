@@ -41,7 +41,6 @@ class TestBatimentGroupeRnc:
             order="order",
             periode_construction_max="periode_construction_max",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -95,7 +94,6 @@ class TestAsyncBatimentGroupeRnc:
             order="order",
             periode_construction_max="periode_construction_max",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

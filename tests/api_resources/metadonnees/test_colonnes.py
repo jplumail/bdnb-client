@@ -42,7 +42,6 @@ class TestColonnes:
             select="select",
             type="type",
             unite="unite",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -97,7 +96,6 @@ class TestAsyncColonnes:
             select="select",
             type="type",
             unite="unite",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

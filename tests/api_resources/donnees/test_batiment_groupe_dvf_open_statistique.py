@@ -53,7 +53,6 @@ class TestBatimentGroupeDvfOpenStatistique:
             valeur_fonciere_median="valeur_fonciere_median",
             valeur_fonciere_min="valeur_fonciere_min",
             valeur_fonciere_moyenne="valeur_fonciere_moyenne",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -123,7 +122,6 @@ class TestAsyncBatimentGroupeDvfOpenStatistique:
             valeur_fonciere_median="valeur_fonciere_median",
             valeur_fonciere_min="valeur_fonciere_min",
             valeur_fonciere_moyenne="valeur_fonciere_moyenne",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

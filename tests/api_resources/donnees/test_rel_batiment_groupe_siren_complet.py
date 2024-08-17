@@ -51,7 +51,6 @@ class TestRelBatimentGroupeSirenComplet:
             select="select",
             siren="siren",
             siren_dans_sirene="siren_dans_sirene",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -118,7 +117,6 @@ class TestAsyncRelBatimentGroupeSirenComplet:
             select="select",
             siren="siren",
             siren_dans_sirene="siren_dans_sirene",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

@@ -141,7 +141,6 @@ class TestBatimentGroupeDpeRepresentatifLogement:
             uw="uw",
             version="version",
             vitrage_vir="vitrage_vir",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -308,7 +307,6 @@ class TestAsyncBatimentGroupeDpeRepresentatifLogement:
                 uw="uw",
                 version="version",
                 vitrage_vir="vitrage_vir",
-                prefer="count=none",
                 range="Range",
                 range_unit="Range-Unit",
             )

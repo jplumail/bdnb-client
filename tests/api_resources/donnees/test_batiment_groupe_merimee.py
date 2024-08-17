@@ -34,7 +34,6 @@ class TestBatimentGroupeMerimee:
             order="order",
             perimetre_bat_historique="perimetre_bat_historique",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -81,7 +80,6 @@ class TestAsyncBatimentGroupeMerimee:
             order="order",
             perimetre_bat_historique="perimetre_bat_historique",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

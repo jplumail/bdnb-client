@@ -32,7 +32,6 @@ class TestBatimentGroupeWallDict:
             order="order",
             select="select",
             wall_dict="wall_dict",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -77,7 +76,6 @@ class TestAsyncBatimentGroupeWallDict:
             order="order",
             select="select",
             wall_dict="wall_dict",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

@@ -41,7 +41,6 @@ class TestAdresse:
             select="select",
             source="source",
             type_voie="type_voie",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -95,7 +94,6 @@ class TestAsyncAdresse:
             select="select",
             source="source",
             type_voie="type_voie",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

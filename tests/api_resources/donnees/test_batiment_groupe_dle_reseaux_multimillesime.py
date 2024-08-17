@@ -49,7 +49,6 @@ class TestBatimentGroupeDleReseauxMultimillesime:
             order="order",
             select="select",
             type_reseau="type_reseau",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -124,7 +123,6 @@ class TestAsyncBatimentGroupeDleReseauxMultimillesime:
                 order="order",
                 select="select",
                 type_reseau="type_reseau",
-                prefer="count=none",
                 range="Range",
                 range_unit="Range-Unit",
             )

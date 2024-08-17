@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -63,8 +63,6 @@ class BatimentGroupeDleReseauxMultimillesimeListParams(TypedDict, total=False):
 
     type_reseau: str
     """type du réseau de chaleur"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

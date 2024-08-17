@@ -210,7 +210,6 @@ class TestBatimentGroupeComplet:
             valeur_fonciere_etat_initial_incertitude="valeur_fonciere_etat_initial_incertitude",
             vitrage_vir="vitrage_vir",
             volume_brut="volume_brut",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -433,7 +432,6 @@ class TestAsyncBatimentGroupeComplet:
             valeur_fonciere_etat_initial_incertitude="valeur_fonciere_etat_initial_incertitude",
             vitrage_vir="vitrage_vir",
             volume_brut="volume_brut",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

@@ -45,7 +45,6 @@ class TestBatimentGroupeDleGazMultimillesime:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -111,7 +110,6 @@ class TestAsyncBatimentGroupeDleGazMultimillesime:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

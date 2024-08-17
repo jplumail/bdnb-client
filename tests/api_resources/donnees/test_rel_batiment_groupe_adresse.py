@@ -36,7 +36,6 @@ class TestRelBatimentGroupeAdresse:
             order="order",
             origine="origine",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -85,7 +84,6 @@ class TestAsyncRelBatimentGroupeAdresse:
             order="order",
             origine="origine",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

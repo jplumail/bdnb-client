@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -400,8 +400,6 @@ class BatimentGroupeSimulationsDpeListParams(TypedDict, total=False):
 
     volume_brut: str
     """Volume brut du bâtiment [m3]"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

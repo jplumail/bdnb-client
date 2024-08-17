@@ -53,7 +53,6 @@ class TestIrisSimulationsValeurVerte:
             order="order",
             renovation=0,
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -121,7 +120,6 @@ class TestAsyncIrisSimulationsValeurVerte:
             order="order",
             renovation=0,
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

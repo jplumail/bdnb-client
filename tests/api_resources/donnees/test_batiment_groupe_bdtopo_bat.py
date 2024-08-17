@@ -38,7 +38,6 @@ class TestBatimentGroupeBdtopoBat:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -89,7 +88,6 @@ class TestAsyncBatimentGroupeBdtopoBat:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

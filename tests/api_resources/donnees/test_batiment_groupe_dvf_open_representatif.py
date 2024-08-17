@@ -52,7 +52,6 @@ class TestBatimentGroupeDvfOpenRepresentatif:
             surface_bati_mutee_tertiaire="surface_bati_mutee_tertiaire",
             surface_terrain_mutee="surface_terrain_mutee",
             valeur_fonciere="valeur_fonciere",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -124,7 +123,6 @@ class TestAsyncBatimentGroupeDvfOpenRepresentatif:
             surface_bati_mutee_tertiaire="surface_bati_mutee_tertiaire",
             surface_terrain_mutee="surface_terrain_mutee",
             valeur_fonciere="valeur_fonciere",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
