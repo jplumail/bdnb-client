@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-08-17)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/jplumail/bdnb-api/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** update via SDK Studio ([#12](https://github.com/jplumail/bdnb-api/issues/12)) ([83506df](https://github.com/jplumail/bdnb-api/commit/83506df6aa54a4c4b2f9b13459e9d74ce841bddc))
+* **api:** update via SDK Studio ([#13](https://github.com/jplumail/bdnb-api/issues/13)) ([86afac1](https://github.com/jplumail/bdnb-api/commit/86afac12b10259983addc1b5eda58e5b71a101b7))
+* **api:** update via SDK Studio ([#8](https://github.com/jplumail/bdnb-api/issues/8)) ([f79c9f0](https://github.com/jplumail/bdnb-api/commit/f79c9f090dd95e25165b908c8bf605a4104e4129))
+
 ## 0.1.0-alpha.3 (2024-08-17)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/jplumail/bdnb-api/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
