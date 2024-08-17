@@ -47,7 +47,6 @@ __all__ = [
 
 class BdnbAPI(SyncAPIClient):
     autocompletion: resources.AutocompletionResource
-    geocodage: resources.GeocodageResource
     stats: resources.StatsResource
     donnees: resources.DonneesResource
     metadonnees: resources.MetadonneesResource
@@ -97,7 +96,6 @@ class BdnbAPI(SyncAPIClient):
         )
 
         self.autocompletion = resources.AutocompletionResource(self)
-        self.geocodage = resources.GeocodageResource(self)
         self.stats = resources.StatsResource(self)
         self.donnees = resources.DonneesResource(self)
         self.metadonnees = resources.MetadonneesResource(self)
@@ -204,7 +202,6 @@ class BdnbAPI(SyncAPIClient):
 
 class AsyncBdnbAPI(AsyncAPIClient):
     autocompletion: resources.AsyncAutocompletionResource
-    geocodage: resources.AsyncGeocodageResource
     stats: resources.AsyncStatsResource
     donnees: resources.AsyncDonneesResource
     metadonnees: resources.AsyncMetadonneesResource
@@ -254,7 +251,6 @@ class AsyncBdnbAPI(AsyncAPIClient):
         )
 
         self.autocompletion = resources.AsyncAutocompletionResource(self)
-        self.geocodage = resources.AsyncGeocodageResource(self)
         self.stats = resources.AsyncStatsResource(self)
         self.donnees = resources.AsyncDonneesResource(self)
         self.metadonnees = resources.AsyncMetadonneesResource(self)
@@ -362,7 +358,6 @@ class AsyncBdnbAPI(AsyncAPIClient):
 class BdnbAPIWithRawResponse:
     def __init__(self, client: BdnbAPI) -> None:
         self.autocompletion = resources.AutocompletionResourceWithRawResponse(client.autocompletion)
-        self.geocodage = resources.GeocodageResourceWithRawResponse(client.geocodage)
         self.stats = resources.StatsResourceWithRawResponse(client.stats)
         self.donnees = resources.DonneesResourceWithRawResponse(client.donnees)
         self.metadonnees = resources.MetadonneesResourceWithRawResponse(client.metadonnees)
@@ -372,7 +367,6 @@ class BdnbAPIWithRawResponse:
 class AsyncBdnbAPIWithRawResponse:
     def __init__(self, client: AsyncBdnbAPI) -> None:
         self.autocompletion = resources.AsyncAutocompletionResourceWithRawResponse(client.autocompletion)
-        self.geocodage = resources.AsyncGeocodageResourceWithRawResponse(client.geocodage)
         self.stats = resources.AsyncStatsResourceWithRawResponse(client.stats)
         self.donnees = resources.AsyncDonneesResourceWithRawResponse(client.donnees)
         self.metadonnees = resources.AsyncMetadonneesResourceWithRawResponse(client.metadonnees)
@@ -382,7 +376,6 @@ class AsyncBdnbAPIWithRawResponse:
 class BdnbAPIWithStreamedResponse:
     def __init__(self, client: BdnbAPI) -> None:
         self.autocompletion = resources.AutocompletionResourceWithStreamingResponse(client.autocompletion)
-        self.geocodage = resources.GeocodageResourceWithStreamingResponse(client.geocodage)
         self.stats = resources.StatsResourceWithStreamingResponse(client.stats)
         self.donnees = resources.DonneesResourceWithStreamingResponse(client.donnees)
         self.metadonnees = resources.MetadonneesResourceWithStreamingResponse(client.metadonnees)
@@ -392,7 +385,6 @@ class BdnbAPIWithStreamedResponse:
 class AsyncBdnbAPIWithStreamedResponse:
     def __init__(self, client: AsyncBdnbAPI) -> None:
         self.autocompletion = resources.AsyncAutocompletionResourceWithStreamingResponse(client.autocompletion)
-        self.geocodage = resources.AsyncGeocodageResourceWithStreamingResponse(client.geocodage)
         self.stats = resources.AsyncStatsResourceWithStreamingResponse(client.stats)
         self.donnees = resources.AsyncDonneesResourceWithStreamingResponse(client.donnees)
         self.metadonnees = resources.AsyncMetadonneesResourceWithStreamingResponse(client.metadonnees)
