@@ -29,7 +29,6 @@ from .shared import (
     BatimentGroupeIndicateurReseauChaudFroidAPIExpert as BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
 )
 from .ancqpv_api_expert import AncqpvAPIExpert as AncqpvAPIExpert
-from .geocodage_list_params import GeocodageListParams as GeocodageListParams
 from .autocompletion_list_params import AutocompletionListParams as AutocompletionListParams
 from .batiment_groupe_api_expert import BatimentGroupeAPIExpert as BatimentGroupeAPIExpert
 from .autocompletion_list_response import AutocompletionListResponse as AutocompletionListResponse
