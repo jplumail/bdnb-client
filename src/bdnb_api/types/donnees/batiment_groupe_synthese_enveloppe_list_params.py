@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -245,8 +245,6 @@ class BatimentGroupeSyntheseEnveloppeListParams(TypedDict, total=False):
     le vitrage a été traité avec un traitement à isolation renforcé ce qui le rend
     plus performant d'un point de vue thermique.
     """
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

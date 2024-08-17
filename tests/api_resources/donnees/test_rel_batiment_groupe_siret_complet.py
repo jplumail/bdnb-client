@@ -48,7 +48,6 @@ class TestRelBatimentGroupeSiretComplet:
             siege_social="siege_social",
             siren="siren",
             siret="siret",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -112,7 +111,6 @@ class TestAsyncRelBatimentGroupeSiretComplet:
             siege_social="siege_social",
             siren="siren",
             siret="siret",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

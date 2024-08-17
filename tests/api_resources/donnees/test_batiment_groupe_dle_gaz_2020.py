@@ -40,7 +40,6 @@ class TestBatimentGroupeDleGaz2020:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -93,7 +92,6 @@ class TestAsyncBatimentGroupeDleGaz2020:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

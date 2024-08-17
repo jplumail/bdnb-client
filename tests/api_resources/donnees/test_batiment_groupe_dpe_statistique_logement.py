@@ -52,7 +52,6 @@ class TestBatimentGroupeDpeStatistiqueLogement:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -130,7 +129,6 @@ class TestAsyncBatimentGroupeDpeStatistiqueLogement:
                 offset="offset",
                 order="order",
                 select="select",
-                prefer="count=none",
                 range="Range",
                 range_unit="Range-Unit",
             )

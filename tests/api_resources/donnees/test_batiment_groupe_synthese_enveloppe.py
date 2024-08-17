@@ -77,7 +77,6 @@ class TestBatimentGroupeSyntheseEnveloppe:
             u_porte="u_porte",
             uw="uw",
             vitrage_vir="vitrage_vir",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -171,7 +170,6 @@ class TestAsyncBatimentGroupeSyntheseEnveloppe:
             u_porte="u_porte",
             uw="uw",
             vitrage_vir="vitrage_vir",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

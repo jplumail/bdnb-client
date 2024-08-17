@@ -61,7 +61,6 @@ class TestIrisContexteGeographique:
             zone_aide_finalite_reg_code_anct="zone_aide_finalite_reg_code_anct",
             zone_emploi_code_insee="zone_emploi_code_insee",
             zone_emploi_libelle="zone_emploi_libelle",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -135,7 +134,6 @@ class TestAsyncIrisContexteGeographique:
             zone_aide_finalite_reg_code_anct="zone_aide_finalite_reg_code_anct",
             zone_emploi_code_insee="zone_emploi_code_insee",
             zone_emploi_libelle="zone_emploi_libelle",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

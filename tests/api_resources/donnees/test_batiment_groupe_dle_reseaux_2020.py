@@ -46,7 +46,6 @@ class TestBatimentGroupeDleReseaux2020:
             order="order",
             select="select",
             type_reseau="type_reseau",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -109,7 +108,6 @@ class TestAsyncBatimentGroupeDleReseaux2020:
             order="order",
             select="select",
             type_reseau="type_reseau",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

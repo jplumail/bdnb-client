@@ -31,7 +31,6 @@ class TestInfo:
             order="order",
             publication_schema="publication_schema",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -75,7 +74,6 @@ class TestAsyncInfo:
             order="order",
             publication_schema="publication_schema",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

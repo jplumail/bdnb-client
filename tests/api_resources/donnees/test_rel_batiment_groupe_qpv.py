@@ -33,7 +33,6 @@ class TestRelBatimentGroupeQpv:
             order="order",
             qpv_code_qp="qpv_code_qp",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -79,7 +78,6 @@ class TestAsyncRelBatimentGroupeQpv:
             order="order",
             qpv_code_qp="qpv_code_qp",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

@@ -37,7 +37,6 @@ class TestReferentielAdministratifIris:
             order="order",
             select="select",
             type_iris="type_iris",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -90,7 +89,6 @@ class TestAsyncReferentielAdministratifIris:
                 order="order",
                 select="select",
                 type_iris="type_iris",
-                prefer="count=none",
                 range="Range",
                 range_unit="Range-Unit",
             )

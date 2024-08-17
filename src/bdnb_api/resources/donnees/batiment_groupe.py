@@ -2,13 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._utils import (
-    is_given,
     maybe_transform,
     strip_not_given,
     async_maybe_transform,
@@ -58,7 +55,6 @@ class BatimentGroupeResource(SyncAPIResource):
         quartier_prioritaire: str | NotGiven = NOT_GIVEN,
         s_geom_groupe: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -120,7 +116,6 @@ class BatimentGroupeResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
@@ -192,7 +187,6 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         quartier_prioritaire: str | NotGiven = NOT_GIVEN,
         s_geom_groupe: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -254,7 +248,6 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
