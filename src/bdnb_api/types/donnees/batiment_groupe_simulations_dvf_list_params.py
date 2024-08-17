@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -87,8 +87,6 @@ class BatimentGroupeSimulationsDvfListParams(TypedDict, total=False):
 
     valeur_fonciere_etat_renove_incertitude: str
     """incertitude de l'estimation de la valeur fonciere apres renovation"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

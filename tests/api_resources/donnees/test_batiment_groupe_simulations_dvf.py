@@ -50,7 +50,6 @@ class TestBatimentGroupeSimulationsDvf:
             valeur_fonciere_etat_renove_estim_mean="valeur_fonciere_etat_renove_estim_mean",
             valeur_fonciere_etat_renove_estim_upper="valeur_fonciere_etat_renove_estim_upper",
             valeur_fonciere_etat_renove_incertitude="valeur_fonciere_etat_renove_incertitude",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -119,7 +118,6 @@ class TestAsyncBatimentGroupeSimulationsDvf:
             valeur_fonciere_etat_renove_estim_mean="valeur_fonciere_etat_renove_estim_mean",
             valeur_fonciere_etat_renove_estim_upper="valeur_fonciere_etat_renove_estim_upper",
             valeur_fonciere_etat_renove_incertitude="valeur_fonciere_etat_renove_incertitude",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

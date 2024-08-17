@@ -38,7 +38,6 @@ class TestRelBatimentGroupeRnc:
             order="order",
             parcelle_id="parcelle_id",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -89,7 +88,6 @@ class TestAsyncRelBatimentGroupeRnc:
             order="order",
             parcelle_id="parcelle_id",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

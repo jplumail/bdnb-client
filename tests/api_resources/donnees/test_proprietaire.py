@@ -38,7 +38,6 @@ class TestProprietaire:
             personne_id="personne_id",
             select="select",
             siren="siren",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -89,7 +88,6 @@ class TestAsyncProprietaire:
             personne_id="personne_id",
             select="select",
             siren="siren",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

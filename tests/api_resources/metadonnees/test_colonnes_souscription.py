@@ -40,7 +40,6 @@ class TestColonnesSouscription:
             souscription="souscription",
             type="type",
             unite="unite",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -93,7 +92,6 @@ class TestAsyncColonnesSouscription:
             souscription="souscription",
             type="type",
             unite="unite",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

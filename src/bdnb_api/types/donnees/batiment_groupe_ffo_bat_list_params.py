@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -45,8 +45,6 @@ class BatimentGroupeFfoBatListParams(TypedDict, total=False):
 
     usage_niveau_1_txt: str
     """indicateurs d'usage simplifié du bâtiment (verbose)"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

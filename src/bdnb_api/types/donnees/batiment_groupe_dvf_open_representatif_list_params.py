@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Union
 from datetime import date
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -103,8 +103,6 @@ class BatimentGroupeDvfOpenRepresentatifListParams(TypedDict, total=False):
 
     valeur_fonciere: str
     """Valeur foncière en euros de la mutation représentative. [â‚¬]"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

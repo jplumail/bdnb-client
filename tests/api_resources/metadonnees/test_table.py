@@ -33,7 +33,6 @@ class TestTable:
             order="order",
             quality_elements="quality_elements",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -79,7 +78,6 @@ class TestAsyncTable:
             order="order",
             quality_elements="quality_elements",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

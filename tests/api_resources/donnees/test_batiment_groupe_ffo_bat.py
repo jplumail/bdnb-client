@@ -37,7 +37,6 @@ class TestBatimentGroupeFfoBat:
             order="order",
             select="select",
             usage_niveau_1_txt="usage_niveau_1_txt",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -87,7 +86,6 @@ class TestAsyncBatimentGroupeFfoBat:
             order="order",
             select="select",
             usage_niveau_1_txt="usage_niveau_1_txt",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

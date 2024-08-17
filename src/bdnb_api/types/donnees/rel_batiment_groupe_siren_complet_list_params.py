@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Union
 from datetime import date
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -84,8 +84,6 @@ class RelBatimentGroupeSirenCompletListParams(TypedDict, total=False):
 
     siren_dans_sirene: str
     """Le Siren est présent dans la base sirene."""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

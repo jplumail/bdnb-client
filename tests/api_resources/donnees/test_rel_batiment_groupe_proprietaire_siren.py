@@ -38,7 +38,6 @@ class TestRelBatimentGroupeProprietaireSiren:
             order="order",
             select="select",
             siren="siren",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -97,7 +96,6 @@ class TestAsyncRelBatimentGroupeProprietaireSiren:
             order="order",
             select="select",
             siren="siren",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

@@ -40,7 +40,6 @@ class TestBatimentsConstruction:
             rnb_id="rnb_id",
             s_geom_cstr="s_geom_cstr",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -93,7 +92,6 @@ class TestAsyncBatimentsConstruction:
             rnb_id="rnb_id",
             s_geom_cstr="s_geom_cstr",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )

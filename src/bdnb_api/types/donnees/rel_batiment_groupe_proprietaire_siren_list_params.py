@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -36,8 +36,6 @@ class RelBatimentGroupeProprietaireSirenListParams(TypedDict, total=False):
 
     siren: str
     """Numéro de SIREN de la personne morale (FF)"""
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

@@ -36,7 +36,6 @@ class TestAutocompletion:
             origine_nom="origine_nom",
             select="select",
             type_entite="type_entite",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
@@ -85,7 +84,6 @@ class TestAsyncAutocompletion:
             origine_nom="origine_nom",
             select="select",
             type_entite="type_entite",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
