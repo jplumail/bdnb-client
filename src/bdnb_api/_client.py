@@ -46,14 +46,12 @@ __all__ = [
 
 
 class BdnbAPI(SyncAPIClient):
-    autocompletion_entites_textes: resources.AutocompletionEntitesTextesResource
+    autocompletion: resources.AutocompletionResource
     geocodage: resources.GeocodageResource
     stats: resources.StatsResource
     donnees: resources.DonneesResource
     metadonnees: resources.MetadonneesResource
-    meta_donnees: resources.MetaDonneesResource
     tuiles: resources.TuilesResource
-    tables_bdnb: resources.TablesBdnbResource
     with_raw_response: BdnbAPIWithRawResponse
     with_streaming_response: BdnbAPIWithStreamedResponse
 
@@ -111,14 +109,12 @@ class BdnbAPI(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.autocompletion_entites_textes = resources.AutocompletionEntitesTextesResource(self)
+        self.autocompletion = resources.AutocompletionResource(self)
         self.geocodage = resources.GeocodageResource(self)
         self.stats = resources.StatsResource(self)
         self.donnees = resources.DonneesResource(self)
         self.metadonnees = resources.MetadonneesResource(self)
-        self.meta_donnees = resources.MetaDonneesResource(self)
         self.tuiles = resources.TuilesResource(self)
-        self.tables_bdnb = resources.TablesBdnbResource(self)
         self.with_raw_response = BdnbAPIWithRawResponse(self)
         self.with_streaming_response = BdnbAPIWithStreamedResponse(self)
 
@@ -228,14 +224,12 @@ class BdnbAPI(SyncAPIClient):
 
 
 class AsyncBdnbAPI(AsyncAPIClient):
-    autocompletion_entites_textes: resources.AsyncAutocompletionEntitesTextesResource
+    autocompletion: resources.AsyncAutocompletionResource
     geocodage: resources.AsyncGeocodageResource
     stats: resources.AsyncStatsResource
     donnees: resources.AsyncDonneesResource
     metadonnees: resources.AsyncMetadonneesResource
-    meta_donnees: resources.AsyncMetaDonneesResource
     tuiles: resources.AsyncTuilesResource
-    tables_bdnb: resources.AsyncTablesBdnbResource
     with_raw_response: AsyncBdnbAPIWithRawResponse
     with_streaming_response: AsyncBdnbAPIWithStreamedResponse
 
@@ -293,14 +287,12 @@ class AsyncBdnbAPI(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.autocompletion_entites_textes = resources.AsyncAutocompletionEntitesTextesResource(self)
+        self.autocompletion = resources.AsyncAutocompletionResource(self)
         self.geocodage = resources.AsyncGeocodageResource(self)
         self.stats = resources.AsyncStatsResource(self)
         self.donnees = resources.AsyncDonneesResource(self)
         self.metadonnees = resources.AsyncMetadonneesResource(self)
-        self.meta_donnees = resources.AsyncMetaDonneesResource(self)
         self.tuiles = resources.AsyncTuilesResource(self)
-        self.tables_bdnb = resources.AsyncTablesBdnbResource(self)
         self.with_raw_response = AsyncBdnbAPIWithRawResponse(self)
         self.with_streaming_response = AsyncBdnbAPIWithStreamedResponse(self)
 
@@ -411,58 +403,42 @@ class AsyncBdnbAPI(AsyncAPIClient):
 
 class BdnbAPIWithRawResponse:
     def __init__(self, client: BdnbAPI) -> None:
-        self.autocompletion_entites_textes = resources.AutocompletionEntitesTextesResourceWithRawResponse(
-            client.autocompletion_entites_textes
-        )
+        self.autocompletion = resources.AutocompletionResourceWithRawResponse(client.autocompletion)
         self.geocodage = resources.GeocodageResourceWithRawResponse(client.geocodage)
         self.stats = resources.StatsResourceWithRawResponse(client.stats)
         self.donnees = resources.DonneesResourceWithRawResponse(client.donnees)
         self.metadonnees = resources.MetadonneesResourceWithRawResponse(client.metadonnees)
-        self.meta_donnees = resources.MetaDonneesResourceWithRawResponse(client.meta_donnees)
         self.tuiles = resources.TuilesResourceWithRawResponse(client.tuiles)
-        self.tables_bdnb = resources.TablesBdnbResourceWithRawResponse(client.tables_bdnb)
 
 
 class AsyncBdnbAPIWithRawResponse:
     def __init__(self, client: AsyncBdnbAPI) -> None:
-        self.autocompletion_entites_textes = resources.AsyncAutocompletionEntitesTextesResourceWithRawResponse(
-            client.autocompletion_entites_textes
-        )
+        self.autocompletion = resources.AsyncAutocompletionResourceWithRawResponse(client.autocompletion)
         self.geocodage = resources.AsyncGeocodageResourceWithRawResponse(client.geocodage)
         self.stats = resources.AsyncStatsResourceWithRawResponse(client.stats)
         self.donnees = resources.AsyncDonneesResourceWithRawResponse(client.donnees)
         self.metadonnees = resources.AsyncMetadonneesResourceWithRawResponse(client.metadonnees)
-        self.meta_donnees = resources.AsyncMetaDonneesResourceWithRawResponse(client.meta_donnees)
         self.tuiles = resources.AsyncTuilesResourceWithRawResponse(client.tuiles)
-        self.tables_bdnb = resources.AsyncTablesBdnbResourceWithRawResponse(client.tables_bdnb)
 
 
 class BdnbAPIWithStreamedResponse:
     def __init__(self, client: BdnbAPI) -> None:
-        self.autocompletion_entites_textes = resources.AutocompletionEntitesTextesResourceWithStreamingResponse(
-            client.autocompletion_entites_textes
-        )
+        self.autocompletion = resources.AutocompletionResourceWithStreamingResponse(client.autocompletion)
         self.geocodage = resources.GeocodageResourceWithStreamingResponse(client.geocodage)
         self.stats = resources.StatsResourceWithStreamingResponse(client.stats)
         self.donnees = resources.DonneesResourceWithStreamingResponse(client.donnees)
         self.metadonnees = resources.MetadonneesResourceWithStreamingResponse(client.metadonnees)
-        self.meta_donnees = resources.MetaDonneesResourceWithStreamingResponse(client.meta_donnees)
         self.tuiles = resources.TuilesResourceWithStreamingResponse(client.tuiles)
-        self.tables_bdnb = resources.TablesBdnbResourceWithStreamingResponse(client.tables_bdnb)
 
 
 class AsyncBdnbAPIWithStreamedResponse:
     def __init__(self, client: AsyncBdnbAPI) -> None:
-        self.autocompletion_entites_textes = resources.AsyncAutocompletionEntitesTextesResourceWithStreamingResponse(
-            client.autocompletion_entites_textes
-        )
+        self.autocompletion = resources.AsyncAutocompletionResourceWithStreamingResponse(client.autocompletion)
         self.geocodage = resources.AsyncGeocodageResourceWithStreamingResponse(client.geocodage)
         self.stats = resources.AsyncStatsResourceWithStreamingResponse(client.stats)
         self.donnees = resources.AsyncDonneesResourceWithStreamingResponse(client.donnees)
         self.metadonnees = resources.AsyncMetadonneesResourceWithStreamingResponse(client.metadonnees)
-        self.meta_donnees = resources.AsyncMetaDonneesResourceWithStreamingResponse(client.meta_donnees)
         self.tuiles = resources.AsyncTuilesResourceWithStreamingResponse(client.tuiles)
-        self.tables_bdnb = resources.AsyncTablesBdnbResourceWithStreamingResponse(client.tables_bdnb)
 
 
 Client = BdnbAPI

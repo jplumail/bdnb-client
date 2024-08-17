@@ -739,7 +739,7 @@ class TestBdnbAPI:
 
         respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(side_effect=retry_handler)
 
-        response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.create()
+        response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
 
         assert response.retries_taken == failures_before_success
 
@@ -1453,6 +1453,6 @@ class TestAsyncBdnbAPI:
 
         respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(side_effect=retry_handler)
 
-        response = await client.donnees.batiment_groupe_complet.polygon.with_raw_response.create()
+        response = await client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
 
         assert response.retries_taken == failures_before_success

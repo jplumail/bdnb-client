@@ -3,7 +3,7 @@
 from typing import List
 from typing_extensions import TypeAlias
 
-from ..meta_donnees.jeu_de_donnees import JeuDeDonnees
+from .jeu_de_donnees import JeuDeDonnees
 
 __all__ = ["JeuDeDonneeListResponse"]
 
