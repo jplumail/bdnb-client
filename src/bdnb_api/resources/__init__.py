@@ -24,14 +24,6 @@ from .donnees import (
     DonneesResourceWithStreamingResponse,
     AsyncDonneesResourceWithStreamingResponse,
 )
-from .geocodage import (
-    GeocodageResource,
-    AsyncGeocodageResource,
-    GeocodageResourceWithRawResponse,
-    AsyncGeocodageResourceWithRawResponse,
-    GeocodageResourceWithStreamingResponse,
-    AsyncGeocodageResourceWithStreamingResponse,
-)
 from .metadonnees import (
     MetadonneesResource,
     AsyncMetadonneesResource,
@@ -56,12 +48,6 @@ __all__ = [
     "AsyncAutocompletionResourceWithRawResponse",
     "AutocompletionResourceWithStreamingResponse",
     "AsyncAutocompletionResourceWithStreamingResponse",
-    "GeocodageResource",
-    "AsyncGeocodageResource",
-    "GeocodageResourceWithRawResponse",
-    "AsyncGeocodageResourceWithRawResponse",
-    "GeocodageResourceWithStreamingResponse",
-    "AsyncGeocodageResourceWithStreamingResponse",
     "StatsResource",
     "AsyncStatsResource",
     "StatsResourceWithRawResponse",
