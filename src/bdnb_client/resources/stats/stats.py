@@ -4,13 +4,13 @@ from __future__ import annotations
 
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
-from .batiment_groupes import (
-    BatimentGroupesResource,
-    AsyncBatimentGroupesResource,
-    BatimentGroupesResourceWithRawResponse,
-    AsyncBatimentGroupesResourceWithRawResponse,
-    BatimentGroupesResourceWithStreamingResponse,
-    AsyncBatimentGroupesResourceWithStreamingResponse,
+from .batiment_groupe import (
+    BatimentGroupeResource,
+    AsyncBatimentGroupeResource,
+    BatimentGroupeResourceWithRawResponse,
+    AsyncBatimentGroupeResourceWithRawResponse,
+    BatimentGroupeResourceWithStreamingResponse,
+    AsyncBatimentGroupeResourceWithStreamingResponse,
 )
 
 __all__ = ["StatsResource", "AsyncStatsResource"]
@@ -18,8 +18,8 @@ __all__ = ["StatsResource", "AsyncStatsResource"]
 
 class StatsResource(SyncAPIResource):
     @cached_property
-    def batiment_groupes(self) -> BatimentGroupesResource:
-        return BatimentGroupesResource(self._client)
+    def batiment_groupe(self) -> BatimentGroupeResource:
+        return BatimentGroupeResource(self._client)
 
     @cached_property
     def with_raw_response(self) -> StatsResourceWithRawResponse:
@@ -32,8 +32,8 @@ class StatsResource(SyncAPIResource):
 
 class AsyncStatsResource(AsyncAPIResource):
     @cached_property
-    def batiment_groupes(self) -> AsyncBatimentGroupesResource:
-        return AsyncBatimentGroupesResource(self._client)
+    def batiment_groupe(self) -> AsyncBatimentGroupeResource:
+        return AsyncBatimentGroupeResource(self._client)
 
     @cached_property
     def with_raw_response(self) -> AsyncStatsResourceWithRawResponse:
@@ -49,8 +49,8 @@ class StatsResourceWithRawResponse:
         self._stats = stats
 
     @cached_property
-    def batiment_groupes(self) -> BatimentGroupesResourceWithRawResponse:
-        return BatimentGroupesResourceWithRawResponse(self._stats.batiment_groupes)
+    def batiment_groupe(self) -> BatimentGroupeResourceWithRawResponse:
+        return BatimentGroupeResourceWithRawResponse(self._stats.batiment_groupe)
 
 
 class AsyncStatsResourceWithRawResponse:
@@ -58,8 +58,8 @@ class AsyncStatsResourceWithRawResponse:
         self._stats = stats
 
     @cached_property
-    def batiment_groupes(self) -> AsyncBatimentGroupesResourceWithRawResponse:
-        return AsyncBatimentGroupesResourceWithRawResponse(self._stats.batiment_groupes)
+    def batiment_groupe(self) -> AsyncBatimentGroupeResourceWithRawResponse:
+        return AsyncBatimentGroupeResourceWithRawResponse(self._stats.batiment_groupe)
 
 
 class StatsResourceWithStreamingResponse:
@@ -67,8 +67,8 @@ class StatsResourceWithStreamingResponse:
         self._stats = stats
 
     @cached_property
-    def batiment_groupes(self) -> BatimentGroupesResourceWithStreamingResponse:
-        return BatimentGroupesResourceWithStreamingResponse(self._stats.batiment_groupes)
+    def batiment_groupe(self) -> BatimentGroupeResourceWithStreamingResponse:
+        return BatimentGroupeResourceWithStreamingResponse(self._stats.batiment_groupe)
 
 
 class AsyncStatsResourceWithStreamingResponse:
@@ -76,5 +76,5 @@ class AsyncStatsResourceWithStreamingResponse:
         self._stats = stats
 
     @cached_property
-    def batiment_groupes(self) -> AsyncBatimentGroupesResourceWithStreamingResponse:
-        return AsyncBatimentGroupesResourceWithStreamingResponse(self._stats.batiment_groupes)
+    def batiment_groupe(self) -> AsyncBatimentGroupeResourceWithStreamingResponse:
+        return AsyncBatimentGroupeResourceWithStreamingResponse(self._stats.batiment_groupe)
