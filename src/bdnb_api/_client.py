@@ -60,7 +60,7 @@ class BdnbAPI(SyncAPIClient):
     def __init__(
         self,
         *,
-        prefer_option: str | None = "count=planned",
+        prefer_option: str | None = "count=exact",
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -82,7 +82,7 @@ class BdnbAPI(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous bdnb-api client instance."""
         if prefer_option is None:
-            prefer_option = "count=planned"
+            prefer_option = "count=exact"
         self.prefer_option = prefer_option
 
         if base_url is None:
@@ -224,7 +224,7 @@ class AsyncBdnbAPI(AsyncAPIClient):
     def __init__(
         self,
         *,
-        prefer_option: str | None = "count=planned",
+        prefer_option: str | None = "count=exact",
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -246,7 +246,7 @@ class AsyncBdnbAPI(AsyncAPIClient):
     ) -> None:
         """Construct a new async bdnb-api client instance."""
         if prefer_option is None:
-            prefer_option = "count=planned"
+            prefer_option = "count=exact"
         self.prefer_option = prefer_option
 
         if base_url is None:
