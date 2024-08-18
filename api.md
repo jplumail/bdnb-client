@@ -568,18 +568,6 @@ Methods:
 
 - <code title="get /metadonnees/colonne">client.metadonnees.colonnes.<a href="./src/bdnb_api/resources/metadonnees/colonnes.py">list</a>(\*\*<a href="src/bdnb_api/types/metadonnees/colonne_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/colonne.py">SyncDefault[Colonne]</a></code>
 
-## MetadonneesComplets
-
-Types:
-
-```python
-from bdnb_api.types.metadonnees import MetadonneesComplet
-```
-
-Methods:
-
-- <code title="get /metadonnees/metadonnees_complet">client.metadonnees.metadonnees_complets.<a href="./src/bdnb_api/resources/metadonnees/metadonnees_complets.py">list</a>(\*\*<a href="src/bdnb_api/types/metadonnees/metadonnees_complet_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/metadonnees_complet.py">SyncDefault[MetadonneesComplet]</a></code>
-
 ## Info
 
 Types:
@@ -603,54 +591,6 @@ from bdnb_api.types.metadonnees import Table
 Methods:
 
 - <code title="get /metadonnees/table">client.metadonnees.table.<a href="./src/bdnb_api/resources/metadonnees/table.py">list</a>(\*\*<a href="src/bdnb_api/types/metadonnees/table_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/table.py">SyncDefault[Table]</a></code>
-
-## RelColonneJeuDeDonnees
-
-Types:
-
-```python
-from bdnb_api.types.metadonnees import RelColonneJeuDeDonnees
-```
-
-Methods:
-
-- <code title="get /metadonnees/rel_colonne_jeu_de_donnees">client.metadonnees.rel_colonne_jeu_de_donnees.<a href="./src/bdnb_api/resources/metadonnees/rel_colonne_jeu_de_donnees.py">list</a>(\*\*<a href="src/bdnb_api/types/metadonnees/rel_colonne_jeu_de_donnee_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/rel_colonne_jeu_de_donnees.py">SyncDefault[RelColonneJeuDeDonnees]</a></code>
-
-## JeuDeDonnees
-
-Types:
-
-```python
-from bdnb_api.types.metadonnees import JeuDeDonnees
-```
-
-Methods:
-
-- <code title="get /metadonnees/jeu_de_donnees">client.metadonnees.jeu_de_donnees.<a href="./src/bdnb_api/resources/metadonnees/jeu_de_donnees.py">list</a>(\*\*<a href="src/bdnb_api/types/metadonnees/jeu_de_donnee_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/jeu_de_donnees.py">SyncDefault[JeuDeDonnees]</a></code>
-
-## Fournisseur
-
-Types:
-
-```python
-from bdnb_api.types.metadonnees import Fournisseur, FournisseurRetrieveResponse
-```
-
-Methods:
-
-- <code title="get /metadonnees/fournisseur">client.metadonnees.fournisseur.<a href="./src/bdnb_api/resources/metadonnees/fournisseur.py">retrieve</a>(\*\*<a href="src/bdnb_api/types/metadonnees/fournisseur_retrieve_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/fournisseur_retrieve_response.py">FournisseurRetrieveResponse</a></code>
-
-## ContrainteAcces
-
-Types:
-
-```python
-from bdnb_api.types.metadonnees import ContrainteAcces, ContrainteAcceRetrieveResponse
-```
-
-Methods:
-
-- <code title="get /metadonnees/contrainte_acces">client.metadonnees.contrainte_acces.<a href="./src/bdnb_api/resources/metadonnees/contrainte_acces.py">retrieve</a>(\*\*<a href="src/bdnb_api/types/metadonnees/contrainte_acce_retrieve_params.py">params</a>) -> <a href="./src/bdnb_api/types/metadonnees/contrainte_acce_retrieve_response.py">ContrainteAcceRetrieveResponse</a></code>
 
 # Tuiles
 
