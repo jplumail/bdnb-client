@@ -10,7 +10,7 @@ import pytest
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
 from bdnb_client.pagination import SyncDefault, AsyncDefault
-from bdnb_client.types.donnees import BatimentGroupe
+from bdnb_client.types.donnees.batiment_groupe import BatimentGroupe
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
