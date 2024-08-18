@@ -308,6 +308,14 @@ from .batiment_groupe_dvf_open_statistique import (
     BatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse,
     AsyncBatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse,
 )
+from .batiment_groupe_delimitation_enveloppe import (
+    BatimentGroupeDelimitationEnveloppeResource,
+    AsyncBatimentGroupeDelimitationEnveloppeResource,
+    BatimentGroupeDelimitationEnveloppeResourceWithRawResponse,
+    AsyncBatimentGroupeDelimitationEnveloppeResourceWithRawResponse,
+    BatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse,
+    AsyncBatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse,
+)
 from .batiment_groupe_dle_gaz_multimillesime import (
     BatimentGroupeDleGazMultimillesimeResource,
     AsyncBatimentGroupeDleGazMultimillesimeResource,
@@ -348,6 +356,14 @@ from .batiment_groupe_dpe_statistique_logement import (
     BatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse,
     AsyncBatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse,
 )
+from .batiment_groupe_simulations_valeur_verte import (
+    BatimentGroupeSimulationsValeurVerteResource,
+    AsyncBatimentGroupeSimulationsValeurVerteResource,
+    BatimentGroupeSimulationsValeurVerteResourceWithRawResponse,
+    AsyncBatimentGroupeSimulationsValeurVerteResourceWithRawResponse,
+    BatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse,
+    AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse,
+)
 from .batiment_groupe_dle_reseaux_multimillesime import (
     BatimentGroupeDleReseauxMultimillesimeResource,
     AsyncBatimentGroupeDleReseauxMultimillesimeResource,
@@ -371,6 +387,14 @@ from .rel_batiment_groupe_proprietaire_siren_open import (
     AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse,
     RelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse,
     AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse,
+)
+from .batiment_groupe_indicateur_reseau_chaud_froid import (
+    BatimentGroupeIndicateurReseauChaudFroidResource,
+    AsyncBatimentGroupeIndicateurReseauChaudFroidResource,
+    BatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse,
+    AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse,
+    BatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse,
+    AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse,
 )
 from .batiment_groupe_complet.batiment_groupe_complet import (
     BatimentGroupeCompletResource,
@@ -566,6 +590,18 @@ class DonneesResource(SyncAPIResource):
         return BatimentGroupeWallDictResource(self._client)
 
     @cached_property
+    def batiment_groupe_indicateur_reseau_chaud_froid(self) -> BatimentGroupeIndicateurReseauChaudFroidResource:
+        return BatimentGroupeIndicateurReseauChaudFroidResource(self._client)
+
+    @cached_property
+    def batiment_groupe_delimitation_enveloppe(self) -> BatimentGroupeDelimitationEnveloppeResource:
+        return BatimentGroupeDelimitationEnveloppeResource(self._client)
+
+    @cached_property
+    def batiment_groupe_simulations_valeur_verte(self) -> BatimentGroupeSimulationsValeurVerteResource:
+        return BatimentGroupeSimulationsValeurVerteResource(self._client)
+
+    @cached_property
     def referentiel_administratif(self) -> ReferentielAdministratifResource:
         return ReferentielAdministratifResource(self._client)
 
@@ -758,6 +794,18 @@ class AsyncDonneesResource(AsyncAPIResource):
     @cached_property
     def batiment_groupe_wall_dict(self) -> AsyncBatimentGroupeWallDictResource:
         return AsyncBatimentGroupeWallDictResource(self._client)
+
+    @cached_property
+    def batiment_groupe_indicateur_reseau_chaud_froid(self) -> AsyncBatimentGroupeIndicateurReseauChaudFroidResource:
+        return AsyncBatimentGroupeIndicateurReseauChaudFroidResource(self._client)
+
+    @cached_property
+    def batiment_groupe_delimitation_enveloppe(self) -> AsyncBatimentGroupeDelimitationEnveloppeResource:
+        return AsyncBatimentGroupeDelimitationEnveloppeResource(self._client)
+
+    @cached_property
+    def batiment_groupe_simulations_valeur_verte(self) -> AsyncBatimentGroupeSimulationsValeurVerteResource:
+        return AsyncBatimentGroupeSimulationsValeurVerteResource(self._client)
 
     @cached_property
     def referentiel_administratif(self) -> AsyncReferentielAdministratifResource:
@@ -979,6 +1027,26 @@ class DonneesResourceWithRawResponse:
     @cached_property
     def batiment_groupe_wall_dict(self) -> BatimentGroupeWallDictResourceWithRawResponse:
         return BatimentGroupeWallDictResourceWithRawResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def batiment_groupe_indicateur_reseau_chaud_froid(
+        self,
+    ) -> BatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse:
+        return BatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse(
+            self._donnees.batiment_groupe_indicateur_reseau_chaud_froid
+        )
+
+    @cached_property
+    def batiment_groupe_delimitation_enveloppe(self) -> BatimentGroupeDelimitationEnveloppeResourceWithRawResponse:
+        return BatimentGroupeDelimitationEnveloppeResourceWithRawResponse(
+            self._donnees.batiment_groupe_delimitation_enveloppe
+        )
+
+    @cached_property
+    def batiment_groupe_simulations_valeur_verte(self) -> BatimentGroupeSimulationsValeurVerteResourceWithRawResponse:
+        return BatimentGroupeSimulationsValeurVerteResourceWithRawResponse(
+            self._donnees.batiment_groupe_simulations_valeur_verte
+        )
 
     @cached_property
     def referentiel_administratif(self) -> ReferentielAdministratifResourceWithRawResponse:
@@ -1206,6 +1274,28 @@ class AsyncDonneesResourceWithRawResponse:
         return AsyncBatimentGroupeWallDictResourceWithRawResponse(self._donnees.batiment_groupe_wall_dict)
 
     @cached_property
+    def batiment_groupe_indicateur_reseau_chaud_froid(
+        self,
+    ) -> AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse:
+        return AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse(
+            self._donnees.batiment_groupe_indicateur_reseau_chaud_froid
+        )
+
+    @cached_property
+    def batiment_groupe_delimitation_enveloppe(self) -> AsyncBatimentGroupeDelimitationEnveloppeResourceWithRawResponse:
+        return AsyncBatimentGroupeDelimitationEnveloppeResourceWithRawResponse(
+            self._donnees.batiment_groupe_delimitation_enveloppe
+        )
+
+    @cached_property
+    def batiment_groupe_simulations_valeur_verte(
+        self,
+    ) -> AsyncBatimentGroupeSimulationsValeurVerteResourceWithRawResponse:
+        return AsyncBatimentGroupeSimulationsValeurVerteResourceWithRawResponse(
+            self._donnees.batiment_groupe_simulations_valeur_verte
+        )
+
+    @cached_property
     def referentiel_administratif(self) -> AsyncReferentielAdministratifResourceWithRawResponse:
         return AsyncReferentielAdministratifResourceWithRawResponse(self._donnees.referentiel_administratif)
 
@@ -1429,6 +1519,30 @@ class DonneesResourceWithStreamingResponse:
     @cached_property
     def batiment_groupe_wall_dict(self) -> BatimentGroupeWallDictResourceWithStreamingResponse:
         return BatimentGroupeWallDictResourceWithStreamingResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def batiment_groupe_indicateur_reseau_chaud_froid(
+        self,
+    ) -> BatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse:
+        return BatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_indicateur_reseau_chaud_froid
+        )
+
+    @cached_property
+    def batiment_groupe_delimitation_enveloppe(
+        self,
+    ) -> BatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse:
+        return BatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_delimitation_enveloppe
+        )
+
+    @cached_property
+    def batiment_groupe_simulations_valeur_verte(
+        self,
+    ) -> BatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse:
+        return BatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_simulations_valeur_verte
+        )
 
     @cached_property
     def referentiel_administratif(self) -> ReferentielAdministratifResourceWithStreamingResponse:
@@ -1668,6 +1782,30 @@ class AsyncDonneesResourceWithStreamingResponse:
     @cached_property
     def batiment_groupe_wall_dict(self) -> AsyncBatimentGroupeWallDictResourceWithStreamingResponse:
         return AsyncBatimentGroupeWallDictResourceWithStreamingResponse(self._donnees.batiment_groupe_wall_dict)
+
+    @cached_property
+    def batiment_groupe_indicateur_reseau_chaud_froid(
+        self,
+    ) -> AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse:
+        return AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_indicateur_reseau_chaud_froid
+        )
+
+    @cached_property
+    def batiment_groupe_delimitation_enveloppe(
+        self,
+    ) -> AsyncBatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse:
+        return AsyncBatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_delimitation_enveloppe
+        )
+
+    @cached_property
+    def batiment_groupe_simulations_valeur_verte(
+        self,
+    ) -> AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse:
+        return AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse(
+            self._donnees.batiment_groupe_simulations_valeur_verte
+        )
 
     @cached_property
     def referentiel_administratif(self) -> AsyncReferentielAdministratifResourceWithStreamingResponse:

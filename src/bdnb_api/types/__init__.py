@@ -21,11 +21,8 @@ from .shared import (
     BatimentGroupeSyntheseEnveloppeAPIExpert as BatimentGroupeSyntheseEnveloppeAPIExpert,
     BatimentGroupeDvfOpenStatistiqueAPIExpert as BatimentGroupeDvfOpenStatistiqueAPIExpert,
     RelBatimentGroupeProprietaireSirenAPIExpert as RelBatimentGroupeProprietaireSirenAPIExpert,
-    BatimentGroupeDelimitationEnveloppeAPIExpert as BatimentGroupeDelimitationEnveloppeAPIExpert,
-    BatimentGroupeSimulationsValeurVerteAPIExpert as BatimentGroupeSimulationsValeurVerteAPIExpert,
     BatimentGroupeDleReseauxMultimillesimeAPIExpert as BatimentGroupeDleReseauxMultimillesimeAPIExpert,
     BatimentGroupeDpeRepresentatifLogementAPIExpert as BatimentGroupeDpeRepresentatifLogementAPIExpert,
-    BatimentGroupeIndicateurReseauChaudFroidAPIExpert as BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
 )
 from .ancqpv_api_expert import AncqpvAPIExpert as AncqpvAPIExpert
 from .autocompletion_list_params import AutocompletionListParams as AutocompletionListParams
