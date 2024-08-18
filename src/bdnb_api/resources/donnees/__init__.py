@@ -72,6 +72,14 @@ from .batiment_groupe_hthd import (
     BatimentGroupeHthdResourceWithStreamingResponse,
     AsyncBatimentGroupeHthdResourceWithStreamingResponse,
 )
+from .batiment_construction import (
+    BatimentConstructionResource,
+    AsyncBatimentConstructionResource,
+    BatimentConstructionResourceWithRawResponse,
+    AsyncBatimentConstructionResourceWithRawResponse,
+    BatimentConstructionResourceWithStreamingResponse,
+    AsyncBatimentConstructionResourceWithStreamingResponse,
+)
 from .batiment_groupe_radon import (
     BatimentGroupeRadonResource,
     AsyncBatimentGroupeRadonResource,
@@ -87,14 +95,6 @@ from .batiment_groupe_geospx import (
     AsyncBatimentGroupeGeospxResourceWithRawResponse,
     BatimentGroupeGeospxResourceWithStreamingResponse,
     AsyncBatimentGroupeGeospxResourceWithStreamingResponse,
-)
-from .batiments_construction import (
-    BatimentsConstructionResource,
-    AsyncBatimentsConstructionResource,
-    BatimentsConstructionResourceWithRawResponse,
-    AsyncBatimentsConstructionResourceWithRawResponse,
-    BatimentsConstructionResourceWithStreamingResponse,
-    AsyncBatimentsConstructionResourceWithStreamingResponse,
 )
 from .batiment_groupe_adresse import (
     BatimentGroupeAdresseResource,
@@ -408,12 +408,12 @@ __all__ = [
     "AsyncBatimentGroupeCompletResourceWithRawResponse",
     "BatimentGroupeCompletResourceWithStreamingResponse",
     "AsyncBatimentGroupeCompletResourceWithStreamingResponse",
-    "BatimentsConstructionResource",
-    "AsyncBatimentsConstructionResource",
-    "BatimentsConstructionResourceWithRawResponse",
-    "AsyncBatimentsConstructionResourceWithRawResponse",
-    "BatimentsConstructionResourceWithStreamingResponse",
-    "AsyncBatimentsConstructionResourceWithStreamingResponse",
+    "BatimentConstructionResource",
+    "AsyncBatimentConstructionResource",
+    "BatimentConstructionResourceWithRawResponse",
+    "AsyncBatimentConstructionResourceWithRawResponse",
+    "BatimentConstructionResourceWithStreamingResponse",
+    "AsyncBatimentConstructionResourceWithStreamingResponse",
     "BatimentGroupeBdtopoZoacResource",
     "AsyncBatimentGroupeBdtopoZoacResource",
     "BatimentGroupeBdtopoZoacResourceWithRawResponse",

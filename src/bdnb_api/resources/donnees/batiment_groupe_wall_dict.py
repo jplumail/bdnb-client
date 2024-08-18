@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_wall_dict_list_params
-from ...types.donnees.batiment_groupe_wall_dict_api_expert import BatimentGroupeWallDictAPIExpert
+from ...types.donnees.batiment_groupe_wall_dict import BatimentGroupeWallDict
 
 __all__ = ["BatimentGroupeWallDictResource", "AsyncBatimentGroupeWallDictResource"]
 
@@ -49,7 +49,7 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeWallDictAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeWallDict]:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -105,7 +105,7 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_wall_dict",
-            page=SyncDefault[BatimentGroupeWallDictAPIExpert],
+            page=SyncDefault[BatimentGroupeWallDict],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -124,7 +124,7 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
                     batiment_groupe_wall_dict_list_params.BatimentGroupeWallDictListParams,
                 ),
             ),
-            model=BatimentGroupeWallDictAPIExpert,
+            model=BatimentGroupeWallDict,
         )
 
 
@@ -155,7 +155,7 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeWallDictAPIExpert, AsyncDefault[BatimentGroupeWallDictAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeWallDict, AsyncDefault[BatimentGroupeWallDict]]:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -211,7 +211,7 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_wall_dict",
-            page=AsyncDefault[BatimentGroupeWallDictAPIExpert],
+            page=AsyncDefault[BatimentGroupeWallDict],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -230,7 +230,7 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
                     batiment_groupe_wall_dict_list_params.BatimentGroupeWallDictListParams,
                 ),
             ),
-            model=BatimentGroupeWallDictAPIExpert,
+            model=BatimentGroupeWallDict,
         )
 
 

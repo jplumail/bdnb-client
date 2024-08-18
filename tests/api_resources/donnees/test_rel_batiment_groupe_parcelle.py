@@ -10,7 +10,7 @@ import pytest
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
-from bdnb_api.types.donnees import RelBatimentGroupeParcelleAPIExpert
+from bdnb_api.types.donnees import RelBatimentGroupeParcelle
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -21,9 +21,7 @@ class TestRelBatimentGroupeParcelle:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         rel_batiment_groupe_parcelle = client.donnees.rel_batiment_groupe_parcelle.list()
-        assert_matches_type(
-            SyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-        )
+        assert_matches_type(SyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -39,9 +37,7 @@ class TestRelBatimentGroupeParcelle:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(
-            SyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-        )
+        assert_matches_type(SyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -50,9 +46,7 @@ class TestRelBatimentGroupeParcelle:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_groupe_parcelle = response.parse()
-        assert_matches_type(
-            SyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-        )
+        assert_matches_type(SyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -61,9 +55,7 @@ class TestRelBatimentGroupeParcelle:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             rel_batiment_groupe_parcelle = response.parse()
-            assert_matches_type(
-                SyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-            )
+            assert_matches_type(SyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -74,9 +66,7 @@ class TestAsyncRelBatimentGroupeParcelle:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         rel_batiment_groupe_parcelle = await async_client.donnees.rel_batiment_groupe_parcelle.list()
-        assert_matches_type(
-            AsyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-        )
+        assert_matches_type(AsyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -92,9 +82,7 @@ class TestAsyncRelBatimentGroupeParcelle:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(
-            AsyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-        )
+        assert_matches_type(AsyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -103,9 +91,7 @@ class TestAsyncRelBatimentGroupeParcelle:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_groupe_parcelle = await response.parse()
-        assert_matches_type(
-            AsyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
-        )
+        assert_matches_type(AsyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -115,7 +101,7 @@ class TestAsyncRelBatimentGroupeParcelle:
 
             rel_batiment_groupe_parcelle = await response.parse()
             assert_matches_type(
-                AsyncDefault[RelBatimentGroupeParcelleAPIExpert], rel_batiment_groupe_parcelle, path=["response"]
+                AsyncDefault[RelBatimentGroupeParcelle], rel_batiment_groupe_parcelle, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True

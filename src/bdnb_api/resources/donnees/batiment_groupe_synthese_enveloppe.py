@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_synthese_enveloppe_list_params
-from ...types.shared.batiment_groupe_synthese_enveloppe_api_expert import BatimentGroupeSyntheseEnveloppeAPIExpert
+from ...types.donnees.batiment_groupe_synthese_enveloppe import BatimentGroupeSyntheseEnveloppe
 
 __all__ = ["BatimentGroupeSyntheseEnveloppeResource", "AsyncBatimentGroupeSyntheseEnveloppeResource"]
 
@@ -90,7 +90,7 @@ class BatimentGroupeSyntheseEnveloppeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeSyntheseEnveloppeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeSyntheseEnveloppe]:
         """Table de synthèse des informations sur l'enveloppe du bâtiment.
 
         Elle contient
@@ -251,7 +251,7 @@ class BatimentGroupeSyntheseEnveloppeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_synthese_enveloppe",
-            page=SyncDefault[BatimentGroupeSyntheseEnveloppeAPIExpert],
+            page=SyncDefault[BatimentGroupeSyntheseEnveloppe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -311,7 +311,7 @@ class BatimentGroupeSyntheseEnveloppeResource(SyncAPIResource):
                     batiment_groupe_synthese_enveloppe_list_params.BatimentGroupeSyntheseEnveloppeListParams,
                 ),
             ),
-            model=BatimentGroupeSyntheseEnveloppeAPIExpert,
+            model=BatimentGroupeSyntheseEnveloppe,
         )
 
 
@@ -383,9 +383,7 @@ class AsyncBatimentGroupeSyntheseEnveloppeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeSyntheseEnveloppeAPIExpert, AsyncDefault[BatimentGroupeSyntheseEnveloppeAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeSyntheseEnveloppe, AsyncDefault[BatimentGroupeSyntheseEnveloppe]]:
         """Table de synthèse des informations sur l'enveloppe du bâtiment.
 
         Elle contient
@@ -546,7 +544,7 @@ class AsyncBatimentGroupeSyntheseEnveloppeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_synthese_enveloppe",
-            page=AsyncDefault[BatimentGroupeSyntheseEnveloppeAPIExpert],
+            page=AsyncDefault[BatimentGroupeSyntheseEnveloppe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -606,7 +604,7 @@ class AsyncBatimentGroupeSyntheseEnveloppeResource(AsyncAPIResource):
                     batiment_groupe_synthese_enveloppe_list_params.BatimentGroupeSyntheseEnveloppeListParams,
                 ),
             ),
-            model=BatimentGroupeSyntheseEnveloppeAPIExpert,
+            model=BatimentGroupeSyntheseEnveloppe,
         )
 
 

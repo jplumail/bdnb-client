@@ -11,7 +11,7 @@ from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import (
-    BatimentGroupeDleGazMultimillesimeAPIExpert,
+    BatimentGroupeDleGazMultimillesime,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -24,9 +24,7 @@ class TestBatimentGroupeDleGazMultimillesime:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dle_gaz_multimillesime = client.donnees.batiment_groupe_dle_gaz_multimillesime.list()
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
-            batiment_groupe_dle_gaz_multimillesime,
-            path=["response"],
+            SyncDefault[BatimentGroupeDleGazMultimillesime], batiment_groupe_dle_gaz_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -52,9 +50,7 @@ class TestBatimentGroupeDleGazMultimillesime:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
-            batiment_groupe_dle_gaz_multimillesime,
-            path=["response"],
+            SyncDefault[BatimentGroupeDleGazMultimillesime], batiment_groupe_dle_gaz_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -65,9 +61,7 @@ class TestBatimentGroupeDleGazMultimillesime:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_gaz_multimillesime = response.parse()
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
-            batiment_groupe_dle_gaz_multimillesime,
-            path=["response"],
+            SyncDefault[BatimentGroupeDleGazMultimillesime], batiment_groupe_dle_gaz_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -78,7 +72,7 @@ class TestBatimentGroupeDleGazMultimillesime:
 
             batiment_groupe_dle_gaz_multimillesime = response.parse()
             assert_matches_type(
-                SyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
+                SyncDefault[BatimentGroupeDleGazMultimillesime],
                 batiment_groupe_dle_gaz_multimillesime,
                 path=["response"],
             )
@@ -95,9 +89,7 @@ class TestAsyncBatimentGroupeDleGazMultimillesime:
             await async_client.donnees.batiment_groupe_dle_gaz_multimillesime.list()
         )
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
-            batiment_groupe_dle_gaz_multimillesime,
-            path=["response"],
+            AsyncDefault[BatimentGroupeDleGazMultimillesime], batiment_groupe_dle_gaz_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -123,9 +115,7 @@ class TestAsyncBatimentGroupeDleGazMultimillesime:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
-            batiment_groupe_dle_gaz_multimillesime,
-            path=["response"],
+            AsyncDefault[BatimentGroupeDleGazMultimillesime], batiment_groupe_dle_gaz_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -136,9 +126,7 @@ class TestAsyncBatimentGroupeDleGazMultimillesime:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_gaz_multimillesime = await response.parse()
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
-            batiment_groupe_dle_gaz_multimillesime,
-            path=["response"],
+            AsyncDefault[BatimentGroupeDleGazMultimillesime], batiment_groupe_dle_gaz_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -149,7 +137,7 @@ class TestAsyncBatimentGroupeDleGazMultimillesime:
 
             batiment_groupe_dle_gaz_multimillesime = await response.parse()
             assert_matches_type(
-                AsyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
+                AsyncDefault[BatimentGroupeDleGazMultimillesime],
                 batiment_groupe_dle_gaz_multimillesime,
                 path=["response"],
             )

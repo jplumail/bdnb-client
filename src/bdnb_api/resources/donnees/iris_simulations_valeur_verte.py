@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import iris_simulations_valeur_verte_list_params
-from ...types.iris_simulations_valeur_verte_api_expert import IrisSimulationsValeurVerteAPIExpert
+from ...types.donnees.iris_simulations_valeur_verte import IrisSimulationsValeurVerte
 
 __all__ = ["IrisSimulationsValeurVerteResource", "AsyncIrisSimulationsValeurVerteResource"]
 
@@ -70,7 +70,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[IrisSimulationsValeurVerteAPIExpert]:
+    ) -> SyncDefault[IrisSimulationsValeurVerte]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -173,7 +173,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/iris_simulations_valeur_verte",
-            page=SyncDefault[IrisSimulationsValeurVerteAPIExpert],
+            page=SyncDefault[IrisSimulationsValeurVerte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -213,7 +213,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
                     iris_simulations_valeur_verte_list_params.IrisSimulationsValeurVerteListParams,
                 ),
             ),
-            model=IrisSimulationsValeurVerteAPIExpert,
+            model=IrisSimulationsValeurVerte,
         )
 
 
@@ -265,7 +265,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[IrisSimulationsValeurVerteAPIExpert, AsyncDefault[IrisSimulationsValeurVerteAPIExpert]]:
+    ) -> AsyncPaginator[IrisSimulationsValeurVerte, AsyncDefault[IrisSimulationsValeurVerte]]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -368,7 +368,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/iris_simulations_valeur_verte",
-            page=AsyncDefault[IrisSimulationsValeurVerteAPIExpert],
+            page=AsyncDefault[IrisSimulationsValeurVerte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -408,7 +408,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
                     iris_simulations_valeur_verte_list_params.IrisSimulationsValeurVerteListParams,
                 ),
             ),
-            model=IrisSimulationsValeurVerteAPIExpert,
+            model=IrisSimulationsValeurVerte,
         )
 
 

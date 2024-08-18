@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_qpv_list_params
-from ...types.rel_batiment_groupe_qpv_api_expert import RelBatimentGroupeQpvAPIExpert
+from ...types.donnees.rel_batiment_groupe_qpv import RelBatimentGroupeQpv
 
 __all__ = ["RelBatimentGroupeQpvResource", "AsyncRelBatimentGroupeQpvResource"]
 
@@ -50,7 +50,7 @@ class RelBatimentGroupeQpvResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeQpvAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeQpv]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table QPV
 
@@ -91,7 +91,7 @@ class RelBatimentGroupeQpvResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_qpv",
-            page=SyncDefault[RelBatimentGroupeQpvAPIExpert],
+            page=SyncDefault[RelBatimentGroupeQpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -111,7 +111,7 @@ class RelBatimentGroupeQpvResource(SyncAPIResource):
                     rel_batiment_groupe_qpv_list_params.RelBatimentGroupeQpvListParams,
                 ),
             ),
-            model=RelBatimentGroupeQpvAPIExpert,
+            model=RelBatimentGroupeQpv,
         )
 
 
@@ -143,7 +143,7 @@ class AsyncRelBatimentGroupeQpvResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeQpvAPIExpert, AsyncDefault[RelBatimentGroupeQpvAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentGroupeQpv, AsyncDefault[RelBatimentGroupeQpv]]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table QPV
 
@@ -184,7 +184,7 @@ class AsyncRelBatimentGroupeQpvResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_qpv",
-            page=AsyncDefault[RelBatimentGroupeQpvAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeQpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -204,7 +204,7 @@ class AsyncRelBatimentGroupeQpvResource(AsyncAPIResource):
                     rel_batiment_groupe_qpv_list_params.RelBatimentGroupeQpvListParams,
                 ),
             ),
-            model=RelBatimentGroupeQpvAPIExpert,
+            model=RelBatimentGroupeQpv,
         )
 
 

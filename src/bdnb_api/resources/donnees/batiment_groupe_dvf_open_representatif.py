@@ -20,9 +20,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dvf_open_representatif_list_params
-from ...types.donnees.batiment_groupe_dvf_open_representatif_api_expert import (
-    BatimentGroupeDvfOpenRepresentatifAPIExpert,
-)
+from ...types.donnees.batiment_groupe_dvf_open_representatif import BatimentGroupeDvfOpenRepresentatif
 
 __all__ = ["BatimentGroupeDvfOpenRepresentatifResource", "AsyncBatimentGroupeDvfOpenRepresentatifResource"]
 
@@ -69,7 +67,7 @@ class BatimentGroupeDvfOpenRepresentatifResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDvfOpenRepresentatif]:
         """
         Données des mutations issues des valeurs DVF open data pour une mutation
         représentative du batiment_groupe
@@ -150,7 +148,7 @@ class BatimentGroupeDvfOpenRepresentatifResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dvf_open_representatif",
-            page=SyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            page=SyncDefault[BatimentGroupeDvfOpenRepresentatif],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -184,7 +182,7 @@ class BatimentGroupeDvfOpenRepresentatifResource(SyncAPIResource):
                     batiment_groupe_dvf_open_representatif_list_params.BatimentGroupeDvfOpenRepresentatifListParams,
                 ),
             ),
-            model=BatimentGroupeDvfOpenRepresentatifAPIExpert,
+            model=BatimentGroupeDvfOpenRepresentatif,
         )
 
 
@@ -230,9 +228,7 @@ class AsyncBatimentGroupeDvfOpenRepresentatifResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDvfOpenRepresentatifAPIExpert, AsyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDvfOpenRepresentatif, AsyncDefault[BatimentGroupeDvfOpenRepresentatif]]:
         """
         Données des mutations issues des valeurs DVF open data pour une mutation
         représentative du batiment_groupe
@@ -313,7 +309,7 @@ class AsyncBatimentGroupeDvfOpenRepresentatifResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dvf_open_representatif",
-            page=AsyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            page=AsyncDefault[BatimentGroupeDvfOpenRepresentatif],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -347,7 +343,7 @@ class AsyncBatimentGroupeDvfOpenRepresentatifResource(AsyncAPIResource):
                     batiment_groupe_dvf_open_representatif_list_params.BatimentGroupeDvfOpenRepresentatifListParams,
                 ),
             ),
-            model=BatimentGroupeDvfOpenRepresentatifAPIExpert,
+            model=BatimentGroupeDvfOpenRepresentatif,
         )
 
 

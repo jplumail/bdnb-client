@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_hthd_list_params
-from ...types.donnees.batiment_groupe_hthd_api_expert import BatimentGroupeHthdAPIExpert
+from ...types.donnees.batiment_groupe_hthd import BatimentGroupeHthd
 
 __all__ = ["BatimentGroupeHthdResource", "AsyncBatimentGroupeHthdResource"]
 
@@ -51,7 +51,7 @@ class BatimentGroupeHthdResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeHthdAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeHthd]:
         """
         Données issues de la base Arcep agrégées à l'échelle du bâtiment
 
@@ -93,7 +93,7 @@ class BatimentGroupeHthdResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_hthd",
-            page=SyncDefault[BatimentGroupeHthdAPIExpert],
+            page=SyncDefault[BatimentGroupeHthd],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -114,7 +114,7 @@ class BatimentGroupeHthdResource(SyncAPIResource):
                     batiment_groupe_hthd_list_params.BatimentGroupeHthdListParams,
                 ),
             ),
-            model=BatimentGroupeHthdAPIExpert,
+            model=BatimentGroupeHthd,
         )
 
 
@@ -147,7 +147,7 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeHthdAPIExpert, AsyncDefault[BatimentGroupeHthdAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeHthd, AsyncDefault[BatimentGroupeHthd]]:
         """
         Données issues de la base Arcep agrégées à l'échelle du bâtiment
 
@@ -189,7 +189,7 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_hthd",
-            page=AsyncDefault[BatimentGroupeHthdAPIExpert],
+            page=AsyncDefault[BatimentGroupeHthd],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -210,7 +210,7 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
                     batiment_groupe_hthd_list_params.BatimentGroupeHthdListParams,
                 ),
             ),
-            model=BatimentGroupeHthdAPIExpert,
+            model=BatimentGroupeHthd,
         )
 
 

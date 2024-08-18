@@ -11,7 +11,7 @@ from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import (
-    BatimentGroupeDleElecMultimillesimeAPIExpert,
+    BatimentGroupeDleElecMultimillesime,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -24,9 +24,7 @@ class TestBatimentGroupeDleElecMultimillesime:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dle_elec_multimillesime = client.donnees.batiment_groupe_dle_elec_multimillesime.list()
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
-            batiment_groupe_dle_elec_multimillesime,
-            path=["response"],
+            SyncDefault[BatimentGroupeDleElecMultimillesime], batiment_groupe_dle_elec_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -52,9 +50,7 @@ class TestBatimentGroupeDleElecMultimillesime:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
-            batiment_groupe_dle_elec_multimillesime,
-            path=["response"],
+            SyncDefault[BatimentGroupeDleElecMultimillesime], batiment_groupe_dle_elec_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -65,9 +61,7 @@ class TestBatimentGroupeDleElecMultimillesime:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_elec_multimillesime = response.parse()
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
-            batiment_groupe_dle_elec_multimillesime,
-            path=["response"],
+            SyncDefault[BatimentGroupeDleElecMultimillesime], batiment_groupe_dle_elec_multimillesime, path=["response"]
         )
 
     @parametrize
@@ -78,7 +72,7 @@ class TestBatimentGroupeDleElecMultimillesime:
 
             batiment_groupe_dle_elec_multimillesime = response.parse()
             assert_matches_type(
-                SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+                SyncDefault[BatimentGroupeDleElecMultimillesime],
                 batiment_groupe_dle_elec_multimillesime,
                 path=["response"],
             )
@@ -95,7 +89,7 @@ class TestAsyncBatimentGroupeDleElecMultimillesime:
             await async_client.donnees.batiment_groupe_dle_elec_multimillesime.list()
         )
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+            AsyncDefault[BatimentGroupeDleElecMultimillesime],
             batiment_groupe_dle_elec_multimillesime,
             path=["response"],
         )
@@ -125,7 +119,7 @@ class TestAsyncBatimentGroupeDleElecMultimillesime:
             )
         )
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+            AsyncDefault[BatimentGroupeDleElecMultimillesime],
             batiment_groupe_dle_elec_multimillesime,
             path=["response"],
         )
@@ -138,7 +132,7 @@ class TestAsyncBatimentGroupeDleElecMultimillesime:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_elec_multimillesime = await response.parse()
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+            AsyncDefault[BatimentGroupeDleElecMultimillesime],
             batiment_groupe_dle_elec_multimillesime,
             path=["response"],
         )
@@ -151,7 +145,7 @@ class TestAsyncBatimentGroupeDleElecMultimillesime:
 
             batiment_groupe_dle_elec_multimillesime = await response.parse()
             assert_matches_type(
-                AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+                AsyncDefault[BatimentGroupeDleElecMultimillesime],
                 batiment_groupe_dle_elec_multimillesime,
                 path=["response"],
             )

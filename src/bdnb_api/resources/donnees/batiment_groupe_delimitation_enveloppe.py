@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_delimitation_enveloppe_list_params
-from ...types.donnees.batiment_groupe_delimitation_enveloppe_api_expert import (
-    BatimentGroupeDelimitationEnveloppeAPIExpert,
-)
+from ...types.donnees.batiment_groupe_delimitation_enveloppe import BatimentGroupeDelimitationEnveloppe
 
 __all__ = ["BatimentGroupeDelimitationEnveloppeResource", "AsyncBatimentGroupeDelimitationEnveloppeResource"]
 
@@ -51,7 +49,7 @@ class BatimentGroupeDelimitationEnveloppeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDelimitationEnveloppe]:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -92,7 +90,7 @@ class BatimentGroupeDelimitationEnveloppeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_delimitation_enveloppe",
-            page=SyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            page=SyncDefault[BatimentGroupeDelimitationEnveloppe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -111,7 +109,7 @@ class BatimentGroupeDelimitationEnveloppeResource(SyncAPIResource):
                     batiment_groupe_delimitation_enveloppe_list_params.BatimentGroupeDelimitationEnveloppeListParams,
                 ),
             ),
-            model=BatimentGroupeDelimitationEnveloppeAPIExpert,
+            model=BatimentGroupeDelimitationEnveloppe,
         )
 
 
@@ -142,9 +140,7 @@ class AsyncBatimentGroupeDelimitationEnveloppeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDelimitationEnveloppeAPIExpert, AsyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDelimitationEnveloppe, AsyncDefault[BatimentGroupeDelimitationEnveloppe]]:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -185,7 +181,7 @@ class AsyncBatimentGroupeDelimitationEnveloppeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_delimitation_enveloppe",
-            page=AsyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            page=AsyncDefault[BatimentGroupeDelimitationEnveloppe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -204,7 +200,7 @@ class AsyncBatimentGroupeDelimitationEnveloppeResource(AsyncAPIResource):
                     batiment_groupe_delimitation_enveloppe_list_params.BatimentGroupeDelimitationEnveloppeListParams,
                 ),
             ),
-            model=BatimentGroupeDelimitationEnveloppeAPIExpert,
+            model=BatimentGroupeDelimitationEnveloppe,
         )
 
 

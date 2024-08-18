@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import iris_contexte_geographique_list_params
-from ...types.iris_contexte_geographique_api_expert import IrisContexteGeographiqueAPIExpert
+from ...types.donnees.iris_contexte_geographique import IrisContexteGeographique
 
 __all__ = ["IrisContexteGeographiqueResource", "AsyncIrisContexteGeographiqueResource"]
 
@@ -78,7 +78,7 @@ class IrisContexteGeographiqueResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[IrisContexteGeographiqueAPIExpert]:
+    ) -> SyncDefault[IrisContexteGeographique]:
         """
         Contexte géographique des iris, comme par exemple leur situation géographique et
         la densité urbaine.
@@ -179,7 +179,7 @@ class IrisContexteGeographiqueResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/iris_contexte_geographique",
-            page=SyncDefault[IrisContexteGeographiqueAPIExpert],
+            page=SyncDefault[IrisContexteGeographique],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -227,7 +227,7 @@ class IrisContexteGeographiqueResource(SyncAPIResource):
                     iris_contexte_geographique_list_params.IrisContexteGeographiqueListParams,
                 ),
             ),
-            model=IrisContexteGeographiqueAPIExpert,
+            model=IrisContexteGeographique,
         )
 
 
@@ -287,7 +287,7 @@ class AsyncIrisContexteGeographiqueResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[IrisContexteGeographiqueAPIExpert, AsyncDefault[IrisContexteGeographiqueAPIExpert]]:
+    ) -> AsyncPaginator[IrisContexteGeographique, AsyncDefault[IrisContexteGeographique]]:
         """
         Contexte géographique des iris, comme par exemple leur situation géographique et
         la densité urbaine.
@@ -388,7 +388,7 @@ class AsyncIrisContexteGeographiqueResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/iris_contexte_geographique",
-            page=AsyncDefault[IrisContexteGeographiqueAPIExpert],
+            page=AsyncDefault[IrisContexteGeographique],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -436,7 +436,7 @@ class AsyncIrisContexteGeographiqueResource(AsyncAPIResource):
                     iris_contexte_geographique_list_params.IrisContexteGeographiqueListParams,
                 ),
             ),
-            model=IrisContexteGeographiqueAPIExpert,
+            model=IrisContexteGeographique,
         )
 
 

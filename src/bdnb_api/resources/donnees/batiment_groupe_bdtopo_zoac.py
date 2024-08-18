@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_bdtopo_zoac_list_params
-from ...types.shared.batiment_groupe_bdtopo_zoac_api_expert import BatimentGroupeBdtopoZoacAPIExpert
+from ...types.donnees.batiment_groupe_bdtopo_zoac import BatimentGroupeBdtopoZoac
 
 __all__ = ["BatimentGroupeBdtopoZoacResource", "AsyncBatimentGroupeBdtopoZoacResource"]
 
@@ -51,7 +51,7 @@ class BatimentGroupeBdtopoZoacResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeBdtopoZoacAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeBdtopoZoac]:
         """
         Informations de la BDTopo, couche zone d'activité, agrégées à l'échelle du
         bâtiment
@@ -94,7 +94,7 @@ class BatimentGroupeBdtopoZoacResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_bdtopo_zoac",
-            page=SyncDefault[BatimentGroupeBdtopoZoacAPIExpert],
+            page=SyncDefault[BatimentGroupeBdtopoZoac],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -115,7 +115,7 @@ class BatimentGroupeBdtopoZoacResource(SyncAPIResource):
                     batiment_groupe_bdtopo_zoac_list_params.BatimentGroupeBdtopoZoacListParams,
                 ),
             ),
-            model=BatimentGroupeBdtopoZoacAPIExpert,
+            model=BatimentGroupeBdtopoZoac,
         )
 
 
@@ -148,7 +148,7 @@ class AsyncBatimentGroupeBdtopoZoacResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeBdtopoZoacAPIExpert, AsyncDefault[BatimentGroupeBdtopoZoacAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeBdtopoZoac, AsyncDefault[BatimentGroupeBdtopoZoac]]:
         """
         Informations de la BDTopo, couche zone d'activité, agrégées à l'échelle du
         bâtiment
@@ -191,7 +191,7 @@ class AsyncBatimentGroupeBdtopoZoacResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_bdtopo_zoac",
-            page=AsyncDefault[BatimentGroupeBdtopoZoacAPIExpert],
+            page=AsyncDefault[BatimentGroupeBdtopoZoac],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -212,7 +212,7 @@ class AsyncBatimentGroupeBdtopoZoacResource(AsyncAPIResource):
                     batiment_groupe_bdtopo_zoac_list_params.BatimentGroupeBdtopoZoacListParams,
                 ),
             ),
-            model=BatimentGroupeBdtopoZoacAPIExpert,
+            model=BatimentGroupeBdtopoZoac,
         )
 
 

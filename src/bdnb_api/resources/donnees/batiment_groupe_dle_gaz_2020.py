@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_gaz_2020_list_params
-from ...types.shared.batiment_groupe_dle_gaz_2020_api_expert import BatimentGroupeDleGaz2020APIExpert
+from ...types.donnees.batiment_groupe_dle_gaz_2020 import BatimentGroupeDleGaz2020
 
 __all__ = ["BatimentGroupeDleGaz2020Resource", "AsyncBatimentGroupeDleGaz2020Resource"]
 
@@ -57,7 +57,7 @@ class BatimentGroupeDleGaz2020Resource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleGaz2020APIExpert]:
+    ) -> SyncDefault[BatimentGroupeDleGaz2020]:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -112,7 +112,7 @@ class BatimentGroupeDleGaz2020Resource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_gaz_2020",
-            page=SyncDefault[BatimentGroupeDleGaz2020APIExpert],
+            page=SyncDefault[BatimentGroupeDleGaz2020],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -139,7 +139,7 @@ class BatimentGroupeDleGaz2020Resource(SyncAPIResource):
                     batiment_groupe_dle_gaz_2020_list_params.BatimentGroupeDleGaz2020ListParams,
                 ),
             ),
-            model=BatimentGroupeDleGaz2020APIExpert,
+            model=BatimentGroupeDleGaz2020,
         )
 
 
@@ -178,7 +178,7 @@ class AsyncBatimentGroupeDleGaz2020Resource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeDleGaz2020APIExpert, AsyncDefault[BatimentGroupeDleGaz2020APIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeDleGaz2020, AsyncDefault[BatimentGroupeDleGaz2020]]:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -233,7 +233,7 @@ class AsyncBatimentGroupeDleGaz2020Resource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_gaz_2020",
-            page=AsyncDefault[BatimentGroupeDleGaz2020APIExpert],
+            page=AsyncDefault[BatimentGroupeDleGaz2020],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -260,7 +260,7 @@ class AsyncBatimentGroupeDleGaz2020Resource(AsyncAPIResource):
                     batiment_groupe_dle_gaz_2020_list_params.BatimentGroupeDleGaz2020ListParams,
                 ),
             ),
-            model=BatimentGroupeDleGaz2020APIExpert,
+            model=BatimentGroupeDleGaz2020,
         )
 
 

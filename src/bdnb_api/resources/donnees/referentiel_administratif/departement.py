@@ -17,8 +17,8 @@ from ...._response import (
 from ....pagination import SyncDefault, AsyncDefault
 from ...._base_client import AsyncPaginator, make_request_options
 from ....types.donnees.referentiel_administratif import departement_list_params
-from ....types.donnees.referentiel_administratif.referentiel_administratif_departement_api_expert import (
-    ReferentielAdministratifDepartementAPIExpert,
+from ....types.donnees.referentiel_administratif.referentiel_administratif_departement import (
+    ReferentielAdministratifDepartement,
 )
 
 __all__ = ["DepartementResource", "AsyncDepartementResource"]
@@ -52,7 +52,7 @@ class DepartementResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ReferentielAdministratifDepartementAPIExpert]:
+    ) -> SyncDefault[ReferentielAdministratifDepartement]:
         """
         Données sur contours des départements, issues de l'agrégation des IRIS Grande
         Echelle fournies par l'IGN pour le compte de l'INSEE
@@ -93,7 +93,7 @@ class DepartementResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/referentiel_administratif_departement",
-            page=SyncDefault[ReferentielAdministratifDepartementAPIExpert],
+            page=SyncDefault[ReferentielAdministratifDepartement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -113,7 +113,7 @@ class DepartementResource(SyncAPIResource):
                     departement_list_params.DepartementListParams,
                 ),
             ),
-            model=ReferentielAdministratifDepartementAPIExpert,
+            model=ReferentielAdministratifDepartement,
         )
 
 
@@ -145,9 +145,7 @@ class AsyncDepartementResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        ReferentielAdministratifDepartementAPIExpert, AsyncDefault[ReferentielAdministratifDepartementAPIExpert]
-    ]:
+    ) -> AsyncPaginator[ReferentielAdministratifDepartement, AsyncDefault[ReferentielAdministratifDepartement]]:
         """
         Données sur contours des départements, issues de l'agrégation des IRIS Grande
         Echelle fournies par l'IGN pour le compte de l'INSEE
@@ -188,7 +186,7 @@ class AsyncDepartementResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/referentiel_administratif_departement",
-            page=AsyncDefault[ReferentielAdministratifDepartementAPIExpert],
+            page=AsyncDefault[ReferentielAdministratifDepartement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -208,7 +206,7 @@ class AsyncDepartementResource(AsyncAPIResource):
                     departement_list_params.DepartementListParams,
                 ),
             ),
-            model=ReferentielAdministratifDepartementAPIExpert,
+            model=ReferentielAdministratifDepartement,
         )
 
 

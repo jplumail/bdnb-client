@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_radon_list_params
-from ...types.donnees.batiment_groupe_radon_api_expert import BatimentGroupeRadonAPIExpert
+from ...types.donnees.batiment_groupe_radon import BatimentGroupeRadon
 
 __all__ = ["BatimentGroupeRadonResource", "AsyncBatimentGroupeRadonResource"]
 
@@ -49,7 +49,7 @@ class BatimentGroupeRadonResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeRadonAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeRadon]:
         """
         Informations sur l'aléa Radon à l'échelle du bâtiment
 
@@ -87,7 +87,7 @@ class BatimentGroupeRadonResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_radon",
-            page=SyncDefault[BatimentGroupeRadonAPIExpert],
+            page=SyncDefault[BatimentGroupeRadon],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -106,7 +106,7 @@ class BatimentGroupeRadonResource(SyncAPIResource):
                     batiment_groupe_radon_list_params.BatimentGroupeRadonListParams,
                 ),
             ),
-            model=BatimentGroupeRadonAPIExpert,
+            model=BatimentGroupeRadon,
         )
 
 
@@ -137,7 +137,7 @@ class AsyncBatimentGroupeRadonResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeRadonAPIExpert, AsyncDefault[BatimentGroupeRadonAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeRadon, AsyncDefault[BatimentGroupeRadon]]:
         """
         Informations sur l'aléa Radon à l'échelle du bâtiment
 
@@ -175,7 +175,7 @@ class AsyncBatimentGroupeRadonResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_radon",
-            page=AsyncDefault[BatimentGroupeRadonAPIExpert],
+            page=AsyncDefault[BatimentGroupeRadon],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -194,7 +194,7 @@ class AsyncBatimentGroupeRadonResource(AsyncAPIResource):
                     batiment_groupe_radon_list_params.BatimentGroupeRadonListParams,
                 ),
             ),
-            model=BatimentGroupeRadonAPIExpert,
+            model=BatimentGroupeRadon,
         )
 
 

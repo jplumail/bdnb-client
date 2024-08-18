@@ -20,7 +20,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_siren_complet_list_params
-from ...types.shared.rel_batiment_groupe_siren_api_expert import RelBatimentGroupeSirenAPIExpert
+from ...types.donnees.rel_batiment_groupe_siren_complet import RelBatimentGroupeSirenComplet
 
 __all__ = ["RelBatimentGroupeSirenCompletResource", "AsyncRelBatimentGroupeSirenCompletResource"]
 
@@ -66,7 +66,7 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeSirenAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeSirenComplet]:
         """
         Table de relation entre les bâtiments de la BDNB et les siren.
 
@@ -135,7 +135,7 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_siren_complet",
-            page=SyncDefault[RelBatimentGroupeSirenAPIExpert],
+            page=SyncDefault[RelBatimentGroupeSirenComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -168,7 +168,7 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
                     rel_batiment_groupe_siren_complet_list_params.RelBatimentGroupeSirenCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSirenAPIExpert,
+            model=RelBatimentGroupeSirenComplet,
         )
 
 
@@ -213,7 +213,7 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeSirenAPIExpert, AsyncDefault[RelBatimentGroupeSirenAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentGroupeSirenComplet, AsyncDefault[RelBatimentGroupeSirenComplet]]:
         """
         Table de relation entre les bâtiments de la BDNB et les siren.
 
@@ -282,7 +282,7 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_siren_complet",
-            page=AsyncDefault[RelBatimentGroupeSirenAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeSirenComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -315,7 +315,7 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
                     rel_batiment_groupe_siren_complet_list_params.RelBatimentGroupeSirenCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSirenAPIExpert,
+            model=RelBatimentGroupeSirenComplet,
         )
 
 

@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_construction_adresse_list_params
-from ...types.shared.rel_batiment_construction_adresse_api_expert import RelBatimentConstructionAdresseAPIExpert
+from ...types.donnees.rel_batiment_construction_adresse import RelBatimentConstructionAdresse
 
 __all__ = ["RelBatimentConstructionAdresseResource", "AsyncRelBatimentConstructionAdresseResource"]
 
@@ -52,7 +52,7 @@ class RelBatimentConstructionAdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentConstructionAdresseAPIExpert]:
+    ) -> SyncDefault[RelBatimentConstructionAdresse]:
         """
         Table de relation entre les adresses postales BAN/Arcep et les entrées de la
         table [batiment_construction]. Pour plus d'informations voir la méthodologie
@@ -105,7 +105,7 @@ class RelBatimentConstructionAdresseResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_construction_adresse",
-            page=SyncDefault[RelBatimentConstructionAdresseAPIExpert],
+            page=SyncDefault[RelBatimentConstructionAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -127,7 +127,7 @@ class RelBatimentConstructionAdresseResource(SyncAPIResource):
                     rel_batiment_construction_adresse_list_params.RelBatimentConstructionAdresseListParams,
                 ),
             ),
-            model=RelBatimentConstructionAdresseAPIExpert,
+            model=RelBatimentConstructionAdresse,
         )
 
 
@@ -161,7 +161,7 @@ class AsyncRelBatimentConstructionAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentConstructionAdresseAPIExpert, AsyncDefault[RelBatimentConstructionAdresseAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentConstructionAdresse, AsyncDefault[RelBatimentConstructionAdresse]]:
         """
         Table de relation entre les adresses postales BAN/Arcep et les entrées de la
         table [batiment_construction]. Pour plus d'informations voir la méthodologie
@@ -214,7 +214,7 @@ class AsyncRelBatimentConstructionAdresseResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_construction_adresse",
-            page=AsyncDefault[RelBatimentConstructionAdresseAPIExpert],
+            page=AsyncDefault[RelBatimentConstructionAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -236,7 +236,7 @@ class AsyncRelBatimentConstructionAdresseResource(AsyncAPIResource):
                     rel_batiment_construction_adresse_list_params.RelBatimentConstructionAdresseListParams,
                 ),
             ),
-            model=RelBatimentConstructionAdresseAPIExpert,
+            model=RelBatimentConstructionAdresse,
         )
 
 

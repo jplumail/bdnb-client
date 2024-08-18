@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_argile_list_params
-from ...types.shared.batiment_groupe_argiles_api_expert import BatimentGroupeArgilesAPIExpert
+from ...types.donnees.batiment_groupe_argiles import BatimentGroupeArgiles
 
 __all__ = ["BatimentGroupeArgilesResource", "AsyncBatimentGroupeArgilesResource"]
 
@@ -49,7 +49,7 @@ class BatimentGroupeArgilesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeArgilesAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeArgiles]:
         """
         Informations sur l'aléa Argiles gonflants (RGA) agrégées à l'échelle du bâtiment
 
@@ -87,7 +87,7 @@ class BatimentGroupeArgilesResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_argiles",
-            page=SyncDefault[BatimentGroupeArgilesAPIExpert],
+            page=SyncDefault[BatimentGroupeArgiles],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -106,7 +106,7 @@ class BatimentGroupeArgilesResource(SyncAPIResource):
                     batiment_groupe_argile_list_params.BatimentGroupeArgileListParams,
                 ),
             ),
-            model=BatimentGroupeArgilesAPIExpert,
+            model=BatimentGroupeArgiles,
         )
 
 
@@ -137,7 +137,7 @@ class AsyncBatimentGroupeArgilesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeArgilesAPIExpert, AsyncDefault[BatimentGroupeArgilesAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeArgiles, AsyncDefault[BatimentGroupeArgiles]]:
         """
         Informations sur l'aléa Argiles gonflants (RGA) agrégées à l'échelle du bâtiment
 
@@ -175,7 +175,7 @@ class AsyncBatimentGroupeArgilesResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_argiles",
-            page=AsyncDefault[BatimentGroupeArgilesAPIExpert],
+            page=AsyncDefault[BatimentGroupeArgiles],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -194,7 +194,7 @@ class AsyncBatimentGroupeArgilesResource(AsyncAPIResource):
                     batiment_groupe_argile_list_params.BatimentGroupeArgileListParams,
                 ),
             ),
-            model=BatimentGroupeArgilesAPIExpert,
+            model=BatimentGroupeArgiles,
         )
 
 

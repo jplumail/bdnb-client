@@ -17,7 +17,7 @@ from .._response import (
 )
 from ..pagination import SyncDefault, AsyncDefault
 from .._base_client import AsyncPaginator, make_request_options
-from ..types.autocompletion_entites_texte_api_expert import AutocompletionEntitesTexteAPIExpert
+from ..types.autocompletion_entites_texte import AutocompletionEntitesTexte
 
 __all__ = ["AutocompletionResource", "AsyncAutocompletionResource"]
 
@@ -53,7 +53,7 @@ class AutocompletionResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[AutocompletionEntitesTexteAPIExpert]:
+    ) -> SyncDefault[AutocompletionEntitesTexte]:
         """
         table utilisée pour l'autocomplétion de champs textuelles des entités dans la
         base
@@ -100,7 +100,7 @@ class AutocompletionResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/autocompletion_entites_texte",
-            page=SyncDefault[AutocompletionEntitesTexteAPIExpert],
+            page=SyncDefault[AutocompletionEntitesTexte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -123,7 +123,7 @@ class AutocompletionResource(SyncAPIResource):
                     autocompletion_list_params.AutocompletionListParams,
                 ),
             ),
-            model=AutocompletionEntitesTexteAPIExpert,
+            model=AutocompletionEntitesTexte,
         )
 
 
@@ -158,7 +158,7 @@ class AsyncAutocompletionResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[AutocompletionEntitesTexteAPIExpert, AsyncDefault[AutocompletionEntitesTexteAPIExpert]]:
+    ) -> AsyncPaginator[AutocompletionEntitesTexte, AsyncDefault[AutocompletionEntitesTexte]]:
         """
         table utilisée pour l'autocomplétion de champs textuelles des entités dans la
         base
@@ -205,7 +205,7 @@ class AsyncAutocompletionResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/autocompletion_entites_texte",
-            page=AsyncDefault[AutocompletionEntitesTexteAPIExpert],
+            page=AsyncDefault[AutocompletionEntitesTexte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -228,7 +228,7 @@ class AsyncAutocompletionResource(AsyncAPIResource):
                     autocompletion_list_params.AutocompletionListParams,
                 ),
             ),
-            model=AutocompletionEntitesTexteAPIExpert,
+            model=AutocompletionEntitesTexte,
         )
 
 

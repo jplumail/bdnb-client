@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_reseaux_multimillesime_list_params
-from ...types.shared.batiment_groupe_dle_reseaux_multimillesime_api_expert import (
-    BatimentGroupeDleReseauxMultimillesimeAPIExpert,
-)
+from ...types.donnees.batiment_groupe_dle_reseaux_multimillesime import BatimentGroupeDleReseauxMultimillesime
 
 __all__ = ["BatimentGroupeDleReseauxMultimillesimeResource", "AsyncBatimentGroupeDleReseauxMultimillesimeResource"]
 
@@ -62,7 +60,7 @@ class BatimentGroupeDleReseauxMultimillesimeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDleReseauxMultimillesime]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur réseau de chaleur agrégées à l'échelle du bâtiment. Attention les
@@ -125,7 +123,7 @@ class BatimentGroupeDleReseauxMultimillesimeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_reseaux_multimillesime",
-            page=SyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            page=SyncDefault[BatimentGroupeDleReseauxMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -155,7 +153,7 @@ class BatimentGroupeDleReseauxMultimillesimeResource(SyncAPIResource):
                     batiment_groupe_dle_reseaux_multimillesime_list_params.BatimentGroupeDleReseauxMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseauxMultimillesimeAPIExpert,
+            model=BatimentGroupeDleReseauxMultimillesime,
         )
 
 
@@ -197,9 +195,7 @@ class AsyncBatimentGroupeDleReseauxMultimillesimeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDleReseauxMultimillesimeAPIExpert, AsyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDleReseauxMultimillesime, AsyncDefault[BatimentGroupeDleReseauxMultimillesime]]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur réseau de chaleur agrégées à l'échelle du bâtiment. Attention les
@@ -262,7 +258,7 @@ class AsyncBatimentGroupeDleReseauxMultimillesimeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_reseaux_multimillesime",
-            page=AsyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            page=AsyncDefault[BatimentGroupeDleReseauxMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -292,7 +288,7 @@ class AsyncBatimentGroupeDleReseauxMultimillesimeResource(AsyncAPIResource):
                     batiment_groupe_dle_reseaux_multimillesime_list_params.BatimentGroupeDleReseauxMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseauxMultimillesimeAPIExpert,
+            model=BatimentGroupeDleReseauxMultimillesime,
         )
 
 

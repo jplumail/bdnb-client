@@ -10,7 +10,9 @@ import pytest
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
-from bdnb_api.types.shared import BatimentGroupeDleReseauxMultimillesimeAPIExpert
+from bdnb_api.types.donnees import (
+    BatimentGroupeDleReseauxMultimillesime,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -22,7 +24,7 @@ class TestBatimentGroupeDleReseauxMultimillesime:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dle_reseaux_multimillesime = client.donnees.batiment_groupe_dle_reseaux_multimillesime.list()
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            SyncDefault[BatimentGroupeDleReseauxMultimillesime],
             batiment_groupe_dle_reseaux_multimillesime,
             path=["response"],
         )
@@ -52,7 +54,7 @@ class TestBatimentGroupeDleReseauxMultimillesime:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            SyncDefault[BatimentGroupeDleReseauxMultimillesime],
             batiment_groupe_dle_reseaux_multimillesime,
             path=["response"],
         )
@@ -65,7 +67,7 @@ class TestBatimentGroupeDleReseauxMultimillesime:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_reseaux_multimillesime = response.parse()
         assert_matches_type(
-            SyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            SyncDefault[BatimentGroupeDleReseauxMultimillesime],
             batiment_groupe_dle_reseaux_multimillesime,
             path=["response"],
         )
@@ -78,7 +80,7 @@ class TestBatimentGroupeDleReseauxMultimillesime:
 
             batiment_groupe_dle_reseaux_multimillesime = response.parse()
             assert_matches_type(
-                SyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+                SyncDefault[BatimentGroupeDleReseauxMultimillesime],
                 batiment_groupe_dle_reseaux_multimillesime,
                 path=["response"],
             )
@@ -95,7 +97,7 @@ class TestAsyncBatimentGroupeDleReseauxMultimillesime:
             await async_client.donnees.batiment_groupe_dle_reseaux_multimillesime.list()
         )
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            AsyncDefault[BatimentGroupeDleReseauxMultimillesime],
             batiment_groupe_dle_reseaux_multimillesime,
             path=["response"],
         )
@@ -127,7 +129,7 @@ class TestAsyncBatimentGroupeDleReseauxMultimillesime:
             )
         )
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            AsyncDefault[BatimentGroupeDleReseauxMultimillesime],
             batiment_groupe_dle_reseaux_multimillesime,
             path=["response"],
         )
@@ -140,7 +142,7 @@ class TestAsyncBatimentGroupeDleReseauxMultimillesime:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_reseaux_multimillesime = await response.parse()
         assert_matches_type(
-            AsyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+            AsyncDefault[BatimentGroupeDleReseauxMultimillesime],
             batiment_groupe_dle_reseaux_multimillesime,
             path=["response"],
         )
@@ -153,7 +155,7 @@ class TestAsyncBatimentGroupeDleReseauxMultimillesime:
 
             batiment_groupe_dle_reseaux_multimillesime = await response.parse()
             assert_matches_type(
-                AsyncDefault[BatimentGroupeDleReseauxMultimillesimeAPIExpert],
+                AsyncDefault[BatimentGroupeDleReseauxMultimillesime],
                 batiment_groupe_dle_reseaux_multimillesime,
                 path=["response"],
             )
