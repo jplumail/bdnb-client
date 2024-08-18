@@ -7,7 +7,6 @@ from bdnb_api.types import (
     BatimentGroupeBdtopoEquAPIExpert,
     BatimentGroupeBdtopoZoacAPIExpert,
     BatimentGroupeBpeAPIExpert,
-    BatimentGroupeDelimitationEnveloppeAPIExpert,
     BatimentGroupeDleElec2020APIExpert,
     BatimentGroupeDleGaz2020APIExpert,
     BatimentGroupeDleReseaux2020APIExpert,
@@ -15,10 +14,8 @@ from bdnb_api.types import (
     BatimentGroupeDpeRepresentatifLogementAPIExpert,
     BatimentGroupeDvfOpenStatistiqueAPIExpert,
     BatimentGroupeGeospxAPIExpert,
-    BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
     BatimentGroupeRncAPIExpert,
     BatimentGroupeSimulationsDpeAPIExpert,
-    BatimentGroupeSimulationsValeurVerteAPIExpert,
     BatimentGroupeSyntheseEnveloppeAPIExpert,
     RelBatimentConstructionAdresseAPIExpert,
     RelBatimentGroupeAdresseAPIExpert,
@@ -663,6 +660,51 @@ from bdnb_api.types.donnees import (
 Methods:
 
 - <code title="get /donnees/batiment_groupe_wall_dict">client.donnees.batiment_groupe_wall_dict.<a href="./src/bdnb_api/resources/donnees/batiment_groupe_wall_dict.py">list</a>(\*\*<a href="src/bdnb_api/types/donnees/batiment_groupe_wall_dict_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/donnees/batiment_groupe_wall_dict_list_response.py">BatimentGroupeWallDictListResponse</a></code>
+
+## BatimentGroupeIndicateurReseauChaudFroid
+
+Types:
+
+```python
+from bdnb_api.types.donnees import (
+    BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
+    BatimentGroupeIndicateurReseauChaudFroidListResponse,
+)
+```
+
+Methods:
+
+- <code title="get /donnees/batiment_groupe_indicateur_reseau_chaud_froid">client.donnees.batiment_groupe_indicateur_reseau_chaud_froid.<a href="./src/bdnb_api/resources/donnees/batiment_groupe_indicateur_reseau_chaud_froid.py">list</a>(\*\*<a href="src/bdnb_api/types/donnees/batiment_groupe_indicateur_reseau_chaud_froid_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/donnees/batiment_groupe_indicateur_reseau_chaud_froid_list_response.py">BatimentGroupeIndicateurReseauChaudFroidListResponse</a></code>
+
+## BatimentGroupeDelimitationEnveloppe
+
+Types:
+
+```python
+from bdnb_api.types.donnees import (
+    BatimentGroupeDelimitationEnveloppeAPIExpert,
+    BatimentGroupeDelimitationEnveloppeListResponse,
+)
+```
+
+Methods:
+
+- <code title="get /donnees/batiment_groupe_delimitation_enveloppe">client.donnees.batiment_groupe_delimitation_enveloppe.<a href="./src/bdnb_api/resources/donnees/batiment_groupe_delimitation_enveloppe.py">list</a>(\*\*<a href="src/bdnb_api/types/donnees/batiment_groupe_delimitation_enveloppe_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/donnees/batiment_groupe_delimitation_enveloppe_list_response.py">BatimentGroupeDelimitationEnveloppeListResponse</a></code>
+
+## BatimentGroupeSimulationsValeurVerte
+
+Types:
+
+```python
+from bdnb_api.types.donnees import (
+    BatimentGroupeSimulationsValeurVerteAPIExpert,
+    BatimentGroupeSimulationsValeurVerteListResponse,
+)
+```
+
+Methods:
+
+- <code title="get /donnees/batiment_groupe_simulations_valeur_verte">client.donnees.batiment_groupe_simulations_valeur_verte.<a href="./src/bdnb_api/resources/donnees/batiment_groupe_simulations_valeur_verte.py">list</a>(\*\*<a href="src/bdnb_api/types/donnees/batiment_groupe_simulations_valeur_verte_list_params.py">params</a>) -> <a href="./src/bdnb_api/types/donnees/batiment_groupe_simulations_valeur_verte_list_response.py">BatimentGroupeSimulationsValeurVerteListResponse</a></code>
 
 ## ReferentielAdministratif
 

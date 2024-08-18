@@ -37,21 +37,12 @@ from .batiment_groupe_synthese_enveloppe_api_expert import (
 from .batiment_groupe_dvf_open_statistique_api_expert import (
     BatimentGroupeDvfOpenStatistiqueAPIExpert as BatimentGroupeDvfOpenStatistiqueAPIExpert,
 )
-from .batiment_groupe_delimitation_enveloppe_api_expert import (
-    BatimentGroupeDelimitationEnveloppeAPIExpert as BatimentGroupeDelimitationEnveloppeAPIExpert,
-)
 from .rel_batiment_groupe_proprietaire_siren_api_expert import (
     RelBatimentGroupeProprietaireSirenAPIExpert as RelBatimentGroupeProprietaireSirenAPIExpert,
-)
-from .batiment_groupe_simulations_valeur_verte_api_expert import (
-    BatimentGroupeSimulationsValeurVerteAPIExpert as BatimentGroupeSimulationsValeurVerteAPIExpert,
 )
 from .batiment_groupe_dle_reseaux_multimillesime_api_expert import (
     BatimentGroupeDleReseauxMultimillesimeAPIExpert as BatimentGroupeDleReseauxMultimillesimeAPIExpert,
 )
 from .batiment_groupe_dpe_representatif_logement_api_expert import (
     BatimentGroupeDpeRepresentatifLogementAPIExpert as BatimentGroupeDpeRepresentatifLogementAPIExpert,
-)
-from .batiment_groupe_indicateur_reseau_chaud_froid_api_expert import (
-    BatimentGroupeIndicateurReseauChaudFroidAPIExpert as BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
 )

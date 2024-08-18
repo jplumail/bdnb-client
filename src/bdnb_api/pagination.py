@@ -1,24 +1,31 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List, Generic, TypeVar, Optional
+from typing import Any, List, Type, Generic, Mapping, TypeVar, Optional, cast
 from typing_extensions import override
 
+from httpx import Response
+
+from ._utils import is_mapping
+from ._models import BaseModel
 from ._base_client import BasePage, PageInfo, BaseSyncPage, BaseAsyncPage
 
 __all__ = ["SyncDefault", "AsyncDefault"]
+
+_BaseModelT = TypeVar("_BaseModelT", bound=BaseModel)
 
 _T = TypeVar("_T")
 
 
 class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
+    items: List[_T]
     range: Optional[str] = None
 
     @override
     def _get_page_items(self) -> List[_T]:
-        data = self.data
-        if not data:
+        items = self.items
+        if not items:
             return []
-        return data
+        return items
 
     @override
     def next_page_info(self) -> Optional[PageInfo]:
@@ -37,17 +44,27 @@ class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
             return PageInfo(params={"offset": current_count})
 
         return None
+
+    @classmethod
+    def build(cls: Type[_BaseModelT], *, response: Response, data: object) -> _BaseModelT:  # noqa: ARG003
+        return cls.construct(
+            None,
+            **{
+                **(cast(Mapping[str, Any], data) if is_mapping(data) else {"items": data}),
+            },
+        )
 
 
 class AsyncDefault(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
+    items: List[_T]
     range: Optional[str] = None
 
     @override
     def _get_page_items(self) -> List[_T]:
-        data = self.data
-        if not data:
+        items = self.items
+        if not items:
             return []
-        return data
+        return items
 
     @override
     def next_page_info(self) -> Optional[PageInfo]:
@@ -66,3 +83,12 @@ class AsyncDefault(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
             return PageInfo(params={"offset": current_count})
 
         return None
+
+    @classmethod
+    def build(cls: Type[_BaseModelT], *, response: Response, data: object) -> _BaseModelT:  # noqa: ARG003
+        return cls.construct(
+            None,
+            **{
+                **(cast(Mapping[str, Any], data) if is_mapping(data) else {"items": data}),
+            },
+        )
