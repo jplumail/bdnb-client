@@ -4,8 +4,8 @@ from typing import Sequence
 
 import pytest
 
-from bdnb_api._types import FileTypes
-from bdnb_api._utils import extract_files
+from bdnb_client._types import FileTypes
+from bdnb_client._utils import extract_files
 
 
 def test_removes_files_from_input() -> None:

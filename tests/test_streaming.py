@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from bdnb_api import Bdnb, AsyncBdnb
-from bdnb_api._streaming import Stream, AsyncStream, ServerSentEvent
+from bdnb_client import Bdnb, AsyncBdnb
+from bdnb_client._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio

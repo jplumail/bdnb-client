@@ -16,11 +16,10 @@ import pytest
 from respx import MockRouter
 from pydantic import ValidationError
 
-from bdnb_api import Bdnb, AsyncBdnb, APIResponseValidationError
-from bdnb_api._models import BaseModel, FinalRequestOptions
-from bdnb_api._constants import RAW_RESPONSE_HEADER
-from bdnb_api._exceptions import APIStatusError, APITimeoutError, APIResponseValidationError
-from bdnb_api._base_client import (
+from bdnb_client import Bdnb, AsyncBdnb, APIResponseValidationError
+from bdnb_client._models import BaseModel, FinalRequestOptions
+from bdnb_client._exceptions import APIResponseValidationError
+from bdnb_client._base_client import (
     DEFAULT_TIMEOUT,
     HTTPX_DEFAULT_TIMEOUT,
     BaseClient,
@@ -40,14 +39,6 @@ def _get_params(client: BaseClient[Any, Any]) -> dict[str, str]:
 
 def _low_retry_timeout(*_args: Any, **_kwargs: Any) -> float:
     return 0.1
-
-
-def _get_open_connections(client: Bdnb | AsyncBdnb) -> int:
-    transport = client._client._transport
-    assert isinstance(transport, httpx.HTTPTransport) or isinstance(transport, httpx.AsyncHTTPTransport)
-
-    pool = transport._pool
-    return len(pool._requests)
 
 
 class TestBdnb:
@@ -215,10 +206,10 @@ class TestBdnb:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "bdnb_api/_legacy_response.py",
-                        "bdnb_api/_response.py",
+                        "bdnb_client/_legacy_response.py",
+                        "bdnb_client/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "bdnb_api/_compat.py",
+                        "bdnb_client/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -662,40 +653,8 @@ class TestBdnb:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
-    @pytest.mark.respx(base_url=base_url)
-    def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(
-            side_effect=httpx.TimeoutException("Test timeout error")
-        )
-
-        with pytest.raises(APITimeoutError):
-            self.client.post(
-                "/donnees/batiment_groupe_complet/polygon",
-                body=cast(object, dict()),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
-        assert _get_open_connections(self.client) == 0
-
-    @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
-    @pytest.mark.respx(base_url=base_url)
-    def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(return_value=httpx.Response(500))
-
-        with pytest.raises(APIStatusError):
-            self.client.post(
-                "/donnees/batiment_groupe_complet/polygon",
-                body=cast(object, dict()),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
-        assert _get_open_connections(self.client) == 0
-
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("bdnb_client._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retries_taken(self, client: Bdnb, failures_before_success: int, respx_mock: MockRouter) -> None:
         client = client.with_options(max_retries=4)
@@ -709,9 +668,9 @@ class TestBdnb:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(side_effect=retry_handler)
+        respx_mock.get("/donnees/batiment_groupe").mock(side_effect=retry_handler)
 
-        response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
+        response = client.donnees.batiment_groupe.with_raw_response.list()
 
         assert response.retries_taken == failures_before_success
 
@@ -883,10 +842,10 @@ class TestAsyncBdnb:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "bdnb_api/_legacy_response.py",
-                        "bdnb_api/_response.py",
+                        "bdnb_client/_legacy_response.py",
+                        "bdnb_client/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "bdnb_api/_compat.py",
+                        "bdnb_client/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -1334,40 +1293,8 @@ class TestAsyncBdnb:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
-    @pytest.mark.respx(base_url=base_url)
-    async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(
-            side_effect=httpx.TimeoutException("Test timeout error")
-        )
-
-        with pytest.raises(APITimeoutError):
-            await self.client.post(
-                "/donnees/batiment_groupe_complet/polygon",
-                body=cast(object, dict()),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
-        assert _get_open_connections(self.client) == 0
-
-    @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
-    @pytest.mark.respx(base_url=base_url)
-    async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(return_value=httpx.Response(500))
-
-        with pytest.raises(APIStatusError):
-            await self.client.post(
-                "/donnees/batiment_groupe_complet/polygon",
-                body=cast(object, dict()),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
-        assert _get_open_connections(self.client) == 0
-
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("bdnb_client._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
     async def test_retries_taken(
@@ -1384,8 +1311,8 @@ class TestAsyncBdnb:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/donnees/batiment_groupe_complet/polygon").mock(side_effect=retry_handler)
+        respx_mock.get("/donnees/batiment_groupe").mock(side_effect=retry_handler)
 
-        response = await client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
+        response = await client.donnees.batiment_groupe.with_raw_response.list()
 
         assert response.retries_taken == failures_before_success

@@ -1,12 +1,10 @@
 # Bdnb Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/bdnb-api.svg)](https://pypi.org/project/bdnb-api/)
+[![PyPI version](https://img.shields.io/pypi/v/bdnb-client.svg)](https://pypi.org/project/bdnb-client/)
 
 The Bdnb Python library provides convenient access to the Bdnb REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
-
-It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
@@ -16,7 +14,7 @@ The REST API documentation can be found on [api-portail.bdnb.io](https://api-por
 
 ```sh
 # install from PyPI
-pip install --pre bdnb-api
+pip install --pre bdnb-client
 ```
 
 ## Usage
@@ -24,11 +22,12 @@ pip install --pre bdnb-api
 The full API of this library can be found in [api.md](api.md).
 
 ```python
-from bdnb_api import Bdnb
+from bdnb_client import Bdnb
 
 client = Bdnb()
 
-polygon_list_response = client.donnees.batiment_groupe_complet.polygon.list()
+page = client.donnees.batiment_groupe.list()
+print(page.page)
 ```
 
 ## Async usage
@@ -37,13 +36,14 @@ Simply import `AsyncBdnb` instead of `Bdnb` and use `await` with each API call:
 
 ```python
 import asyncio
-from bdnb_api import AsyncBdnb
+from bdnb_client import AsyncBdnb
 
 client = AsyncBdnb()
 
 
 async def main() -> None:
-    polygon_list_response = await client.donnees.batiment_groupe_complet.polygon.list()
+    page = await client.donnees.batiment_groupe.list()
+    print(page.page)
 
 
 asyncio.run(main())
@@ -67,33 +67,33 @@ List methods in the Bdnb API are paginated.
 This library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:
 
 ```python
-from bdnb_api import Bdnb
+from bdnb_client import Bdnb
 
 client = Bdnb()
 
-all_autocompletions = []
+all_batiment_groupes = []
 # Automatically fetches more pages as needed.
-for autocompletion in client.autocompletion.list():
-    # Do something with autocompletion here
-    all_autocompletions.append(autocompletion)
-print(all_autocompletions)
+for batiment_groupe in client.donnees.batiment_groupe.list():
+    # Do something with batiment_groupe here
+    all_batiment_groupes.append(batiment_groupe)
+print(all_batiment_groupes)
 ```
 
 Or, asynchronously:
 
 ```python
 import asyncio
-from bdnb_api import AsyncBdnb
+from bdnb_client import AsyncBdnb
 
 client = AsyncBdnb()
 
 
 async def main() -> None:
-    all_autocompletions = []
+    all_batiment_groupes = []
     # Iterate through items across all pages, issuing requests as needed.
-    async for autocompletion in client.autocompletion.list():
-        all_autocompletions.append(autocompletion)
-    print(all_autocompletions)
+    async for batiment_groupe in client.donnees.batiment_groupe.list():
+        all_batiment_groupes.append(batiment_groupe)
+    print(all_batiment_groupes)
 
 
 asyncio.run(main())
@@ -102,7 +102,7 @@ asyncio.run(main())
 Alternatively, you can use the `.has_next_page()`, `.next_page_info()`, or `.get_next_page()` methods for more granular control working with pages:
 
 ```python
-first_page = await client.autocompletion.list()
+first_page = await client.donnees.batiment_groupe.list()
 if first_page.has_next_page():
     print(f"will fetch next page using these details: {first_page.next_page_info()}")
     next_page = await first_page.get_next_page()
@@ -114,36 +114,36 @@ if first_page.has_next_page():
 Or just work directly with the returned data:
 
 ```python
-first_page = await client.autocompletion.list()
-for autocompletion in first_page.items:
-    print(autocompletion.code)
+first_page = await client.donnees.batiment_groupe.list()
+for batiment_groupe in first_page.items:
+    print(batiment_groupe.batiment_groupe_id)
 
 # Remove `await` for non-async usage.
 ```
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `bdnb_api.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `bdnb_client.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `bdnb_api.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `bdnb_client.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `bdnb_api.APIError`.
+All errors inherit from `bdnb_client.APIError`.
 
 ```python
-import bdnb_api
-from bdnb_api import Bdnb
+import bdnb_client
+from bdnb_client import Bdnb
 
 client = Bdnb()
 
 try:
-    client.donnees.batiment_groupe_complet.polygon.list()
-except bdnb_api.APIConnectionError as e:
+    client.donnees.batiment_groupe.list()
+except bdnb_client.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
-except bdnb_api.RateLimitError as e:
+except bdnb_client.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except bdnb_api.APIStatusError as e:
+except bdnb_client.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -171,7 +171,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from bdnb_api import Bdnb
+from bdnb_client import Bdnb
 
 # Configure the default for all requests:
 client = Bdnb(
@@ -180,7 +180,7 @@ client = Bdnb(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).donnees.batiment_groupe_complet.polygon.list()
+client.with_options(max_retries=5).donnees.batiment_groupe.list()
 ```
 
 ### Timeouts
@@ -189,7 +189,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from bdnb_api import Bdnb
+from bdnb_client import Bdnb
 
 # Configure the default for all requests:
 client = Bdnb(
@@ -203,7 +203,7 @@ client = Bdnb(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).donnees.batiment_groupe_complet.polygon.list()
+client.with_options(timeout=5.0).donnees.batiment_groupe.list()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -239,19 +239,19 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from bdnb_api import Bdnb
+from bdnb_client import Bdnb
 
 client = Bdnb()
-response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
+response = client.donnees.batiment_groupe.with_raw_response.list()
 print(response.headers.get('X-My-Header'))
 
-polygon = response.parse()  # get the object that `donnees.batiment_groupe_complet.polygon.list()` would have returned
-print(polygon)
+batiment_groupe = response.parse()  # get the object that `donnees.batiment_groupe.list()` would have returned
+print(batiment_groupe.batiment_groupe_id)
 ```
 
-These methods return an [`APIResponse`](https://github.com/jplumail/bdnb-api/tree/main/src/bdnb_api/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/jplumail/bdnb-client/tree/main/src/bdnb_client/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/jplumail/bdnb-api/tree/main/src/bdnb_api/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/jplumail/bdnb-client/tree/main/src/bdnb_client/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -260,7 +260,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.donnees.batiment_groupe_complet.polygon.with_streaming_response.list() as response:
+with client.donnees.batiment_groupe.with_streaming_response.list() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
@@ -313,7 +313,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 - Additional [advanced](https://www.python-httpx.org/advanced/clients/) functionality
 
 ```python
-from bdnb_api import Bdnb, DefaultHttpxClient
+from bdnb_client import Bdnb, DefaultHttpxClient
 
 client = Bdnb(
     # Or use the `BDNB_BASE_URL` env var
@@ -345,7 +345,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/jplumail/bdnb-api/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/jplumail/bdnb-client/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
