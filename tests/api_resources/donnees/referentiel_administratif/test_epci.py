@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees.referentiel_administratif import EpciListResponse
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.donnees.referentiel_administratif import ReferentielAdministratifEpciAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,7 @@ class TestEpci:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         epci = client.donnees.referentiel_administratif.epci.list()
-        assert_matches_type(EpciListResponse, epci, path=["response"])
+        assert_matches_type(SyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -36,7 +37,7 @@ class TestEpci:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(EpciListResponse, epci, path=["response"])
+        assert_matches_type(SyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -45,7 +46,7 @@ class TestEpci:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         epci = response.parse()
-        assert_matches_type(EpciListResponse, epci, path=["response"])
+        assert_matches_type(SyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -54,7 +55,7 @@ class TestEpci:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             epci = response.parse()
-            assert_matches_type(EpciListResponse, epci, path=["response"])
+            assert_matches_type(SyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -65,7 +66,7 @@ class TestAsyncEpci:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         epci = await async_client.donnees.referentiel_administratif.epci.list()
-        assert_matches_type(EpciListResponse, epci, path=["response"])
+        assert_matches_type(AsyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -81,7 +82,7 @@ class TestAsyncEpci:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(EpciListResponse, epci, path=["response"])
+        assert_matches_type(AsyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -90,7 +91,7 @@ class TestAsyncEpci:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         epci = await response.parse()
-        assert_matches_type(EpciListResponse, epci, path=["response"])
+        assert_matches_type(AsyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -99,6 +100,6 @@ class TestAsyncEpci:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             epci = await response.parse()
-            assert_matches_type(EpciListResponse, epci, path=["response"])
+            assert_matches_type(AsyncDefault[ReferentielAdministratifEpciAPIExpert], epci, path=["response"])
 
         assert cast(Any, response.is_closed) is True

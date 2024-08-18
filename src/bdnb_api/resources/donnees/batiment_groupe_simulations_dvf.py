@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_simulations_dvf_list_params
-from ...types.donnees.batiment_groupe_simulations_dvf_list_response import BatimentGroupeSimulationsDvfListResponse
+from ...types.donnees.batiment_groupe_simulations_dvf_api_expert import BatimentGroupeSimulationsDvfAPIExpert
 
 __all__ = ["BatimentGroupeSimulationsDvfResource", "AsyncBatimentGroupeSimulationsDvfResource"]
 
@@ -68,7 +65,7 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeSimulationsDvfListResponse:
+    ) -> SyncDefault[BatimentGroupeSimulationsDvfAPIExpert]:
         """
         Simulations des valeurs foncières des bâtiments
 
@@ -139,8 +136,9 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_simulations_dvf",
+            page=SyncDefault[BatimentGroupeSimulationsDvfAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -175,7 +173,7 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
                     batiment_groupe_simulations_dvf_list_params.BatimentGroupeSimulationsDvfListParams,
                 ),
             ),
-            cast_to=BatimentGroupeSimulationsDvfListResponse,
+            model=BatimentGroupeSimulationsDvfAPIExpert,
         )
 
 
@@ -188,7 +186,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeSimulationsDvfResourceWithStreamingResponse:
         return AsyncBatimentGroupeSimulationsDvfResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -222,7 +220,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeSimulationsDvfListResponse:
+    ) -> AsyncPaginator[BatimentGroupeSimulationsDvfAPIExpert, AsyncDefault[BatimentGroupeSimulationsDvfAPIExpert]]:
         """
         Simulations des valeurs foncières des bâtiments
 
@@ -293,14 +291,15 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_simulations_dvf",
+            page=AsyncDefault[BatimentGroupeSimulationsDvfAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "classe_dpe_conso_initial": classe_dpe_conso_initial,
@@ -329,7 +328,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
                     batiment_groupe_simulations_dvf_list_params.BatimentGroupeSimulationsDvfListParams,
                 ),
             ),
-            cast_to=BatimentGroupeSimulationsDvfListResponse,
+            model=BatimentGroupeSimulationsDvfAPIExpert,
         )
 
 

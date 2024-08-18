@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import BatimentGroupeAdresseListResponse
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.donnees import BatimentGroupeAdresseAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,7 @@ class TestBatimentGroupeAdresse:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_adresse = client.donnees.batiment_groupe_adresse.list()
-        assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -39,7 +40,7 @@ class TestBatimentGroupeAdresse:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -48,7 +49,7 @@ class TestBatimentGroupeAdresse:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_adresse = response.parse()
-        assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -57,7 +58,7 @@ class TestBatimentGroupeAdresse:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             batiment_groupe_adresse = response.parse()
-            assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+            assert_matches_type(SyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -68,7 +69,7 @@ class TestAsyncBatimentGroupeAdresse:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         batiment_groupe_adresse = await async_client.donnees.batiment_groupe_adresse.list()
-        assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -87,7 +88,7 @@ class TestAsyncBatimentGroupeAdresse:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -96,7 +97,7 @@ class TestAsyncBatimentGroupeAdresse:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_adresse = await response.parse()
-        assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -105,6 +106,8 @@ class TestAsyncBatimentGroupeAdresse:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             batiment_groupe_adresse = await response.parse()
-            assert_matches_type(BatimentGroupeAdresseListResponse, batiment_groupe_adresse, path=["response"])
+            assert_matches_type(
+                AsyncDefault[BatimentGroupeAdresseAPIExpert], batiment_groupe_adresse, path=["response"]
+            )
 
         assert cast(Any, response.is_closed) is True

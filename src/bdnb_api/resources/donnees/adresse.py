@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import adresse_list_params
-from ...types.donnees.adresse_list_response import AdresseListResponse
+from ...types.donnees.adresse_api_expert import AdresseAPIExpert
 
 __all__ = ["AdresseResource", "AsyncAdresseResource"]
 
@@ -61,7 +58,7 @@ class AdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AdresseListResponse:
+    ) -> SyncDefault[AdresseAPIExpert]:
         """Table de description des adresses.
 
         Les adresses dans la BDNB sont un
@@ -120,8 +117,9 @@ class AdresseResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/adresse",
+            page=SyncDefault[AdresseAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -149,7 +147,7 @@ class AdresseResource(SyncAPIResource):
                     adresse_list_params.AdresseListParams,
                 ),
             ),
-            cast_to=AdresseListResponse,
+            model=AdresseAPIExpert,
         )
 
 
@@ -162,7 +160,7 @@ class AsyncAdresseResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncAdresseResourceWithStreamingResponse:
         return AsyncAdresseResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         cle_interop_adr: str | NotGiven = NOT_GIVEN,
@@ -189,7 +187,7 @@ class AsyncAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AdresseListResponse:
+    ) -> AsyncPaginator[AdresseAPIExpert, AsyncDefault[AdresseAPIExpert]]:
         """Table de description des adresses.
 
         Les adresses dans la BDNB sont un
@@ -248,14 +246,15 @@ class AsyncAdresseResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/adresse",
+            page=AsyncDefault[AdresseAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "cle_interop_adr": cle_interop_adr,
                         "code_commune_insee": code_commune_insee,
@@ -277,7 +276,7 @@ class AsyncAdresseResource(AsyncAPIResource):
                     adresse_list_params.AdresseListParams,
                 ),
             ),
-            cast_to=AdresseListResponse,
+            model=AdresseAPIExpert,
         )
 
 
