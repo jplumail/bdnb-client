@@ -9,7 +9,7 @@ import httpx
 import pytest
 from respx import MockRouter
 
-from bdnb_api import BdnbAPI, AsyncBdnbAPI
+from bdnb_api import Bdnb, AsyncBdnb
 from bdnb_api._response import (
     BinaryAPIResponse,
     AsyncBinaryAPIResponse,
@@ -25,7 +25,7 @@ class TestRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    def test_method_list(self, client: BdnbAPI, respx_mock: MockRouter) -> None:
+    def test_method_list(self, client: Bdnb, respx_mock: MockRouter) -> None:
         respx_mock.get("/tuiles/region/14/8276/5702.pbf").mock(return_value=httpx.Response(200, json={"foo": "bar"}))
         region = client.tuiles.vectorielles.region.list(
             y="5702",
@@ -39,7 +39,7 @@ class TestRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    def test_raw_response_list(self, client: BdnbAPI, respx_mock: MockRouter) -> None:
+    def test_raw_response_list(self, client: Bdnb, respx_mock: MockRouter) -> None:
         respx_mock.get("/tuiles/region/14/8276/5702.pbf").mock(return_value=httpx.Response(200, json={"foo": "bar"}))
 
         region = client.tuiles.vectorielles.region.with_raw_response.list(
@@ -55,7 +55,7 @@ class TestRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    def test_streaming_response_list(self, client: BdnbAPI, respx_mock: MockRouter) -> None:
+    def test_streaming_response_list(self, client: Bdnb, respx_mock: MockRouter) -> None:
         respx_mock.get("/tuiles/region/14/8276/5702.pbf").mock(return_value=httpx.Response(200, json={"foo": "bar"}))
         with client.tuiles.vectorielles.region.with_streaming_response.list(
             y="5702",
@@ -73,7 +73,7 @@ class TestRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    def test_path_params_list(self, client: BdnbAPI) -> None:
+    def test_path_params_list(self, client: Bdnb) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `zoom` but received ''"):
             client.tuiles.vectorielles.region.with_raw_response.list(
                 y="5702",
@@ -101,7 +101,7 @@ class TestAsyncRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    async def test_method_list(self, async_client: AsyncBdnbAPI, respx_mock: MockRouter) -> None:
+    async def test_method_list(self, async_client: AsyncBdnb, respx_mock: MockRouter) -> None:
         respx_mock.get("/tuiles/region/14/8276/5702.pbf").mock(return_value=httpx.Response(200, json={"foo": "bar"}))
         region = await async_client.tuiles.vectorielles.region.list(
             y="5702",
@@ -115,7 +115,7 @@ class TestAsyncRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    async def test_raw_response_list(self, async_client: AsyncBdnbAPI, respx_mock: MockRouter) -> None:
+    async def test_raw_response_list(self, async_client: AsyncBdnb, respx_mock: MockRouter) -> None:
         respx_mock.get("/tuiles/region/14/8276/5702.pbf").mock(return_value=httpx.Response(200, json={"foo": "bar"}))
 
         region = await async_client.tuiles.vectorielles.region.with_raw_response.list(
@@ -131,7 +131,7 @@ class TestAsyncRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    async def test_streaming_response_list(self, async_client: AsyncBdnbAPI, respx_mock: MockRouter) -> None:
+    async def test_streaming_response_list(self, async_client: AsyncBdnb, respx_mock: MockRouter) -> None:
         respx_mock.get("/tuiles/region/14/8276/5702.pbf").mock(return_value=httpx.Response(200, json={"foo": "bar"}))
         async with async_client.tuiles.vectorielles.region.with_streaming_response.list(
             y="5702",
@@ -149,7 +149,7 @@ class TestAsyncRegion:
 
     @parametrize
     @pytest.mark.respx(base_url=base_url)
-    async def test_path_params_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_path_params_list(self, async_client: AsyncBdnb) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `zoom` but received ''"):
             await async_client.tuiles.vectorielles.region.with_raw_response.list(
                 y="5702",

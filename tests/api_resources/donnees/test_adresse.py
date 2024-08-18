@@ -7,7 +7,7 @@ from typing import Any, cast
 
 import pytest
 
-from bdnb_api import BdnbAPI, AsyncBdnbAPI
+from bdnb_api import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import Adresse
@@ -19,12 +19,12 @@ class TestAdresse:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    def test_method_list(self, client: BdnbAPI) -> None:
+    def test_method_list(self, client: Bdnb) -> None:
         adresse = client.donnees.adresse.list()
         assert_matches_type(SyncDefault[Adresse], adresse, path=["response"])
 
     @parametrize
-    def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
+    def test_method_list_with_all_params(self, client: Bdnb) -> None:
         adresse = client.donnees.adresse.list(
             cle_interop_adr="cle_interop_adr",
             code_commune_insee="code_commune_insee",
@@ -48,7 +48,7 @@ class TestAdresse:
         assert_matches_type(SyncDefault[Adresse], adresse, path=["response"])
 
     @parametrize
-    def test_raw_response_list(self, client: BdnbAPI) -> None:
+    def test_raw_response_list(self, client: Bdnb) -> None:
         response = client.donnees.adresse.with_raw_response.list()
 
         assert response.is_closed is True
@@ -57,7 +57,7 @@ class TestAdresse:
         assert_matches_type(SyncDefault[Adresse], adresse, path=["response"])
 
     @parametrize
-    def test_streaming_response_list(self, client: BdnbAPI) -> None:
+    def test_streaming_response_list(self, client: Bdnb) -> None:
         with client.donnees.adresse.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -72,12 +72,12 @@ class TestAsyncAdresse:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list(self, async_client: AsyncBdnb) -> None:
         adresse = await async_client.donnees.adresse.list()
         assert_matches_type(AsyncDefault[Adresse], adresse, path=["response"])
 
     @parametrize
-    async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
         adresse = await async_client.donnees.adresse.list(
             cle_interop_adr="cle_interop_adr",
             code_commune_insee="code_commune_insee",
@@ -101,7 +101,7 @@ class TestAsyncAdresse:
         assert_matches_type(AsyncDefault[Adresse], adresse, path=["response"])
 
     @parametrize
-    async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
         response = await async_client.donnees.adresse.with_raw_response.list()
 
         assert response.is_closed is True
@@ -110,7 +110,7 @@ class TestAsyncAdresse:
         assert_matches_type(AsyncDefault[Adresse], adresse, path=["response"])
 
     @parametrize
-    async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
         async with async_client.donnees.adresse.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

@@ -6,7 +6,7 @@ import httpx
 import pytest
 import pydantic
 
-from bdnb_api import BdnbAPI, BaseModel, AsyncBdnbAPI
+from bdnb_api import Bdnb, AsyncBdnb, BaseModel
 from bdnb_api._response import (
     APIResponse,
     BaseAPIResponse,
@@ -56,7 +56,7 @@ def test_extract_response_type_binary_response() -> None:
 class PydanticModel(pydantic.BaseModel): ...
 
 
-def test_response_parse_mismatched_basemodel(client: BdnbAPI) -> None:
+def test_response_parse_mismatched_basemodel(client: Bdnb) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=client,
@@ -74,7 +74,7 @@ def test_response_parse_mismatched_basemodel(client: BdnbAPI) -> None:
 
 
 @pytest.mark.asyncio
-async def test_async_response_parse_mismatched_basemodel(async_client: AsyncBdnbAPI) -> None:
+async def test_async_response_parse_mismatched_basemodel(async_client: AsyncBdnb) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=async_client,
@@ -91,7 +91,7 @@ async def test_async_response_parse_mismatched_basemodel(async_client: AsyncBdnb
         await response.parse(to=PydanticModel)
 
 
-def test_response_parse_custom_stream(client: BdnbAPI) -> None:
+def test_response_parse_custom_stream(client: Bdnb) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=client,
@@ -106,7 +106,7 @@ def test_response_parse_custom_stream(client: BdnbAPI) -> None:
 
 
 @pytest.mark.asyncio
-async def test_async_response_parse_custom_stream(async_client: AsyncBdnbAPI) -> None:
+async def test_async_response_parse_custom_stream(async_client: AsyncBdnb) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=async_client,
@@ -125,7 +125,7 @@ class CustomModel(BaseModel):
     bar: int
 
 
-def test_response_parse_custom_model(client: BdnbAPI) -> None:
+def test_response_parse_custom_model(client: Bdnb) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=client,
@@ -141,7 +141,7 @@ def test_response_parse_custom_model(client: BdnbAPI) -> None:
 
 
 @pytest.mark.asyncio
-async def test_async_response_parse_custom_model(async_client: AsyncBdnbAPI) -> None:
+async def test_async_response_parse_custom_model(async_client: AsyncBdnb) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=async_client,
@@ -156,7 +156,7 @@ async def test_async_response_parse_custom_model(async_client: AsyncBdnbAPI) -> 
     assert obj.bar == 2
 
 
-def test_response_parse_annotated_type(client: BdnbAPI) -> None:
+def test_response_parse_annotated_type(client: Bdnb) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=client,
@@ -173,7 +173,7 @@ def test_response_parse_annotated_type(client: BdnbAPI) -> None:
     assert obj.bar == 2
 
 
-async def test_async_response_parse_annotated_type(async_client: AsyncBdnbAPI) -> None:
+async def test_async_response_parse_annotated_type(async_client: AsyncBdnb) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=async_client,

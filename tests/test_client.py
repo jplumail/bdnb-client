@@ -16,7 +16,7 @@ import pytest
 from respx import MockRouter
 from pydantic import ValidationError
 
-from bdnb_api import BdnbAPI, AsyncBdnbAPI, APIResponseValidationError
+from bdnb_api import Bdnb, AsyncBdnb, APIResponseValidationError
 from bdnb_api._models import BaseModel, FinalRequestOptions
 from bdnb_api._constants import RAW_RESPONSE_HEADER
 from bdnb_api._exceptions import APIStatusError, APITimeoutError, APIResponseValidationError
@@ -42,7 +42,7 @@ def _low_retry_timeout(*_args: Any, **_kwargs: Any) -> float:
     return 0.1
 
 
-def _get_open_connections(client: BdnbAPI | AsyncBdnbAPI) -> int:
+def _get_open_connections(client: Bdnb | AsyncBdnb) -> int:
     transport = client._client._transport
     assert isinstance(transport, httpx.HTTPTransport) or isinstance(transport, httpx.AsyncHTTPTransport)
 
@@ -50,8 +50,8 @@ def _get_open_connections(client: BdnbAPI | AsyncBdnbAPI) -> int:
     return len(pool._requests)
 
 
-class TestBdnbAPI:
-    client = BdnbAPI(base_url=base_url, _strict_response_validation=True)
+class TestBdnb:
+    client = Bdnb(base_url=base_url, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     def test_raw_response(self, respx_mock: MockRouter) -> None:
@@ -94,7 +94,7 @@ class TestBdnbAPI:
         assert isinstance(self.client.timeout, httpx.Timeout)
 
     def test_copy_default_headers(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = Bdnb(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
         assert client.default_headers["X-Foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -126,7 +126,7 @@ class TestBdnbAPI:
             client.copy(set_default_headers={}, default_headers={"X-Foo": "Bar"})
 
     def test_copy_default_query(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True, default_query={"foo": "bar"})
+        client = Bdnb(base_url=base_url, _strict_response_validation=True, default_query={"foo": "bar"})
         assert _get_params(client)["foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -249,7 +249,7 @@ class TestBdnbAPI:
         assert timeout == httpx.Timeout(100.0)
 
     def test_client_timeout_option(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True, timeout=httpx.Timeout(0))
+        client = Bdnb(base_url=base_url, _strict_response_validation=True, timeout=httpx.Timeout(0))
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -258,7 +258,7 @@ class TestBdnbAPI:
     def test_http_client_timeout_option(self) -> None:
         # custom timeout given to the httpx client should be used
         with httpx.Client(timeout=None) as http_client:
-            client = BdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = Bdnb(base_url=base_url, _strict_response_validation=True, http_client=http_client)
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -266,7 +266,7 @@ class TestBdnbAPI:
 
         # no timeout given to the httpx client should not use the httpx default
         with httpx.Client() as http_client:
-            client = BdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = Bdnb(base_url=base_url, _strict_response_validation=True, http_client=http_client)
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -274,7 +274,7 @@ class TestBdnbAPI:
 
         # explicitly passing the default timeout currently results in it being ignored
         with httpx.Client(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
-            client = BdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = Bdnb(base_url=base_url, _strict_response_validation=True, http_client=http_client)
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -283,15 +283,15 @@ class TestBdnbAPI:
     async def test_invalid_http_client(self) -> None:
         with pytest.raises(TypeError, match="Invalid `http_client` arg"):
             async with httpx.AsyncClient() as http_client:
-                BdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=cast(Any, http_client))
+                Bdnb(base_url=base_url, _strict_response_validation=True, http_client=cast(Any, http_client))
 
     def test_default_headers_option(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = Bdnb(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "bar"
         assert request.headers.get("x-stainless-lang") == "python"
 
-        client2 = BdnbAPI(
+        client2 = Bdnb(
             base_url=base_url,
             _strict_response_validation=True,
             default_headers={
@@ -304,7 +304,7 @@ class TestBdnbAPI:
         assert request.headers.get("x-stainless-lang") == "my-overriding-header"
 
     def test_default_query_option(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True, default_query={"query_param": "bar"})
+        client = Bdnb(base_url=base_url, _strict_response_validation=True, default_query={"query_param": "bar"})
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         url = httpx.URL(request.url)
         assert dict(url.params) == {"query_param": "bar"}
@@ -416,7 +416,7 @@ class TestBdnbAPI:
         params = dict(request.url.params)
         assert params == {"foo": "2"}
 
-    def test_multipart_repeating_array(self, client: BdnbAPI) -> None:
+    def test_multipart_repeating_array(self, client: Bdnb) -> None:
         request = client._build_request(
             FinalRequestOptions.construct(
                 method="get",
@@ -503,7 +503,7 @@ class TestBdnbAPI:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = BdnbAPI(base_url="https://example.com/from_init", _strict_response_validation=True)
+        client = Bdnb(base_url="https://example.com/from_init", _strict_response_validation=True)
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -511,15 +511,15 @@ class TestBdnbAPI:
         assert client.base_url == "https://example.com/from_setter/"
 
     def test_base_url_env(self) -> None:
-        with update_env(BDNB_API_BASE_URL="http://localhost:5000/from/env"):
-            client = BdnbAPI(_strict_response_validation=True)
+        with update_env(BDNB_BASE_URL="http://localhost:5000/from/env"):
+            client = Bdnb(_strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
     @pytest.mark.parametrize(
         "client",
         [
-            BdnbAPI(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
-            BdnbAPI(
+            Bdnb(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            Bdnb(
                 base_url="http://localhost:5000/custom/path/",
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
@@ -527,7 +527,7 @@ class TestBdnbAPI:
         ],
         ids=["standard", "custom http client"],
     )
-    def test_base_url_trailing_slash(self, client: BdnbAPI) -> None:
+    def test_base_url_trailing_slash(self, client: Bdnb) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -540,8 +540,8 @@ class TestBdnbAPI:
     @pytest.mark.parametrize(
         "client",
         [
-            BdnbAPI(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
-            BdnbAPI(
+            Bdnb(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            Bdnb(
                 base_url="http://localhost:5000/custom/path/",
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
@@ -549,7 +549,7 @@ class TestBdnbAPI:
         ],
         ids=["standard", "custom http client"],
     )
-    def test_base_url_no_trailing_slash(self, client: BdnbAPI) -> None:
+    def test_base_url_no_trailing_slash(self, client: Bdnb) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -562,8 +562,8 @@ class TestBdnbAPI:
     @pytest.mark.parametrize(
         "client",
         [
-            BdnbAPI(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
-            BdnbAPI(
+            Bdnb(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            Bdnb(
                 base_url="http://localhost:5000/custom/path/",
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
@@ -571,7 +571,7 @@ class TestBdnbAPI:
         ],
         ids=["standard", "custom http client"],
     )
-    def test_absolute_request_url(self, client: BdnbAPI) -> None:
+    def test_absolute_request_url(self, client: Bdnb) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -582,7 +582,7 @@ class TestBdnbAPI:
         assert request.url == "https://myapi.com/foo"
 
     def test_copied_client_does_not_close_http(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True)
+        client = Bdnb(base_url=base_url, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -593,7 +593,7 @@ class TestBdnbAPI:
         assert not client.is_closed()
 
     def test_client_context_manager(self) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True)
+        client = Bdnb(base_url=base_url, _strict_response_validation=True)
         with client as c2:
             assert c2 is client
             assert not c2.is_closed()
@@ -614,7 +614,7 @@ class TestBdnbAPI:
 
     def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-            BdnbAPI(base_url=base_url, _strict_response_validation=True, max_retries=cast(Any, None))
+            Bdnb(base_url=base_url, _strict_response_validation=True, max_retries=cast(Any, None))
 
     @pytest.mark.respx(base_url=base_url)
     def test_received_text_for_expected_json(self, respx_mock: MockRouter) -> None:
@@ -623,12 +623,12 @@ class TestBdnbAPI:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = BdnbAPI(base_url=base_url, _strict_response_validation=True)
+        strict_client = Bdnb(base_url=base_url, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
             strict_client.get("/foo", cast_to=Model)
 
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=False)
+        client = Bdnb(base_url=base_url, _strict_response_validation=False)
 
         response = client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -655,7 +655,7 @@ class TestBdnbAPI:
     )
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = BdnbAPI(base_url=base_url, _strict_response_validation=True)
+        client = Bdnb(base_url=base_url, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)
@@ -697,7 +697,7 @@ class TestBdnbAPI:
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
     @mock.patch("bdnb_api._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    def test_retries_taken(self, client: BdnbAPI, failures_before_success: int, respx_mock: MockRouter) -> None:
+    def test_retries_taken(self, client: Bdnb, failures_before_success: int, respx_mock: MockRouter) -> None:
         client = client.with_options(max_retries=4)
 
         nb_retries = 0
@@ -716,8 +716,8 @@ class TestBdnbAPI:
         assert response.retries_taken == failures_before_success
 
 
-class TestAsyncBdnbAPI:
-    client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True)
+class TestAsyncBdnb:
+    client = AsyncBdnb(base_url=base_url, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -762,7 +762,7 @@ class TestAsyncBdnbAPI:
         assert isinstance(self.client.timeout, httpx.Timeout)
 
     def test_copy_default_headers(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
         assert client.default_headers["X-Foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -794,7 +794,7 @@ class TestAsyncBdnbAPI:
             client.copy(set_default_headers={}, default_headers={"X-Foo": "Bar"})
 
     def test_copy_default_query(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, default_query={"foo": "bar"})
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, default_query={"foo": "bar"})
         assert _get_params(client)["foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -917,7 +917,7 @@ class TestAsyncBdnbAPI:
         assert timeout == httpx.Timeout(100.0)
 
     async def test_client_timeout_option(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, timeout=httpx.Timeout(0))
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, timeout=httpx.Timeout(0))
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -926,7 +926,7 @@ class TestAsyncBdnbAPI:
     async def test_http_client_timeout_option(self) -> None:
         # custom timeout given to the httpx client should be used
         async with httpx.AsyncClient(timeout=None) as http_client:
-            client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, http_client=http_client)
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -934,7 +934,7 @@ class TestAsyncBdnbAPI:
 
         # no timeout given to the httpx client should not use the httpx default
         async with httpx.AsyncClient() as http_client:
-            client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, http_client=http_client)
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -942,7 +942,7 @@ class TestAsyncBdnbAPI:
 
         # explicitly passing the default timeout currently results in it being ignored
         async with httpx.AsyncClient(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
-            client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, http_client=http_client)
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -951,15 +951,15 @@ class TestAsyncBdnbAPI:
     def test_invalid_http_client(self) -> None:
         with pytest.raises(TypeError, match="Invalid `http_client` arg"):
             with httpx.Client() as http_client:
-                AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, http_client=cast(Any, http_client))
+                AsyncBdnb(base_url=base_url, _strict_response_validation=True, http_client=cast(Any, http_client))
 
     def test_default_headers_option(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "bar"
         assert request.headers.get("x-stainless-lang") == "python"
 
-        client2 = AsyncBdnbAPI(
+        client2 = AsyncBdnb(
             base_url=base_url,
             _strict_response_validation=True,
             default_headers={
@@ -972,7 +972,7 @@ class TestAsyncBdnbAPI:
         assert request.headers.get("x-stainless-lang") == "my-overriding-header"
 
     def test_default_query_option(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, default_query={"query_param": "bar"})
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True, default_query={"query_param": "bar"})
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         url = httpx.URL(request.url)
         assert dict(url.params) == {"query_param": "bar"}
@@ -1084,7 +1084,7 @@ class TestAsyncBdnbAPI:
         params = dict(request.url.params)
         assert params == {"foo": "2"}
 
-    def test_multipart_repeating_array(self, async_client: AsyncBdnbAPI) -> None:
+    def test_multipart_repeating_array(self, async_client: AsyncBdnb) -> None:
         request = async_client._build_request(
             FinalRequestOptions.construct(
                 method="get",
@@ -1171,7 +1171,7 @@ class TestAsyncBdnbAPI:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = AsyncBdnbAPI(base_url="https://example.com/from_init", _strict_response_validation=True)
+        client = AsyncBdnb(base_url="https://example.com/from_init", _strict_response_validation=True)
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -1179,15 +1179,15 @@ class TestAsyncBdnbAPI:
         assert client.base_url == "https://example.com/from_setter/"
 
     def test_base_url_env(self) -> None:
-        with update_env(BDNB_API_BASE_URL="http://localhost:5000/from/env"):
-            client = AsyncBdnbAPI(_strict_response_validation=True)
+        with update_env(BDNB_BASE_URL="http://localhost:5000/from/env"):
+            client = AsyncBdnb(_strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
     @pytest.mark.parametrize(
         "client",
         [
-            AsyncBdnbAPI(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
-            AsyncBdnbAPI(
+            AsyncBdnb(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            AsyncBdnb(
                 base_url="http://localhost:5000/custom/path/",
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
@@ -1195,7 +1195,7 @@ class TestAsyncBdnbAPI:
         ],
         ids=["standard", "custom http client"],
     )
-    def test_base_url_trailing_slash(self, client: AsyncBdnbAPI) -> None:
+    def test_base_url_trailing_slash(self, client: AsyncBdnb) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -1208,8 +1208,8 @@ class TestAsyncBdnbAPI:
     @pytest.mark.parametrize(
         "client",
         [
-            AsyncBdnbAPI(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
-            AsyncBdnbAPI(
+            AsyncBdnb(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            AsyncBdnb(
                 base_url="http://localhost:5000/custom/path/",
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
@@ -1217,7 +1217,7 @@ class TestAsyncBdnbAPI:
         ],
         ids=["standard", "custom http client"],
     )
-    def test_base_url_no_trailing_slash(self, client: AsyncBdnbAPI) -> None:
+    def test_base_url_no_trailing_slash(self, client: AsyncBdnb) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -1230,8 +1230,8 @@ class TestAsyncBdnbAPI:
     @pytest.mark.parametrize(
         "client",
         [
-            AsyncBdnbAPI(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
-            AsyncBdnbAPI(
+            AsyncBdnb(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            AsyncBdnb(
                 base_url="http://localhost:5000/custom/path/",
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
@@ -1239,7 +1239,7 @@ class TestAsyncBdnbAPI:
         ],
         ids=["standard", "custom http client"],
     )
-    def test_absolute_request_url(self, client: AsyncBdnbAPI) -> None:
+    def test_absolute_request_url(self, client: AsyncBdnb) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -1250,7 +1250,7 @@ class TestAsyncBdnbAPI:
         assert request.url == "https://myapi.com/foo"
 
     async def test_copied_client_does_not_close_http(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True)
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -1262,7 +1262,7 @@ class TestAsyncBdnbAPI:
         assert not client.is_closed()
 
     async def test_client_context_manager(self) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True)
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True)
         async with client as c2:
             assert c2 is client
             assert not c2.is_closed()
@@ -1284,7 +1284,7 @@ class TestAsyncBdnbAPI:
 
     async def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-            AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True, max_retries=cast(Any, None))
+            AsyncBdnb(base_url=base_url, _strict_response_validation=True, max_retries=cast(Any, None))
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -1294,12 +1294,12 @@ class TestAsyncBdnbAPI:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True)
+        strict_client = AsyncBdnb(base_url=base_url, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
             await strict_client.get("/foo", cast_to=Model)
 
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=False)
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=False)
 
         response = await client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -1327,7 +1327,7 @@ class TestAsyncBdnbAPI:
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     @pytest.mark.asyncio
     async def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = AsyncBdnbAPI(base_url=base_url, _strict_response_validation=True)
+        client = AsyncBdnb(base_url=base_url, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)
@@ -1371,7 +1371,7 @@ class TestAsyncBdnbAPI:
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
     async def test_retries_taken(
-        self, async_client: AsyncBdnbAPI, failures_before_success: int, respx_mock: MockRouter
+        self, async_client: AsyncBdnb, failures_before_success: int, respx_mock: MockRouter
     ) -> None:
         client = async_client.with_options(max_retries=4)
 
