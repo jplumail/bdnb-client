@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_simulations_dvf_list_params
-from ...types.donnees.batiment_groupe_simulations_dvf_api_expert import BatimentGroupeSimulationsDvfAPIExpert
+from ...types.donnees.batiment_groupe_simulations_dvf import BatimentGroupeSimulationsDvf
 
 __all__ = ["BatimentGroupeSimulationsDvfResource", "AsyncBatimentGroupeSimulationsDvfResource"]
 
@@ -65,7 +65,7 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeSimulationsDvfAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeSimulationsDvf]:
         """
         Simulations des valeurs foncières des bâtiments
 
@@ -138,7 +138,7 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_simulations_dvf",
-            page=SyncDefault[BatimentGroupeSimulationsDvfAPIExpert],
+            page=SyncDefault[BatimentGroupeSimulationsDvf],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -173,7 +173,7 @@ class BatimentGroupeSimulationsDvfResource(SyncAPIResource):
                     batiment_groupe_simulations_dvf_list_params.BatimentGroupeSimulationsDvfListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsDvfAPIExpert,
+            model=BatimentGroupeSimulationsDvf,
         )
 
 
@@ -220,7 +220,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeSimulationsDvfAPIExpert, AsyncDefault[BatimentGroupeSimulationsDvfAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeSimulationsDvf, AsyncDefault[BatimentGroupeSimulationsDvf]]:
         """
         Simulations des valeurs foncières des bâtiments
 
@@ -293,7 +293,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_simulations_dvf",
-            page=AsyncDefault[BatimentGroupeSimulationsDvfAPIExpert],
+            page=AsyncDefault[BatimentGroupeSimulationsDvf],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -328,7 +328,7 @@ class AsyncBatimentGroupeSimulationsDvfResource(AsyncAPIResource):
                     batiment_groupe_simulations_dvf_list_params.BatimentGroupeSimulationsDvfListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsDvfAPIExpert,
+            model=BatimentGroupeSimulationsDvf,
         )
 
 

@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_reseaux_2020_list_params
-from ...types.shared.batiment_groupe_dle_reseaux_2020_api_expert import BatimentGroupeDleReseaux2020APIExpert
+from ...types.donnees.batiment_groupe_dle_reseaux_2020 import BatimentGroupeDleReseaux2020
 
 __all__ = ["BatimentGroupeDleReseaux2020Resource", "AsyncBatimentGroupeDleReseaux2020Resource"]
 
@@ -59,7 +59,7 @@ class BatimentGroupeDleReseaux2020Resource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleReseaux2020APIExpert]:
+    ) -> SyncDefault[BatimentGroupeDleReseaux2020]:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -118,7 +118,7 @@ class BatimentGroupeDleReseaux2020Resource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_reseaux_2020",
-            page=SyncDefault[BatimentGroupeDleReseaux2020APIExpert],
+            page=SyncDefault[BatimentGroupeDleReseaux2020],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -147,7 +147,7 @@ class BatimentGroupeDleReseaux2020Resource(SyncAPIResource):
                     batiment_groupe_dle_reseaux_2020_list_params.BatimentGroupeDleReseaux2020ListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseaux2020APIExpert,
+            model=BatimentGroupeDleReseaux2020,
         )
 
 
@@ -188,7 +188,7 @@ class AsyncBatimentGroupeDleReseaux2020Resource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeDleReseaux2020APIExpert, AsyncDefault[BatimentGroupeDleReseaux2020APIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeDleReseaux2020, AsyncDefault[BatimentGroupeDleReseaux2020]]:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -247,7 +247,7 @@ class AsyncBatimentGroupeDleReseaux2020Resource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_reseaux_2020",
-            page=AsyncDefault[BatimentGroupeDleReseaux2020APIExpert],
+            page=AsyncDefault[BatimentGroupeDleReseaux2020],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -276,7 +276,7 @@ class AsyncBatimentGroupeDleReseaux2020Resource(AsyncAPIResource):
                     batiment_groupe_dle_reseaux_2020_list_params.BatimentGroupeDleReseaux2020ListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseaux2020APIExpert,
+            model=BatimentGroupeDleReseaux2020,
         )
 
 

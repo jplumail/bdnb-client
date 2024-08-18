@@ -9,8 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types import BatimentGroupeMerimeeAPIExpert
 from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.donnees import BatimentGroupeMerimee
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -21,7 +21,7 @@ class TestBatimentGroupeMerimee:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_merimee = client.donnees.batiment_groupe_merimee.list()
-        assert_matches_type(SyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -38,7 +38,7 @@ class TestBatimentGroupeMerimee:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(SyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -47,7 +47,7 @@ class TestBatimentGroupeMerimee:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_merimee = response.parse()
-        assert_matches_type(SyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -56,7 +56,7 @@ class TestBatimentGroupeMerimee:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             batiment_groupe_merimee = response.parse()
-            assert_matches_type(SyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+            assert_matches_type(SyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -67,7 +67,7 @@ class TestAsyncBatimentGroupeMerimee:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         batiment_groupe_merimee = await async_client.donnees.batiment_groupe_merimee.list()
-        assert_matches_type(AsyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -84,7 +84,7 @@ class TestAsyncBatimentGroupeMerimee:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(AsyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -93,7 +93,7 @@ class TestAsyncBatimentGroupeMerimee:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_merimee = await response.parse()
-        assert_matches_type(AsyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -102,8 +102,6 @@ class TestAsyncBatimentGroupeMerimee:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             batiment_groupe_merimee = await response.parse()
-            assert_matches_type(
-                AsyncDefault[BatimentGroupeMerimeeAPIExpert], batiment_groupe_merimee, path=["response"]
-            )
+            assert_matches_type(AsyncDefault[BatimentGroupeMerimee], batiment_groupe_merimee, path=["response"])
 
         assert cast(Any, response.is_closed) is True

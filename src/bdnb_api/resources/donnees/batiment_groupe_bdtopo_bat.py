@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_bdtopo_bat_list_params
-from ...types.donnees.batiment_groupe_bdtopo_bat_api_expert import BatimentGroupeBdtopoBatAPIExpert
+from ...types.donnees.batiment_groupe_bdtopo_bat import BatimentGroupeBdtopoBat
 
 __all__ = ["BatimentGroupeBdtopoBatResource", "AsyncBatimentGroupeBdtopoBatResource"]
 
@@ -55,7 +55,7 @@ class BatimentGroupeBdtopoBatResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeBdtopoBatAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeBdtopoBat]:
         """
         Informations de la BDTopo, couche bâti, agrégées à l'échelle du bâtiment
 
@@ -105,7 +105,7 @@ class BatimentGroupeBdtopoBatResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_bdtopo_bat",
-            page=SyncDefault[BatimentGroupeBdtopoBatAPIExpert],
+            page=SyncDefault[BatimentGroupeBdtopoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -130,7 +130,7 @@ class BatimentGroupeBdtopoBatResource(SyncAPIResource):
                     batiment_groupe_bdtopo_bat_list_params.BatimentGroupeBdtopoBatListParams,
                 ),
             ),
-            model=BatimentGroupeBdtopoBatAPIExpert,
+            model=BatimentGroupeBdtopoBat,
         )
 
 
@@ -167,7 +167,7 @@ class AsyncBatimentGroupeBdtopoBatResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeBdtopoBatAPIExpert, AsyncDefault[BatimentGroupeBdtopoBatAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeBdtopoBat, AsyncDefault[BatimentGroupeBdtopoBat]]:
         """
         Informations de la BDTopo, couche bâti, agrégées à l'échelle du bâtiment
 
@@ -217,7 +217,7 @@ class AsyncBatimentGroupeBdtopoBatResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_bdtopo_bat",
-            page=AsyncDefault[BatimentGroupeBdtopoBatAPIExpert],
+            page=AsyncDefault[BatimentGroupeBdtopoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -242,7 +242,7 @@ class AsyncBatimentGroupeBdtopoBatResource(AsyncAPIResource):
                     batiment_groupe_bdtopo_bat_list_params.BatimentGroupeBdtopoBatListParams,
                 ),
             ),
-            model=BatimentGroupeBdtopoBatAPIExpert,
+            model=BatimentGroupeBdtopoBat,
         )
 
 

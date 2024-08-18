@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_ffo_bat_list_params
-from ...types.batiment_groupe_ffo_bat_api_expert import BatimentGroupeFfoBatAPIExpert
+from ...types.donnees.batiment_groupe_ffo_bat import BatimentGroupeFfoBat
 
 __all__ = ["BatimentGroupeFfoBatResource", "AsyncBatimentGroupeFfoBatResource"]
 
@@ -54,7 +54,7 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeFfoBatAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeFfoBat]:
         """
         Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
@@ -102,7 +102,7 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_ffo_bat",
-            page=SyncDefault[BatimentGroupeFfoBatAPIExpert],
+            page=SyncDefault[BatimentGroupeFfoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -126,7 +126,7 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
                     batiment_groupe_ffo_bat_list_params.BatimentGroupeFfoBatListParams,
                 ),
             ),
-            model=BatimentGroupeFfoBatAPIExpert,
+            model=BatimentGroupeFfoBat,
         )
 
 
@@ -162,7 +162,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeFfoBatAPIExpert, AsyncDefault[BatimentGroupeFfoBatAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeFfoBat, AsyncDefault[BatimentGroupeFfoBat]]:
         """
         Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
@@ -210,7 +210,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_ffo_bat",
-            page=AsyncDefault[BatimentGroupeFfoBatAPIExpert],
+            page=AsyncDefault[BatimentGroupeFfoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -234,7 +234,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
                     batiment_groupe_ffo_bat_list_params.BatimentGroupeFfoBatListParams,
                 ),
             ),
-            model=BatimentGroupeFfoBatAPIExpert,
+            model=BatimentGroupeFfoBat,
         )
 
 

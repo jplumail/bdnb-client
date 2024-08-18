@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_rnc_list_params
-from ...types.rel_batiment_groupe_rnc_api_expert import RelBatimentGroupeRncAPIExpert
+from ...types.donnees.rel_batiment_groupe_rnc import RelBatimentGroupeRnc
 
 __all__ = ["RelBatimentGroupeRncResource", "AsyncRelBatimentGroupeRncResource"]
 
@@ -55,7 +55,7 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeRncAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeRnc]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table RNC
 
@@ -106,7 +106,7 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_rnc",
-            page=SyncDefault[RelBatimentGroupeRncAPIExpert],
+            page=SyncDefault[RelBatimentGroupeRnc],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -131,7 +131,7 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
                     rel_batiment_groupe_rnc_list_params.RelBatimentGroupeRncListParams,
                 ),
             ),
-            model=RelBatimentGroupeRncAPIExpert,
+            model=RelBatimentGroupeRnc,
         )
 
 
@@ -168,7 +168,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeRncAPIExpert, AsyncDefault[RelBatimentGroupeRncAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentGroupeRnc, AsyncDefault[RelBatimentGroupeRnc]]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table RNC
 
@@ -219,7 +219,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_rnc",
-            page=AsyncDefault[RelBatimentGroupeRncAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeRnc],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -244,7 +244,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
                     rel_batiment_groupe_rnc_list_params.RelBatimentGroupeRncListParams,
                 ),
             ),
-            model=RelBatimentGroupeRncAPIExpert,
+            model=RelBatimentGroupeRnc,
         )
 
 

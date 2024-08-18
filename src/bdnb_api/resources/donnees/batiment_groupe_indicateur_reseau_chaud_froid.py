@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_indicateur_reseau_chaud_froid_list_params
-from ...types.donnees.batiment_groupe_indicateur_reseau_chaud_froid_api_expert import (
-    BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
-)
+from ...types.donnees.batiment_groupe_indicateur_reseau_chaud_froid import BatimentGroupeIndicateurReseauChaudFroid
 
 __all__ = ["BatimentGroupeIndicateurReseauChaudFroidResource", "AsyncBatimentGroupeIndicateurReseauChaudFroidResource"]
 
@@ -57,7 +55,7 @@ class BatimentGroupeIndicateurReseauChaudFroidResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeIndicateurReseauChaudFroid]:
         """
         Indicateur de raccordement et de potentiel de raccordement aux réseaux de
         chaleur et de froid urbains construit à l'aide des données de 'France Chaleur
@@ -120,7 +118,7 @@ class BatimentGroupeIndicateurReseauChaudFroidResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_indicateur_reseau_chaud_froid",
-            page=SyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
+            page=SyncDefault[BatimentGroupeIndicateurReseauChaudFroid],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -145,7 +143,7 @@ class BatimentGroupeIndicateurReseauChaudFroidResource(SyncAPIResource):
                     batiment_groupe_indicateur_reseau_chaud_froid_list_params.BatimentGroupeIndicateurReseauChaudFroidListParams,
                 ),
             ),
-            model=BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
+            model=BatimentGroupeIndicateurReseauChaudFroid,
         )
 
 
@@ -183,8 +181,7 @@ class AsyncBatimentGroupeIndicateurReseauChaudFroidResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[
-        BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
-        AsyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
+        BatimentGroupeIndicateurReseauChaudFroid, AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid]
     ]:
         """
         Indicateur de raccordement et de potentiel de raccordement aux réseaux de
@@ -248,7 +245,7 @@ class AsyncBatimentGroupeIndicateurReseauChaudFroidResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_indicateur_reseau_chaud_froid",
-            page=AsyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
+            page=AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -273,7 +270,7 @@ class AsyncBatimentGroupeIndicateurReseauChaudFroidResource(AsyncAPIResource):
                     batiment_groupe_indicateur_reseau_chaud_froid_list_params.BatimentGroupeIndicateurReseauChaudFroidListParams,
                 ),
             ),
-            model=BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
+            model=BatimentGroupeIndicateurReseauChaudFroid,
         )
 
 

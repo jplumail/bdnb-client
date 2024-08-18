@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_bpe_list_params
-from ...types.shared.batiment_groupe_bpe_api_expert import BatimentGroupeBpeAPIExpert
+from ...types.donnees.batiment_groupe_bpe import BatimentGroupeBpe
 
 __all__ = ["BatimentGroupeBpeResource", "AsyncBatimentGroupeBpeResource"]
 
@@ -49,7 +49,7 @@ class BatimentGroupeBpeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeBpeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeBpe]:
         """
         Informations provenant de la base permanente des équipements (BPE) de l'INSEE
         agrégées à l'échelle du bâtiment
@@ -88,7 +88,7 @@ class BatimentGroupeBpeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_bpe",
-            page=SyncDefault[BatimentGroupeBpeAPIExpert],
+            page=SyncDefault[BatimentGroupeBpe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -107,7 +107,7 @@ class BatimentGroupeBpeResource(SyncAPIResource):
                     batiment_groupe_bpe_list_params.BatimentGroupeBpeListParams,
                 ),
             ),
-            model=BatimentGroupeBpeAPIExpert,
+            model=BatimentGroupeBpe,
         )
 
 
@@ -138,7 +138,7 @@ class AsyncBatimentGroupeBpeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeBpeAPIExpert, AsyncDefault[BatimentGroupeBpeAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeBpe, AsyncDefault[BatimentGroupeBpe]]:
         """
         Informations provenant de la base permanente des équipements (BPE) de l'INSEE
         agrégées à l'échelle du bâtiment
@@ -177,7 +177,7 @@ class AsyncBatimentGroupeBpeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_bpe",
-            page=AsyncDefault[BatimentGroupeBpeAPIExpert],
+            page=AsyncDefault[BatimentGroupeBpe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -196,7 +196,7 @@ class AsyncBatimentGroupeBpeResource(AsyncAPIResource):
                     batiment_groupe_bpe_list_params.BatimentGroupeBpeListParams,
                 ),
             ),
-            model=BatimentGroupeBpeAPIExpert,
+            model=BatimentGroupeBpe,
         )
 
 

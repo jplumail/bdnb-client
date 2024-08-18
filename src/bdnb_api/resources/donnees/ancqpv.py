@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import ancqpv_list_params
-from ...types.ancqpv_api_expert import AncqpvAPIExpert
+from ...types.donnees.ancqpv import Ancqpv
 
 __all__ = ["AncqpvResource", "AsyncAncqpvResource"]
 
@@ -50,7 +50,7 @@ class AncqpvResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[AncqpvAPIExpert]:
+    ) -> SyncDefault[Ancqpv]:
         """
         Base des Quartiers Prioritaires de la Ville (QPV)
 
@@ -90,7 +90,7 @@ class AncqpvResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/ancqpv",
-            page=SyncDefault[AncqpvAPIExpert],
+            page=SyncDefault[Ancqpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -110,7 +110,7 @@ class AncqpvResource(SyncAPIResource):
                     ancqpv_list_params.AncqpvListParams,
                 ),
             ),
-            model=AncqpvAPIExpert,
+            model=Ancqpv,
         )
 
 
@@ -142,7 +142,7 @@ class AsyncAncqpvResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[AncqpvAPIExpert, AsyncDefault[AncqpvAPIExpert]]:
+    ) -> AsyncPaginator[Ancqpv, AsyncDefault[Ancqpv]]:
         """
         Base des Quartiers Prioritaires de la Ville (QPV)
 
@@ -182,7 +182,7 @@ class AsyncAncqpvResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/ancqpv",
-            page=AsyncDefault[AncqpvAPIExpert],
+            page=AsyncDefault[Ancqpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -202,7 +202,7 @@ class AsyncAncqpvResource(AsyncAPIResource):
                     ancqpv_list_params.AncqpvListParams,
                 ),
             ),
-            model=AncqpvAPIExpert,
+            model=Ancqpv,
         )
 
 

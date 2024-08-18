@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_list_params
-from ...types.batiment_groupe_api_expert import BatimentGroupeAPIExpert
+from ...types.donnees.batiment_groupe import BatimentGroupe
 
 __all__ = ["BatimentGroupeResource", "AsyncBatimentGroupeResource"]
 
@@ -60,7 +60,7 @@ class BatimentGroupeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupe]:
         """
         Complexes de bâtiments au sens de la BDNB
 
@@ -121,7 +121,7 @@ class BatimentGroupeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe",
-            page=SyncDefault[BatimentGroupeAPIExpert],
+            page=SyncDefault[BatimentGroupe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -151,7 +151,7 @@ class BatimentGroupeResource(SyncAPIResource):
                     batiment_groupe_list_params.BatimentGroupeListParams,
                 ),
             ),
-            model=BatimentGroupeAPIExpert,
+            model=BatimentGroupe,
         )
 
 
@@ -193,7 +193,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeAPIExpert, AsyncDefault[BatimentGroupeAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupe, AsyncDefault[BatimentGroupe]]:
         """
         Complexes de bâtiments au sens de la BDNB
 
@@ -254,7 +254,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe",
-            page=AsyncDefault[BatimentGroupeAPIExpert],
+            page=AsyncDefault[BatimentGroupe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -284,7 +284,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
                     batiment_groupe_list_params.BatimentGroupeListParams,
                 ),
             ),
-            model=BatimentGroupeAPIExpert,
+            model=BatimentGroupe,
         )
 
 

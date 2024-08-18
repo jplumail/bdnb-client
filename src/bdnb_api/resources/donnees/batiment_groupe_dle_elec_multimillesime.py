@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_elec_multimillesime_list_params
-from ...types.donnees.batiment_groupe_dle_elec_multimillesime_api_expert import (
-    BatimentGroupeDleElecMultimillesimeAPIExpert,
-)
+from ...types.donnees.batiment_groupe_dle_elec_multimillesime import BatimentGroupeDleElecMultimillesime
 
 __all__ = ["BatimentGroupeDleElecMultimillesimeResource", "AsyncBatimentGroupeDleElecMultimillesimeResource"]
 
@@ -60,7 +58,7 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDleElecMultimillesime]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur éléctrique agrégées à l'échelle du bâtiment
@@ -117,7 +115,7 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_multimillesime",
-            page=SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+            page=SyncDefault[BatimentGroupeDleElecMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -145,7 +143,7 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
                     batiment_groupe_dle_elec_multimillesime_list_params.BatimentGroupeDleElecMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleElecMultimillesimeAPIExpert,
+            model=BatimentGroupeDleElecMultimillesime,
         )
 
 
@@ -185,9 +183,7 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDleElecMultimillesimeAPIExpert, AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDleElecMultimillesime, AsyncDefault[BatimentGroupeDleElecMultimillesime]]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur éléctrique agrégées à l'échelle du bâtiment
@@ -244,7 +240,7 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_multimillesime",
-            page=AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
+            page=AsyncDefault[BatimentGroupeDleElecMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -272,7 +268,7 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
                     batiment_groupe_dle_elec_multimillesime_list_params.BatimentGroupeDleElecMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleElecMultimillesimeAPIExpert,
+            model=BatimentGroupeDleElecMultimillesime,
         )
 
 

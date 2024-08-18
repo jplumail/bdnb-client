@@ -11,7 +11,7 @@ from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees.referentiel_administratif import (
-    ReferentielAdministratifIrisAPIExpert,
+    ReferentielAdministratifIris,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -24,7 +24,7 @@ class TestReferentielAdministratifIris:
     def test_method_list(self, client: BdnbAPI) -> None:
         referentiel_administratif_iris = client.donnees.referentiel_administratif.referentiel_administratif_iris.list()
         assert_matches_type(
-            SyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+            SyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
         )
 
     @parametrize
@@ -44,7 +44,7 @@ class TestReferentielAdministratifIris:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            SyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+            SyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
         )
 
     @parametrize
@@ -55,7 +55,7 @@ class TestReferentielAdministratifIris:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         referentiel_administratif_iris = response.parse()
         assert_matches_type(
-            SyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+            SyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
         )
 
     @parametrize
@@ -66,7 +66,7 @@ class TestReferentielAdministratifIris:
 
             referentiel_administratif_iris = response.parse()
             assert_matches_type(
-                SyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+                SyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
@@ -81,7 +81,7 @@ class TestAsyncReferentielAdministratifIris:
             await async_client.donnees.referentiel_administratif.referentiel_administratif_iris.list()
         )
         assert_matches_type(
-            AsyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+            AsyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
         )
 
     @parametrize
@@ -103,7 +103,7 @@ class TestAsyncReferentielAdministratifIris:
             )
         )
         assert_matches_type(
-            AsyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+            AsyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
         )
 
     @parametrize
@@ -116,7 +116,7 @@ class TestAsyncReferentielAdministratifIris:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         referentiel_administratif_iris = await response.parse()
         assert_matches_type(
-            AsyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+            AsyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
         )
 
     @parametrize
@@ -127,7 +127,7 @@ class TestAsyncReferentielAdministratifIris:
 
             referentiel_administratif_iris = await response.parse()
             assert_matches_type(
-                AsyncDefault[ReferentielAdministratifIrisAPIExpert], referentiel_administratif_iris, path=["response"]
+                AsyncDefault[ReferentielAdministratifIris], referentiel_administratif_iris, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True

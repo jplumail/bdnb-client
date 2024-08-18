@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_simulations_valeur_verte_list_params
-from ...types.donnees.batiment_groupe_simulations_valeur_verte_api_expert import (
-    BatimentGroupeSimulationsValeurVerteAPIExpert,
-)
+from ...types.donnees.batiment_groupe_simulations_valeur_verte import BatimentGroupeSimulationsValeurVerte
 
 __all__ = ["BatimentGroupeSimulationsValeurVerteResource", "AsyncBatimentGroupeSimulationsValeurVerteResource"]
 
@@ -72,7 +70,7 @@ class BatimentGroupeSimulationsValeurVerteResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeSimulationsValeurVerte]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -175,7 +173,7 @@ class BatimentGroupeSimulationsValeurVerteResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_simulations_valeur_verte",
-            page=SyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert],
+            page=SyncDefault[BatimentGroupeSimulationsValeurVerte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -215,7 +213,7 @@ class BatimentGroupeSimulationsValeurVerteResource(SyncAPIResource):
                     batiment_groupe_simulations_valeur_verte_list_params.BatimentGroupeSimulationsValeurVerteListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsValeurVerteAPIExpert,
+            model=BatimentGroupeSimulationsValeurVerte,
         )
 
 
@@ -267,9 +265,7 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeSimulationsValeurVerteAPIExpert, AsyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeSimulationsValeurVerte, AsyncDefault[BatimentGroupeSimulationsValeurVerte]]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -372,7 +368,7 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_simulations_valeur_verte",
-            page=AsyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert],
+            page=AsyncDefault[BatimentGroupeSimulationsValeurVerte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -412,7 +408,7 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
                     batiment_groupe_simulations_valeur_verte_list_params.BatimentGroupeSimulationsValeurVerteListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsValeurVerteAPIExpert,
+            model=BatimentGroupeSimulationsValeurVerte,
         )
 
 

@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_rnc_list_params
-from ...types.shared.batiment_groupe_rnc_api_expert import BatimentGroupeRncAPIExpert
+from ...types.donnees.batiment_groupe_rnc import BatimentGroupeRnc
 
 __all__ = ["BatimentGroupeRncResource", "AsyncBatimentGroupeRncResource"]
 
@@ -58,7 +58,7 @@ class BatimentGroupeRncResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeRncAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeRnc]:
         """
         Informations issues de la base RNC agrégées à l'échelle du bâtiment (si
         certaines données sont restreintes aux ayants_droit RNC, la majorité des
@@ -118,7 +118,7 @@ class BatimentGroupeRncResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_rnc",
-            page=SyncDefault[BatimentGroupeRncAPIExpert],
+            page=SyncDefault[BatimentGroupeRnc],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -146,7 +146,7 @@ class BatimentGroupeRncResource(SyncAPIResource):
                     batiment_groupe_rnc_list_params.BatimentGroupeRncListParams,
                 ),
             ),
-            model=BatimentGroupeRncAPIExpert,
+            model=BatimentGroupeRnc,
         )
 
 
@@ -186,7 +186,7 @@ class AsyncBatimentGroupeRncResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeRncAPIExpert, AsyncDefault[BatimentGroupeRncAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeRnc, AsyncDefault[BatimentGroupeRnc]]:
         """
         Informations issues de la base RNC agrégées à l'échelle du bâtiment (si
         certaines données sont restreintes aux ayants_droit RNC, la majorité des
@@ -246,7 +246,7 @@ class AsyncBatimentGroupeRncResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_rnc",
-            page=AsyncDefault[BatimentGroupeRncAPIExpert],
+            page=AsyncDefault[BatimentGroupeRnc],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -274,7 +274,7 @@ class AsyncBatimentGroupeRncResource(AsyncAPIResource):
                     batiment_groupe_rnc_list_params.BatimentGroupeRncListParams,
                 ),
             ),
-            model=BatimentGroupeRncAPIExpert,
+            model=BatimentGroupeRnc,
         )
 
 

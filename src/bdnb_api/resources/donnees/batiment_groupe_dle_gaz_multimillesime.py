@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_gaz_multimillesime_list_params
-from ...types.donnees.batiment_groupe_dle_gaz_multimillesime_api_expert import (
-    BatimentGroupeDleGazMultimillesimeAPIExpert,
-)
+from ...types.donnees.batiment_groupe_dle_gaz_multimillesime import BatimentGroupeDleGazMultimillesime
 
 __all__ = ["BatimentGroupeDleGazMultimillesimeResource", "AsyncBatimentGroupeDleGazMultimillesimeResource"]
 
@@ -60,7 +58,7 @@ class BatimentGroupeDleGazMultimillesimeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDleGazMultimillesime]:
         """
         Données de consommations des DLE gaz agrégées à l'échelle du bâtiment
 
@@ -116,7 +114,7 @@ class BatimentGroupeDleGazMultimillesimeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_gaz_multimillesime",
-            page=SyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
+            page=SyncDefault[BatimentGroupeDleGazMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -144,7 +142,7 @@ class BatimentGroupeDleGazMultimillesimeResource(SyncAPIResource):
                     batiment_groupe_dle_gaz_multimillesime_list_params.BatimentGroupeDleGazMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleGazMultimillesimeAPIExpert,
+            model=BatimentGroupeDleGazMultimillesime,
         )
 
 
@@ -184,9 +182,7 @@ class AsyncBatimentGroupeDleGazMultimillesimeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDleGazMultimillesimeAPIExpert, AsyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDleGazMultimillesime, AsyncDefault[BatimentGroupeDleGazMultimillesime]]:
         """
         Données de consommations des DLE gaz agrégées à l'échelle du bâtiment
 
@@ -242,7 +238,7 @@ class AsyncBatimentGroupeDleGazMultimillesimeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dle_gaz_multimillesime",
-            page=AsyncDefault[BatimentGroupeDleGazMultimillesimeAPIExpert],
+            page=AsyncDefault[BatimentGroupeDleGazMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -270,7 +266,7 @@ class AsyncBatimentGroupeDleGazMultimillesimeResource(AsyncAPIResource):
                     batiment_groupe_dle_gaz_multimillesime_list_params.BatimentGroupeDleGazMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleGazMultimillesimeAPIExpert,
+            model=BatimentGroupeDleGazMultimillesime,
         )
 
 
