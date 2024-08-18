@@ -9,9 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import (
-    RelBatimentConstructionAdresseListResponse,
-)
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.shared import RelBatimentConstructionAdresseAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -23,7 +22,7 @@ class TestRelBatimentConstructionAdresse:
     def test_method_list(self, client: BdnbAPI) -> None:
         rel_batiment_construction_adresse = client.donnees.rel_batiment_construction_adresse.list()
         assert_matches_type(
-            RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+            SyncDefault[RelBatimentConstructionAdresseAPIExpert], rel_batiment_construction_adresse, path=["response"]
         )
 
     @parametrize
@@ -39,12 +38,11 @@ class TestRelBatimentConstructionAdresse:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+            SyncDefault[RelBatimentConstructionAdresseAPIExpert], rel_batiment_construction_adresse, path=["response"]
         )
 
     @parametrize
@@ -55,7 +53,7 @@ class TestRelBatimentConstructionAdresse:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_construction_adresse = response.parse()
         assert_matches_type(
-            RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+            SyncDefault[RelBatimentConstructionAdresseAPIExpert], rel_batiment_construction_adresse, path=["response"]
         )
 
     @parametrize
@@ -66,7 +64,9 @@ class TestRelBatimentConstructionAdresse:
 
             rel_batiment_construction_adresse = response.parse()
             assert_matches_type(
-                RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+                SyncDefault[RelBatimentConstructionAdresseAPIExpert],
+                rel_batiment_construction_adresse,
+                path=["response"],
             )
 
         assert cast(Any, response.is_closed) is True
@@ -79,7 +79,7 @@ class TestAsyncRelBatimentConstructionAdresse:
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         rel_batiment_construction_adresse = await async_client.donnees.rel_batiment_construction_adresse.list()
         assert_matches_type(
-            RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+            AsyncDefault[RelBatimentConstructionAdresseAPIExpert], rel_batiment_construction_adresse, path=["response"]
         )
 
     @parametrize
@@ -95,12 +95,11 @@ class TestAsyncRelBatimentConstructionAdresse:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+            AsyncDefault[RelBatimentConstructionAdresseAPIExpert], rel_batiment_construction_adresse, path=["response"]
         )
 
     @parametrize
@@ -111,7 +110,7 @@ class TestAsyncRelBatimentConstructionAdresse:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_construction_adresse = await response.parse()
         assert_matches_type(
-            RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+            AsyncDefault[RelBatimentConstructionAdresseAPIExpert], rel_batiment_construction_adresse, path=["response"]
         )
 
     @parametrize
@@ -122,7 +121,9 @@ class TestAsyncRelBatimentConstructionAdresse:
 
             rel_batiment_construction_adresse = await response.parse()
             assert_matches_type(
-                RelBatimentConstructionAdresseListResponse, rel_batiment_construction_adresse, path=["response"]
+                AsyncDefault[RelBatimentConstructionAdresseAPIExpert],
+                rel_batiment_construction_adresse,
+                path=["response"],
             )
 
         assert cast(Any, response.is_closed) is True

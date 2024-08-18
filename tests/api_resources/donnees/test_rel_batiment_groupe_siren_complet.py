@@ -10,9 +10,8 @@ import pytest
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api._utils import parse_date
-from bdnb_api.types.donnees import (
-    RelBatimentGroupeSirenCompletListResponse,
-)
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.shared import RelBatimentGroupeSirenAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -24,7 +23,7 @@ class TestRelBatimentGroupeSirenComplet:
     def test_method_list(self, client: BdnbAPI) -> None:
         rel_batiment_groupe_siren_complet = client.donnees.rel_batiment_groupe_siren_complet.list()
         assert_matches_type(
-            RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+            SyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
         )
 
     @parametrize
@@ -51,12 +50,11 @@ class TestRelBatimentGroupeSirenComplet:
             select="select",
             siren="siren",
             siren_dans_sirene="siren_dans_sirene",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+            SyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
         )
 
     @parametrize
@@ -67,7 +65,7 @@ class TestRelBatimentGroupeSirenComplet:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_groupe_siren_complet = response.parse()
         assert_matches_type(
-            RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+            SyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
         )
 
     @parametrize
@@ -78,7 +76,7 @@ class TestRelBatimentGroupeSirenComplet:
 
             rel_batiment_groupe_siren_complet = response.parse()
             assert_matches_type(
-                RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+                SyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
@@ -91,7 +89,7 @@ class TestAsyncRelBatimentGroupeSirenComplet:
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         rel_batiment_groupe_siren_complet = await async_client.donnees.rel_batiment_groupe_siren_complet.list()
         assert_matches_type(
-            RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+            AsyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
         )
 
     @parametrize
@@ -118,12 +116,11 @@ class TestAsyncRelBatimentGroupeSirenComplet:
             select="select",
             siren="siren",
             siren_dans_sirene="siren_dans_sirene",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+            AsyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
         )
 
     @parametrize
@@ -134,7 +131,7 @@ class TestAsyncRelBatimentGroupeSirenComplet:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_groupe_siren_complet = await response.parse()
         assert_matches_type(
-            RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+            AsyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
         )
 
     @parametrize
@@ -145,7 +142,7 @@ class TestAsyncRelBatimentGroupeSirenComplet:
 
             rel_batiment_groupe_siren_complet = await response.parse()
             assert_matches_type(
-                RelBatimentGroupeSirenCompletListResponse, rel_batiment_groupe_siren_complet, path=["response"]
+                AsyncDefault[RelBatimentGroupeSirenAPIExpert], rel_batiment_groupe_siren_complet, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True

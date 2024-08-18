@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.metadonnees import rel_colonne_jeu_de_donnee_list_params
-from ...types.metadonnees.rel_colonne_jeu_de_donnee_list_response import RelColonneJeuDeDonneeListResponse
+from ...types.metadonnees.rel_colonne_jeu_de_donnees import RelColonneJeuDeDonnees
 
 __all__ = ["RelColonneJeuDeDonneesResource", "AsyncRelColonneJeuDeDonneesResource"]
 
@@ -48,7 +42,6 @@ class RelColonneJeuDeDonneesResource(SyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -57,7 +50,7 @@ class RelColonneJeuDeDonneesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelColonneJeuDeDonneeListResponse:
+    ) -> SyncDefault[RelColonneJeuDeDonnees]:
         """
         Quels jeux de données ont servis à créer quelles colonnes ?
 
@@ -89,15 +82,15 @@ class RelColonneJeuDeDonneesResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/metadonnees/rel_colonne_jeu_de_donnees",
+            page=SyncDefault[RelColonneJeuDeDonnees],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -117,7 +110,7 @@ class RelColonneJeuDeDonneesResource(SyncAPIResource):
                     rel_colonne_jeu_de_donnee_list_params.RelColonneJeuDeDonneeListParams,
                 ),
             ),
-            cast_to=RelColonneJeuDeDonneeListResponse,
+            model=RelColonneJeuDeDonnees,
         )
 
 
@@ -130,7 +123,7 @@ class AsyncRelColonneJeuDeDonneesResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRelColonneJeuDeDonneesResourceWithStreamingResponse:
         return AsyncRelColonneJeuDeDonneesResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         denomination_serie: str | NotGiven = NOT_GIVEN,
@@ -141,7 +134,6 @@ class AsyncRelColonneJeuDeDonneesResource(AsyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -150,7 +142,7 @@ class AsyncRelColonneJeuDeDonneesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelColonneJeuDeDonneeListResponse:
+    ) -> AsyncPaginator[RelColonneJeuDeDonnees, AsyncDefault[RelColonneJeuDeDonnees]]:
         """
         Quels jeux de données ont servis à créer quelles colonnes ?
 
@@ -182,21 +174,21 @@ class AsyncRelColonneJeuDeDonneesResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/metadonnees/rel_colonne_jeu_de_donnees",
+            page=AsyncDefault[RelColonneJeuDeDonnees],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "denomination_serie": denomination_serie,
                         "limit": limit,
@@ -210,7 +202,7 @@ class AsyncRelColonneJeuDeDonneesResource(AsyncAPIResource):
                     rel_colonne_jeu_de_donnee_list_params.RelColonneJeuDeDonneeListParams,
                 ),
             ),
-            cast_to=RelColonneJeuDeDonneeListResponse,
+            model=RelColonneJeuDeDonnees,
         )
 
 

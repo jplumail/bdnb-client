@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -48,8 +48,6 @@ class BatimentGroupeWallDictListParams(TypedDict, total=False):
     - shading_mask_36 (ARRAY): "Masque solaire : Elevation de l'occultation par
       tranche de 10Âº à partir de l'azimuth 0 (Sud)"
     """
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

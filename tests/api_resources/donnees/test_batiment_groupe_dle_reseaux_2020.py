@@ -9,9 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import (
-    BatimentGroupeDleReseaux2020ListResponse,
-)
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.shared import BatimentGroupeDleReseaux2020APIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -23,7 +22,7 @@ class TestBatimentGroupeDleReseaux2020:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dle_reseaux_2020 = client.donnees.batiment_groupe_dle_reseaux_2020.list()
         assert_matches_type(
-            BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+            SyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
         )
 
     @parametrize
@@ -46,12 +45,11 @@ class TestBatimentGroupeDleReseaux2020:
             order="order",
             select="select",
             type_reseau="type_reseau",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+            SyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
         )
 
     @parametrize
@@ -62,7 +60,7 @@ class TestBatimentGroupeDleReseaux2020:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_reseaux_2020 = response.parse()
         assert_matches_type(
-            BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+            SyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
         )
 
     @parametrize
@@ -73,7 +71,7 @@ class TestBatimentGroupeDleReseaux2020:
 
             batiment_groupe_dle_reseaux_2020 = response.parse()
             assert_matches_type(
-                BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+                SyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
@@ -86,7 +84,7 @@ class TestAsyncBatimentGroupeDleReseaux2020:
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         batiment_groupe_dle_reseaux_2020 = await async_client.donnees.batiment_groupe_dle_reseaux_2020.list()
         assert_matches_type(
-            BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+            AsyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
         )
 
     @parametrize
@@ -109,12 +107,11 @@ class TestAsyncBatimentGroupeDleReseaux2020:
             order="order",
             select="select",
             type_reseau="type_reseau",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+            AsyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
         )
 
     @parametrize
@@ -125,7 +122,7 @@ class TestAsyncBatimentGroupeDleReseaux2020:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dle_reseaux_2020 = await response.parse()
         assert_matches_type(
-            BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+            AsyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
         )
 
     @parametrize
@@ -136,7 +133,7 @@ class TestAsyncBatimentGroupeDleReseaux2020:
 
             batiment_groupe_dle_reseaux_2020 = await response.parse()
             assert_matches_type(
-                BatimentGroupeDleReseaux2020ListResponse, batiment_groupe_dle_reseaux_2020, path=["response"]
+                AsyncDefault[BatimentGroupeDleReseaux2020APIExpert], batiment_groupe_dle_reseaux_2020, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True

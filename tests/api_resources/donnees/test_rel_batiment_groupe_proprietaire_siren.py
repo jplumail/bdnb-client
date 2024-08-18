@@ -9,9 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import (
-    RelBatimentGroupeProprietaireSirenListResponse,
-)
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.shared import RelBatimentGroupeProprietaireSirenAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -23,7 +22,9 @@ class TestRelBatimentGroupeProprietaireSiren:
     def test_method_list(self, client: BdnbAPI) -> None:
         rel_batiment_groupe_proprietaire_siren = client.donnees.rel_batiment_groupe_proprietaire_siren.list()
         assert_matches_type(
-            RelBatimentGroupeProprietaireSirenListResponse, rel_batiment_groupe_proprietaire_siren, path=["response"]
+            SyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            rel_batiment_groupe_proprietaire_siren,
+            path=["response"],
         )
 
     @parametrize
@@ -38,12 +39,13 @@ class TestRelBatimentGroupeProprietaireSiren:
             order="order",
             select="select",
             siren="siren",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            RelBatimentGroupeProprietaireSirenListResponse, rel_batiment_groupe_proprietaire_siren, path=["response"]
+            SyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            rel_batiment_groupe_proprietaire_siren,
+            path=["response"],
         )
 
     @parametrize
@@ -54,7 +56,9 @@ class TestRelBatimentGroupeProprietaireSiren:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_groupe_proprietaire_siren = response.parse()
         assert_matches_type(
-            RelBatimentGroupeProprietaireSirenListResponse, rel_batiment_groupe_proprietaire_siren, path=["response"]
+            SyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            rel_batiment_groupe_proprietaire_siren,
+            path=["response"],
         )
 
     @parametrize
@@ -65,7 +69,7 @@ class TestRelBatimentGroupeProprietaireSiren:
 
             rel_batiment_groupe_proprietaire_siren = response.parse()
             assert_matches_type(
-                RelBatimentGroupeProprietaireSirenListResponse,
+                SyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
                 rel_batiment_groupe_proprietaire_siren,
                 path=["response"],
             )
@@ -82,7 +86,9 @@ class TestAsyncRelBatimentGroupeProprietaireSiren:
             await async_client.donnees.rel_batiment_groupe_proprietaire_siren.list()
         )
         assert_matches_type(
-            RelBatimentGroupeProprietaireSirenListResponse, rel_batiment_groupe_proprietaire_siren, path=["response"]
+            AsyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            rel_batiment_groupe_proprietaire_siren,
+            path=["response"],
         )
 
     @parametrize
@@ -97,12 +103,13 @@ class TestAsyncRelBatimentGroupeProprietaireSiren:
             order="order",
             select="select",
             siren="siren",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            RelBatimentGroupeProprietaireSirenListResponse, rel_batiment_groupe_proprietaire_siren, path=["response"]
+            AsyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            rel_batiment_groupe_proprietaire_siren,
+            path=["response"],
         )
 
     @parametrize
@@ -113,7 +120,9 @@ class TestAsyncRelBatimentGroupeProprietaireSiren:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rel_batiment_groupe_proprietaire_siren = await response.parse()
         assert_matches_type(
-            RelBatimentGroupeProprietaireSirenListResponse, rel_batiment_groupe_proprietaire_siren, path=["response"]
+            AsyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            rel_batiment_groupe_proprietaire_siren,
+            path=["response"],
         )
 
     @parametrize
@@ -124,7 +133,7 @@ class TestAsyncRelBatimentGroupeProprietaireSiren:
 
             rel_batiment_groupe_proprietaire_siren = await response.parse()
             assert_matches_type(
-                RelBatimentGroupeProprietaireSirenListResponse,
+                AsyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
                 rel_batiment_groupe_proprietaire_siren,
                 path=["response"],
             )

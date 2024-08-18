@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_wall_dict_list_params
-from ...types.donnees.batiment_groupe_wall_dict_list_response import BatimentGroupeWallDictListResponse
+from ...types.donnees.batiment_groupe_wall_dict_api_expert import BatimentGroupeWallDictAPIExpert
 
 __all__ = ["BatimentGroupeWallDictResource", "AsyncBatimentGroupeWallDictResource"]
 
@@ -47,7 +41,6 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
         wall_dict: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -56,7 +49,7 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeWallDictListResponse:
+    ) -> SyncDefault[BatimentGroupeWallDictAPIExpert]:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -104,15 +97,15 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_wall_dict",
+            page=SyncDefault[BatimentGroupeWallDictAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -131,7 +124,7 @@ class BatimentGroupeWallDictResource(SyncAPIResource):
                     batiment_groupe_wall_dict_list_params.BatimentGroupeWallDictListParams,
                 ),
             ),
-            cast_to=BatimentGroupeWallDictListResponse,
+            model=BatimentGroupeWallDictAPIExpert,
         )
 
 
@@ -144,7 +137,7 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeWallDictResourceWithStreamingResponse:
         return AsyncBatimentGroupeWallDictResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -154,7 +147,6 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
         wall_dict: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -163,7 +155,7 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeWallDictListResponse:
+    ) -> AsyncPaginator[BatimentGroupeWallDictAPIExpert, AsyncDefault[BatimentGroupeWallDictAPIExpert]]:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -211,21 +203,21 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_wall_dict",
+            page=AsyncDefault[BatimentGroupeWallDictAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -238,7 +230,7 @@ class AsyncBatimentGroupeWallDictResource(AsyncAPIResource):
                     batiment_groupe_wall_dict_list_params.BatimentGroupeWallDictListParams,
                 ),
             ),
-            cast_to=BatimentGroupeWallDictListResponse,
+            model=BatimentGroupeWallDictAPIExpert,
         )
 
 

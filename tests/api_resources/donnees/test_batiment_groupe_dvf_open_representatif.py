@@ -10,8 +10,9 @@ import pytest
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api._utils import parse_date
+from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import (
-    BatimentGroupeDvfOpenRepresentatifListResponse,
+    BatimentGroupeDvfOpenRepresentatifAPIExpert,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -24,7 +25,9 @@ class TestBatimentGroupeDvfOpenRepresentatif:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dvf_open_representatif = client.donnees.batiment_groupe_dvf_open_representatif.list()
         assert_matches_type(
-            BatimentGroupeDvfOpenRepresentatifListResponse, batiment_groupe_dvf_open_representatif, path=["response"]
+            SyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            batiment_groupe_dvf_open_representatif,
+            path=["response"],
         )
 
     @parametrize
@@ -52,12 +55,13 @@ class TestBatimentGroupeDvfOpenRepresentatif:
             surface_bati_mutee_tertiaire="surface_bati_mutee_tertiaire",
             surface_terrain_mutee="surface_terrain_mutee",
             valeur_fonciere="valeur_fonciere",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDvfOpenRepresentatifListResponse, batiment_groupe_dvf_open_representatif, path=["response"]
+            SyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            batiment_groupe_dvf_open_representatif,
+            path=["response"],
         )
 
     @parametrize
@@ -68,7 +72,9 @@ class TestBatimentGroupeDvfOpenRepresentatif:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dvf_open_representatif = response.parse()
         assert_matches_type(
-            BatimentGroupeDvfOpenRepresentatifListResponse, batiment_groupe_dvf_open_representatif, path=["response"]
+            SyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            batiment_groupe_dvf_open_representatif,
+            path=["response"],
         )
 
     @parametrize
@@ -79,7 +85,7 @@ class TestBatimentGroupeDvfOpenRepresentatif:
 
             batiment_groupe_dvf_open_representatif = response.parse()
             assert_matches_type(
-                BatimentGroupeDvfOpenRepresentatifListResponse,
+                SyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
                 batiment_groupe_dvf_open_representatif,
                 path=["response"],
             )
@@ -96,7 +102,9 @@ class TestAsyncBatimentGroupeDvfOpenRepresentatif:
             await async_client.donnees.batiment_groupe_dvf_open_representatif.list()
         )
         assert_matches_type(
-            BatimentGroupeDvfOpenRepresentatifListResponse, batiment_groupe_dvf_open_representatif, path=["response"]
+            AsyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            batiment_groupe_dvf_open_representatif,
+            path=["response"],
         )
 
     @parametrize
@@ -124,12 +132,13 @@ class TestAsyncBatimentGroupeDvfOpenRepresentatif:
             surface_bati_mutee_tertiaire="surface_bati_mutee_tertiaire",
             surface_terrain_mutee="surface_terrain_mutee",
             valeur_fonciere="valeur_fonciere",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDvfOpenRepresentatifListResponse, batiment_groupe_dvf_open_representatif, path=["response"]
+            AsyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            batiment_groupe_dvf_open_representatif,
+            path=["response"],
         )
 
     @parametrize
@@ -140,7 +149,9 @@ class TestAsyncBatimentGroupeDvfOpenRepresentatif:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dvf_open_representatif = await response.parse()
         assert_matches_type(
-            BatimentGroupeDvfOpenRepresentatifListResponse, batiment_groupe_dvf_open_representatif, path=["response"]
+            AsyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
+            batiment_groupe_dvf_open_representatif,
+            path=["response"],
         )
 
     @parametrize
@@ -151,7 +162,7 @@ class TestAsyncBatimentGroupeDvfOpenRepresentatif:
 
             batiment_groupe_dvf_open_representatif = await response.parse()
             assert_matches_type(
-                BatimentGroupeDvfOpenRepresentatifListResponse,
+                AsyncDefault[BatimentGroupeDvfOpenRepresentatifAPIExpert],
                 batiment_groupe_dvf_open_representatif,
                 path=["response"],
             )

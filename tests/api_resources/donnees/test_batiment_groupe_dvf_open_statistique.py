@@ -9,9 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import (
-    BatimentGroupeDvfOpenStatistiqueListResponse,
-)
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.shared import BatimentGroupeDvfOpenStatistiqueAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -23,7 +22,9 @@ class TestBatimentGroupeDvfOpenStatistique:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dvf_open_statistique = client.donnees.batiment_groupe_dvf_open_statistique.list()
         assert_matches_type(
-            BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+            SyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            batiment_groupe_dvf_open_statistique,
+            path=["response"],
         )
 
     @parametrize
@@ -53,12 +54,13 @@ class TestBatimentGroupeDvfOpenStatistique:
             valeur_fonciere_median="valeur_fonciere_median",
             valeur_fonciere_min="valeur_fonciere_min",
             valeur_fonciere_moyenne="valeur_fonciere_moyenne",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+            SyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            batiment_groupe_dvf_open_statistique,
+            path=["response"],
         )
 
     @parametrize
@@ -69,7 +71,9 @@ class TestBatimentGroupeDvfOpenStatistique:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dvf_open_statistique = response.parse()
         assert_matches_type(
-            BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+            SyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            batiment_groupe_dvf_open_statistique,
+            path=["response"],
         )
 
     @parametrize
@@ -80,7 +84,9 @@ class TestBatimentGroupeDvfOpenStatistique:
 
             batiment_groupe_dvf_open_statistique = response.parse()
             assert_matches_type(
-                BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+                SyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+                batiment_groupe_dvf_open_statistique,
+                path=["response"],
             )
 
         assert cast(Any, response.is_closed) is True
@@ -93,7 +99,9 @@ class TestAsyncBatimentGroupeDvfOpenStatistique:
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         batiment_groupe_dvf_open_statistique = await async_client.donnees.batiment_groupe_dvf_open_statistique.list()
         assert_matches_type(
-            BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+            AsyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            batiment_groupe_dvf_open_statistique,
+            path=["response"],
         )
 
     @parametrize
@@ -123,12 +131,13 @@ class TestAsyncBatimentGroupeDvfOpenStatistique:
             valeur_fonciere_median="valeur_fonciere_median",
             valeur_fonciere_min="valeur_fonciere_min",
             valeur_fonciere_moyenne="valeur_fonciere_moyenne",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+            AsyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            batiment_groupe_dvf_open_statistique,
+            path=["response"],
         )
 
     @parametrize
@@ -139,7 +148,9 @@ class TestAsyncBatimentGroupeDvfOpenStatistique:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dvf_open_statistique = await response.parse()
         assert_matches_type(
-            BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+            AsyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            batiment_groupe_dvf_open_statistique,
+            path=["response"],
         )
 
     @parametrize
@@ -150,7 +161,9 @@ class TestAsyncBatimentGroupeDvfOpenStatistique:
 
             batiment_groupe_dvf_open_statistique = await response.parse()
             assert_matches_type(
-                BatimentGroupeDvfOpenStatistiqueListResponse, batiment_groupe_dvf_open_statistique, path=["response"]
+                AsyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+                batiment_groupe_dvf_open_statistique,
+                path=["response"],
             )
 
         assert cast(Any, response.is_closed) is True

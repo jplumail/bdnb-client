@@ -9,7 +9,10 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees.referentiel_administratif import DepartementListResponse
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.donnees.referentiel_administratif import (
+    ReferentielAdministratifDepartementAPIExpert,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +23,7 @@ class TestDepartement:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         departement = client.donnees.referentiel_administratif.departement.list()
-        assert_matches_type(DepartementListResponse, departement, path=["response"])
+        assert_matches_type(SyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -33,11 +36,10 @@ class TestDepartement:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(DepartementListResponse, departement, path=["response"])
+        assert_matches_type(SyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -46,7 +48,7 @@ class TestDepartement:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         departement = response.parse()
-        assert_matches_type(DepartementListResponse, departement, path=["response"])
+        assert_matches_type(SyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -55,7 +57,9 @@ class TestDepartement:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             departement = response.parse()
-            assert_matches_type(DepartementListResponse, departement, path=["response"])
+            assert_matches_type(
+                SyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"]
+            )
 
         assert cast(Any, response.is_closed) is True
 
@@ -66,7 +70,7 @@ class TestAsyncDepartement:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         departement = await async_client.donnees.referentiel_administratif.departement.list()
-        assert_matches_type(DepartementListResponse, departement, path=["response"])
+        assert_matches_type(AsyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -79,11 +83,10 @@ class TestAsyncDepartement:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(DepartementListResponse, departement, path=["response"])
+        assert_matches_type(AsyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -92,7 +95,7 @@ class TestAsyncDepartement:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         departement = await response.parse()
-        assert_matches_type(DepartementListResponse, departement, path=["response"])
+        assert_matches_type(AsyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -101,6 +104,8 @@ class TestAsyncDepartement:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             departement = await response.parse()
-            assert_matches_type(DepartementListResponse, departement, path=["response"])
+            assert_matches_type(
+                AsyncDefault[ReferentielAdministratifDepartementAPIExpert], departement, path=["response"]
+            )
 
         assert cast(Any, response.is_closed) is True

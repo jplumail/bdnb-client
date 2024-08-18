@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import iris_simulations_valeur_verte_list_params
-from ...types.donnees.iris_simulations_valeur_verte_list_response import IrisSimulationsValeurVerteListResponse
+from ...types.iris_simulations_valeur_verte_api_expert import IrisSimulationsValeurVerteAPIExpert
 
 __all__ = ["IrisSimulationsValeurVerteResource", "AsyncIrisSimulationsValeurVerteResource"]
 
@@ -68,7 +62,6 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         renovation: float | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -77,7 +70,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> IrisSimulationsValeurVerteListResponse:
+    ) -> SyncDefault[IrisSimulationsValeurVerteAPIExpert]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -172,15 +165,15 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/iris_simulations_valeur_verte",
+            page=SyncDefault[IrisSimulationsValeurVerteAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -220,7 +213,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
                     iris_simulations_valeur_verte_list_params.IrisSimulationsValeurVerteListParams,
                 ),
             ),
-            cast_to=IrisSimulationsValeurVerteListResponse,
+            model=IrisSimulationsValeurVerteAPIExpert,
         )
 
 
@@ -233,7 +226,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse:
         return AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -264,7 +257,6 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         renovation: float | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -273,7 +265,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> IrisSimulationsValeurVerteListResponse:
+    ) -> AsyncPaginator[IrisSimulationsValeurVerteAPIExpert, AsyncDefault[IrisSimulationsValeurVerteAPIExpert]]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -368,21 +360,21 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/iris_simulations_valeur_verte",
+            page=AsyncDefault[IrisSimulationsValeurVerteAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -416,7 +408,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
                     iris_simulations_valeur_verte_list_params.IrisSimulationsValeurVerteListParams,
                 ),
             ),
-            cast_to=IrisSimulationsValeurVerteListResponse,
+            model=IrisSimulationsValeurVerteAPIExpert,
         )
 
 

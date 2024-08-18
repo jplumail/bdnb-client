@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_parcelle_list_params
-from ...types.donnees.rel_batiment_groupe_parcelle_list_response import RelBatimentGroupeParcelleListResponse
+from ...types.donnees.rel_batiment_groupe_parcelle_api_expert import RelBatimentGroupeParcelleAPIExpert
 
 __all__ = ["RelBatimentGroupeParcelleResource", "AsyncRelBatimentGroupeParcelleResource"]
 
@@ -48,7 +42,6 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
         parcelle_id: str | NotGiven = NOT_GIVEN,
         parcelle_principale: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -57,7 +50,7 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeParcelleListResponse:
+    ) -> SyncDefault[RelBatimentGroupeParcelleAPIExpert]:
         """
         Table de relation entre les groupes de bâtiment et les parcelles (si
         ayant_droit_ffo, préférer la table [parcelle_unifiee])
@@ -92,15 +85,15 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_parcelle",
+            page=SyncDefault[RelBatimentGroupeParcelleAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -120,7 +113,7 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
                     rel_batiment_groupe_parcelle_list_params.RelBatimentGroupeParcelleListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeParcelleListResponse,
+            model=RelBatimentGroupeParcelleAPIExpert,
         )
 
 
@@ -133,7 +126,7 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRelBatimentGroupeParcelleResourceWithStreamingResponse:
         return AsyncRelBatimentGroupeParcelleResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -144,7 +137,6 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
         parcelle_id: str | NotGiven = NOT_GIVEN,
         parcelle_principale: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -153,7 +145,7 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeParcelleListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeParcelleAPIExpert, AsyncDefault[RelBatimentGroupeParcelleAPIExpert]]:
         """
         Table de relation entre les groupes de bâtiment et les parcelles (si
         ayant_droit_ffo, préférer la table [parcelle_unifiee])
@@ -188,21 +180,21 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_parcelle",
+            page=AsyncDefault[RelBatimentGroupeParcelleAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -216,7 +208,7 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
                     rel_batiment_groupe_parcelle_list_params.RelBatimentGroupeParcelleListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeParcelleListResponse,
+            model=RelBatimentGroupeParcelleAPIExpert,
         )
 
 

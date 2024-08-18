@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_rnc_list_params
-from ...types.donnees.rel_batiment_groupe_rnc_list_response import RelBatimentGroupeRncListResponse
+from ...types.rel_batiment_groupe_rnc_api_expert import RelBatimentGroupeRncAPIExpert
 
 __all__ = ["RelBatimentGroupeRncResource", "AsyncRelBatimentGroupeRncResource"]
 
@@ -53,7 +47,6 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         parcelle_id: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -62,7 +55,7 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeRncListResponse:
+    ) -> SyncDefault[RelBatimentGroupeRncAPIExpert]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table RNC
 
@@ -105,15 +98,15 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_rnc",
+            page=SyncDefault[RelBatimentGroupeRncAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -138,7 +131,7 @@ class RelBatimentGroupeRncResource(SyncAPIResource):
                     rel_batiment_groupe_rnc_list_params.RelBatimentGroupeRncListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeRncListResponse,
+            model=RelBatimentGroupeRncAPIExpert,
         )
 
 
@@ -151,7 +144,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRelBatimentGroupeRncResourceWithStreamingResponse:
         return AsyncRelBatimentGroupeRncResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         adresse_brut: str | NotGiven = NOT_GIVEN,
@@ -167,7 +160,6 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         parcelle_id: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -176,7 +168,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeRncListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeRncAPIExpert, AsyncDefault[RelBatimentGroupeRncAPIExpert]]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table RNC
 
@@ -219,21 +211,21 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_rnc",
+            page=AsyncDefault[RelBatimentGroupeRncAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "adresse_brut": adresse_brut,
                         "adresse_geocodee": adresse_geocodee,
@@ -252,7 +244,7 @@ class AsyncRelBatimentGroupeRncResource(AsyncAPIResource):
                     rel_batiment_groupe_rnc_list_params.RelBatimentGroupeRncListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeRncListResponse,
+            model=RelBatimentGroupeRncAPIExpert,
         )
 
 

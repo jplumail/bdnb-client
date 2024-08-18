@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from ..._utils import PropertyInfo
 
@@ -143,8 +143,6 @@ class BatimentGroupeDvfOpenStatistiqueListParams(TypedDict, total=False):
     Valeur foncière moyenne en euros calculée sur l'ensemble des mutations qui ont
     eu lieu sur le batiment_groupe.
     """
-
-    prefer: Annotated[Literal["count=none"], PropertyInfo(alias="Prefer")]
 
     range: Annotated[str, PropertyInfo(alias="Range")]
 

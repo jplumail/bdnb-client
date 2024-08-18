@@ -9,8 +9,9 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
+from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import (
-    BatimentGroupeDpeStatistiqueLogementListResponse,
+    BatimentGroupeDpeStatistiqueLogementAPIExpert,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -23,7 +24,7 @@ class TestBatimentGroupeDpeStatistiqueLogement:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_dpe_statistique_logement = client.donnees.batiment_groupe_dpe_statistique_logement.list()
         assert_matches_type(
-            BatimentGroupeDpeStatistiqueLogementListResponse,
+            SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             batiment_groupe_dpe_statistique_logement,
             path=["response"],
         )
@@ -52,12 +53,11 @@ class TestBatimentGroupeDpeStatistiqueLogement:
             offset="offset",
             order="order",
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDpeStatistiqueLogementListResponse,
+            SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             batiment_groupe_dpe_statistique_logement,
             path=["response"],
         )
@@ -70,7 +70,7 @@ class TestBatimentGroupeDpeStatistiqueLogement:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dpe_statistique_logement = response.parse()
         assert_matches_type(
-            BatimentGroupeDpeStatistiqueLogementListResponse,
+            SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             batiment_groupe_dpe_statistique_logement,
             path=["response"],
         )
@@ -83,7 +83,7 @@ class TestBatimentGroupeDpeStatistiqueLogement:
 
             batiment_groupe_dpe_statistique_logement = response.parse()
             assert_matches_type(
-                BatimentGroupeDpeStatistiqueLogementListResponse,
+                SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
                 batiment_groupe_dpe_statistique_logement,
                 path=["response"],
             )
@@ -100,7 +100,7 @@ class TestAsyncBatimentGroupeDpeStatistiqueLogement:
             await async_client.donnees.batiment_groupe_dpe_statistique_logement.list()
         )
         assert_matches_type(
-            BatimentGroupeDpeStatistiqueLogementListResponse,
+            AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             batiment_groupe_dpe_statistique_logement,
             path=["response"],
         )
@@ -130,13 +130,12 @@ class TestAsyncBatimentGroupeDpeStatistiqueLogement:
                 offset="offset",
                 order="order",
                 select="select",
-                prefer="count=none",
                 range="Range",
                 range_unit="Range-Unit",
             )
         )
         assert_matches_type(
-            BatimentGroupeDpeStatistiqueLogementListResponse,
+            AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             batiment_groupe_dpe_statistique_logement,
             path=["response"],
         )
@@ -149,7 +148,7 @@ class TestAsyncBatimentGroupeDpeStatistiqueLogement:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_dpe_statistique_logement = await response.parse()
         assert_matches_type(
-            BatimentGroupeDpeStatistiqueLogementListResponse,
+            AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             batiment_groupe_dpe_statistique_logement,
             path=["response"],
         )
@@ -162,7 +161,7 @@ class TestAsyncBatimentGroupeDpeStatistiqueLogement:
 
             batiment_groupe_dpe_statistique_logement = await response.parse()
             assert_matches_type(
-                BatimentGroupeDpeStatistiqueLogementListResponse,
+                AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
                 batiment_groupe_dpe_statistique_logement,
                 path=["response"],
             )

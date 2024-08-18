@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,10 +14,11 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_elec_multimillesime_list_params
-from ...types.donnees.batiment_groupe_dle_elec_multimillesime_list_response import (
-    BatimentGroupeDleElecMultimillesimeListResponse,
+from ...types.donnees.batiment_groupe_dle_elec_multimillesime_api_expert import (
+    BatimentGroupeDleElecMultimillesimeAPIExpert,
 )
 
 __all__ = ["BatimentGroupeDleElecMultimillesimeResource", "AsyncBatimentGroupeDleElecMultimillesimeResource"]
@@ -58,7 +52,6 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -67,7 +60,7 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDleElecMultimillesimeListResponse:
+    ) -> SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur éléctrique agrégées à l'échelle du bâtiment
@@ -116,15 +109,15 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_multimillesime",
+            page=SyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -152,7 +145,7 @@ class BatimentGroupeDleElecMultimillesimeResource(SyncAPIResource):
                     batiment_groupe_dle_elec_multimillesime_list_params.BatimentGroupeDleElecMultimillesimeListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDleElecMultimillesimeListResponse,
+            model=BatimentGroupeDleElecMultimillesimeAPIExpert,
         )
 
 
@@ -165,7 +158,7 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse:
         return AsyncBatimentGroupeDleElecMultimillesimeResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -184,7 +177,6 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -193,7 +185,9 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDleElecMultimillesimeListResponse:
+    ) -> AsyncPaginator[
+        BatimentGroupeDleElecMultimillesimeAPIExpert, AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert]
+    ]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur éléctrique agrégées à l'échelle du bâtiment
@@ -242,21 +236,21 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_multimillesime",
+            page=AsyncDefault[BatimentGroupeDleElecMultimillesimeAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -278,7 +272,7 @@ class AsyncBatimentGroupeDleElecMultimillesimeResource(AsyncAPIResource):
                     batiment_groupe_dle_elec_multimillesime_list_params.BatimentGroupeDleElecMultimillesimeListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDleElecMultimillesimeListResponse,
+            model=BatimentGroupeDleElecMultimillesimeAPIExpert,
         )
 
 

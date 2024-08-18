@@ -55,10 +55,12 @@ class BdnbAPI(SyncAPIClient):
     with_streaming_response: BdnbAPIWithStreamedResponse
 
     # client options
+    prefer_option: str | None
 
     def __init__(
         self,
         *,
+        prefer_option: str | None = "count=exact",
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -79,6 +81,10 @@ class BdnbAPI(SyncAPIClient):
         _strict_response_validation: bool = False,
     ) -> None:
         """Construct a new synchronous bdnb-api client instance."""
+        if prefer_option is None:
+            prefer_option = "count=exact"
+        self.prefer_option = prefer_option
+
         if base_url is None:
             base_url = os.environ.get("BDNB_API_BASE_URL")
         if base_url is None:
@@ -114,12 +120,14 @@ class BdnbAPI(SyncAPIClient):
         return {
             **super().default_headers,
             "X-Stainless-Async": "false",
+            "Prefer": self.prefer_option if self.prefer_option is not None else Omit(),
             **self._custom_headers,
         }
 
     def copy(
         self,
         *,
+        prefer_option: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -153,6 +161,7 @@ class BdnbAPI(SyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
+            prefer_option=prefer_option or self.prefer_option,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -210,10 +219,12 @@ class AsyncBdnbAPI(AsyncAPIClient):
     with_streaming_response: AsyncBdnbAPIWithStreamedResponse
 
     # client options
+    prefer_option: str | None
 
     def __init__(
         self,
         *,
+        prefer_option: str | None = "count=exact",
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -234,6 +245,10 @@ class AsyncBdnbAPI(AsyncAPIClient):
         _strict_response_validation: bool = False,
     ) -> None:
         """Construct a new async bdnb-api client instance."""
+        if prefer_option is None:
+            prefer_option = "count=exact"
+        self.prefer_option = prefer_option
+
         if base_url is None:
             base_url = os.environ.get("BDNB_API_BASE_URL")
         if base_url is None:
@@ -269,12 +284,14 @@ class AsyncBdnbAPI(AsyncAPIClient):
         return {
             **super().default_headers,
             "X-Stainless-Async": f"async:{get_async_library()}",
+            "Prefer": self.prefer_option if self.prefer_option is not None else Omit(),
             **self._custom_headers,
         }
 
     def copy(
         self,
         *,
+        prefer_option: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -308,6 +325,7 @@ class AsyncBdnbAPI(AsyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
+            prefer_option=prefer_option or self.prefer_option,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,

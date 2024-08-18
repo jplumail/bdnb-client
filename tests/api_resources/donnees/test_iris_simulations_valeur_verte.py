@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import IrisSimulationsValeurVerteListResponse
+from bdnb_api.types import IrisSimulationsValeurVerteAPIExpert
+from bdnb_api.pagination import SyncDefault, AsyncDefault
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,9 @@ class TestIrisSimulationsValeurVerte:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         iris_simulations_valeur_verte = client.donnees.iris_simulations_valeur_verte.list()
-        assert_matches_type(IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"])
+        assert_matches_type(
+            SyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
+        )
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -53,11 +56,12 @@ class TestIrisSimulationsValeurVerte:
             order="order",
             renovation=0,
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"])
+        assert_matches_type(
+            SyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
+        )
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -66,7 +70,9 @@ class TestIrisSimulationsValeurVerte:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         iris_simulations_valeur_verte = response.parse()
-        assert_matches_type(IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"])
+        assert_matches_type(
+            SyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
+        )
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -76,7 +82,7 @@ class TestIrisSimulationsValeurVerte:
 
             iris_simulations_valeur_verte = response.parse()
             assert_matches_type(
-                IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"]
+                SyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
@@ -88,7 +94,9 @@ class TestAsyncIrisSimulationsValeurVerte:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         iris_simulations_valeur_verte = await async_client.donnees.iris_simulations_valeur_verte.list()
-        assert_matches_type(IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"])
+        assert_matches_type(
+            AsyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
+        )
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -121,11 +129,12 @@ class TestAsyncIrisSimulationsValeurVerte:
             order="order",
             renovation=0,
             select="select",
-            prefer="count=none",
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"])
+        assert_matches_type(
+            AsyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
+        )
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -134,7 +143,9 @@ class TestAsyncIrisSimulationsValeurVerte:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         iris_simulations_valeur_verte = await response.parse()
-        assert_matches_type(IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"])
+        assert_matches_type(
+            AsyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
+        )
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -144,7 +155,7 @@ class TestAsyncIrisSimulationsValeurVerte:
 
             iris_simulations_valeur_verte = await response.parse()
             assert_matches_type(
-                IrisSimulationsValeurVerteListResponse, iris_simulations_valeur_verte, path=["response"]
+                AsyncDefault[IrisSimulationsValeurVerteAPIExpert], iris_simulations_valeur_verte, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True

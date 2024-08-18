@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_merimee_list_params
-from ...types.donnees.rel_batiment_groupe_merimee_list_response import RelBatimentGroupeMerimeeListResponse
+from ...types.shared.rel_batiment_groupe_merimee_api_expert import RelBatimentGroupeMerimeeAPIExpert
 
 __all__ = ["RelBatimentGroupeMerimeeResource", "AsyncRelBatimentGroupeMerimeeResource"]
 
@@ -48,7 +42,6 @@ class RelBatimentGroupeMerimeeResource(SyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -57,7 +50,7 @@ class RelBatimentGroupeMerimeeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeMerimeeListResponse:
+    ) -> SyncDefault[RelBatimentGroupeMerimeeAPIExpert]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table
         merimee
@@ -91,15 +84,15 @@ class RelBatimentGroupeMerimeeResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_merimee",
+            page=SyncDefault[RelBatimentGroupeMerimeeAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -119,7 +112,7 @@ class RelBatimentGroupeMerimeeResource(SyncAPIResource):
                     rel_batiment_groupe_merimee_list_params.RelBatimentGroupeMerimeeListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeMerimeeListResponse,
+            model=RelBatimentGroupeMerimeeAPIExpert,
         )
 
 
@@ -132,7 +125,7 @@ class AsyncRelBatimentGroupeMerimeeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRelBatimentGroupeMerimeeResourceWithStreamingResponse:
         return AsyncRelBatimentGroupeMerimeeResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -143,7 +136,6 @@ class AsyncRelBatimentGroupeMerimeeResource(AsyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -152,7 +144,7 @@ class AsyncRelBatimentGroupeMerimeeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeMerimeeListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeMerimeeAPIExpert, AsyncDefault[RelBatimentGroupeMerimeeAPIExpert]]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table
         merimee
@@ -186,21 +178,21 @@ class AsyncRelBatimentGroupeMerimeeResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_merimee",
+            page=AsyncDefault[RelBatimentGroupeMerimeeAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -214,7 +206,7 @@ class AsyncRelBatimentGroupeMerimeeResource(AsyncAPIResource):
                     rel_batiment_groupe_merimee_list_params.RelBatimentGroupeMerimeeListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeMerimeeListResponse,
+            model=RelBatimentGroupeMerimeeAPIExpert,
         )
 
 

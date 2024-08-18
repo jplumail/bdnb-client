@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_adresse_list_params
-from ...types.donnees.rel_batiment_groupe_adresse_list_response import RelBatimentGroupeAdresseListResponse
+from ...types.shared.rel_batiment_groupe_adresse_api_expert import RelBatimentGroupeAdresseAPIExpert
 
 __all__ = ["RelBatimentGroupeAdresseResource", "AsyncRelBatimentGroupeAdresseResource"]
 
@@ -51,7 +45,6 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         origine: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -60,7 +53,7 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeAdresseListResponse:
+    ) -> SyncDefault[RelBatimentGroupeAdresseAPIExpert]:
         """
         Table de relation entre les adresses et les groupes de bâtiment
 
@@ -103,15 +96,15 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_adresse",
+            page=SyncDefault[RelBatimentGroupeAdresseAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -134,7 +127,7 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
                     rel_batiment_groupe_adresse_list_params.RelBatimentGroupeAdresseListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeAdresseListResponse,
+            model=RelBatimentGroupeAdresseAPIExpert,
         )
 
 
@@ -147,7 +140,7 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRelBatimentGroupeAdresseResourceWithStreamingResponse:
         return AsyncRelBatimentGroupeAdresseResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -161,7 +154,6 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
         order: str | NotGiven = NOT_GIVEN,
         origine: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -170,7 +162,7 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeAdresseListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeAdresseAPIExpert, AsyncDefault[RelBatimentGroupeAdresseAPIExpert]]:
         """
         Table de relation entre les adresses et les groupes de bâtiment
 
@@ -213,21 +205,21 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_adresse",
+            page=AsyncDefault[RelBatimentGroupeAdresseAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "classe": classe,
@@ -244,7 +236,7 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
                     rel_batiment_groupe_adresse_list_params.RelBatimentGroupeAdresseListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeAdresseListResponse,
+            model=RelBatimentGroupeAdresseAPIExpert,
         )
 
 

@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dle_elec_2020_list_params
-from ...types.donnees.batiment_groupe_dle_elec_2020_list_response import BatimentGroupeDleElec2020ListResponse
+from ...types.shared.batiment_groupe_dle_elec_2020_api_expert import BatimentGroupeDleElec2020APIExpert
 
 __all__ = ["BatimentGroupeDleElec2020Resource", "AsyncBatimentGroupeDleElec2020Resource"]
 
@@ -55,7 +49,6 @@ class BatimentGroupeDleElec2020Resource(SyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -64,7 +57,7 @@ class BatimentGroupeDleElec2020Resource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDleElec2020ListResponse:
+    ) -> SyncDefault[BatimentGroupeDleElec2020APIExpert]:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -111,15 +104,15 @@ class BatimentGroupeDleElec2020Resource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_2020",
+            page=SyncDefault[BatimentGroupeDleElec2020APIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -146,7 +139,7 @@ class BatimentGroupeDleElec2020Resource(SyncAPIResource):
                     batiment_groupe_dle_elec_2020_list_params.BatimentGroupeDleElec2020ListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDleElec2020ListResponse,
+            model=BatimentGroupeDleElec2020APIExpert,
         )
 
 
@@ -159,7 +152,7 @@ class AsyncBatimentGroupeDleElec2020Resource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeDleElec2020ResourceWithStreamingResponse:
         return AsyncBatimentGroupeDleElec2020ResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -177,7 +170,6 @@ class AsyncBatimentGroupeDleElec2020Resource(AsyncAPIResource):
         offset: str | NotGiven = NOT_GIVEN,
         order: str | NotGiven = NOT_GIVEN,
         select: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -186,7 +178,7 @@ class AsyncBatimentGroupeDleElec2020Resource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDleElec2020ListResponse:
+    ) -> AsyncPaginator[BatimentGroupeDleElec2020APIExpert, AsyncDefault[BatimentGroupeDleElec2020APIExpert]]:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -233,21 +225,21 @@ class AsyncBatimentGroupeDleElec2020Resource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_2020",
+            page=AsyncDefault[BatimentGroupeDleElec2020APIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -268,7 +260,7 @@ class AsyncBatimentGroupeDleElec2020Resource(AsyncAPIResource):
                     batiment_groupe_dle_elec_2020_list_params.BatimentGroupeDleElec2020ListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDleElec2020ListResponse,
+            model=BatimentGroupeDleElec2020APIExpert,
         )
 
 

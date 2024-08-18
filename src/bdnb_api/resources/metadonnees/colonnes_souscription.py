@@ -2,17 +2,10 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal
-
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -21,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.metadonnees import colonnes_souscription_list_params
-from ...types.metadonnees.colonnes_souscription_list_response import ColonnesSouscriptionListResponse
+from ...types.metadonnees.colonne_souscription import ColonneSouscription
 
 __all__ = ["ColonnesSouscriptionResource", "AsyncColonnesSouscriptionResource"]
 
@@ -55,7 +49,6 @@ class ColonnesSouscriptionResource(SyncAPIResource):
         souscription: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         unite: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -64,7 +57,7 @@ class ColonnesSouscriptionResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ColonnesSouscriptionListResponse:
+    ) -> SyncDefault[ColonneSouscription]:
         """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
@@ -110,15 +103,15 @@ class ColonnesSouscriptionResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/metadonnees/colonne_souscription",
+            page=SyncDefault[ColonneSouscription],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -145,7 +138,7 @@ class ColonnesSouscriptionResource(SyncAPIResource):
                     colonnes_souscription_list_params.ColonnesSouscriptionListParams,
                 ),
             ),
-            cast_to=ColonnesSouscriptionListResponse,
+            model=ColonneSouscription,
         )
 
 
@@ -158,7 +151,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncColonnesSouscriptionResourceWithStreamingResponse:
         return AsyncColonnesSouscriptionResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         contrainte_acces: str | NotGiven = NOT_GIVEN,
@@ -176,7 +169,6 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
         souscription: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         unite: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -185,7 +177,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ColonnesSouscriptionListResponse:
+    ) -> AsyncPaginator[ColonneSouscription, AsyncDefault[ColonneSouscription]]:
         """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
@@ -231,21 +223,21 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/metadonnees/colonne_souscription",
+            page=AsyncDefault[ColonneSouscription],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "contrainte_acces": contrainte_acces,
                         "description": description,
@@ -266,7 +258,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
                     colonnes_souscription_list_params.ColonnesSouscriptionListParams,
                 ),
             ),
-            cast_to=ColonnesSouscriptionListResponse,
+            model=ColonneSouscription,
         )
 
 

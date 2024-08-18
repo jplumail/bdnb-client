@@ -312,6 +312,14 @@ from .batiment_groupe_dvf_open_statistique import (
     BatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse,
     AsyncBatimentGroupeDvfOpenStatistiqueResourceWithStreamingResponse,
 )
+from .batiment_groupe_delimitation_enveloppe import (
+    BatimentGroupeDelimitationEnveloppeResource,
+    AsyncBatimentGroupeDelimitationEnveloppeResource,
+    BatimentGroupeDelimitationEnveloppeResourceWithRawResponse,
+    AsyncBatimentGroupeDelimitationEnveloppeResourceWithRawResponse,
+    BatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse,
+    AsyncBatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse,
+)
 from .batiment_groupe_dle_gaz_multimillesime import (
     BatimentGroupeDleGazMultimillesimeResource,
     AsyncBatimentGroupeDleGazMultimillesimeResource,
@@ -352,6 +360,14 @@ from .batiment_groupe_dpe_statistique_logement import (
     BatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse,
     AsyncBatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse,
 )
+from .batiment_groupe_simulations_valeur_verte import (
+    BatimentGroupeSimulationsValeurVerteResource,
+    AsyncBatimentGroupeSimulationsValeurVerteResource,
+    BatimentGroupeSimulationsValeurVerteResourceWithRawResponse,
+    AsyncBatimentGroupeSimulationsValeurVerteResourceWithRawResponse,
+    BatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse,
+    AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse,
+)
 from .batiment_groupe_dle_reseaux_multimillesime import (
     BatimentGroupeDleReseauxMultimillesimeResource,
     AsyncBatimentGroupeDleReseauxMultimillesimeResource,
@@ -375,6 +391,14 @@ from .rel_batiment_groupe_proprietaire_siren_open import (
     AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithRawResponse,
     RelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse,
     AsyncRelBatimentGroupeProprietaireSirenOpenResourceWithStreamingResponse,
+)
+from .batiment_groupe_indicateur_reseau_chaud_froid import (
+    BatimentGroupeIndicateurReseauChaudFroidResource,
+    AsyncBatimentGroupeIndicateurReseauChaudFroidResource,
+    BatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse,
+    AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse,
+    BatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse,
+    AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse,
 )
 
 __all__ = [
@@ -648,6 +672,24 @@ __all__ = [
     "AsyncBatimentGroupeWallDictResourceWithRawResponse",
     "BatimentGroupeWallDictResourceWithStreamingResponse",
     "AsyncBatimentGroupeWallDictResourceWithStreamingResponse",
+    "BatimentGroupeIndicateurReseauChaudFroidResource",
+    "AsyncBatimentGroupeIndicateurReseauChaudFroidResource",
+    "BatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse",
+    "AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithRawResponse",
+    "BatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse",
+    "AsyncBatimentGroupeIndicateurReseauChaudFroidResourceWithStreamingResponse",
+    "BatimentGroupeDelimitationEnveloppeResource",
+    "AsyncBatimentGroupeDelimitationEnveloppeResource",
+    "BatimentGroupeDelimitationEnveloppeResourceWithRawResponse",
+    "AsyncBatimentGroupeDelimitationEnveloppeResourceWithRawResponse",
+    "BatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse",
+    "AsyncBatimentGroupeDelimitationEnveloppeResourceWithStreamingResponse",
+    "BatimentGroupeSimulationsValeurVerteResource",
+    "AsyncBatimentGroupeSimulationsValeurVerteResource",
+    "BatimentGroupeSimulationsValeurVerteResourceWithRawResponse",
+    "AsyncBatimentGroupeSimulationsValeurVerteResourceWithRawResponse",
+    "BatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse",
+    "AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse",
     "ReferentielAdministratifResource",
     "AsyncReferentielAdministratifResource",
     "ReferentielAdministratifResourceWithRawResponse",

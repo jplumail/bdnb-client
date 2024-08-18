@@ -4,17 +4,11 @@ from __future__ import annotations
 
 from typing import Union
 from datetime import date
-from typing_extensions import Literal
 
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    is_given,
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -23,9 +17,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_siren_complet_list_params
-from ...types.donnees.rel_batiment_groupe_siren_complet_list_response import RelBatimentGroupeSirenCompletListResponse
+from ...types.shared.rel_batiment_groupe_siren_api_expert import RelBatimentGroupeSirenAPIExpert
 
 __all__ = ["RelBatimentGroupeSirenCompletResource", "AsyncRelBatimentGroupeSirenCompletResource"]
 
@@ -63,7 +58,6 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
         select: str | NotGiven = NOT_GIVEN,
         siren: str | NotGiven = NOT_GIVEN,
         siren_dans_sirene: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -72,7 +66,7 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeSirenCompletListResponse:
+    ) -> SyncDefault[RelBatimentGroupeSirenAPIExpert]:
         """
         Table de relation entre les bâtiments de la BDNB et les siren.
 
@@ -133,15 +127,15 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_siren_complet",
+            page=SyncDefault[RelBatimentGroupeSirenAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -174,7 +168,7 @@ class RelBatimentGroupeSirenCompletResource(SyncAPIResource):
                     rel_batiment_groupe_siren_complet_list_params.RelBatimentGroupeSirenCompletListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeSirenCompletListResponse,
+            model=RelBatimentGroupeSirenAPIExpert,
         )
 
 
@@ -187,7 +181,7 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRelBatimentGroupeSirenCompletResourceWithStreamingResponse:
         return AsyncRelBatimentGroupeSirenCompletResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -211,7 +205,6 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
         select: str | NotGiven = NOT_GIVEN,
         siren: str | NotGiven = NOT_GIVEN,
         siren_dans_sirene: str | NotGiven = NOT_GIVEN,
-        prefer: Literal["count=none"] | NotGiven = NOT_GIVEN,
         range: str | NotGiven = NOT_GIVEN,
         range_unit: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -220,7 +213,7 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RelBatimentGroupeSirenCompletListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeSirenAPIExpert, AsyncDefault[RelBatimentGroupeSirenAPIExpert]]:
         """
         Table de relation entre les bâtiments de la BDNB et les siren.
 
@@ -281,21 +274,21 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Prefer": str(prefer) if is_given(prefer) else NOT_GIVEN,
                     "Range": range,
                     "Range-Unit": range_unit,
                 }
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_siren_complet",
+            page=AsyncDefault[RelBatimentGroupeSirenAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "cat_org": cat_org,
@@ -322,7 +315,7 @@ class AsyncRelBatimentGroupeSirenCompletResource(AsyncAPIResource):
                     rel_batiment_groupe_siren_complet_list_params.RelBatimentGroupeSirenCompletListParams,
                 ),
             ),
-            cast_to=RelBatimentGroupeSirenCompletListResponse,
+            model=RelBatimentGroupeSirenAPIExpert,
         )
 
 
