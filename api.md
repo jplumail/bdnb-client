@@ -20,7 +20,6 @@ from bdnb_api.types import (
     BatimentGroupeSimulationsDpeAPIExpert,
     BatimentGroupeSimulationsValeurVerteAPIExpert,
     BatimentGroupeSyntheseEnveloppeAPIExpert,
-    ReferentielAdministratifIrisAPIExpert,
     RelBatimentConstructionAdresseAPIExpert,
     RelBatimentGroupeAdresseAPIExpert,
     RelBatimentGroupeMerimeeAPIExpert,
