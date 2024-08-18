@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2024-08-18)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/jplumail/bdnb-api/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **api:** update via SDK Studio ([#12](https://github.com/jplumail/bdnb-api/issues/12)) ([f7620c1](https://github.com/jplumail/bdnb-api/commit/f7620c179a0f92196104590ce39474aab0fde3d0))
+* **api:** update via SDK Studio ([#16](https://github.com/jplumail/bdnb-api/issues/16)) ([138d0a4](https://github.com/jplumail/bdnb-api/commit/138d0a4cbbf4f3948eb91046a1b8afb2b676b998))
+* **api:** update via SDK Studio ([#17](https://github.com/jplumail/bdnb-api/issues/17)) ([3ce70c3](https://github.com/jplumail/bdnb-api/commit/3ce70c33c23969c09637caa13a7e6e0ad613a4a5))
+* **api:** update via SDK Studio ([#18](https://github.com/jplumail/bdnb-api/issues/18)) ([ecb02c9](https://github.com/jplumail/bdnb-api/commit/ecb02c91a973ccdafcb71933d7f2ccf9a2c18671))
+* **api:** update via SDK Studio ([#19](https://github.com/jplumail/bdnb-api/issues/19)) ([a8cdb61](https://github.com/jplumail/bdnb-api/commit/a8cdb61ab72d952a85d76100cc4aa4b6bb1a49b4))
+* **api:** update via SDK Studio ([#20](https://github.com/jplumail/bdnb-api/issues/20)) ([7c36c3d](https://github.com/jplumail/bdnb-api/commit/7c36c3de0b3e38261e6ee294cd91f8e374af53d7))
+* **api:** update via SDK Studio ([#21](https://github.com/jplumail/bdnb-api/issues/21)) ([dd34303](https://github.com/jplumail/bdnb-api/commit/dd343039b0582fe755e83e2c5e0de7ea1fe3fe04))
+* **api:** update via SDK Studio ([#22](https://github.com/jplumail/bdnb-api/issues/22)) ([0997a90](https://github.com/jplumail/bdnb-api/commit/0997a90df45aa45fe370900722fc3280f9ff9a2a))
+* **api:** update via SDK Studio ([#8](https://github.com/jplumail/bdnb-api/issues/8)) ([ff57943](https://github.com/jplumail/bdnb-api/commit/ff579431a120d8999fc7be4608920281bc25ab85))
+
 ## 0.1.0-alpha.4 (2024-08-17)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/jplumail/bdnb-api/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
