@@ -7,14 +7,14 @@ from typing import TYPE_CHECKING, Iterator, AsyncIterator
 
 import pytest
 
-from bdnb_api import Bdnb, AsyncBdnb
+from bdnb_client import Bdnb, AsyncBdnb
 
 if TYPE_CHECKING:
     from _pytest.fixtures import FixtureRequest
 
 pytest.register_assert_rewrite("tests.utils")
 
-logging.getLogger("bdnb_api").setLevel(logging.DEBUG)
+logging.getLogger("bdnb_client").setLevel(logging.DEBUG)
 
 
 @pytest.fixture(scope="session")

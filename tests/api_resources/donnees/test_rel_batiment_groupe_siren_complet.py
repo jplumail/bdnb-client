@@ -7,11 +7,11 @@ from typing import Any, cast
 
 import pytest
 
-from bdnb_api import Bdnb, AsyncBdnb
+from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
-from bdnb_api._utils import parse_date
-from bdnb_api.pagination import SyncDefault, AsyncDefault
-from bdnb_api.types.donnees import RelBatimentGroupeSirenComplet
+from bdnb_client._utils import parse_date
+from bdnb_client.pagination import SyncDefault, AsyncDefault
+from bdnb_client.types.donnees import RelBatimentGroupeSirenComplet
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

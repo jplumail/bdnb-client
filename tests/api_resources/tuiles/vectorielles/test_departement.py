@@ -9,8 +9,8 @@ import httpx
 import pytest
 from respx import MockRouter
 
-from bdnb_api import Bdnb, AsyncBdnb
-from bdnb_api._response import (
+from bdnb_client import Bdnb, AsyncBdnb
+from bdnb_client._response import (
     BinaryAPIResponse,
     AsyncBinaryAPIResponse,
     StreamedBinaryAPIResponse,

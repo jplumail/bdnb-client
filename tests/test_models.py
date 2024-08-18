@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from bdnb_api._utils import PropertyInfo
-from bdnb_api._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
-from bdnb_api._models import BaseModel, construct_type
+from bdnb_client._utils import PropertyInfo
+from bdnb_client._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
+from bdnb_client._models import BaseModel, construct_type
 
 
 class BasicModel(BaseModel):
