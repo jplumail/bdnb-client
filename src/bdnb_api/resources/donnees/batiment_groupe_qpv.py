@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_qpv_list_params
-from ...types.batiment_groupe_qpv_api_expert import BatimentGroupeQpvAPIExpert
+from ...types.donnees.batiment_groupe_qpv import BatimentGroupeQpv
 
 __all__ = ["BatimentGroupeQpvResource", "AsyncBatimentGroupeQpvResource"]
 
@@ -49,7 +49,7 @@ class BatimentGroupeQpvResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeQpvAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeQpv]:
         """
         Informations sur les Quartiers Prioritaires de la Ville agrégées à l'échelle du
         bâtiment
@@ -88,7 +88,7 @@ class BatimentGroupeQpvResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_qpv",
-            page=SyncDefault[BatimentGroupeQpvAPIExpert],
+            page=SyncDefault[BatimentGroupeQpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -107,7 +107,7 @@ class BatimentGroupeQpvResource(SyncAPIResource):
                     batiment_groupe_qpv_list_params.BatimentGroupeQpvListParams,
                 ),
             ),
-            model=BatimentGroupeQpvAPIExpert,
+            model=BatimentGroupeQpv,
         )
 
 
@@ -138,7 +138,7 @@ class AsyncBatimentGroupeQpvResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeQpvAPIExpert, AsyncDefault[BatimentGroupeQpvAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeQpv, AsyncDefault[BatimentGroupeQpv]]:
         """
         Informations sur les Quartiers Prioritaires de la Ville agrégées à l'échelle du
         bâtiment
@@ -177,7 +177,7 @@ class AsyncBatimentGroupeQpvResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_qpv",
-            page=AsyncDefault[BatimentGroupeQpvAPIExpert],
+            page=AsyncDefault[BatimentGroupeQpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -196,7 +196,7 @@ class AsyncBatimentGroupeQpvResource(AsyncAPIResource):
                     batiment_groupe_qpv_list_params.BatimentGroupeQpvListParams,
                 ),
             ),
-            model=BatimentGroupeQpvAPIExpert,
+            model=BatimentGroupeQpv,
         )
 
 

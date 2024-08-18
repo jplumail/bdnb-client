@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_parcelle_list_params
-from ...types.donnees.rel_batiment_groupe_parcelle_api_expert import RelBatimentGroupeParcelleAPIExpert
+from ...types.donnees.rel_batiment_groupe_parcelle import RelBatimentGroupeParcelle
 
 __all__ = ["RelBatimentGroupeParcelleResource", "AsyncRelBatimentGroupeParcelleResource"]
 
@@ -50,7 +50,7 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeParcelleAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeParcelle]:
         """
         Table de relation entre les groupes de bâtiment et les parcelles (si
         ayant_droit_ffo, préférer la table [parcelle_unifiee])
@@ -93,7 +93,7 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_parcelle",
-            page=SyncDefault[RelBatimentGroupeParcelleAPIExpert],
+            page=SyncDefault[RelBatimentGroupeParcelle],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -113,7 +113,7 @@ class RelBatimentGroupeParcelleResource(SyncAPIResource):
                     rel_batiment_groupe_parcelle_list_params.RelBatimentGroupeParcelleListParams,
                 ),
             ),
-            model=RelBatimentGroupeParcelleAPIExpert,
+            model=RelBatimentGroupeParcelle,
         )
 
 
@@ -145,7 +145,7 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeParcelleAPIExpert, AsyncDefault[RelBatimentGroupeParcelleAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentGroupeParcelle, AsyncDefault[RelBatimentGroupeParcelle]]:
         """
         Table de relation entre les groupes de bâtiment et les parcelles (si
         ayant_droit_ffo, préférer la table [parcelle_unifiee])
@@ -188,7 +188,7 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_parcelle",
-            page=AsyncDefault[RelBatimentGroupeParcelleAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeParcelle],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -208,7 +208,7 @@ class AsyncRelBatimentGroupeParcelleResource(AsyncAPIResource):
                     rel_batiment_groupe_parcelle_list_params.RelBatimentGroupeParcelleListParams,
                 ),
             ),
-            model=RelBatimentGroupeParcelleAPIExpert,
+            model=RelBatimentGroupeParcelle,
         )
 
 

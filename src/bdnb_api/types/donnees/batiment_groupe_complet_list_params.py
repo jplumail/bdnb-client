@@ -24,7 +24,7 @@ class BatimentGroupeCompletListParams(TypedDict, total=False):
 
     arrete_2021: str
     """
-    précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+    précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arrété
     du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
     de 2012.
     """

@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_adresse_list_params
-from ...types.shared.rel_batiment_groupe_adresse_api_expert import RelBatimentGroupeAdresseAPIExpert
+from ...types.donnees.rel_batiment_groupe_adresse import RelBatimentGroupeAdresse
 
 __all__ = ["RelBatimentGroupeAdresseResource", "AsyncRelBatimentGroupeAdresseResource"]
 
@@ -53,7 +53,7 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeAdresseAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeAdresse]:
         """
         Table de relation entre les adresses et les groupes de bâtiment
 
@@ -104,7 +104,7 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_adresse",
-            page=SyncDefault[RelBatimentGroupeAdresseAPIExpert],
+            page=SyncDefault[RelBatimentGroupeAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -127,7 +127,7 @@ class RelBatimentGroupeAdresseResource(SyncAPIResource):
                     rel_batiment_groupe_adresse_list_params.RelBatimentGroupeAdresseListParams,
                 ),
             ),
-            model=RelBatimentGroupeAdresseAPIExpert,
+            model=RelBatimentGroupeAdresse,
         )
 
 
@@ -162,7 +162,7 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeAdresseAPIExpert, AsyncDefault[RelBatimentGroupeAdresseAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentGroupeAdresse, AsyncDefault[RelBatimentGroupeAdresse]]:
         """
         Table de relation entre les adresses et les groupes de bâtiment
 
@@ -213,7 +213,7 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_adresse",
-            page=AsyncDefault[RelBatimentGroupeAdresseAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -236,7 +236,7 @@ class AsyncRelBatimentGroupeAdresseResource(AsyncAPIResource):
                     rel_batiment_groupe_adresse_list_params.RelBatimentGroupeAdresseListParams,
                 ),
             ),
-            model=RelBatimentGroupeAdresseAPIExpert,
+            model=RelBatimentGroupeAdresse,
         )
 
 

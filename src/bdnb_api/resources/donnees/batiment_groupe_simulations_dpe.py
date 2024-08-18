@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_simulations_dpe_list_params
-from ...types.shared.batiment_groupe_simulations_dpe_api_expert import BatimentGroupeSimulationsDpeAPIExpert
+from ...types.donnees.batiment_groupe_simulations_dpe import BatimentGroupeSimulationsDpe
 
 __all__ = ["BatimentGroupeSimulationsDpeResource", "AsyncBatimentGroupeSimulationsDpeResource"]
 
@@ -115,7 +115,7 @@ class BatimentGroupeSimulationsDpeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeSimulationsDpeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeSimulationsDpe]:
         """
         Simulations CSTB des étiquettes DPE estimées pour les bâtiments de logement en
         France. Les résultats estimés sont fournis avec des indicateurs qui sont pour la
@@ -371,7 +371,7 @@ class BatimentGroupeSimulationsDpeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_simulations_dpe",
-            page=SyncDefault[BatimentGroupeSimulationsDpeAPIExpert],
+            page=SyncDefault[BatimentGroupeSimulationsDpe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -456,7 +456,7 @@ class BatimentGroupeSimulationsDpeResource(SyncAPIResource):
                     batiment_groupe_simulations_dpe_list_params.BatimentGroupeSimulationsDpeListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsDpeAPIExpert,
+            model=BatimentGroupeSimulationsDpe,
         )
 
 
@@ -553,7 +553,7 @@ class AsyncBatimentGroupeSimulationsDpeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeSimulationsDpeAPIExpert, AsyncDefault[BatimentGroupeSimulationsDpeAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeSimulationsDpe, AsyncDefault[BatimentGroupeSimulationsDpe]]:
         """
         Simulations CSTB des étiquettes DPE estimées pour les bâtiments de logement en
         France. Les résultats estimés sont fournis avec des indicateurs qui sont pour la
@@ -809,7 +809,7 @@ class AsyncBatimentGroupeSimulationsDpeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_simulations_dpe",
-            page=AsyncDefault[BatimentGroupeSimulationsDpeAPIExpert],
+            page=AsyncDefault[BatimentGroupeSimulationsDpe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -894,7 +894,7 @@ class AsyncBatimentGroupeSimulationsDpeResource(AsyncAPIResource):
                     batiment_groupe_simulations_dpe_list_params.BatimentGroupeSimulationsDpeListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsDpeAPIExpert,
+            model=BatimentGroupeSimulationsDpe,
         )
 
 

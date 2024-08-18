@@ -10,7 +10,7 @@ import pytest
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
-from bdnb_api.types.shared import BatimentGroupeArgilesAPIExpert
+from bdnb_api.types.donnees import BatimentGroupeArgiles
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -21,7 +21,7 @@ class TestBatimentGroupeArgiles:
     @parametrize
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_argile = client.donnees.batiment_groupe_argiles.list()
-        assert_matches_type(SyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
@@ -36,7 +36,7 @@ class TestBatimentGroupeArgiles:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(SyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: BdnbAPI) -> None:
@@ -45,7 +45,7 @@ class TestBatimentGroupeArgiles:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_argile = response.parse()
-        assert_matches_type(SyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: BdnbAPI) -> None:
@@ -54,7 +54,7 @@ class TestBatimentGroupeArgiles:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             batiment_groupe_argile = response.parse()
-            assert_matches_type(SyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+            assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -65,7 +65,7 @@ class TestAsyncBatimentGroupeArgiles:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         batiment_groupe_argile = await async_client.donnees.batiment_groupe_argiles.list()
-        assert_matches_type(AsyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
@@ -80,7 +80,7 @@ class TestAsyncBatimentGroupeArgiles:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(AsyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -89,7 +89,7 @@ class TestAsyncBatimentGroupeArgiles:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_argile = await response.parse()
-        assert_matches_type(AsyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
@@ -98,6 +98,6 @@ class TestAsyncBatimentGroupeArgiles:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             batiment_groupe_argile = await response.parse()
-            assert_matches_type(AsyncDefault[BatimentGroupeArgilesAPIExpert], batiment_groupe_argile, path=["response"])
+            assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
         assert cast(Any, response.is_closed) is True

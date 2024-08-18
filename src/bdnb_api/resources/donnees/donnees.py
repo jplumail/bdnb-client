@@ -68,6 +68,14 @@ from .batiment_groupe_hthd import (
     BatimentGroupeHthdResourceWithStreamingResponse,
     AsyncBatimentGroupeHthdResourceWithStreamingResponse,
 )
+from .batiment_construction import (
+    BatimentConstructionResource,
+    AsyncBatimentConstructionResource,
+    BatimentConstructionResourceWithRawResponse,
+    AsyncBatimentConstructionResourceWithRawResponse,
+    BatimentConstructionResourceWithStreamingResponse,
+    AsyncBatimentConstructionResourceWithStreamingResponse,
+)
 from .batiment_groupe_radon import (
     BatimentGroupeRadonResource,
     AsyncBatimentGroupeRadonResource,
@@ -83,14 +91,6 @@ from .batiment_groupe_geospx import (
     AsyncBatimentGroupeGeospxResourceWithRawResponse,
     BatimentGroupeGeospxResourceWithStreamingResponse,
     AsyncBatimentGroupeGeospxResourceWithStreamingResponse,
-)
-from .batiments_construction import (
-    BatimentsConstructionResource,
-    AsyncBatimentsConstructionResource,
-    BatimentsConstructionResourceWithRawResponse,
-    AsyncBatimentsConstructionResourceWithRawResponse,
-    BatimentsConstructionResourceWithStreamingResponse,
-    AsyncBatimentsConstructionResourceWithStreamingResponse,
 )
 from .batiment_groupe_adresse import (
     BatimentGroupeAdresseResource,
@@ -414,8 +414,8 @@ class DonneesResource(SyncAPIResource):
         return BatimentGroupeCompletResource(self._client)
 
     @cached_property
-    def batiments_construction(self) -> BatimentsConstructionResource:
-        return BatimentsConstructionResource(self._client)
+    def batiment_construction(self) -> BatimentConstructionResource:
+        return BatimentConstructionResource(self._client)
 
     @cached_property
     def batiment_groupe_bdtopo_zoac(self) -> BatimentGroupeBdtopoZoacResource:
@@ -620,8 +620,8 @@ class AsyncDonneesResource(AsyncAPIResource):
         return AsyncBatimentGroupeCompletResource(self._client)
 
     @cached_property
-    def batiments_construction(self) -> AsyncBatimentsConstructionResource:
-        return AsyncBatimentsConstructionResource(self._client)
+    def batiment_construction(self) -> AsyncBatimentConstructionResource:
+        return AsyncBatimentConstructionResource(self._client)
 
     @cached_property
     def batiment_groupe_bdtopo_zoac(self) -> AsyncBatimentGroupeBdtopoZoacResource:
@@ -829,8 +829,8 @@ class DonneesResourceWithRawResponse:
         return BatimentGroupeCompletResourceWithRawResponse(self._donnees.batiment_groupe_complet)
 
     @cached_property
-    def batiments_construction(self) -> BatimentsConstructionResourceWithRawResponse:
-        return BatimentsConstructionResourceWithRawResponse(self._donnees.batiments_construction)
+    def batiment_construction(self) -> BatimentConstructionResourceWithRawResponse:
+        return BatimentConstructionResourceWithRawResponse(self._donnees.batiment_construction)
 
     @cached_property
     def batiment_groupe_bdtopo_zoac(self) -> BatimentGroupeBdtopoZoacResourceWithRawResponse:
@@ -1062,8 +1062,8 @@ class AsyncDonneesResourceWithRawResponse:
         return AsyncBatimentGroupeCompletResourceWithRawResponse(self._donnees.batiment_groupe_complet)
 
     @cached_property
-    def batiments_construction(self) -> AsyncBatimentsConstructionResourceWithRawResponse:
-        return AsyncBatimentsConstructionResourceWithRawResponse(self._donnees.batiments_construction)
+    def batiment_construction(self) -> AsyncBatimentConstructionResourceWithRawResponse:
+        return AsyncBatimentConstructionResourceWithRawResponse(self._donnees.batiment_construction)
 
     @cached_property
     def batiment_groupe_bdtopo_zoac(self) -> AsyncBatimentGroupeBdtopoZoacResourceWithRawResponse:
@@ -1309,8 +1309,8 @@ class DonneesResourceWithStreamingResponse:
         return BatimentGroupeCompletResourceWithStreamingResponse(self._donnees.batiment_groupe_complet)
 
     @cached_property
-    def batiments_construction(self) -> BatimentsConstructionResourceWithStreamingResponse:
-        return BatimentsConstructionResourceWithStreamingResponse(self._donnees.batiments_construction)
+    def batiment_construction(self) -> BatimentConstructionResourceWithStreamingResponse:
+        return BatimentConstructionResourceWithStreamingResponse(self._donnees.batiment_construction)
 
     @cached_property
     def batiment_groupe_bdtopo_zoac(self) -> BatimentGroupeBdtopoZoacResourceWithStreamingResponse:
@@ -1558,8 +1558,8 @@ class AsyncDonneesResourceWithStreamingResponse:
         return AsyncBatimentGroupeCompletResourceWithStreamingResponse(self._donnees.batiment_groupe_complet)
 
     @cached_property
-    def batiments_construction(self) -> AsyncBatimentsConstructionResourceWithStreamingResponse:
-        return AsyncBatimentsConstructionResourceWithStreamingResponse(self._donnees.batiments_construction)
+    def batiment_construction(self) -> AsyncBatimentConstructionResourceWithStreamingResponse:
+        return AsyncBatimentConstructionResourceWithStreamingResponse(self._donnees.batiment_construction)
 
     @cached_property
     def batiment_groupe_bdtopo_zoac(self) -> AsyncBatimentGroupeBdtopoZoacResourceWithStreamingResponse:

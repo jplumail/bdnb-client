@@ -17,9 +17,7 @@ from ...._response import (
 from ....pagination import SyncDefault, AsyncDefault
 from ...._base_client import AsyncPaginator, make_request_options
 from ....types.donnees.referentiel_administratif import referentiel_administratif_iris_list_params
-from ....types.donnees.referentiel_administratif.referentiel_administratif_iris_api_expert import (
-    ReferentielAdministratifIrisAPIExpert,
-)
+from ....types.donnees.referentiel_administratif.referentiel_administratif_iris import ReferentielAdministratifIris
 
 __all__ = ["ReferentielAdministratifIrisResource", "AsyncReferentielAdministratifIrisResource"]
 
@@ -54,7 +52,7 @@ class ReferentielAdministratifIrisResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ReferentielAdministratifIrisAPIExpert]:
+    ) -> SyncDefault[ReferentielAdministratifIris]:
         """
         Données sur les IRIS Grande Echelle fournies par l'IGN pour le compte de l'INSEE
 
@@ -98,7 +96,7 @@ class ReferentielAdministratifIrisResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/referentiel_administratif_iris",
-            page=SyncDefault[ReferentielAdministratifIrisAPIExpert],
+            page=SyncDefault[ReferentielAdministratifIris],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -120,7 +118,7 @@ class ReferentielAdministratifIrisResource(SyncAPIResource):
                     referentiel_administratif_iris_list_params.ReferentielAdministratifIrisListParams,
                 ),
             ),
-            model=ReferentielAdministratifIrisAPIExpert,
+            model=ReferentielAdministratifIris,
         )
 
 
@@ -154,7 +152,7 @@ class AsyncReferentielAdministratifIrisResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ReferentielAdministratifIrisAPIExpert, AsyncDefault[ReferentielAdministratifIrisAPIExpert]]:
+    ) -> AsyncPaginator[ReferentielAdministratifIris, AsyncDefault[ReferentielAdministratifIris]]:
         """
         Données sur les IRIS Grande Echelle fournies par l'IGN pour le compte de l'INSEE
 
@@ -198,7 +196,7 @@ class AsyncReferentielAdministratifIrisResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/referentiel_administratif_iris",
-            page=AsyncDefault[ReferentielAdministratifIrisAPIExpert],
+            page=AsyncDefault[ReferentielAdministratifIris],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -220,7 +218,7 @@ class AsyncReferentielAdministratifIrisResource(AsyncAPIResource):
                     referentiel_administratif_iris_list_params.ReferentielAdministratifIrisListParams,
                 ),
             ),
-            model=ReferentielAdministratifIrisAPIExpert,
+            model=ReferentielAdministratifIris,
         )
 
 

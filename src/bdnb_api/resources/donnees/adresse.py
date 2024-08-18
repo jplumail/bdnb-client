@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import adresse_list_params
-from ...types.donnees.adresse_api_expert import AdresseAPIExpert
+from ...types.donnees.adresse import Adresse
 
 __all__ = ["AdresseResource", "AsyncAdresseResource"]
 
@@ -58,7 +58,7 @@ class AdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[AdresseAPIExpert]:
+    ) -> SyncDefault[Adresse]:
         """Table de description des adresses.
 
         Les adresses dans la BDNB sont un
@@ -119,7 +119,7 @@ class AdresseResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/adresse",
-            page=SyncDefault[AdresseAPIExpert],
+            page=SyncDefault[Adresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -147,7 +147,7 @@ class AdresseResource(SyncAPIResource):
                     adresse_list_params.AdresseListParams,
                 ),
             ),
-            model=AdresseAPIExpert,
+            model=Adresse,
         )
 
 
@@ -187,7 +187,7 @@ class AsyncAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[AdresseAPIExpert, AsyncDefault[AdresseAPIExpert]]:
+    ) -> AsyncPaginator[Adresse, AsyncDefault[Adresse]]:
         """Table de description des adresses.
 
         Les adresses dans la BDNB sont un
@@ -248,7 +248,7 @@ class AsyncAdresseResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/adresse",
-            page=AsyncDefault[AdresseAPIExpert],
+            page=AsyncDefault[Adresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -276,7 +276,7 @@ class AsyncAdresseResource(AsyncAPIResource):
                     adresse_list_params.AdresseListParams,
                 ),
             ),
-            model=AdresseAPIExpert,
+            model=Adresse,
         )
 
 

@@ -33,7 +33,7 @@ from ...._response import (
 from ....pagination import SyncDefault, AsyncDefault
 from ...._base_client import AsyncPaginator, make_request_options
 from ....types.donnees import batiment_groupe_complet_list_params
-from ....types.donnees.batiment_groupe_complet_api_expert import BatimentGroupeCompletAPIExpert
+from ....types.donnees.batiment_groupe_complet.batiment_groupe_complet import BatimentGroupeComplet
 
 __all__ = ["BatimentGroupeCompletResource", "AsyncBatimentGroupeCompletResource"]
 
@@ -251,7 +251,7 @@ class BatimentGroupeCompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeCompletAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeComplet]:
         """
         jointure batiment_groupe avec l'ensemble des tables métiers
 
@@ -264,7 +264,7 @@ class BatimentGroupeCompletResource(SyncAPIResource):
 
           annee_construction: Année de construction du bâtiment
 
-          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arrété
               du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
               de 2012.
 
@@ -795,7 +795,7 @@ class BatimentGroupeCompletResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_complet",
-            page=SyncDefault[BatimentGroupeCompletAPIExpert],
+            page=SyncDefault[BatimentGroupeComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -992,7 +992,7 @@ class BatimentGroupeCompletResource(SyncAPIResource):
                     batiment_groupe_complet_list_params.BatimentGroupeCompletListParams,
                 ),
             ),
-            model=BatimentGroupeCompletAPIExpert,
+            model=BatimentGroupeComplet,
         )
 
 
@@ -1209,7 +1209,7 @@ class AsyncBatimentGroupeCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeCompletAPIExpert, AsyncDefault[BatimentGroupeCompletAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeComplet, AsyncDefault[BatimentGroupeComplet]]:
         """
         jointure batiment_groupe avec l'ensemble des tables métiers
 
@@ -1222,7 +1222,7 @@ class AsyncBatimentGroupeCompletResource(AsyncAPIResource):
 
           annee_construction: Année de construction du bâtiment
 
-          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arràªté
+          arrete_2021: précise si le DPE est un DPE qui est issu de la nouvelle réforme du DPE (arrété
               du 31 mars 2021) ou s'il s'agit d'un DPE issu de la modification antérieure
               de 2012.
 
@@ -1753,7 +1753,7 @@ class AsyncBatimentGroupeCompletResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_complet",
-            page=AsyncDefault[BatimentGroupeCompletAPIExpert],
+            page=AsyncDefault[BatimentGroupeComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -1950,7 +1950,7 @@ class AsyncBatimentGroupeCompletResource(AsyncAPIResource):
                     batiment_groupe_complet_list_params.BatimentGroupeCompletListParams,
                 ),
             ),
-            model=BatimentGroupeCompletAPIExpert,
+            model=BatimentGroupeComplet,
         )
 
 

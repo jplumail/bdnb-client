@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dvf_open_statistique_list_params
-from ...types.shared.batiment_groupe_dvf_open_statistique_api_expert import BatimentGroupeDvfOpenStatistiqueAPIExpert
+from ...types.donnees.batiment_groupe_dvf_open_statistique import BatimentGroupeDvfOpenStatistique
 
 __all__ = ["BatimentGroupeDvfOpenStatistiqueResource", "AsyncBatimentGroupeDvfOpenStatistiqueResource"]
 
@@ -66,7 +66,7 @@ class BatimentGroupeDvfOpenStatistiqueResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDvfOpenStatistique]:
         """
         Données statistiques des mutations issues des valeurs DVF open data à l'échelle
         du bâtiment groupe.
@@ -165,7 +165,7 @@ class BatimentGroupeDvfOpenStatistiqueResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dvf_open_statistique",
-            page=SyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            page=SyncDefault[BatimentGroupeDvfOpenStatistique],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -201,7 +201,7 @@ class BatimentGroupeDvfOpenStatistiqueResource(SyncAPIResource):
                     batiment_groupe_dvf_open_statistique_list_params.BatimentGroupeDvfOpenStatistiqueListParams,
                 ),
             ),
-            model=BatimentGroupeDvfOpenStatistiqueAPIExpert,
+            model=BatimentGroupeDvfOpenStatistique,
         )
 
 
@@ -249,9 +249,7 @@ class AsyncBatimentGroupeDvfOpenStatistiqueResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDvfOpenStatistiqueAPIExpert, AsyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDvfOpenStatistique, AsyncDefault[BatimentGroupeDvfOpenStatistique]]:
         """
         Données statistiques des mutations issues des valeurs DVF open data à l'échelle
         du bâtiment groupe.
@@ -350,7 +348,7 @@ class AsyncBatimentGroupeDvfOpenStatistiqueResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dvf_open_statistique",
-            page=AsyncDefault[BatimentGroupeDvfOpenStatistiqueAPIExpert],
+            page=AsyncDefault[BatimentGroupeDvfOpenStatistique],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -386,7 +384,7 @@ class AsyncBatimentGroupeDvfOpenStatistiqueResource(AsyncAPIResource):
                     batiment_groupe_dvf_open_statistique_list_params.BatimentGroupeDvfOpenStatistiqueListParams,
                 ),
             ),
-            model=BatimentGroupeDvfOpenStatistiqueAPIExpert,
+            model=BatimentGroupeDvfOpenStatistique,
         )
 
 

@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dpe_statistique_logement_list_params
-from ...types.donnees.batiment_groupe_dpe_statistique_logement_api_expert import (
-    BatimentGroupeDpeStatistiqueLogementAPIExpert,
-)
+from ...types.donnees.batiment_groupe_dpe_statistique_logement import BatimentGroupeDpeStatistiqueLogement
 
 __all__ = ["BatimentGroupeDpeStatistiqueLogementResource", "AsyncBatimentGroupeDpeStatistiqueLogementResource"]
 
@@ -65,7 +63,7 @@ class BatimentGroupeDpeStatistiqueLogementResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDpeStatistiqueLogement]:
         """
         Données statistiques du nombre de DPE par étiquette sur un bâtiment de logement.
         Pour les étiquettes DPE de l'ancien arràªté qui ne sont plus en vigueur les
@@ -149,7 +147,7 @@ class BatimentGroupeDpeStatistiqueLogementResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dpe_statistique_logement",
-            page=SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
+            page=SyncDefault[BatimentGroupeDpeStatistiqueLogement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -182,7 +180,7 @@ class BatimentGroupeDpeStatistiqueLogementResource(SyncAPIResource):
                     batiment_groupe_dpe_statistique_logement_list_params.BatimentGroupeDpeStatistiqueLogementListParams,
                 ),
             ),
-            model=BatimentGroupeDpeStatistiqueLogementAPIExpert,
+            model=BatimentGroupeDpeStatistiqueLogement,
         )
 
 
@@ -227,9 +225,7 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDpeStatistiqueLogementAPIExpert, AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDpeStatistiqueLogement, AsyncDefault[BatimentGroupeDpeStatistiqueLogement]]:
         """
         Données statistiques du nombre de DPE par étiquette sur un bâtiment de logement.
         Pour les étiquettes DPE de l'ancien arràªté qui ne sont plus en vigueur les
@@ -313,7 +309,7 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dpe_statistique_logement",
-            page=AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
+            page=AsyncDefault[BatimentGroupeDpeStatistiqueLogement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -346,7 +342,7 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
                     batiment_groupe_dpe_statistique_logement_list_params.BatimentGroupeDpeStatistiqueLogementListParams,
                 ),
             ),
-            model=BatimentGroupeDpeStatistiqueLogementAPIExpert,
+            model=BatimentGroupeDpeStatistiqueLogement,
         )
 
 

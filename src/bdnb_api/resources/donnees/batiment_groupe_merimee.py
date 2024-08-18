@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_merimee_list_params
-from ...types.batiment_groupe_merimee_api_expert import BatimentGroupeMerimeeAPIExpert
+from ...types.donnees.batiment_groupe_merimee import BatimentGroupeMerimee
 
 __all__ = ["BatimentGroupeMerimeeResource", "AsyncBatimentGroupeMerimeeResource"]
 
@@ -51,7 +51,7 @@ class BatimentGroupeMerimeeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeMerimeeAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeMerimee]:
         """
         Informations Mérimée (bâtiments classés aux Monuments Historiques) agrégées à
         l'échelle du bâtiment
@@ -94,7 +94,7 @@ class BatimentGroupeMerimeeResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_merimee",
-            page=SyncDefault[BatimentGroupeMerimeeAPIExpert],
+            page=SyncDefault[BatimentGroupeMerimee],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -115,7 +115,7 @@ class BatimentGroupeMerimeeResource(SyncAPIResource):
                     batiment_groupe_merimee_list_params.BatimentGroupeMerimeeListParams,
                 ),
             ),
-            model=BatimentGroupeMerimeeAPIExpert,
+            model=BatimentGroupeMerimee,
         )
 
 
@@ -148,7 +148,7 @@ class AsyncBatimentGroupeMerimeeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeMerimeeAPIExpert, AsyncDefault[BatimentGroupeMerimeeAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeMerimee, AsyncDefault[BatimentGroupeMerimee]]:
         """
         Informations Mérimée (bâtiments classés aux Monuments Historiques) agrégées à
         l'échelle du bâtiment
@@ -191,7 +191,7 @@ class AsyncBatimentGroupeMerimeeResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_merimee",
-            page=AsyncDefault[BatimentGroupeMerimeeAPIExpert],
+            page=AsyncDefault[BatimentGroupeMerimee],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -212,7 +212,7 @@ class AsyncBatimentGroupeMerimeeResource(AsyncAPIResource):
                     batiment_groupe_merimee_list_params.BatimentGroupeMerimeeListParams,
                 ),
             ),
-            model=BatimentGroupeMerimeeAPIExpert,
+            model=BatimentGroupeMerimee,
         )
 
 

@@ -17,9 +17,7 @@ from ...._response import (
 from ....pagination import SyncDefault, AsyncDefault
 from ...._base_client import AsyncPaginator, make_request_options
 from ....types.donnees.referentiel_administratif import region_list_params
-from ....types.donnees.referentiel_administratif.referentiel_administratif_region_api_expert import (
-    ReferentielAdministratifRegionAPIExpert,
-)
+from ....types.donnees.referentiel_administratif.referentiel_administratif_region import ReferentielAdministratifRegion
 
 __all__ = ["RegionResource", "AsyncRegionResource"]
 
@@ -51,7 +49,7 @@ class RegionResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ReferentielAdministratifRegionAPIExpert]:
+    ) -> SyncDefault[ReferentielAdministratifRegion]:
         """
         Données sur contours des régions, issues de l'agrégation des IRIS Grande Echelle
         fournies par l'IGN pour le compte de l'INSEE
@@ -90,7 +88,7 @@ class RegionResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/referentiel_administratif_region",
-            page=SyncDefault[ReferentielAdministratifRegionAPIExpert],
+            page=SyncDefault[ReferentielAdministratifRegion],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -109,7 +107,7 @@ class RegionResource(SyncAPIResource):
                     region_list_params.RegionListParams,
                 ),
             ),
-            model=ReferentielAdministratifRegionAPIExpert,
+            model=ReferentielAdministratifRegion,
         )
 
 
@@ -140,7 +138,7 @@ class AsyncRegionResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ReferentielAdministratifRegionAPIExpert, AsyncDefault[ReferentielAdministratifRegionAPIExpert]]:
+    ) -> AsyncPaginator[ReferentielAdministratifRegion, AsyncDefault[ReferentielAdministratifRegion]]:
         """
         Données sur contours des régions, issues de l'agrégation des IRIS Grande Echelle
         fournies par l'IGN pour le compte de l'INSEE
@@ -179,7 +177,7 @@ class AsyncRegionResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/referentiel_administratif_region",
-            page=AsyncDefault[ReferentielAdministratifRegionAPIExpert],
+            page=AsyncDefault[ReferentielAdministratifRegion],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -198,7 +196,7 @@ class AsyncRegionResource(AsyncAPIResource):
                     region_list_params.RegionListParams,
                 ),
             ),
-            model=ReferentielAdministratifRegionAPIExpert,
+            model=ReferentielAdministratifRegion,
         )
 
 

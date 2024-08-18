@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dpe_representatif_logement_list_params
-from ...types.shared.batiment_groupe_dpe_representatif_logement_api_expert import (
-    BatimentGroupeDpeRepresentatifLogementAPIExpert,
-)
+from ...types.donnees.batiment_groupe_dpe_representatif_logement import BatimentGroupeDpeRepresentatifLogement
 
 __all__ = ["BatimentGroupeDpeRepresentatifLogementResource", "AsyncBatimentGroupeDpeRepresentatifLogementResource"]
 
@@ -154,7 +152,7 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeDpeRepresentatifLogement]:
         """Table qui contient les DPE représentatifs de chaque bâtiment de logement.
 
         Le DPE
@@ -473,7 +471,7 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dpe_representatif_logement",
-            page=SyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert],
+            page=SyncDefault[BatimentGroupeDpeRepresentatifLogement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -595,7 +593,7 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
                     batiment_groupe_dpe_representatif_logement_list_params.BatimentGroupeDpeRepresentatifLogementListParams,
                 ),
             ),
-            model=BatimentGroupeDpeRepresentatifLogementAPIExpert,
+            model=BatimentGroupeDpeRepresentatifLogement,
         )
 
 
@@ -729,9 +727,7 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        BatimentGroupeDpeRepresentatifLogementAPIExpert, AsyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert]
-    ]:
+    ) -> AsyncPaginator[BatimentGroupeDpeRepresentatifLogement, AsyncDefault[BatimentGroupeDpeRepresentatifLogement]]:
         """Table qui contient les DPE représentatifs de chaque bâtiment de logement.
 
         Le DPE
@@ -1050,7 +1046,7 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_dpe_representatif_logement",
-            page=AsyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert],
+            page=AsyncDefault[BatimentGroupeDpeRepresentatifLogement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -1172,7 +1168,7 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
                     batiment_groupe_dpe_representatif_logement_list_params.BatimentGroupeDpeRepresentatifLogementListParams,
                 ),
             ),
-            model=BatimentGroupeDpeRepresentatifLogementAPIExpert,
+            model=BatimentGroupeDpeRepresentatifLogement,
         )
 
 

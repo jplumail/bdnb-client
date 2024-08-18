@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import proprietaire_list_params
-from ...types.donnees.proprietaire_api_expert import ProprietaireAPIExpert
+from ...types.donnees.proprietaire import Proprietaire
 
 __all__ = ["ProprietaireResource", "AsyncProprietaireResource"]
 
@@ -55,7 +55,7 @@ class ProprietaireResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ProprietaireAPIExpert]:
+    ) -> SyncDefault[Proprietaire]:
         """
         Données des propriétaires de bâtiment (principalement issues des Fichiers
         Fonciers) (la version open filtre sur la colonne `dans_majic_pm`)
@@ -108,7 +108,7 @@ class ProprietaireResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/proprietaire",
-            page=SyncDefault[ProprietaireAPIExpert],
+            page=SyncDefault[Proprietaire],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -133,7 +133,7 @@ class ProprietaireResource(SyncAPIResource):
                     proprietaire_list_params.ProprietaireListParams,
                 ),
             ),
-            model=ProprietaireAPIExpert,
+            model=Proprietaire,
         )
 
 
@@ -170,7 +170,7 @@ class AsyncProprietaireResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ProprietaireAPIExpert, AsyncDefault[ProprietaireAPIExpert]]:
+    ) -> AsyncPaginator[Proprietaire, AsyncDefault[Proprietaire]]:
         """
         Données des propriétaires de bâtiment (principalement issues des Fichiers
         Fonciers) (la version open filtre sur la colonne `dans_majic_pm`)
@@ -223,7 +223,7 @@ class AsyncProprietaireResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/proprietaire",
-            page=AsyncDefault[ProprietaireAPIExpert],
+            page=AsyncDefault[Proprietaire],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -248,7 +248,7 @@ class AsyncProprietaireResource(AsyncAPIResource):
                     proprietaire_list_params.ProprietaireListParams,
                 ),
             ),
-            model=ProprietaireAPIExpert,
+            model=Proprietaire,
         )
 
 

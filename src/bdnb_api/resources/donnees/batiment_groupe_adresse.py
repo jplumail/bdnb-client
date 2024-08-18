@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_adresse_list_params
-from ...types.donnees.batiment_groupe_adresse_api_expert import BatimentGroupeAdresseAPIExpert
+from ...types.donnees.batiment_groupe_adresse import BatimentGroupeAdresse
 
 __all__ = ["BatimentGroupeAdresseResource", "AsyncBatimentGroupeAdresseResource"]
 
@@ -53,7 +53,7 @@ class BatimentGroupeAdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeAdresseAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeAdresse]:
         """
         Métriques du groupe de bâtiment par rapport à ses adresses postales
 
@@ -103,7 +103,7 @@ class BatimentGroupeAdresseResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_adresse",
-            page=SyncDefault[BatimentGroupeAdresseAPIExpert],
+            page=SyncDefault[BatimentGroupeAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -126,7 +126,7 @@ class BatimentGroupeAdresseResource(SyncAPIResource):
                     batiment_groupe_adresse_list_params.BatimentGroupeAdresseListParams,
                 ),
             ),
-            model=BatimentGroupeAdresseAPIExpert,
+            model=BatimentGroupeAdresse,
         )
 
 
@@ -161,7 +161,7 @@ class AsyncBatimentGroupeAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeAdresseAPIExpert, AsyncDefault[BatimentGroupeAdresseAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeAdresse, AsyncDefault[BatimentGroupeAdresse]]:
         """
         Métriques du groupe de bâtiment par rapport à ses adresses postales
 
@@ -211,7 +211,7 @@ class AsyncBatimentGroupeAdresseResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_adresse",
-            page=AsyncDefault[BatimentGroupeAdresseAPIExpert],
+            page=AsyncDefault[BatimentGroupeAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -234,7 +234,7 @@ class AsyncBatimentGroupeAdresseResource(AsyncAPIResource):
                     batiment_groupe_adresse_list_params.BatimentGroupeAdresseListParams,
                 ),
             ),
-            model=BatimentGroupeAdresseAPIExpert,
+            model=BatimentGroupeAdresse,
         )
 
 

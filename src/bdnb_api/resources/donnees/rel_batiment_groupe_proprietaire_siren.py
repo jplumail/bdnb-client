@@ -17,9 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_proprietaire_siren_list_params
-from ...types.shared.rel_batiment_groupe_proprietaire_siren_api_expert import (
-    RelBatimentGroupeProprietaireSirenAPIExpert,
-)
+from ...types.donnees.rel_batiment_groupe_proprietaire_siren import RelBatimentGroupeProprietaireSiren
 
 __all__ = ["RelBatimentGroupeProprietaireSirenResource", "AsyncRelBatimentGroupeProprietaireSirenResource"]
 
@@ -53,7 +51,7 @@ class RelBatimentGroupeProprietaireSirenResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeProprietaireSiren]:
         """
         Table de relation entre les propriétaires et les groupes de bâtiment (la version
         open filtre sur la colonne `dans_majic_pm)
@@ -96,7 +94,7 @@ class RelBatimentGroupeProprietaireSirenResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_proprietaire_siren",
-            page=SyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            page=SyncDefault[RelBatimentGroupeProprietaireSiren],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -117,7 +115,7 @@ class RelBatimentGroupeProprietaireSirenResource(SyncAPIResource):
                     rel_batiment_groupe_proprietaire_siren_list_params.RelBatimentGroupeProprietaireSirenListParams,
                 ),
             ),
-            model=RelBatimentGroupeProprietaireSirenAPIExpert,
+            model=RelBatimentGroupeProprietaireSiren,
         )
 
 
@@ -150,9 +148,7 @@ class AsyncRelBatimentGroupeProprietaireSirenResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[
-        RelBatimentGroupeProprietaireSirenAPIExpert, AsyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert]
-    ]:
+    ) -> AsyncPaginator[RelBatimentGroupeProprietaireSiren, AsyncDefault[RelBatimentGroupeProprietaireSiren]]:
         """
         Table de relation entre les propriétaires et les groupes de bâtiment (la version
         open filtre sur la colonne `dans_majic_pm)
@@ -195,7 +191,7 @@ class AsyncRelBatimentGroupeProprietaireSirenResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_proprietaire_siren",
-            page=AsyncDefault[RelBatimentGroupeProprietaireSirenAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeProprietaireSiren],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -216,7 +212,7 @@ class AsyncRelBatimentGroupeProprietaireSirenResource(AsyncAPIResource):
                     rel_batiment_groupe_proprietaire_siren_list_params.RelBatimentGroupeProprietaireSirenListParams,
                 ),
             ),
-            model=RelBatimentGroupeProprietaireSirenAPIExpert,
+            model=RelBatimentGroupeProprietaireSiren,
         )
 
 

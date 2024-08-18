@@ -17,7 +17,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_geospx_list_params
-from ...types.shared.batiment_groupe_geospx_api_expert import BatimentGroupeGeospxAPIExpert
+from ...types.donnees.batiment_groupe_geospx import BatimentGroupeGeospx
 
 __all__ = ["BatimentGroupeGeospxResource", "AsyncBatimentGroupeGeospxResource"]
 
@@ -52,7 +52,7 @@ class BatimentGroupeGeospxResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeGeospxAPIExpert]:
+    ) -> SyncDefault[BatimentGroupeGeospx]:
         """
         Métriques du bâtiment par rapport à son environnement géospatial.
 
@@ -98,7 +98,7 @@ class BatimentGroupeGeospxResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_geospx",
-            page=SyncDefault[BatimentGroupeGeospxAPIExpert],
+            page=SyncDefault[BatimentGroupeGeospx],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -120,7 +120,7 @@ class BatimentGroupeGeospxResource(SyncAPIResource):
                     batiment_groupe_geospx_list_params.BatimentGroupeGeospxListParams,
                 ),
             ),
-            model=BatimentGroupeGeospxAPIExpert,
+            model=BatimentGroupeGeospx,
         )
 
 
@@ -154,7 +154,7 @@ class AsyncBatimentGroupeGeospxResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeGeospxAPIExpert, AsyncDefault[BatimentGroupeGeospxAPIExpert]]:
+    ) -> AsyncPaginator[BatimentGroupeGeospx, AsyncDefault[BatimentGroupeGeospx]]:
         """
         Métriques du bâtiment par rapport à son environnement géospatial.
 
@@ -200,7 +200,7 @@ class AsyncBatimentGroupeGeospxResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/batiment_groupe_geospx",
-            page=AsyncDefault[BatimentGroupeGeospxAPIExpert],
+            page=AsyncDefault[BatimentGroupeGeospx],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -222,7 +222,7 @@ class AsyncBatimentGroupeGeospxResource(AsyncAPIResource):
                     batiment_groupe_geospx_list_params.BatimentGroupeGeospxListParams,
                 ),
             ),
-            model=BatimentGroupeGeospxAPIExpert,
+            model=BatimentGroupeGeospx,
         )
 
 

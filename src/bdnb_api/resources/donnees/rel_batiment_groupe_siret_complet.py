@@ -20,7 +20,7 @@ from ..._response import (
 from ...pagination import SyncDefault, AsyncDefault
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import rel_batiment_groupe_siret_complet_list_params
-from ...types.rel_batiment_groupe_siret_complet_api_expert import RelBatimentGroupeSiretCompletAPIExpert
+from ...types.donnees.rel_batiment_groupe_siret_complet import RelBatimentGroupeSiretComplet
 
 __all__ = ["RelBatimentGroupeSiretCompletResource", "AsyncRelBatimentGroupeSiretCompletResource"]
 
@@ -63,7 +63,7 @@ class RelBatimentGroupeSiretCompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeSiretCompletAPIExpert]:
+    ) -> SyncDefault[RelBatimentGroupeSiretComplet]:
         """
         Table de relation entre les bâtiments de la BDNB et les SIRET.
 
@@ -134,7 +134,7 @@ class RelBatimentGroupeSiretCompletResource(SyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_siret_complet",
-            page=SyncDefault[RelBatimentGroupeSiretCompletAPIExpert],
+            page=SyncDefault[RelBatimentGroupeSiretComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -164,7 +164,7 @@ class RelBatimentGroupeSiretCompletResource(SyncAPIResource):
                     rel_batiment_groupe_siret_complet_list_params.RelBatimentGroupeSiretCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSiretCompletAPIExpert,
+            model=RelBatimentGroupeSiretComplet,
         )
 
 
@@ -206,7 +206,7 @@ class AsyncRelBatimentGroupeSiretCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeSiretCompletAPIExpert, AsyncDefault[RelBatimentGroupeSiretCompletAPIExpert]]:
+    ) -> AsyncPaginator[RelBatimentGroupeSiretComplet, AsyncDefault[RelBatimentGroupeSiretComplet]]:
         """
         Table de relation entre les bâtiments de la BDNB et les SIRET.
 
@@ -277,7 +277,7 @@ class AsyncRelBatimentGroupeSiretCompletResource(AsyncAPIResource):
         }
         return self._get_api_list(
             "/donnees/rel_batiment_groupe_siret_complet",
-            page=AsyncDefault[RelBatimentGroupeSiretCompletAPIExpert],
+            page=AsyncDefault[RelBatimentGroupeSiretComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -307,7 +307,7 @@ class AsyncRelBatimentGroupeSiretCompletResource(AsyncAPIResource):
                     rel_batiment_groupe_siret_complet_list_params.RelBatimentGroupeSiretCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSiretCompletAPIExpert,
+            model=RelBatimentGroupeSiretComplet,
         )
 
 
