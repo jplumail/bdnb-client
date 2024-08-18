@@ -8,22 +8,22 @@ from .stats import (
     StatsResourceWithStreamingResponse,
     AsyncStatsResourceWithStreamingResponse,
 )
-from .batiment_groupes import (
-    BatimentGroupesResource,
-    AsyncBatimentGroupesResource,
-    BatimentGroupesResourceWithRawResponse,
-    AsyncBatimentGroupesResourceWithRawResponse,
-    BatimentGroupesResourceWithStreamingResponse,
-    AsyncBatimentGroupesResourceWithStreamingResponse,
+from .batiment_groupe import (
+    BatimentGroupeResource,
+    AsyncBatimentGroupeResource,
+    BatimentGroupeResourceWithRawResponse,
+    AsyncBatimentGroupeResourceWithRawResponse,
+    BatimentGroupeResourceWithStreamingResponse,
+    AsyncBatimentGroupeResourceWithStreamingResponse,
 )
 
 __all__ = [
-    "BatimentGroupesResource",
-    "AsyncBatimentGroupesResource",
-    "BatimentGroupesResourceWithRawResponse",
-    "AsyncBatimentGroupesResourceWithRawResponse",
-    "BatimentGroupesResourceWithStreamingResponse",
-    "AsyncBatimentGroupesResourceWithStreamingResponse",
+    "BatimentGroupeResource",
+    "AsyncBatimentGroupeResource",
+    "BatimentGroupeResourceWithRawResponse",
+    "AsyncBatimentGroupeResourceWithRawResponse",
+    "BatimentGroupeResourceWithStreamingResponse",
+    "AsyncBatimentGroupeResourceWithStreamingResponse",
     "StatsResource",
     "AsyncStatsResource",
     "StatsResourceWithRawResponse",
