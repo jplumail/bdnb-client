@@ -24,14 +24,6 @@ from .colonnes import (
     ColonnesResourceWithStreamingResponse,
     AsyncColonnesResourceWithStreamingResponse,
 )
-from .fournisseur import (
-    FournisseurResource,
-    AsyncFournisseurResource,
-    FournisseurResourceWithRawResponse,
-    AsyncFournisseurResourceWithRawResponse,
-    FournisseurResourceWithStreamingResponse,
-    AsyncFournisseurResourceWithStreamingResponse,
-)
 from .metadonnees import (
     MetadonneesResource,
     AsyncMetadonneesResource,
@@ -40,30 +32,6 @@ from .metadonnees import (
     MetadonneesResourceWithStreamingResponse,
     AsyncMetadonneesResourceWithStreamingResponse,
 )
-from .jeu_de_donnees import (
-    JeuDeDonneesResource,
-    AsyncJeuDeDonneesResource,
-    JeuDeDonneesResourceWithRawResponse,
-    AsyncJeuDeDonneesResourceWithRawResponse,
-    JeuDeDonneesResourceWithStreamingResponse,
-    AsyncJeuDeDonneesResourceWithStreamingResponse,
-)
-from .contrainte_acces import (
-    ContrainteAccesResource,
-    AsyncContrainteAccesResource,
-    ContrainteAccesResourceWithRawResponse,
-    AsyncContrainteAccesResourceWithRawResponse,
-    ContrainteAccesResourceWithStreamingResponse,
-    AsyncContrainteAccesResourceWithStreamingResponse,
-)
-from .metadonnees_complets import (
-    MetadonneesCompletsResource,
-    AsyncMetadonneesCompletsResource,
-    MetadonneesCompletsResourceWithRawResponse,
-    AsyncMetadonneesCompletsResourceWithRawResponse,
-    MetadonneesCompletsResourceWithStreamingResponse,
-    AsyncMetadonneesCompletsResourceWithStreamingResponse,
-)
 from .colonnes_souscription import (
     ColonnesSouscriptionResource,
     AsyncColonnesSouscriptionResource,
@@ -71,14 +39,6 @@ from .colonnes_souscription import (
     AsyncColonnesSouscriptionResourceWithRawResponse,
     ColonnesSouscriptionResourceWithStreamingResponse,
     AsyncColonnesSouscriptionResourceWithStreamingResponse,
-)
-from .rel_colonne_jeu_de_donnees import (
-    RelColonneJeuDeDonneesResource,
-    AsyncRelColonneJeuDeDonneesResource,
-    RelColonneJeuDeDonneesResourceWithRawResponse,
-    AsyncRelColonneJeuDeDonneesResourceWithRawResponse,
-    RelColonneJeuDeDonneesResourceWithStreamingResponse,
-    AsyncRelColonneJeuDeDonneesResourceWithStreamingResponse,
 )
 
 __all__ = [
@@ -94,12 +54,6 @@ __all__ = [
     "AsyncColonnesResourceWithRawResponse",
     "ColonnesResourceWithStreamingResponse",
     "AsyncColonnesResourceWithStreamingResponse",
-    "MetadonneesCompletsResource",
-    "AsyncMetadonneesCompletsResource",
-    "MetadonneesCompletsResourceWithRawResponse",
-    "AsyncMetadonneesCompletsResourceWithRawResponse",
-    "MetadonneesCompletsResourceWithStreamingResponse",
-    "AsyncMetadonneesCompletsResourceWithStreamingResponse",
     "InfoResource",
     "AsyncInfoResource",
     "InfoResourceWithRawResponse",
@@ -112,30 +66,6 @@ __all__ = [
     "AsyncTableResourceWithRawResponse",
     "TableResourceWithStreamingResponse",
     "AsyncTableResourceWithStreamingResponse",
-    "RelColonneJeuDeDonneesResource",
-    "AsyncRelColonneJeuDeDonneesResource",
-    "RelColonneJeuDeDonneesResourceWithRawResponse",
-    "AsyncRelColonneJeuDeDonneesResourceWithRawResponse",
-    "RelColonneJeuDeDonneesResourceWithStreamingResponse",
-    "AsyncRelColonneJeuDeDonneesResourceWithStreamingResponse",
-    "JeuDeDonneesResource",
-    "AsyncJeuDeDonneesResource",
-    "JeuDeDonneesResourceWithRawResponse",
-    "AsyncJeuDeDonneesResourceWithRawResponse",
-    "JeuDeDonneesResourceWithStreamingResponse",
-    "AsyncJeuDeDonneesResourceWithStreamingResponse",
-    "FournisseurResource",
-    "AsyncFournisseurResource",
-    "FournisseurResourceWithRawResponse",
-    "AsyncFournisseurResourceWithRawResponse",
-    "FournisseurResourceWithStreamingResponse",
-    "AsyncFournisseurResourceWithStreamingResponse",
-    "ContrainteAccesResource",
-    "AsyncContrainteAccesResource",
-    "ContrainteAccesResourceWithRawResponse",
-    "AsyncContrainteAccesResourceWithRawResponse",
-    "ContrainteAccesResourceWithStreamingResponse",
-    "AsyncContrainteAccesResourceWithStreamingResponse",
     "MetadonneesResource",
     "AsyncMetadonneesResource",
     "MetadonneesResourceWithRawResponse",
