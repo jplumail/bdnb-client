@@ -22,9 +22,6 @@ from .batiment_groupe_dle_gaz_2020_api_expert import (
 from .batiment_groupe_dle_elec_2020_api_expert import (
     BatimentGroupeDleElec2020APIExpert as BatimentGroupeDleElec2020APIExpert,
 )
-from .referentiel_administratif_iris_api_expert import (
-    ReferentielAdministratifIrisAPIExpert as ReferentielAdministratifIrisAPIExpert,
-)
 from .batiment_groupe_simulations_dpe_api_expert import (
     BatimentGroupeSimulationsDpeAPIExpert as BatimentGroupeSimulationsDpeAPIExpert,
 )

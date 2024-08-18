@@ -17,7 +17,6 @@ from .shared import (
     BatimentGroupeDleElec2020APIExpert as BatimentGroupeDleElec2020APIExpert,
     BatimentGroupeDleReseaux2020APIExpert as BatimentGroupeDleReseaux2020APIExpert,
     BatimentGroupeSimulationsDpeAPIExpert as BatimentGroupeSimulationsDpeAPIExpert,
-    ReferentielAdministratifIrisAPIExpert as ReferentielAdministratifIrisAPIExpert,
     RelBatimentConstructionAdresseAPIExpert as RelBatimentConstructionAdresseAPIExpert,
     BatimentGroupeSyntheseEnveloppeAPIExpert as BatimentGroupeSyntheseEnveloppeAPIExpert,
     BatimentGroupeDvfOpenStatistiqueAPIExpert as BatimentGroupeDvfOpenStatistiqueAPIExpert,
