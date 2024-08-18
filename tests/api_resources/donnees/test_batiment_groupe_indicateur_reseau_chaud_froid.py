@@ -9,8 +9,9 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
+from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import (
-    BatimentGroupeIndicateurReseauChaudFroidListResponse,
+    BatimentGroupeIndicateurReseauChaudFroidAPIExpert,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -25,7 +26,7 @@ class TestBatimentGroupeIndicateurReseauChaudFroid:
             client.donnees.batiment_groupe_indicateur_reseau_chaud_froid.list()
         )
         assert_matches_type(
-            BatimentGroupeIndicateurReseauChaudFroidListResponse,
+            SyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
             batiment_groupe_indicateur_reseau_chaud_froid,
             path=["response"],
         )
@@ -50,7 +51,7 @@ class TestBatimentGroupeIndicateurReseauChaudFroid:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeIndicateurReseauChaudFroidListResponse,
+            SyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
             batiment_groupe_indicateur_reseau_chaud_froid,
             path=["response"],
         )
@@ -63,7 +64,7 @@ class TestBatimentGroupeIndicateurReseauChaudFroid:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_indicateur_reseau_chaud_froid = response.parse()
         assert_matches_type(
-            BatimentGroupeIndicateurReseauChaudFroidListResponse,
+            SyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
             batiment_groupe_indicateur_reseau_chaud_froid,
             path=["response"],
         )
@@ -76,7 +77,7 @@ class TestBatimentGroupeIndicateurReseauChaudFroid:
 
             batiment_groupe_indicateur_reseau_chaud_froid = response.parse()
             assert_matches_type(
-                BatimentGroupeIndicateurReseauChaudFroidListResponse,
+                SyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
                 batiment_groupe_indicateur_reseau_chaud_froid,
                 path=["response"],
             )
@@ -93,7 +94,7 @@ class TestAsyncBatimentGroupeIndicateurReseauChaudFroid:
             await async_client.donnees.batiment_groupe_indicateur_reseau_chaud_froid.list()
         )
         assert_matches_type(
-            BatimentGroupeIndicateurReseauChaudFroidListResponse,
+            AsyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
             batiment_groupe_indicateur_reseau_chaud_froid,
             path=["response"],
         )
@@ -118,7 +119,7 @@ class TestAsyncBatimentGroupeIndicateurReseauChaudFroid:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeIndicateurReseauChaudFroidListResponse,
+            AsyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
             batiment_groupe_indicateur_reseau_chaud_froid,
             path=["response"],
         )
@@ -131,7 +132,7 @@ class TestAsyncBatimentGroupeIndicateurReseauChaudFroid:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_indicateur_reseau_chaud_froid = await response.parse()
         assert_matches_type(
-            BatimentGroupeIndicateurReseauChaudFroidListResponse,
+            AsyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
             batiment_groupe_indicateur_reseau_chaud_froid,
             path=["response"],
         )
@@ -144,7 +145,7 @@ class TestAsyncBatimentGroupeIndicateurReseauChaudFroid:
 
             batiment_groupe_indicateur_reseau_chaud_froid = await response.parse()
             assert_matches_type(
-                BatimentGroupeIndicateurReseauChaudFroidListResponse,
+                AsyncDefault[BatimentGroupeIndicateurReseauChaudFroidAPIExpert],
                 batiment_groupe_indicateur_reseau_chaud_froid,
                 path=["response"],
             )

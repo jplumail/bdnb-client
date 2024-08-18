@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,10 +14,11 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_simulations_valeur_verte_list_params
-from ...types.donnees.batiment_groupe_simulations_valeur_verte_list_response import (
-    BatimentGroupeSimulationsValeurVerteListResponse,
+from ...types.donnees.batiment_groupe_simulations_valeur_verte_api_expert import (
+    BatimentGroupeSimulationsValeurVerteAPIExpert,
 )
 
 __all__ = ["BatimentGroupeSimulationsValeurVerteResource", "AsyncBatimentGroupeSimulationsValeurVerteResource"]
@@ -75,7 +72,7 @@ class BatimentGroupeSimulationsValeurVerteResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeSimulationsValeurVerteListResponse:
+    ) -> SyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -176,8 +173,9 @@ class BatimentGroupeSimulationsValeurVerteResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_simulations_valeur_verte",
+            page=SyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -217,7 +215,7 @@ class BatimentGroupeSimulationsValeurVerteResource(SyncAPIResource):
                     batiment_groupe_simulations_valeur_verte_list_params.BatimentGroupeSimulationsValeurVerteListParams,
                 ),
             ),
-            cast_to=BatimentGroupeSimulationsValeurVerteListResponse,
+            model=BatimentGroupeSimulationsValeurVerteAPIExpert,
         )
 
 
@@ -230,7 +228,7 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse:
         return AsyncBatimentGroupeSimulationsValeurVerteResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -269,7 +267,9 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeSimulationsValeurVerteListResponse:
+    ) -> AsyncPaginator[
+        BatimentGroupeSimulationsValeurVerteAPIExpert, AsyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert]
+    ]:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -370,14 +370,15 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_simulations_valeur_verte",
+            page=AsyncDefault[BatimentGroupeSimulationsValeurVerteAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -411,7 +412,7 @@ class AsyncBatimentGroupeSimulationsValeurVerteResource(AsyncAPIResource):
                     batiment_groupe_simulations_valeur_verte_list_params.BatimentGroupeSimulationsValeurVerteListParams,
                 ),
             ),
-            cast_to=BatimentGroupeSimulationsValeurVerteListResponse,
+            model=BatimentGroupeSimulationsValeurVerteAPIExpert,
         )
 
 

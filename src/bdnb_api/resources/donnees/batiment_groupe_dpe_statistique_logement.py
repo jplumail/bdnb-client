@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,10 +14,11 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dpe_statistique_logement_list_params
-from ...types.donnees.batiment_groupe_dpe_statistique_logement_list_response import (
-    BatimentGroupeDpeStatistiqueLogementListResponse,
+from ...types.donnees.batiment_groupe_dpe_statistique_logement_api_expert import (
+    BatimentGroupeDpeStatistiqueLogementAPIExpert,
 )
 
 __all__ = ["BatimentGroupeDpeStatistiqueLogementResource", "AsyncBatimentGroupeDpeStatistiqueLogementResource"]
@@ -68,7 +65,7 @@ class BatimentGroupeDpeStatistiqueLogementResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDpeStatistiqueLogementListResponse:
+    ) -> SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert]:
         """
         Données statistiques du nombre de DPE par étiquette sur un bâtiment de logement.
         Pour les étiquettes DPE de l'ancien arràªté qui ne sont plus en vigueur les
@@ -150,8 +147,9 @@ class BatimentGroupeDpeStatistiqueLogementResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dpe_statistique_logement",
+            page=SyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -184,7 +182,7 @@ class BatimentGroupeDpeStatistiqueLogementResource(SyncAPIResource):
                     batiment_groupe_dpe_statistique_logement_list_params.BatimentGroupeDpeStatistiqueLogementListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDpeStatistiqueLogementListResponse,
+            model=BatimentGroupeDpeStatistiqueLogementAPIExpert,
         )
 
 
@@ -197,7 +195,7 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse:
         return AsyncBatimentGroupeDpeStatistiqueLogementResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -229,7 +227,9 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDpeStatistiqueLogementListResponse:
+    ) -> AsyncPaginator[
+        BatimentGroupeDpeStatistiqueLogementAPIExpert, AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert]
+    ]:
         """
         Données statistiques du nombre de DPE par étiquette sur un bâtiment de logement.
         Pour les étiquettes DPE de l'ancien arràªté qui ne sont plus en vigueur les
@@ -311,14 +311,15 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dpe_statistique_logement",
+            page=AsyncDefault[BatimentGroupeDpeStatistiqueLogementAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -345,7 +346,7 @@ class AsyncBatimentGroupeDpeStatistiqueLogementResource(AsyncAPIResource):
                     batiment_groupe_dpe_statistique_logement_list_params.BatimentGroupeDpeStatistiqueLogementListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDpeStatistiqueLogementListResponse,
+            model=BatimentGroupeDpeStatistiqueLogementAPIExpert,
         )
 
 
