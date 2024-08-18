@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.metadonnees import table_list_params
-from ...types.metadonnees.table_list_response import TableListResponse
+from ...types.metadonnees.table import Table
 
 __all__ = ["TableResource", "AsyncTableResource"]
 
@@ -53,7 +50,7 @@ class TableResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> TableListResponse:
+    ) -> SyncDefault[Table]:
         """
         Descriptions des tables de la BDNB
 
@@ -87,8 +84,9 @@ class TableResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/metadonnees/table",
+            page=SyncDefault[Table],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -108,7 +106,7 @@ class TableResource(SyncAPIResource):
                     table_list_params.TableListParams,
                 ),
             ),
-            cast_to=TableListResponse,
+            model=Table,
         )
 
 
@@ -121,7 +119,7 @@ class AsyncTableResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncTableResourceWithStreamingResponse:
         return AsyncTableResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         description: str | NotGiven = NOT_GIVEN,
@@ -140,7 +138,7 @@ class AsyncTableResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> TableListResponse:
+    ) -> AsyncPaginator[Table, AsyncDefault[Table]]:
         """
         Descriptions des tables de la BDNB
 
@@ -174,14 +172,15 @@ class AsyncTableResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/metadonnees/table",
+            page=AsyncDefault[Table],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "description": description,
                         "external_pk": external_pk,
@@ -195,7 +194,7 @@ class AsyncTableResource(AsyncAPIResource):
                     table_list_params.TableListParams,
                 ),
             ),
-            cast_to=TableListResponse,
+            model=Table,
         )
 
 

@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,10 +14,11 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_dpe_representatif_logement_list_params
-from ...types.donnees.batiment_groupe_dpe_representatif_logement_list_response import (
-    BatimentGroupeDpeRepresentatifLogementListResponse,
+from ...types.shared.batiment_groupe_dpe_representatif_logement_api_expert import (
+    BatimentGroupeDpeRepresentatifLogementAPIExpert,
 )
 
 __all__ = ["BatimentGroupeDpeRepresentatifLogementResource", "AsyncBatimentGroupeDpeRepresentatifLogementResource"]
@@ -157,7 +154,7 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDpeRepresentatifLogementListResponse:
+    ) -> SyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert]:
         """Table qui contient les DPE représentatifs de chaque bâtiment de logement.
 
         Le DPE
@@ -474,8 +471,9 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dpe_representatif_logement",
+            page=SyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -597,7 +595,7 @@ class BatimentGroupeDpeRepresentatifLogementResource(SyncAPIResource):
                     batiment_groupe_dpe_representatif_logement_list_params.BatimentGroupeDpeRepresentatifLogementListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDpeRepresentatifLogementListResponse,
+            model=BatimentGroupeDpeRepresentatifLogementAPIExpert,
         )
 
 
@@ -610,7 +608,7 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeDpeRepresentatifLogementResourceWithStreamingResponse:
         return AsyncBatimentGroupeDpeRepresentatifLogementResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         annee_construction_dpe: str | NotGiven = NOT_GIVEN,
@@ -731,7 +729,9 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeDpeRepresentatifLogementListResponse:
+    ) -> AsyncPaginator[
+        BatimentGroupeDpeRepresentatifLogementAPIExpert, AsyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert]
+    ]:
         """Table qui contient les DPE représentatifs de chaque bâtiment de logement.
 
         Le DPE
@@ -1048,14 +1048,15 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dpe_representatif_logement",
+            page=AsyncDefault[BatimentGroupeDpeRepresentatifLogementAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "annee_construction_dpe": annee_construction_dpe,
                         "arrete_2021": arrete_2021,
@@ -1171,7 +1172,7 @@ class AsyncBatimentGroupeDpeRepresentatifLogementResource(AsyncAPIResource):
                     batiment_groupe_dpe_representatif_logement_list_params.BatimentGroupeDpeRepresentatifLogementListParams,
                 ),
             ),
-            cast_to=BatimentGroupeDpeRepresentatifLogementListResponse,
+            model=BatimentGroupeDpeRepresentatifLogementAPIExpert,
         )
 
 

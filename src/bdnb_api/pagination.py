@@ -18,7 +18,6 @@ _T = TypeVar("_T")
 
 class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
     items: List[_T]
-    range: Optional[str] = None
 
     @override
     def _get_page_items(self) -> List[_T]:
@@ -36,14 +35,7 @@ class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
         length = len(self._get_page_items())
         current_count = offset + length
 
-        range = self.range
-        if range is None:
-            return None
-
-        if current_count < range:
-            return PageInfo(params={"offset": current_count})
-
-        return None
+        return PageInfo(params={"offset": current_count})
 
     @classmethod
     def build(cls: Type[_BaseModelT], *, response: Response, data: object) -> _BaseModelT:  # noqa: ARG003
@@ -57,7 +49,6 @@ class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
 
 class AsyncDefault(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
     items: List[_T]
-    range: Optional[str] = None
 
     @override
     def _get_page_items(self) -> List[_T]:
@@ -75,14 +66,7 @@ class AsyncDefault(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
         length = len(self._get_page_items())
         current_count = offset + length
 
-        range = self.range
-        if range is None:
-            return None
-
-        if current_count < range:
-            return PageInfo(params={"offset": current_count})
-
-        return None
+        return PageInfo(params={"offset": current_count})
 
     @classmethod
     def build(cls: Type[_BaseModelT], *, response: Response, data: object) -> _BaseModelT:  # noqa: ARG003

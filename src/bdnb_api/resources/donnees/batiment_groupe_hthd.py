@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_hthd_list_params
-from ...types.donnees.batiment_groupe_hthd_list_response import BatimentGroupeHthdListResponse
+from ...types.donnees.batiment_groupe_hthd_api_expert import BatimentGroupeHthdAPIExpert
 
 __all__ = ["BatimentGroupeHthdResource", "AsyncBatimentGroupeHthdResource"]
 
@@ -54,7 +51,7 @@ class BatimentGroupeHthdResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeHthdListResponse:
+    ) -> SyncDefault[BatimentGroupeHthdAPIExpert]:
         """
         Données issues de la base Arcep agrégées à l'échelle du bâtiment
 
@@ -94,8 +91,9 @@ class BatimentGroupeHthdResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_hthd",
+            page=SyncDefault[BatimentGroupeHthdAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -116,7 +114,7 @@ class BatimentGroupeHthdResource(SyncAPIResource):
                     batiment_groupe_hthd_list_params.BatimentGroupeHthdListParams,
                 ),
             ),
-            cast_to=BatimentGroupeHthdListResponse,
+            model=BatimentGroupeHthdAPIExpert,
         )
 
 
@@ -129,7 +127,7 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeHthdResourceWithStreamingResponse:
         return AsyncBatimentGroupeHthdResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -149,7 +147,7 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeHthdListResponse:
+    ) -> AsyncPaginator[BatimentGroupeHthdAPIExpert, AsyncDefault[BatimentGroupeHthdAPIExpert]]:
         """
         Données issues de la base Arcep agrégées à l'échelle du bâtiment
 
@@ -189,14 +187,15 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_hthd",
+            page=AsyncDefault[BatimentGroupeHthdAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -211,7 +210,7 @@ class AsyncBatimentGroupeHthdResource(AsyncAPIResource):
                     batiment_groupe_hthd_list_params.BatimentGroupeHthdListParams,
                 ),
             ),
-            cast_to=BatimentGroupeHthdListResponse,
+            model=BatimentGroupeHthdAPIExpert,
         )
 
 

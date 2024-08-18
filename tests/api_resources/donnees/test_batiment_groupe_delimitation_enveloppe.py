@@ -9,8 +9,9 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
+from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import (
-    BatimentGroupeDelimitationEnveloppeListResponse,
+    BatimentGroupeDelimitationEnveloppeAPIExpert,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -23,7 +24,9 @@ class TestBatimentGroupeDelimitationEnveloppe:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_delimitation_enveloppe = client.donnees.batiment_groupe_delimitation_enveloppe.list()
         assert_matches_type(
-            BatimentGroupeDelimitationEnveloppeListResponse, batiment_groupe_delimitation_enveloppe, path=["response"]
+            SyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            batiment_groupe_delimitation_enveloppe,
+            path=["response"],
         )
 
     @parametrize
@@ -40,7 +43,9 @@ class TestBatimentGroupeDelimitationEnveloppe:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDelimitationEnveloppeListResponse, batiment_groupe_delimitation_enveloppe, path=["response"]
+            SyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            batiment_groupe_delimitation_enveloppe,
+            path=["response"],
         )
 
     @parametrize
@@ -51,7 +56,9 @@ class TestBatimentGroupeDelimitationEnveloppe:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_delimitation_enveloppe = response.parse()
         assert_matches_type(
-            BatimentGroupeDelimitationEnveloppeListResponse, batiment_groupe_delimitation_enveloppe, path=["response"]
+            SyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            batiment_groupe_delimitation_enveloppe,
+            path=["response"],
         )
 
     @parametrize
@@ -62,7 +69,7 @@ class TestBatimentGroupeDelimitationEnveloppe:
 
             batiment_groupe_delimitation_enveloppe = response.parse()
             assert_matches_type(
-                BatimentGroupeDelimitationEnveloppeListResponse,
+                SyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
                 batiment_groupe_delimitation_enveloppe,
                 path=["response"],
             )
@@ -79,7 +86,9 @@ class TestAsyncBatimentGroupeDelimitationEnveloppe:
             await async_client.donnees.batiment_groupe_delimitation_enveloppe.list()
         )
         assert_matches_type(
-            BatimentGroupeDelimitationEnveloppeListResponse, batiment_groupe_delimitation_enveloppe, path=["response"]
+            AsyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            batiment_groupe_delimitation_enveloppe,
+            path=["response"],
         )
 
     @parametrize
@@ -96,7 +105,9 @@ class TestAsyncBatimentGroupeDelimitationEnveloppe:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeDelimitationEnveloppeListResponse, batiment_groupe_delimitation_enveloppe, path=["response"]
+            AsyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            batiment_groupe_delimitation_enveloppe,
+            path=["response"],
         )
 
     @parametrize
@@ -107,7 +118,9 @@ class TestAsyncBatimentGroupeDelimitationEnveloppe:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_delimitation_enveloppe = await response.parse()
         assert_matches_type(
-            BatimentGroupeDelimitationEnveloppeListResponse, batiment_groupe_delimitation_enveloppe, path=["response"]
+            AsyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
+            batiment_groupe_delimitation_enveloppe,
+            path=["response"],
         )
 
     @parametrize
@@ -118,7 +131,7 @@ class TestAsyncBatimentGroupeDelimitationEnveloppe:
 
             batiment_groupe_delimitation_enveloppe = await response.parse()
             assert_matches_type(
-                BatimentGroupeDelimitationEnveloppeListResponse,
+                AsyncDefault[BatimentGroupeDelimitationEnveloppeAPIExpert],
                 batiment_groupe_delimitation_enveloppe,
                 path=["response"],
             )

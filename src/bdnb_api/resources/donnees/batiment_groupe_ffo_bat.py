@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_groupe_ffo_bat_list_params
-from ...types.donnees.batiment_groupe_ffo_bat_list_response import BatimentGroupeFfoBatListResponse
+from ...types.batiment_groupe_ffo_bat_api_expert import BatimentGroupeFfoBatAPIExpert
 
 __all__ = ["BatimentGroupeFfoBatResource", "AsyncBatimentGroupeFfoBatResource"]
 
@@ -57,7 +54,7 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeFfoBatListResponse:
+    ) -> SyncDefault[BatimentGroupeFfoBatAPIExpert]:
         """
         Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
@@ -103,8 +100,9 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_ffo_bat",
+            page=SyncDefault[BatimentGroupeFfoBatAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -128,7 +126,7 @@ class BatimentGroupeFfoBatResource(SyncAPIResource):
                     batiment_groupe_ffo_bat_list_params.BatimentGroupeFfoBatListParams,
                 ),
             ),
-            cast_to=BatimentGroupeFfoBatListResponse,
+            model=BatimentGroupeFfoBatAPIExpert,
         )
 
 
@@ -141,7 +139,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeFfoBatResourceWithStreamingResponse:
         return AsyncBatimentGroupeFfoBatResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         annee_construction: str | NotGiven = NOT_GIVEN,
@@ -164,7 +162,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeFfoBatListResponse:
+    ) -> AsyncPaginator[BatimentGroupeFfoBatAPIExpert, AsyncDefault[BatimentGroupeFfoBatAPIExpert]]:
         """
         Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
@@ -210,14 +208,15 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_ffo_bat",
+            page=AsyncDefault[BatimentGroupeFfoBatAPIExpert],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "annee_construction": annee_construction,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -235,7 +234,7 @@ class AsyncBatimentGroupeFfoBatResource(AsyncAPIResource):
                     batiment_groupe_ffo_bat_list_params.BatimentGroupeFfoBatListParams,
                 ),
             ),
-            cast_to=BatimentGroupeFfoBatListResponse,
+            model=BatimentGroupeFfoBatAPIExpert,
         )
 
 

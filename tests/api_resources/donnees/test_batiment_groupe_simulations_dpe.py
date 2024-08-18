@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_api import BdnbAPI, AsyncBdnbAPI
 from tests.utils import assert_matches_type
-from bdnb_api.types.donnees import BatimentGroupeSimulationsDpeListResponse
+from bdnb_api.pagination import SyncDefault, AsyncDefault
+from bdnb_api.types.shared import BatimentGroupeSimulationsDpeAPIExpert
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -21,7 +22,7 @@ class TestBatimentGroupeSimulationsDpe:
     def test_method_list(self, client: BdnbAPI) -> None:
         batiment_groupe_simulations_dpe = client.donnees.batiment_groupe_simulations_dpe.list()
         assert_matches_type(
-            BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+            SyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
         )
 
     @parametrize
@@ -104,7 +105,7 @@ class TestBatimentGroupeSimulationsDpe:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+            SyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
         )
 
     @parametrize
@@ -115,7 +116,7 @@ class TestBatimentGroupeSimulationsDpe:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_simulations_dpe = response.parse()
         assert_matches_type(
-            BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+            SyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
         )
 
     @parametrize
@@ -126,7 +127,7 @@ class TestBatimentGroupeSimulationsDpe:
 
             batiment_groupe_simulations_dpe = response.parse()
             assert_matches_type(
-                BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+                SyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
@@ -139,7 +140,7 @@ class TestAsyncBatimentGroupeSimulationsDpe:
     async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
         batiment_groupe_simulations_dpe = await async_client.donnees.batiment_groupe_simulations_dpe.list()
         assert_matches_type(
-            BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+            AsyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
         )
 
     @parametrize
@@ -222,7 +223,7 @@ class TestAsyncBatimentGroupeSimulationsDpe:
             range_unit="Range-Unit",
         )
         assert_matches_type(
-            BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+            AsyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
         )
 
     @parametrize
@@ -233,7 +234,7 @@ class TestAsyncBatimentGroupeSimulationsDpe:
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         batiment_groupe_simulations_dpe = await response.parse()
         assert_matches_type(
-            BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+            AsyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
         )
 
     @parametrize
@@ -244,7 +245,7 @@ class TestAsyncBatimentGroupeSimulationsDpe:
 
             batiment_groupe_simulations_dpe = await response.parse()
             assert_matches_type(
-                BatimentGroupeSimulationsDpeListResponse, batiment_groupe_simulations_dpe, path=["response"]
+                AsyncDefault[BatimentGroupeSimulationsDpeAPIExpert], batiment_groupe_simulations_dpe, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
