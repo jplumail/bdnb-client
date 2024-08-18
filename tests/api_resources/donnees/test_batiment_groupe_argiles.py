@@ -7,7 +7,7 @@ from typing import Any, cast
 
 import pytest
 
-from bdnb_api import BdnbAPI, AsyncBdnbAPI
+from bdnb_api import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees import BatimentGroupeArgiles
@@ -19,12 +19,12 @@ class TestBatimentGroupeArgiles:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    def test_method_list(self, client: BdnbAPI) -> None:
+    def test_method_list(self, client: Bdnb) -> None:
         batiment_groupe_argile = client.donnees.batiment_groupe_argiles.list()
         assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
-    def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
+    def test_method_list_with_all_params(self, client: Bdnb) -> None:
         batiment_groupe_argile = client.donnees.batiment_groupe_argiles.list(
             alea="alea",
             batiment_groupe_id="batiment_groupe_id",
@@ -39,7 +39,7 @@ class TestBatimentGroupeArgiles:
         assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
-    def test_raw_response_list(self, client: BdnbAPI) -> None:
+    def test_raw_response_list(self, client: Bdnb) -> None:
         response = client.donnees.batiment_groupe_argiles.with_raw_response.list()
 
         assert response.is_closed is True
@@ -48,7 +48,7 @@ class TestBatimentGroupeArgiles:
         assert_matches_type(SyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
-    def test_streaming_response_list(self, client: BdnbAPI) -> None:
+    def test_streaming_response_list(self, client: Bdnb) -> None:
         with client.donnees.batiment_groupe_argiles.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -63,12 +63,12 @@ class TestAsyncBatimentGroupeArgiles:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list(self, async_client: AsyncBdnb) -> None:
         batiment_groupe_argile = await async_client.donnees.batiment_groupe_argiles.list()
         assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
-    async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
         batiment_groupe_argile = await async_client.donnees.batiment_groupe_argiles.list(
             alea="alea",
             batiment_groupe_id="batiment_groupe_id",
@@ -83,7 +83,7 @@ class TestAsyncBatimentGroupeArgiles:
         assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
-    async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
         response = await async_client.donnees.batiment_groupe_argiles.with_raw_response.list()
 
         assert response.is_closed is True
@@ -92,7 +92,7 @@ class TestAsyncBatimentGroupeArgiles:
         assert_matches_type(AsyncDefault[BatimentGroupeArgiles], batiment_groupe_argile, path=["response"])
 
     @parametrize
-    async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
         async with async_client.donnees.batiment_groupe_argiles.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

@@ -7,7 +7,7 @@ from typing import Any, cast
 
 import pytest
 
-from bdnb_api import BdnbAPI, AsyncBdnbAPI
+from bdnb_api import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
 from bdnb_api._utils import parse_date
 from bdnb_api.pagination import SyncDefault, AsyncDefault
@@ -20,14 +20,14 @@ class TestRelBatimentGroupeSiretComplet:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    def test_method_list(self, client: BdnbAPI) -> None:
+    def test_method_list(self, client: Bdnb) -> None:
         rel_batiment_groupe_siret_complet = client.donnees.rel_batiment_groupe_siret_complet.list()
         assert_matches_type(
             SyncDefault[RelBatimentGroupeSiretComplet], rel_batiment_groupe_siret_complet, path=["response"]
         )
 
     @parametrize
-    def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
+    def test_method_list_with_all_params(self, client: Bdnb) -> None:
         rel_batiment_groupe_siret_complet = client.donnees.rel_batiment_groupe_siret_complet.list(
             activite_registre_metier="activite_registre_metier",
             batiment_groupe_id="batiment_groupe_id",
@@ -55,7 +55,7 @@ class TestRelBatimentGroupeSiretComplet:
         )
 
     @parametrize
-    def test_raw_response_list(self, client: BdnbAPI) -> None:
+    def test_raw_response_list(self, client: Bdnb) -> None:
         response = client.donnees.rel_batiment_groupe_siret_complet.with_raw_response.list()
 
         assert response.is_closed is True
@@ -66,7 +66,7 @@ class TestRelBatimentGroupeSiretComplet:
         )
 
     @parametrize
-    def test_streaming_response_list(self, client: BdnbAPI) -> None:
+    def test_streaming_response_list(self, client: Bdnb) -> None:
         with client.donnees.rel_batiment_groupe_siret_complet.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -83,14 +83,14 @@ class TestAsyncRelBatimentGroupeSiretComplet:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list(self, async_client: AsyncBdnb) -> None:
         rel_batiment_groupe_siret_complet = await async_client.donnees.rel_batiment_groupe_siret_complet.list()
         assert_matches_type(
             AsyncDefault[RelBatimentGroupeSiretComplet], rel_batiment_groupe_siret_complet, path=["response"]
         )
 
     @parametrize
-    async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
         rel_batiment_groupe_siret_complet = await async_client.donnees.rel_batiment_groupe_siret_complet.list(
             activite_registre_metier="activite_registre_metier",
             batiment_groupe_id="batiment_groupe_id",
@@ -118,7 +118,7 @@ class TestAsyncRelBatimentGroupeSiretComplet:
         )
 
     @parametrize
-    async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
         response = await async_client.donnees.rel_batiment_groupe_siret_complet.with_raw_response.list()
 
         assert response.is_closed is True
@@ -129,7 +129,7 @@ class TestAsyncRelBatimentGroupeSiretComplet:
         )
 
     @parametrize
-    async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
         async with async_client.donnees.rel_batiment_groupe_siret_complet.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

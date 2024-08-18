@@ -18,11 +18,11 @@ __all__ = [
 ]
 
 
-class BdnbAPIError(Exception):
+class BdnbError(Exception):
     pass
 
 
-class APIError(BdnbAPIError):
+class APIError(BdnbError):
     message: str
     request: httpx.Request
 

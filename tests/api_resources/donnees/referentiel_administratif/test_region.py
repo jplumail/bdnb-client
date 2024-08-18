@@ -7,7 +7,7 @@ from typing import Any, cast
 
 import pytest
 
-from bdnb_api import BdnbAPI, AsyncBdnbAPI
+from bdnb_api import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
 from bdnb_api.pagination import SyncDefault, AsyncDefault
 from bdnb_api.types.donnees.referentiel_administratif import ReferentielAdministratifRegion
@@ -19,12 +19,12 @@ class TestRegion:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    def test_method_list(self, client: BdnbAPI) -> None:
+    def test_method_list(self, client: Bdnb) -> None:
         region = client.donnees.referentiel_administratif.region.list()
         assert_matches_type(SyncDefault[ReferentielAdministratifRegion], region, path=["response"])
 
     @parametrize
-    def test_method_list_with_all_params(self, client: BdnbAPI) -> None:
+    def test_method_list_with_all_params(self, client: Bdnb) -> None:
         region = client.donnees.referentiel_administratif.region.list(
             code_region_insee="code_region_insee",
             geom_region="geom_region",
@@ -39,7 +39,7 @@ class TestRegion:
         assert_matches_type(SyncDefault[ReferentielAdministratifRegion], region, path=["response"])
 
     @parametrize
-    def test_raw_response_list(self, client: BdnbAPI) -> None:
+    def test_raw_response_list(self, client: Bdnb) -> None:
         response = client.donnees.referentiel_administratif.region.with_raw_response.list()
 
         assert response.is_closed is True
@@ -48,7 +48,7 @@ class TestRegion:
         assert_matches_type(SyncDefault[ReferentielAdministratifRegion], region, path=["response"])
 
     @parametrize
-    def test_streaming_response_list(self, client: BdnbAPI) -> None:
+    def test_streaming_response_list(self, client: Bdnb) -> None:
         with client.donnees.referentiel_administratif.region.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -63,12 +63,12 @@ class TestAsyncRegion:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
-    async def test_method_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list(self, async_client: AsyncBdnb) -> None:
         region = await async_client.donnees.referentiel_administratif.region.list()
         assert_matches_type(AsyncDefault[ReferentielAdministratifRegion], region, path=["response"])
 
     @parametrize
-    async def test_method_list_with_all_params(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
         region = await async_client.donnees.referentiel_administratif.region.list(
             code_region_insee="code_region_insee",
             geom_region="geom_region",
@@ -83,7 +83,7 @@ class TestAsyncRegion:
         assert_matches_type(AsyncDefault[ReferentielAdministratifRegion], region, path=["response"])
 
     @parametrize
-    async def test_raw_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
         response = await async_client.donnees.referentiel_administratif.region.with_raw_response.list()
 
         assert response.is_closed is True
@@ -92,7 +92,7 @@ class TestAsyncRegion:
         assert_matches_type(AsyncDefault[ReferentielAdministratifRegion], region, path=["response"])
 
     @parametrize
-    async def test_streaming_response_list(self, async_client: AsyncBdnbAPI) -> None:
+    async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
         async with async_client.donnees.referentiel_administratif.region.with_streaming_response.list() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

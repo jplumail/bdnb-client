@@ -38,21 +38,21 @@ __all__ = [
     "ProxiesTypes",
     "RequestOptions",
     "resources",
-    "BdnbAPI",
-    "AsyncBdnbAPI",
+    "Bdnb",
+    "AsyncBdnb",
     "Client",
     "AsyncClient",
 ]
 
 
-class BdnbAPI(SyncAPIClient):
+class Bdnb(SyncAPIClient):
     autocompletion: resources.AutocompletionResource
     stats: resources.StatsResource
     donnees: resources.DonneesResource
     metadonnees: resources.MetadonneesResource
     tuiles: resources.TuilesResource
-    with_raw_response: BdnbAPIWithRawResponse
-    with_streaming_response: BdnbAPIWithStreamedResponse
+    with_raw_response: BdnbWithRawResponse
+    with_streaming_response: BdnbWithStreamedResponse
 
     # client options
     prefer_option: str | None
@@ -80,13 +80,13 @@ class BdnbAPI(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous bdnb-api client instance."""
+        """Construct a new synchronous bdnb client instance."""
         if prefer_option is None:
             prefer_option = "count=exact"
         self.prefer_option = prefer_option
 
         if base_url is None:
-            base_url = os.environ.get("BDNB_API_BASE_URL")
+            base_url = os.environ.get("BDNB_BASE_URL")
         if base_url is None:
             base_url = f"https://api.bdnb.io/v1/bdnb/"
 
@@ -106,8 +106,8 @@ class BdnbAPI(SyncAPIClient):
         self.donnees = resources.DonneesResource(self)
         self.metadonnees = resources.MetadonneesResource(self)
         self.tuiles = resources.TuilesResource(self)
-        self.with_raw_response = BdnbAPIWithRawResponse(self)
-        self.with_streaming_response = BdnbAPIWithStreamedResponse(self)
+        self.with_raw_response = BdnbWithRawResponse(self)
+        self.with_streaming_response = BdnbWithStreamedResponse(self)
 
     @property
     @override
@@ -209,14 +209,14 @@ class BdnbAPI(SyncAPIClient):
         return APIStatusError(err_msg, response=response, body=body)
 
 
-class AsyncBdnbAPI(AsyncAPIClient):
+class AsyncBdnb(AsyncAPIClient):
     autocompletion: resources.AsyncAutocompletionResource
     stats: resources.AsyncStatsResource
     donnees: resources.AsyncDonneesResource
     metadonnees: resources.AsyncMetadonneesResource
     tuiles: resources.AsyncTuilesResource
-    with_raw_response: AsyncBdnbAPIWithRawResponse
-    with_streaming_response: AsyncBdnbAPIWithStreamedResponse
+    with_raw_response: AsyncBdnbWithRawResponse
+    with_streaming_response: AsyncBdnbWithStreamedResponse
 
     # client options
     prefer_option: str | None
@@ -244,13 +244,13 @@ class AsyncBdnbAPI(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async bdnb-api client instance."""
+        """Construct a new async bdnb client instance."""
         if prefer_option is None:
             prefer_option = "count=exact"
         self.prefer_option = prefer_option
 
         if base_url is None:
-            base_url = os.environ.get("BDNB_API_BASE_URL")
+            base_url = os.environ.get("BDNB_BASE_URL")
         if base_url is None:
             base_url = f"https://api.bdnb.io/v1/bdnb/"
 
@@ -270,8 +270,8 @@ class AsyncBdnbAPI(AsyncAPIClient):
         self.donnees = resources.AsyncDonneesResource(self)
         self.metadonnees = resources.AsyncMetadonneesResource(self)
         self.tuiles = resources.AsyncTuilesResource(self)
-        self.with_raw_response = AsyncBdnbAPIWithRawResponse(self)
-        self.with_streaming_response = AsyncBdnbAPIWithStreamedResponse(self)
+        self.with_raw_response = AsyncBdnbWithRawResponse(self)
+        self.with_streaming_response = AsyncBdnbWithStreamedResponse(self)
 
     @property
     @override
@@ -373,8 +373,8 @@ class AsyncBdnbAPI(AsyncAPIClient):
         return APIStatusError(err_msg, response=response, body=body)
 
 
-class BdnbAPIWithRawResponse:
-    def __init__(self, client: BdnbAPI) -> None:
+class BdnbWithRawResponse:
+    def __init__(self, client: Bdnb) -> None:
         self.autocompletion = resources.AutocompletionResourceWithRawResponse(client.autocompletion)
         self.stats = resources.StatsResourceWithRawResponse(client.stats)
         self.donnees = resources.DonneesResourceWithRawResponse(client.donnees)
@@ -382,8 +382,8 @@ class BdnbAPIWithRawResponse:
         self.tuiles = resources.TuilesResourceWithRawResponse(client.tuiles)
 
 
-class AsyncBdnbAPIWithRawResponse:
-    def __init__(self, client: AsyncBdnbAPI) -> None:
+class AsyncBdnbWithRawResponse:
+    def __init__(self, client: AsyncBdnb) -> None:
         self.autocompletion = resources.AsyncAutocompletionResourceWithRawResponse(client.autocompletion)
         self.stats = resources.AsyncStatsResourceWithRawResponse(client.stats)
         self.donnees = resources.AsyncDonneesResourceWithRawResponse(client.donnees)
@@ -391,8 +391,8 @@ class AsyncBdnbAPIWithRawResponse:
         self.tuiles = resources.AsyncTuilesResourceWithRawResponse(client.tuiles)
 
 
-class BdnbAPIWithStreamedResponse:
-    def __init__(self, client: BdnbAPI) -> None:
+class BdnbWithStreamedResponse:
+    def __init__(self, client: Bdnb) -> None:
         self.autocompletion = resources.AutocompletionResourceWithStreamingResponse(client.autocompletion)
         self.stats = resources.StatsResourceWithStreamingResponse(client.stats)
         self.donnees = resources.DonneesResourceWithStreamingResponse(client.donnees)
@@ -400,8 +400,8 @@ class BdnbAPIWithStreamedResponse:
         self.tuiles = resources.TuilesResourceWithStreamingResponse(client.tuiles)
 
 
-class AsyncBdnbAPIWithStreamedResponse:
-    def __init__(self, client: AsyncBdnbAPI) -> None:
+class AsyncBdnbWithStreamedResponse:
+    def __init__(self, client: AsyncBdnb) -> None:
         self.autocompletion = resources.AsyncAutocompletionResourceWithStreamingResponse(client.autocompletion)
         self.stats = resources.AsyncStatsResourceWithStreamingResponse(client.stats)
         self.donnees = resources.AsyncDonneesResourceWithStreamingResponse(client.donnees)
@@ -409,6 +409,6 @@ class AsyncBdnbAPIWithStreamedResponse:
         self.tuiles = resources.AsyncTuilesResourceWithStreamingResponse(client.tuiles)
 
 
-Client = BdnbAPI
+Client = Bdnb
 
-AsyncClient = AsyncBdnbAPI
+AsyncClient = AsyncBdnb

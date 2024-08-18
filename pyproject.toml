@@ -1,11 +1,11 @@
 [project]
 name = "bdnb-api"
 version = "0.1.0-alpha.5"
-description = "The official Python library for the bdnb-api API"
+description = "The official Python library for the bdnb API"
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [
-{ name = "Bdnb API", email = "dev-feedback@bdnb-api.com" },
+{ name = "Bdnb", email = "jeanplumail76@gmail.com" },
 ]
 dependencies = [
     "httpx>=0.23.0, <1",

@@ -1,8 +1,8 @@
-# Bdnb API Python API library
+# Bdnb Python API library
 
 [![PyPI version](https://img.shields.io/pypi/v/bdnb-api.svg)](https://pypi.org/project/bdnb-api/)
 
-The Bdnb API Python library provides convenient access to the Bdnb API REST API from any Python 3.7+
+The Bdnb Python library provides convenient access to the Bdnb REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -10,7 +10,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
-The REST API documentation can be found on [docs.bdnb-api.com](https://docs.bdnb-api.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [api-portail.bdnb.io](https://api-portail.bdnb.io/catalog/api/f4905edc-db58-3a3b-a8e5-c5dfc6692ee5). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -24,22 +24,22 @@ pip install --pre bdnb-api
 The full API of this library can be found in [api.md](api.md).
 
 ```python
-from bdnb_api import BdnbAPI
+from bdnb_api import Bdnb
 
-client = BdnbAPI()
+client = Bdnb()
 
 polygon_list_response = client.donnees.batiment_groupe_complet.polygon.list()
 ```
 
 ## Async usage
 
-Simply import `AsyncBdnbAPI` instead of `BdnbAPI` and use `await` with each API call:
+Simply import `AsyncBdnb` instead of `Bdnb` and use `await` with each API call:
 
 ```python
 import asyncio
-from bdnb_api import AsyncBdnbAPI
+from bdnb_api import AsyncBdnb
 
-client = AsyncBdnbAPI()
+client = AsyncBdnb()
 
 
 async def main() -> None:
@@ -62,14 +62,14 @@ Typed requests and responses provide autocomplete and documentation within your 
 
 ## Pagination
 
-List methods in the Bdnb API API are paginated.
+List methods in the Bdnb API are paginated.
 
 This library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:
 
 ```python
-from bdnb_api import BdnbAPI
+from bdnb_api import Bdnb
 
-client = BdnbAPI()
+client = Bdnb()
 
 all_autocompletions = []
 # Automatically fetches more pages as needed.
@@ -83,9 +83,9 @@ Or, asynchronously:
 
 ```python
 import asyncio
-from bdnb_api import AsyncBdnbAPI
+from bdnb_api import AsyncBdnb
 
-client = AsyncBdnbAPI()
+client = AsyncBdnb()
 
 
 async def main() -> None:
@@ -132,9 +132,9 @@ All errors inherit from `bdnb_api.APIError`.
 
 ```python
 import bdnb_api
-from bdnb_api import BdnbAPI
+from bdnb_api import Bdnb
 
-client = BdnbAPI()
+client = Bdnb()
 
 try:
     client.donnees.batiment_groupe_complet.polygon.list()
@@ -171,10 +171,10 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from bdnb_api import BdnbAPI
+from bdnb_api import Bdnb
 
 # Configure the default for all requests:
-client = BdnbAPI(
+client = Bdnb(
     # default is 2
     max_retries=0,
 )
@@ -189,16 +189,16 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from bdnb_api import BdnbAPI
+from bdnb_api import Bdnb
 
 # Configure the default for all requests:
-client = BdnbAPI(
+client = Bdnb(
     # 20 seconds (default is 1 minute)
     timeout=20.0,
 )
 
 # More granular control:
-client = BdnbAPI(
+client = Bdnb(
     timeout=httpx.Timeout(60.0, read=5.0, write=10.0, connect=2.0),
 )
 
@@ -216,10 +216,10 @@ Note that requests that time out are [retried twice by default](#retries).
 
 We use the standard library [`logging`](https://docs.python.org/3/library/logging.html) module.
 
-You can enable logging by setting the environment variable `BDNB_API_LOG` to `debug`.
+You can enable logging by setting the environment variable `BDNB_LOG` to `debug`.
 
 ```shell
-$ export BDNB_API_LOG=debug
+$ export BDNB_LOG=debug
 ```
 
 ### How to tell whether `None` means `null` or missing
@@ -239,9 +239,9 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from bdnb_api import BdnbAPI
+from bdnb_api import Bdnb
 
-client = BdnbAPI()
+client = Bdnb()
 response = client.donnees.batiment_groupe_complet.polygon.with_raw_response.list()
 print(response.headers.get('X-My-Header'))
 
@@ -313,10 +313,10 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 - Additional [advanced](https://www.python-httpx.org/advanced/clients/) functionality
 
 ```python
-from bdnb_api import BdnbAPI, DefaultHttpxClient
+from bdnb_api import Bdnb, DefaultHttpxClient
 
-client = BdnbAPI(
-    # Or use the `BDNB_API_BASE_URL` env var
+client = Bdnb(
+    # Or use the `BDNB_BASE_URL` env var
     base_url="http://my.test.server.example.com:8083",
     http_client=DefaultHttpxClient(
         proxies="http://my.test.proxy.example.com",
