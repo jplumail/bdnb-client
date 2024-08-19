@@ -93,11 +93,7 @@ from .merimee import (
     AsyncMerimeeResourceWithStreamingResponse,
 )
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ...._utils import maybe_transform, strip_not_given
 from .wall_dict import (
     WallDictResource,
     AsyncWallDictResource,
@@ -146,6 +142,7 @@ from .dle_gaz_2020 import (
     DleGaz2020ResourceWithStreamingResponse,
     AsyncDleGaz2020ResourceWithStreamingResponse,
 )
+from ....pagination import SyncDefault, AsyncDefault
 from .dle_elec_2020 import (
     DleElec2020Resource,
     AsyncDleElec2020Resource,
@@ -154,7 +151,7 @@ from .dle_elec_2020 import (
     DleElec2020ResourceWithStreamingResponse,
     AsyncDleElec2020ResourceWithStreamingResponse,
 )
-from ...._base_client import make_request_options
+from ...._base_client import AsyncPaginator, make_request_options
 from .complet.complet import CompletResource, AsyncCompletResource
 from .simulations_dpe import (
     SimulationsDpeResource,
@@ -285,7 +282,7 @@ from .iris_simulations_valeur_verte import (
     IrisSimulationsValeurVerteResourceWithStreamingResponse,
     AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse,
 )
-from ....types.donnees.batiment_groupe_list_response import BatimentGroupeListResponse
+from ....types.donnees.batiment_groupe.batiment_groupe import BatimentGroupe
 
 __all__ = ["BatimentGroupeResource", "AsyncBatimentGroupeResource"]
 
@@ -460,7 +457,7 @@ class BatimentGroupeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeListResponse:
+    ) -> SyncDefault[BatimentGroupe]:
         """
         Complexes de bâtiments au sens de la BDNB
 
@@ -519,8 +516,9 @@ class BatimentGroupeResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe",
+            page=SyncDefault[BatimentGroupe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -550,7 +548,7 @@ class BatimentGroupeResource(SyncAPIResource):
                     batiment_groupe_list_params.BatimentGroupeListParams,
                 ),
             ),
-            cast_to=BatimentGroupeListResponse,
+            model=BatimentGroupe,
         )
 
 
@@ -695,7 +693,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentGroupeResourceWithStreamingResponse:
         return AsyncBatimentGroupeResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -724,7 +722,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentGroupeListResponse:
+    ) -> AsyncPaginator[BatimentGroupe, AsyncDefault[BatimentGroupe]]:
         """
         Complexes de bâtiments au sens de la BDNB
 
@@ -783,14 +781,15 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe",
+            page=AsyncDefault[BatimentGroupe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_commune_insee": code_commune_insee,
@@ -814,7 +813,7 @@ class AsyncBatimentGroupeResource(AsyncAPIResource):
                     batiment_groupe_list_params.BatimentGroupeListParams,
                 ),
             ),
-            cast_to=BatimentGroupeListResponse,
+            model=BatimentGroupe,
         )
 
 
