@@ -26,10 +26,9 @@ from bdnb_client import Bdnb
 
 client = Bdnb()
 
-page = client.donnees.batiment_groupe.list(
+batiment_groupe_list_response = client.donnees.batiment_groupe.list(
     code_commune_insee="eq.76108",
 )
-print(page.page)
 ```
 
 ## Async usage
@@ -44,10 +43,9 @@ client = AsyncBdnb()
 
 
 async def main() -> None:
-    page = await client.donnees.batiment_groupe.list(
+    batiment_groupe_list_response = await client.donnees.batiment_groupe.list(
         code_commune_insee="eq.76108",
     )
-    print(page.page)
 
 
 asyncio.run(main())
@@ -63,75 +61,6 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 - Converting to a dictionary, `model.to_dict()`
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
-
-## Pagination
-
-List methods in the Bdnb API are paginated.
-
-This library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:
-
-```python
-from bdnb_client import Bdnb
-
-client = Bdnb()
-
-all_batiment_groupes = []
-# Automatically fetches more pages as needed.
-for batiment_groupe in client.donnees.batiment_groupe.list(
-    code_commune_insee="eq.76108",
-):
-    # Do something with batiment_groupe here
-    all_batiment_groupes.append(batiment_groupe)
-print(all_batiment_groupes)
-```
-
-Or, asynchronously:
-
-```python
-import asyncio
-from bdnb_client import AsyncBdnb
-
-client = AsyncBdnb()
-
-
-async def main() -> None:
-    all_batiment_groupes = []
-    # Iterate through items across all pages, issuing requests as needed.
-    async for batiment_groupe in client.donnees.batiment_groupe.list(
-        code_commune_insee="eq.76108",
-    ):
-        all_batiment_groupes.append(batiment_groupe)
-    print(all_batiment_groupes)
-
-
-asyncio.run(main())
-```
-
-Alternatively, you can use the `.has_next_page()`, `.next_page_info()`, or `.get_next_page()` methods for more granular control working with pages:
-
-```python
-first_page = await client.donnees.batiment_groupe.list(
-    code_commune_insee="eq.76108",
-)
-if first_page.has_next_page():
-    print(f"will fetch next page using these details: {first_page.next_page_info()}")
-    next_page = await first_page.get_next_page()
-    print(f"number of items we just fetched: {len(next_page.items)}")
-
-# Remove `await` for non-async usage.
-```
-
-Or just work directly with the returned data:
-
-```python
-first_page = await client.donnees.batiment_groupe.list(
-    code_commune_insee="eq.76108",
-)
-for batiment_groupe in first_page.items:
-    print(batiment_groupe.batiment_groupe_id)
-
-# Remove `await` for non-async usage.
-```
 
 ## Handling errors
 
@@ -266,7 +195,7 @@ response = client.donnees.batiment_groupe.with_raw_response.list(
 print(response.headers.get('X-My-Header'))
 
 batiment_groupe = response.parse()  # get the object that `donnees.batiment_groupe.list()` would have returned
-print(batiment_groupe.batiment_groupe_id)
+print(batiment_groupe)
 ```
 
 These methods return an [`APIResponse`](https://github.com/jplumail/bdnb-client/tree/main/src/bdnb_client/_response.py) object.

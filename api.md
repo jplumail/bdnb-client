@@ -31,12 +31,12 @@ Methods:
 Types:
 
 ```python
-from bdnb_client.types.donnees import BatimentGroupe
+from bdnb_client.types.donnees import BatimentGroupe, BatimentGroupeListResponse
 ```
 
 Methods:
 
-- <code title="get /donnees/batiment_groupe">client.donnees.batiment_groupe.<a href="./src/bdnb_client/resources/donnees/batiment_groupe/batiment_groupe.py">list</a>(\*\*<a href="src/bdnb_client/types/donnees/batiment_groupe_list_params.py">params</a>) -> <a href="./src/bdnb_client/types/donnees/batiment_groupe/batiment_groupe.py">SyncDefault[BatimentGroupe]</a></code>
+- <code title="get /donnees/batiment_groupe">client.donnees.batiment_groupe.<a href="./src/bdnb_client/resources/donnees/batiment_groupe/batiment_groupe.py">list</a>(\*\*<a href="src/bdnb_client/types/donnees/batiment_groupe_list_params.py">params</a>) -> <a href="./src/bdnb_client/types/donnees/batiment_groupe_list_response.py">BatimentGroupeListResponse</a></code>
 
 ### Complet
 
