@@ -29,7 +29,7 @@ client = Bdnb()
 page = client.donnees.batiment_groupe.list(
     code_commune_insee="eq.76108",
 )
-print(page.page)
+print(page.items)
 ```
 
 ## Async usage
@@ -47,7 +47,7 @@ async def main() -> None:
     page = await client.donnees.batiment_groupe.list(
         code_commune_insee="eq.76108",
     )
-    print(page.page)
+    print(page.items)
 
 
 asyncio.run(main())
