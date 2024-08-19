@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import ffo_bat_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_ffo_bat import BatimentGroupeFfoBat
+from ....types.donnees.batiment_groupe.ffo_bat_list_response import FfoBatListResponse
 
 __all__ = ["FfoBatResource", "AsyncFfoBatResource"]
 
@@ -54,7 +57,7 @@ class FfoBatResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeFfoBat]:
+    ) -> FfoBatListResponse:
         """
         Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
@@ -100,9 +103,8 @@ class FfoBatResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_ffo_bat",
-            page=SyncDefault[BatimentGroupeFfoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -126,7 +128,7 @@ class FfoBatResource(SyncAPIResource):
                     ffo_bat_list_params.FfoBatListParams,
                 ),
             ),
-            model=BatimentGroupeFfoBat,
+            cast_to=FfoBatListResponse,
         )
 
 
@@ -139,7 +141,7 @@ class AsyncFfoBatResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncFfoBatResourceWithStreamingResponse:
         return AsyncFfoBatResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         annee_construction: str | NotGiven = NOT_GIVEN,
@@ -162,7 +164,7 @@ class AsyncFfoBatResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeFfoBat, AsyncDefault[BatimentGroupeFfoBat]]:
+    ) -> FfoBatListResponse:
         """
         Données issues des Fichiers Fonciers agrégées à l'échelle du bâtiment
 
@@ -208,15 +210,14 @@ class AsyncFfoBatResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_ffo_bat",
-            page=AsyncDefault[BatimentGroupeFfoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "annee_construction": annee_construction,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -234,7 +235,7 @@ class AsyncFfoBatResource(AsyncAPIResource):
                     ffo_bat_list_params.FfoBatListParams,
                 ),
             ),
-            model=BatimentGroupeFfoBat,
+            cast_to=FfoBatListResponse,
         )
 
 

@@ -21,7 +21,11 @@ from .polygon import (
     AsyncPolygonResourceWithStreamingResponse,
 )
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import maybe_transform, strip_not_given
+from ....._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -30,10 +34,9 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .....pagination import SyncDefault, AsyncDefault
-from ....._base_client import AsyncPaginator, make_request_options
+from ....._base_client import make_request_options
 from .....types.donnees.batiment_groupe import complet_list_params
-from .....types.donnees.batiment_groupe.batiment_groupe_complet import BatimentGroupeComplet
+from .....types.donnees.batiment_groupe.complet_list_response import CompletListResponse
 
 __all__ = ["CompletResource", "AsyncCompletResource"]
 
@@ -251,7 +254,7 @@ class CompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeComplet]:
+    ) -> CompletListResponse:
         """
         jointure batiment_groupe avec l'ensemble des tables métiers
 
@@ -793,9 +796,8 @@ class CompletResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_complet",
-            page=SyncDefault[BatimentGroupeComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -992,7 +994,7 @@ class CompletResource(SyncAPIResource):
                     complet_list_params.CompletListParams,
                 ),
             ),
-            model=BatimentGroupeComplet,
+            cast_to=CompletListResponse,
         )
 
 
@@ -1013,7 +1015,7 @@ class AsyncCompletResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncCompletResourceWithStreamingResponse:
         return AsyncCompletResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         alea_argiles: str | NotGiven = NOT_GIVEN,
@@ -1209,7 +1211,7 @@ class AsyncCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeComplet, AsyncDefault[BatimentGroupeComplet]]:
+    ) -> CompletListResponse:
         """
         jointure batiment_groupe avec l'ensemble des tables métiers
 
@@ -1751,15 +1753,14 @@ class AsyncCompletResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_complet",
-            page=AsyncDefault[BatimentGroupeComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "alea_argiles": alea_argiles,
                         "alea_radon": alea_radon,
@@ -1950,7 +1951,7 @@ class AsyncCompletResource(AsyncAPIResource):
                     complet_list_params.CompletListParams,
                 ),
             ),
-            model=BatimentGroupeComplet,
+            cast_to=CompletListResponse,
         )
 
 

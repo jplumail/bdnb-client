@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import maybe_transform, strip_not_given
+from ....._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -14,10 +18,9 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .....pagination import SyncDefault, AsyncDefault
-from ....._base_client import AsyncPaginator, make_request_options
+from ....._base_client import make_request_options
 from .....types.donnees.relations.batiment_groupe import parcelle_list_params
-from .....types.donnees.relations.batiment_groupe.rel_batiment_groupe_parcelle import RelBatimentGroupeParcelle
+from .....types.donnees.relations.batiment_groupe.parcelle_list_response import ParcelleListResponse
 
 __all__ = ["ParcelleResource", "AsyncParcelleResource"]
 
@@ -50,7 +53,7 @@ class ParcelleResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeParcelle]:
+    ) -> ParcelleListResponse:
         """
         Table de relation entre les groupes de bâtiment et les parcelles (si
         ayant_droit_ffo, préférer la table [parcelle_unifiee])
@@ -91,9 +94,8 @@ class ParcelleResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/rel_batiment_groupe_parcelle",
-            page=SyncDefault[RelBatimentGroupeParcelle],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -113,7 +115,7 @@ class ParcelleResource(SyncAPIResource):
                     parcelle_list_params.ParcelleListParams,
                 ),
             ),
-            model=RelBatimentGroupeParcelle,
+            cast_to=ParcelleListResponse,
         )
 
 
@@ -126,7 +128,7 @@ class AsyncParcelleResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncParcelleResourceWithStreamingResponse:
         return AsyncParcelleResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -145,7 +147,7 @@ class AsyncParcelleResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeParcelle, AsyncDefault[RelBatimentGroupeParcelle]]:
+    ) -> ParcelleListResponse:
         """
         Table de relation entre les groupes de bâtiment et les parcelles (si
         ayant_droit_ffo, préférer la table [parcelle_unifiee])
@@ -186,15 +188,14 @@ class AsyncParcelleResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/rel_batiment_groupe_parcelle",
-            page=AsyncDefault[RelBatimentGroupeParcelle],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -208,7 +209,7 @@ class AsyncParcelleResource(AsyncAPIResource):
                     parcelle_list_params.ParcelleListParams,
                 ),
             ),
-            model=RelBatimentGroupeParcelle,
+            cast_to=ParcelleListResponse,
         )
 
 

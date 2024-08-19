@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,11 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import iris_simulations_valeur_verte_list_params
-from ....types.donnees.batiment_groupe.iris_simulations_valeur_verte import IrisSimulationsValeurVerte
+from ....types.donnees.batiment_groupe.iris_simulations_valeur_verte_list_response import (
+    IrisSimulationsValeurVerteListResponse,
+)
 
 __all__ = ["IrisSimulationsValeurVerteResource", "AsyncIrisSimulationsValeurVerteResource"]
 
@@ -70,7 +75,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[IrisSimulationsValeurVerte]:
+    ) -> IrisSimulationsValeurVerteListResponse:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -171,9 +176,8 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/iris_simulations_valeur_verte",
-            page=SyncDefault[IrisSimulationsValeurVerte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -213,7 +217,7 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
                     iris_simulations_valeur_verte_list_params.IrisSimulationsValeurVerteListParams,
                 ),
             ),
-            model=IrisSimulationsValeurVerte,
+            cast_to=IrisSimulationsValeurVerteListResponse,
         )
 
 
@@ -226,7 +230,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse:
         return AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -265,7 +269,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[IrisSimulationsValeurVerte, AsyncDefault[IrisSimulationsValeurVerte]]:
+    ) -> IrisSimulationsValeurVerteListResponse:
         """
         Simulation des gains en valeur foncière liés à un potentiel changement de classe
         DPE pour un logement du bâtiment (en valeur relative)
@@ -366,15 +370,14 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/iris_simulations_valeur_verte",
-            page=AsyncDefault[IrisSimulationsValeurVerte],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -408,7 +411,7 @@ class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
                     iris_simulations_valeur_verte_list_params.IrisSimulationsValeurVerteListParams,
                 ),
             ),
-            model=IrisSimulationsValeurVerte,
+            cast_to=IrisSimulationsValeurVerteListResponse,
         )
 
 

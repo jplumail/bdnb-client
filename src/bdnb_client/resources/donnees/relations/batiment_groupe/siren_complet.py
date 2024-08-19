@@ -8,7 +8,11 @@ from datetime import date
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import maybe_transform, strip_not_given
+from ....._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -17,10 +21,9 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .....pagination import SyncDefault, AsyncDefault
-from ....._base_client import AsyncPaginator, make_request_options
+from ....._base_client import make_request_options
 from .....types.donnees.relations.batiment_groupe import siren_complet_list_params
-from .....types.donnees.relations.batiment_groupe.rel_batiment_groupe_siren_complet import RelBatimentGroupeSirenComplet
+from .....types.donnees.relations.batiment_groupe.siren_complet_list_response import SirenCompletListResponse
 
 __all__ = ["SirenCompletResource", "AsyncSirenCompletResource"]
 
@@ -66,7 +69,7 @@ class SirenCompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeSirenComplet]:
+    ) -> SirenCompletListResponse:
         """
         Table de relation entre les bâtiments de la BDNB et les siren.
 
@@ -133,9 +136,8 @@ class SirenCompletResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/rel_batiment_groupe_siren_complet",
-            page=SyncDefault[RelBatimentGroupeSirenComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -168,7 +170,7 @@ class SirenCompletResource(SyncAPIResource):
                     siren_complet_list_params.SirenCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSirenComplet,
+            cast_to=SirenCompletListResponse,
         )
 
 
@@ -181,7 +183,7 @@ class AsyncSirenCompletResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncSirenCompletResourceWithStreamingResponse:
         return AsyncSirenCompletResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -213,7 +215,7 @@ class AsyncSirenCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeSirenComplet, AsyncDefault[RelBatimentGroupeSirenComplet]]:
+    ) -> SirenCompletListResponse:
         """
         Table de relation entre les bâtiments de la BDNB et les siren.
 
@@ -280,15 +282,14 @@ class AsyncSirenCompletResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/rel_batiment_groupe_siren_complet",
-            page=AsyncDefault[RelBatimentGroupeSirenComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "cat_org": cat_org,
@@ -315,7 +316,7 @@ class AsyncSirenCompletResource(AsyncAPIResource):
                     siren_complet_list_params.SirenCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSirenComplet,
+            cast_to=SirenCompletListResponse,
         )
 
 

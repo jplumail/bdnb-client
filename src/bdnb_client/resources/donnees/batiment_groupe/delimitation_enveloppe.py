@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import delimitation_enveloppe_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_delimitation_enveloppe import BatimentGroupeDelimitationEnveloppe
+from ....types.donnees.batiment_groupe.delimitation_enveloppe_list_response import DelimitationEnveloppeListResponse
 
 __all__ = ["DelimitationEnveloppeResource", "AsyncDelimitationEnveloppeResource"]
 
@@ -49,7 +52,7 @@ class DelimitationEnveloppeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDelimitationEnveloppe]:
+    ) -> DelimitationEnveloppeListResponse:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -88,9 +91,8 @@ class DelimitationEnveloppeResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_delimitation_enveloppe",
-            page=SyncDefault[BatimentGroupeDelimitationEnveloppe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -109,7 +111,7 @@ class DelimitationEnveloppeResource(SyncAPIResource):
                     delimitation_enveloppe_list_params.DelimitationEnveloppeListParams,
                 ),
             ),
-            model=BatimentGroupeDelimitationEnveloppe,
+            cast_to=DelimitationEnveloppeListResponse,
         )
 
 
@@ -122,7 +124,7 @@ class AsyncDelimitationEnveloppeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncDelimitationEnveloppeResourceWithStreamingResponse:
         return AsyncDelimitationEnveloppeResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -140,7 +142,7 @@ class AsyncDelimitationEnveloppeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeDelimitationEnveloppe, AsyncDefault[BatimentGroupeDelimitationEnveloppe]]:
+    ) -> DelimitationEnveloppeListResponse:
         """
         Table contenant les données de prétraitements de géométrie des groupes de
         bâtiments : liste des parois, orientations, surfaces, périmètres, adjacences et
@@ -179,15 +181,14 @@ class AsyncDelimitationEnveloppeResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_delimitation_enveloppe",
-            page=AsyncDefault[BatimentGroupeDelimitationEnveloppe],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -200,7 +201,7 @@ class AsyncDelimitationEnveloppeResource(AsyncAPIResource):
                     delimitation_enveloppe_list_params.DelimitationEnveloppeListParams,
                 ),
             ),
-            model=BatimentGroupeDelimitationEnveloppe,
+            cast_to=DelimitationEnveloppeListResponse,
         )
 
 
