@@ -14,7 +14,7 @@ The REST API documentation can be found on [api-portail.bdnb.io](https://api-por
 
 ```sh
 # install from PyPI
-pip install --pre bdnb-client
+pip install bdnb-client
 ```
 
 ## Usage
