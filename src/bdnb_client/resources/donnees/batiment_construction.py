@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import batiment_construction_list_params
-from ...types.donnees.batiment_construction_list_response import BatimentConstructionListResponse
+from ...types.donnees.batiment_construction import BatimentConstruction
 
 __all__ = ["BatimentConstructionResource", "AsyncBatimentConstructionResource"]
 
@@ -60,7 +57,7 @@ class BatimentConstructionResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentConstructionListResponse:
+    ) -> SyncDefault[BatimentConstruction]:
         """
         Enceinte physique des différentes géométries qui composent le groupe de bâtiment
         ainsi que l'identifiant rnb.
@@ -116,8 +113,9 @@ class BatimentConstructionResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_construction",
+            page=SyncDefault[BatimentConstruction],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -144,7 +142,7 @@ class BatimentConstructionResource(SyncAPIResource):
                     batiment_construction_list_params.BatimentConstructionListParams,
                 ),
             ),
-            cast_to=BatimentConstructionListResponse,
+            model=BatimentConstruction,
         )
 
 
@@ -157,7 +155,7 @@ class AsyncBatimentConstructionResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBatimentConstructionResourceWithStreamingResponse:
         return AsyncBatimentConstructionResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         altitude_sol: str | NotGiven = NOT_GIVEN,
@@ -183,7 +181,7 @@ class AsyncBatimentConstructionResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> BatimentConstructionListResponse:
+    ) -> AsyncPaginator[BatimentConstruction, AsyncDefault[BatimentConstruction]]:
         """
         Enceinte physique des différentes géométries qui composent le groupe de bâtiment
         ainsi que l'identifiant rnb.
@@ -239,14 +237,15 @@ class AsyncBatimentConstructionResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_construction",
+            page=AsyncDefault[BatimentConstruction],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "altitude_sol": altitude_sol,
                         "batiment_construction_id": batiment_construction_id,
@@ -267,7 +266,7 @@ class AsyncBatimentConstructionResource(AsyncAPIResource):
                     batiment_construction_list_params.BatimentConstructionListParams,
                 ),
             ),
-            cast_to=BatimentConstructionListResponse,
+            model=BatimentConstruction,
         )
 
 

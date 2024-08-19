@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
-from bdnb_client.types.donnees.batiment_groupe import DleElec2020ListResponse
+from bdnb_client.pagination import SyncDefault, AsyncDefault
+from bdnb_client.types.donnees.batiment_groupe import BatimentGroupeDleElec2020
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,7 @@ class TestDleElec2020:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         dle_elec_2020 = client.donnees.batiment_groupe.dle_elec_2020.list()
-        assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -43,7 +44,7 @@ class TestDleElec2020:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -52,7 +53,7 @@ class TestDleElec2020:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         dle_elec_2020 = response.parse()
-        assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -61,7 +62,7 @@ class TestDleElec2020:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             dle_elec_2020 = response.parse()
-            assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+            assert_matches_type(SyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -72,7 +73,7 @@ class TestAsyncDleElec2020:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         dle_elec_2020 = await async_client.donnees.batiment_groupe.dle_elec_2020.list()
-        assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -95,7 +96,7 @@ class TestAsyncDleElec2020:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -104,7 +105,7 @@ class TestAsyncDleElec2020:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         dle_elec_2020 = await response.parse()
-        assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -113,6 +114,6 @@ class TestAsyncDleElec2020:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             dle_elec_2020 = await response.parse()
-            assert_matches_type(DleElec2020ListResponse, dle_elec_2020, path=["response"])
+            assert_matches_type(AsyncDefault[BatimentGroupeDleElec2020], dle_elec_2020, path=["response"])
 
         assert cast(Any, response.is_closed) is True

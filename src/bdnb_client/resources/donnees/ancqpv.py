@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import ancqpv_list_params
-from ...types.donnees.ancqpv_list_response import AncqpvListResponse
+from ...types.donnees.ancqpv import Ancqpv
 
 __all__ = ["AncqpvResource", "AsyncAncqpvResource"]
 
@@ -53,7 +50,7 @@ class AncqpvResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AncqpvListResponse:
+    ) -> SyncDefault[Ancqpv]:
         """
         Base des Quartiers Prioritaires de la Ville (QPV)
 
@@ -91,8 +88,9 @@ class AncqpvResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/ancqpv",
+            page=SyncDefault[Ancqpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -112,7 +110,7 @@ class AncqpvResource(SyncAPIResource):
                     ancqpv_list_params.AncqpvListParams,
                 ),
             ),
-            cast_to=AncqpvListResponse,
+            model=Ancqpv,
         )
 
 
@@ -125,7 +123,7 @@ class AsyncAncqpvResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncAncqpvResourceWithStreamingResponse:
         return AsyncAncqpvResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         code_qp: str | NotGiven = NOT_GIVEN,
@@ -144,7 +142,7 @@ class AsyncAncqpvResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AncqpvListResponse:
+    ) -> AsyncPaginator[Ancqpv, AsyncDefault[Ancqpv]]:
         """
         Base des Quartiers Prioritaires de la Ville (QPV)
 
@@ -182,14 +180,15 @@ class AsyncAncqpvResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/ancqpv",
+            page=AsyncDefault[Ancqpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "code_qp": code_qp,
                         "commune_qp": commune_qp,
@@ -203,7 +202,7 @@ class AsyncAncqpvResource(AsyncAPIResource):
                     ancqpv_list_params.AncqpvListParams,
                 ),
             ),
-            cast_to=AncqpvListResponse,
+            model=Ancqpv,
         )
 
 

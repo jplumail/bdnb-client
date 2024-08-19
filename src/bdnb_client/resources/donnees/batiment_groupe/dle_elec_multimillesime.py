@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ...._utils import maybe_transform, strip_not_given
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -18,9 +14,12 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...._base_client import make_request_options
+from ....pagination import SyncDefault, AsyncDefault
+from ...._base_client import AsyncPaginator, make_request_options
 from ....types.donnees.batiment_groupe import dle_elec_multimillesime_list_params
-from ....types.donnees.batiment_groupe.dle_elec_multimillesime_list_response import DleElecMultimillesimeListResponse
+from ....types.donnees.batiment_groupe.batiment_groupe_dle_elec_multimillesime import (
+    BatimentGroupeDleElecMultimillesime,
+)
 
 __all__ = ["DleElecMultimillesimeResource", "AsyncDleElecMultimillesimeResource"]
 
@@ -61,7 +60,7 @@ class DleElecMultimillesimeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DleElecMultimillesimeListResponse:
+    ) -> SyncDefault[BatimentGroupeDleElecMultimillesime]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur éléctrique agrégées à l'échelle du bâtiment
@@ -116,8 +115,9 @@ class DleElecMultimillesimeResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_multimillesime",
+            page=SyncDefault[BatimentGroupeDleElecMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -145,7 +145,7 @@ class DleElecMultimillesimeResource(SyncAPIResource):
                     dle_elec_multimillesime_list_params.DleElecMultimillesimeListParams,
                 ),
             ),
-            cast_to=DleElecMultimillesimeListResponse,
+            model=BatimentGroupeDleElecMultimillesime,
         )
 
 
@@ -158,7 +158,7 @@ class AsyncDleElecMultimillesimeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncDleElecMultimillesimeResourceWithStreamingResponse:
         return AsyncDleElecMultimillesimeResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -185,7 +185,7 @@ class AsyncDleElecMultimillesimeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DleElecMultimillesimeListResponse:
+    ) -> AsyncPaginator[BatimentGroupeDleElecMultimillesime, AsyncDefault[BatimentGroupeDleElecMultimillesime]]:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur éléctrique agrégées à l'échelle du bâtiment
@@ -240,14 +240,15 @@ class AsyncDleElecMultimillesimeResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_dle_elec_multimillesime",
+            page=AsyncDefault[BatimentGroupeDleElecMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -269,7 +270,7 @@ class AsyncDleElecMultimillesimeResource(AsyncAPIResource):
                     dle_elec_multimillesime_list_params.DleElecMultimillesimeListParams,
                 ),
             ),
-            cast_to=DleElecMultimillesimeListResponse,
+            model=BatimentGroupeDleElecMultimillesime,
         )
 
 

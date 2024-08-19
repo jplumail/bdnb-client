@@ -7,13 +7,9 @@ from .bpe_list_params import BpeListParams as BpeListParams
 from .qpv_list_params import QpvListParams as QpvListParams
 from .rnc_list_params import RncListParams as RncListParams
 from .hthd_list_params import HthdListParams as HthdListParams
-from .bpe_list_response import BpeListResponse as BpeListResponse
-from .qpv_list_response import QpvListResponse as QpvListResponse
 from .radon_list_params import RadonListParams as RadonListParams
-from .rnc_list_response import RncListResponse as RncListResponse
 from .argile_list_params import ArgileListParams as ArgileListParams
 from .geospx_list_params import GeospxListParams as GeospxListParams
-from .hthd_list_response import HthdListResponse as HthdListResponse
 from .adresse_list_params import AdresseListParams as AdresseListParams
 from .batiment_groupe_bpe import BatimentGroupeBpe as BatimentGroupeBpe
 from .batiment_groupe_qpv import BatimentGroupeQpv as BatimentGroupeQpv
@@ -21,15 +17,8 @@ from .batiment_groupe_rnc import BatimentGroupeRnc as BatimentGroupeRnc
 from .complet_list_params import CompletListParams as CompletListParams
 from .ffo_bat_list_params import FfoBatListParams as FfoBatListParams
 from .merimee_list_params import MerimeeListParams as MerimeeListParams
-from .radon_list_response import RadonListResponse as RadonListResponse
-from .argile_list_response import ArgileListResponse as ArgileListResponse
 from .batiment_groupe_hthd import BatimentGroupeHthd as BatimentGroupeHthd
-from .geospx_list_response import GeospxListResponse as GeospxListResponse
-from .adresse_list_response import AdresseListResponse as AdresseListResponse
 from .batiment_groupe_radon import BatimentGroupeRadon as BatimentGroupeRadon
-from .complet_list_response import CompletListResponse as CompletListResponse
-from .ffo_bat_list_response import FfoBatListResponse as FfoBatListResponse
-from .merimee_list_response import MerimeeListResponse as MerimeeListResponse
 from .wall_dict_list_params import WallDictListParams as WallDictListParams
 from .batiment_groupe_geospx import BatimentGroupeGeospx as BatimentGroupeGeospx
 from .bdtopo_bat_list_params import BdtopoBatListParams as BdtopoBatListParams
@@ -40,49 +29,32 @@ from .batiment_groupe_complet import BatimentGroupeComplet as BatimentGroupeComp
 from .batiment_groupe_ffo_bat import BatimentGroupeFfoBat as BatimentGroupeFfoBat
 from .batiment_groupe_merimee import BatimentGroupeMerimee as BatimentGroupeMerimee
 from .bdtopo_zoac_list_params import BdtopoZoacListParams as BdtopoZoacListParams
-from .wall_dict_list_response import WallDictListResponse as WallDictListResponse
-from .bdtopo_bat_list_response import BdtopoBatListResponse as BdtopoBatListResponse
-from .bdtopo_equ_list_response import BdtopoEquListResponse as BdtopoEquListResponse
 from .dle_gaz_2020_list_params import DleGaz2020ListParams as DleGaz2020ListParams
 from .batiment_groupe_wall_dict import BatimentGroupeWallDict as BatimentGroupeWallDict
-from .bdtopo_zoac_list_response import BdtopoZoacListResponse as BdtopoZoacListResponse
 from .dle_elec_2020_list_params import DleElec2020ListParams as DleElec2020ListParams
 from .batiment_groupe_bdtopo_bat import BatimentGroupeBdtopoBat as BatimentGroupeBdtopoBat
 from .batiment_groupe_bdtopo_equ import BatimentGroupeBdtopoEqu as BatimentGroupeBdtopoEqu
-from .dle_gaz_2020_list_response import DleGaz2020ListResponse as DleGaz2020ListResponse
 from .iris_contexte_geographique import IrisContexteGeographique as IrisContexteGeographique
 from .batiment_groupe_bdtopo_zoac import BatimentGroupeBdtopoZoac as BatimentGroupeBdtopoZoac
-from .dle_elec_2020_list_response import DleElec2020ListResponse as DleElec2020ListResponse
 from .simulations_dpe_list_params import SimulationsDpeListParams as SimulationsDpeListParams
 from .simulations_dvf_list_params import SimulationsDvfListParams as SimulationsDvfListParams
 from .batiment_groupe_dle_gaz_2020 import BatimentGroupeDleGaz2020 as BatimentGroupeDleGaz2020
 from .dle_reseaux_2020_list_params import DleReseaux2020ListParams as DleReseaux2020ListParams
 from .batiment_groupe_dle_elec_2020 import BatimentGroupeDleElec2020 as BatimentGroupeDleElec2020
 from .iris_simulations_valeur_verte import IrisSimulationsValeurVerte as IrisSimulationsValeurVerte
-from .simulations_dpe_list_response import SimulationsDpeListResponse as SimulationsDpeListResponse
-from .simulations_dvf_list_response import SimulationsDvfListResponse as SimulationsDvfListResponse
-from .dle_reseaux_2020_list_response import DleReseaux2020ListResponse as DleReseaux2020ListResponse
 from .synthese_enveloppe_list_params import SyntheseEnveloppeListParams as SyntheseEnveloppeListParams
 from .batiment_groupe_simulations_dpe import BatimentGroupeSimulationsDpe as BatimentGroupeSimulationsDpe
 from .batiment_groupe_simulations_dvf import BatimentGroupeSimulationsDvf as BatimentGroupeSimulationsDvf
 from .batiment_groupe_dle_reseaux_2020 import BatimentGroupeDleReseaux2020 as BatimentGroupeDleReseaux2020
 from .dvf_open_statistique_list_params import DvfOpenStatistiqueListParams as DvfOpenStatistiqueListParams
-from .synthese_enveloppe_list_response import SyntheseEnveloppeListResponse as SyntheseEnveloppeListResponse
 from .batiment_groupe_synthese_enveloppe import BatimentGroupeSyntheseEnveloppe as BatimentGroupeSyntheseEnveloppe
 from .delimitation_enveloppe_list_params import DelimitationEnveloppeListParams as DelimitationEnveloppeListParams
 from .dle_gaz_multimillesime_list_params import DleGazMultimillesimeListParams as DleGazMultimillesimeListParams
 from .dvf_open_representatif_list_params import DvfOpenRepresentatifListParams as DvfOpenRepresentatifListParams
-from .dvf_open_statistique_list_response import DvfOpenStatistiqueListResponse as DvfOpenStatistiqueListResponse
 from .dle_elec_multimillesime_list_params import DleElecMultimillesimeListParams as DleElecMultimillesimeListParams
 from .batiment_groupe_dvf_open_statistique import BatimentGroupeDvfOpenStatistique as BatimentGroupeDvfOpenStatistique
-from .delimitation_enveloppe_list_response import DelimitationEnveloppeListResponse as DelimitationEnveloppeListResponse
-from .dle_gaz_multimillesime_list_response import DleGazMultimillesimeListResponse as DleGazMultimillesimeListResponse
 from .dpe_statistique_logement_list_params import DpeStatistiqueLogementListParams as DpeStatistiqueLogementListParams
-from .dvf_open_representatif_list_response import DvfOpenRepresentatifListResponse as DvfOpenRepresentatifListResponse
 from .simulations_valeur_verte_list_params import SimulationsValeurVerteListParams as SimulationsValeurVerteListParams
-from .dle_elec_multimillesime_list_response import (
-    DleElecMultimillesimeListResponse as DleElecMultimillesimeListResponse,
-)
 from .batiment_groupe_delimitation_enveloppe import (
     BatimentGroupeDelimitationEnveloppe as BatimentGroupeDelimitationEnveloppe,
 )
@@ -98,14 +70,8 @@ from .dle_reseaux_multimillesime_list_params import (
 from .dpe_representatif_logement_list_params import (
     DpeRepresentatifLogementListParams as DpeRepresentatifLogementListParams,
 )
-from .dpe_statistique_logement_list_response import (
-    DpeStatistiqueLogementListResponse as DpeStatistiqueLogementListResponse,
-)
 from .iris_contexte_geographique_list_params import (
     IrisContexteGeographiqueListParams as IrisContexteGeographiqueListParams,
-)
-from .simulations_valeur_verte_list_response import (
-    SimulationsValeurVerteListResponse as SimulationsValeurVerteListResponse,
 )
 from .batiment_groupe_dle_elec_multimillesime import (
     BatimentGroupeDleElecMultimillesime as BatimentGroupeDleElecMultimillesime,
@@ -115,15 +81,6 @@ from .batiment_groupe_dpe_statistique_logement import (
 )
 from .batiment_groupe_simulations_valeur_verte import (
     BatimentGroupeSimulationsValeurVerte as BatimentGroupeSimulationsValeurVerte,
-)
-from .dle_reseaux_multimillesime_list_response import (
-    DleReseauxMultimillesimeListResponse as DleReseauxMultimillesimeListResponse,
-)
-from .dpe_representatif_logement_list_response import (
-    DpeRepresentatifLogementListResponse as DpeRepresentatifLogementListResponse,
-)
-from .iris_contexte_geographique_list_response import (
-    IrisContexteGeographiqueListResponse as IrisContexteGeographiqueListResponse,
 )
 from .indicateur_reseau_chaud_froid_list_params import (
     IndicateurReseauChaudFroidListParams as IndicateurReseauChaudFroidListParams,
@@ -136,12 +93,6 @@ from .batiment_groupe_dle_reseaux_multimillesime import (
 )
 from .batiment_groupe_dpe_representatif_logement import (
     BatimentGroupeDpeRepresentatifLogement as BatimentGroupeDpeRepresentatifLogement,
-)
-from .indicateur_reseau_chaud_froid_list_response import (
-    IndicateurReseauChaudFroidListResponse as IndicateurReseauChaudFroidListResponse,
-)
-from .iris_simulations_valeur_verte_list_response import (
-    IrisSimulationsValeurVerteListResponse as IrisSimulationsValeurVerteListResponse,
 )
 from .batiment_groupe_indicateur_reseau_chaud_froid import (
     BatimentGroupeIndicateurReseauChaudFroid as BatimentGroupeIndicateurReseauChaudFroid,

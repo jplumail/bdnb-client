@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
-from bdnb_client.types.metadonnees import ColonnesSouscriptionListResponse
+from bdnb_client.pagination import SyncDefault, AsyncDefault
+from bdnb_client.types.metadonnees import ColonneSouscription
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,7 @@ class TestColonnesSouscription:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         colonnes_souscription = client.metadonnees.colonnes_souscription.list()
-        assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+        assert_matches_type(SyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -43,7 +44,7 @@ class TestColonnesSouscription:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+        assert_matches_type(SyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -52,7 +53,7 @@ class TestColonnesSouscription:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         colonnes_souscription = response.parse()
-        assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+        assert_matches_type(SyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -61,7 +62,7 @@ class TestColonnesSouscription:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             colonnes_souscription = response.parse()
-            assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+            assert_matches_type(SyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -72,7 +73,7 @@ class TestAsyncColonnesSouscription:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         colonnes_souscription = await async_client.metadonnees.colonnes_souscription.list()
-        assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+        assert_matches_type(AsyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -95,7 +96,7 @@ class TestAsyncColonnesSouscription:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+        assert_matches_type(AsyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -104,7 +105,7 @@ class TestAsyncColonnesSouscription:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         colonnes_souscription = await response.parse()
-        assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+        assert_matches_type(AsyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -113,6 +114,6 @@ class TestAsyncColonnesSouscription:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             colonnes_souscription = await response.parse()
-            assert_matches_type(ColonnesSouscriptionListResponse, colonnes_souscription, path=["response"])
+            assert_matches_type(AsyncDefault[ColonneSouscription], colonnes_souscription, path=["response"])
 
         assert cast(Any, response.is_closed) is True

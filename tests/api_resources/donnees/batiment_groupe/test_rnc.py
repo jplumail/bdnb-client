@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
-from bdnb_client.types.donnees.batiment_groupe import RncListResponse
+from bdnb_client.pagination import SyncDefault, AsyncDefault
+from bdnb_client.types.donnees.batiment_groupe import BatimentGroupeRnc
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,7 @@ class TestRnc:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         rnc = client.donnees.batiment_groupe.rnc.list()
-        assert_matches_type(RncListResponse, rnc, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -44,7 +45,7 @@ class TestRnc:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(RncListResponse, rnc, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -53,7 +54,7 @@ class TestRnc:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rnc = response.parse()
-        assert_matches_type(RncListResponse, rnc, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -62,7 +63,7 @@ class TestRnc:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             rnc = response.parse()
-            assert_matches_type(RncListResponse, rnc, path=["response"])
+            assert_matches_type(SyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -73,7 +74,7 @@ class TestAsyncRnc:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         rnc = await async_client.donnees.batiment_groupe.rnc.list()
-        assert_matches_type(RncListResponse, rnc, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -97,7 +98,7 @@ class TestAsyncRnc:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(RncListResponse, rnc, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -106,7 +107,7 @@ class TestAsyncRnc:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         rnc = await response.parse()
-        assert_matches_type(RncListResponse, rnc, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -115,6 +116,6 @@ class TestAsyncRnc:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             rnc = await response.parse()
-            assert_matches_type(RncListResponse, rnc, path=["response"])
+            assert_matches_type(AsyncDefault[BatimentGroupeRnc], rnc, path=["response"])
 
         assert cast(Any, response.is_closed) is True

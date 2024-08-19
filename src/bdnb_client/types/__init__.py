@@ -4,4 +4,3 @@ from __future__ import annotations
 
 from .autocompletion_list_params import AutocompletionListParams as AutocompletionListParams
 from .autocompletion_entites_texte import AutocompletionEntitesTexte as AutocompletionEntitesTexte
-from .autocompletion_list_response import AutocompletionListResponse as AutocompletionListResponse
