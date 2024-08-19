@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ....._utils import maybe_transform, strip_not_given
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -18,9 +14,10 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....._base_client import make_request_options
+from .....pagination import SyncDefault, AsyncDefault
+from ....._base_client import AsyncPaginator, make_request_options
 from .....types.donnees.relations.batiment_groupe import merimee_list_params
-from .....types.donnees.relations.batiment_groupe.merimee_list_response import MerimeeListResponse
+from .....types.donnees.relations.batiment_groupe.rel_batiment_groupe_merimee import RelBatimentGroupeMerimee
 
 __all__ = ["MerimeeResource", "AsyncMerimeeResource"]
 
@@ -53,7 +50,7 @@ class MerimeeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> MerimeeListResponse:
+    ) -> SyncDefault[RelBatimentGroupeMerimee]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table
         merimee
@@ -93,8 +90,9 @@ class MerimeeResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_merimee",
+            page=SyncDefault[RelBatimentGroupeMerimee],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -114,7 +112,7 @@ class MerimeeResource(SyncAPIResource):
                     merimee_list_params.MerimeeListParams,
                 ),
             ),
-            cast_to=MerimeeListResponse,
+            model=RelBatimentGroupeMerimee,
         )
 
 
@@ -127,7 +125,7 @@ class AsyncMerimeeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncMerimeeResourceWithStreamingResponse:
         return AsyncMerimeeResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -146,7 +144,7 @@ class AsyncMerimeeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> MerimeeListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeMerimee, AsyncDefault[RelBatimentGroupeMerimee]]:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table
         merimee
@@ -186,14 +184,15 @@ class AsyncMerimeeResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_merimee",
+            page=AsyncDefault[RelBatimentGroupeMerimee],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -207,7 +206,7 @@ class AsyncMerimeeResource(AsyncAPIResource):
                     merimee_list_params.MerimeeListParams,
                 ),
             ),
-            cast_to=MerimeeListResponse,
+            model=RelBatimentGroupeMerimee,
         )
 
 

@@ -9,8 +9,9 @@ import pytest
 
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
+from bdnb_client.pagination import SyncDefault, AsyncDefault
 from bdnb_client.types.donnees.batiment_groupe import (
-    DpeRepresentatifLogementListResponse,
+    BatimentGroupeDpeRepresentatifLogement,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -22,7 +23,9 @@ class TestDpeRepresentatifLogement:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         dpe_representatif_logement = client.donnees.batiment_groupe.dpe_representatif_logement.list()
-        assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+        assert_matches_type(
+            SyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+        )
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -140,7 +143,9 @@ class TestDpeRepresentatifLogement:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+        assert_matches_type(
+            SyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+        )
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -149,7 +154,9 @@ class TestDpeRepresentatifLogement:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         dpe_representatif_logement = response.parse()
-        assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+        assert_matches_type(
+            SyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+        )
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -158,7 +165,9 @@ class TestDpeRepresentatifLogement:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             dpe_representatif_logement = response.parse()
-            assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+            assert_matches_type(
+                SyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+            )
 
         assert cast(Any, response.is_closed) is True
 
@@ -169,7 +178,9 @@ class TestAsyncDpeRepresentatifLogement:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         dpe_representatif_logement = await async_client.donnees.batiment_groupe.dpe_representatif_logement.list()
-        assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+        assert_matches_type(
+            AsyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+        )
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -287,7 +298,9 @@ class TestAsyncDpeRepresentatifLogement:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+        assert_matches_type(
+            AsyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+        )
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -296,7 +309,9 @@ class TestAsyncDpeRepresentatifLogement:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         dpe_representatif_logement = await response.parse()
-        assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+        assert_matches_type(
+            AsyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+        )
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -305,6 +320,8 @@ class TestAsyncDpeRepresentatifLogement:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             dpe_representatif_logement = await response.parse()
-            assert_matches_type(DpeRepresentatifLogementListResponse, dpe_representatif_logement, path=["response"])
+            assert_matches_type(
+                AsyncDefault[BatimentGroupeDpeRepresentatifLogement], dpe_representatif_logement, path=["response"]
+            )
 
         assert cast(Any, response.is_closed) is True

@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ....._utils import maybe_transform, strip_not_given
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -18,10 +14,11 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....._base_client import make_request_options
+from .....pagination import SyncDefault, AsyncDefault
+from ....._base_client import AsyncPaginator, make_request_options
 from .....types.donnees.relations.batiment_groupe import proprietaire_siren_open_list_params
-from .....types.donnees.relations.batiment_groupe.proprietaire_siren_open_list_response import (
-    ProprietaireSirenOpenListResponse,
+from .....types.donnees.relations.batiment_groupe.rel_batiment_groupe_proprietaire_siren_open import (
+    RelBatimentGroupeProprietaireSirenOpen,
 )
 
 __all__ = ["ProprietaireSirenOpenResource", "AsyncProprietaireSirenOpenResource"]
@@ -58,7 +55,7 @@ class ProprietaireSirenOpenResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProprietaireSirenOpenListResponse:
+    ) -> SyncDefault[RelBatimentGroupeProprietaireSirenOpen]:
         """
         Table de relation entre les proprietaires et les groupes de bâtiment (la version
         open filtre sur la colonne `dans_majic_pm)
@@ -103,8 +100,9 @@ class ProprietaireSirenOpenResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_proprietaire_siren_open",
+            page=SyncDefault[RelBatimentGroupeProprietaireSirenOpen],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -127,7 +125,7 @@ class ProprietaireSirenOpenResource(SyncAPIResource):
                     proprietaire_siren_open_list_params.ProprietaireSirenOpenListParams,
                 ),
             ),
-            cast_to=ProprietaireSirenOpenListResponse,
+            model=RelBatimentGroupeProprietaireSirenOpen,
         )
 
 
@@ -140,7 +138,7 @@ class AsyncProprietaireSirenOpenResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncProprietaireSirenOpenResourceWithStreamingResponse:
         return AsyncProprietaireSirenOpenResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         bat_prop_denomination_proprietaire: str | NotGiven = NOT_GIVEN,
@@ -162,7 +160,7 @@ class AsyncProprietaireSirenOpenResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProprietaireSirenOpenListResponse:
+    ) -> AsyncPaginator[RelBatimentGroupeProprietaireSirenOpen, AsyncDefault[RelBatimentGroupeProprietaireSirenOpen]]:
         """
         Table de relation entre les proprietaires et les groupes de bâtiment (la version
         open filtre sur la colonne `dans_majic_pm)
@@ -207,14 +205,15 @@ class AsyncProprietaireSirenOpenResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/rel_batiment_groupe_proprietaire_siren_open",
+            page=AsyncDefault[RelBatimentGroupeProprietaireSirenOpen],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "bat_prop_denomination_proprietaire": bat_prop_denomination_proprietaire,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -231,7 +230,7 @@ class AsyncProprietaireSirenOpenResource(AsyncAPIResource):
                     proprietaire_siren_open_list_params.ProprietaireSirenOpenListParams,
                 ),
             ),
-            cast_to=ProprietaireSirenOpenListResponse,
+            model=RelBatimentGroupeProprietaireSirenOpen,
         )
 
 
