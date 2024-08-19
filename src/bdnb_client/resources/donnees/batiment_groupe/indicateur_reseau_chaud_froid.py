@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ...._utils import maybe_transform, strip_not_given
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -18,10 +14,11 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...._base_client import make_request_options
+from ....pagination import SyncDefault, AsyncDefault
+from ...._base_client import AsyncPaginator, make_request_options
 from ....types.donnees.batiment_groupe import indicateur_reseau_chaud_froid_list_params
-from ....types.donnees.batiment_groupe.indicateur_reseau_chaud_froid_list_response import (
-    IndicateurReseauChaudFroidListResponse,
+from ....types.donnees.batiment_groupe.batiment_groupe_indicateur_reseau_chaud_froid import (
+    BatimentGroupeIndicateurReseauChaudFroid,
 )
 
 __all__ = ["IndicateurReseauChaudFroidResource", "AsyncIndicateurReseauChaudFroidResource"]
@@ -60,7 +57,7 @@ class IndicateurReseauChaudFroidResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> IndicateurReseauChaudFroidListResponse:
+    ) -> SyncDefault[BatimentGroupeIndicateurReseauChaudFroid]:
         """
         Indicateur de raccordement et de potentiel de raccordement aux réseaux de
         chaleur et de froid urbains construit à l'aide des données de 'France Chaleur
@@ -121,8 +118,9 @@ class IndicateurReseauChaudFroidResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_indicateur_reseau_chaud_froid",
+            page=SyncDefault[BatimentGroupeIndicateurReseauChaudFroid],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -147,7 +145,7 @@ class IndicateurReseauChaudFroidResource(SyncAPIResource):
                     indicateur_reseau_chaud_froid_list_params.IndicateurReseauChaudFroidListParams,
                 ),
             ),
-            cast_to=IndicateurReseauChaudFroidListResponse,
+            model=BatimentGroupeIndicateurReseauChaudFroid,
         )
 
 
@@ -160,7 +158,7 @@ class AsyncIndicateurReseauChaudFroidResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncIndicateurReseauChaudFroidResourceWithStreamingResponse:
         return AsyncIndicateurReseauChaudFroidResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -184,7 +182,9 @@ class AsyncIndicateurReseauChaudFroidResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> IndicateurReseauChaudFroidListResponse:
+    ) -> AsyncPaginator[
+        BatimentGroupeIndicateurReseauChaudFroid, AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid]
+    ]:
         """
         Indicateur de raccordement et de potentiel de raccordement aux réseaux de
         chaleur et de froid urbains construit à l'aide des données de 'France Chaleur
@@ -245,14 +245,15 @@ class AsyncIndicateurReseauChaudFroidResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/batiment_groupe_indicateur_reseau_chaud_froid",
+            page=AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -271,7 +272,7 @@ class AsyncIndicateurReseauChaudFroidResource(AsyncAPIResource):
                     indicateur_reseau_chaud_froid_list_params.IndicateurReseauChaudFroidListParams,
                 ),
             ),
-            cast_to=IndicateurReseauChaudFroidListResponse,
+            model=BatimentGroupeIndicateurReseauChaudFroid,
         )
 
 

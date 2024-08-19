@@ -9,7 +9,8 @@ import pytest
 
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
-from bdnb_client.types.donnees.batiment_groupe import WallDictListResponse
+from bdnb_client.pagination import SyncDefault, AsyncDefault
+from bdnb_client.types.donnees.batiment_groupe import BatimentGroupeWallDict
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -20,7 +21,7 @@ class TestWallDict:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         wall_dict = client.donnees.batiment_groupe.wall_dict.list()
-        assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -35,7 +36,7 @@ class TestWallDict:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -44,7 +45,7 @@ class TestWallDict:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         wall_dict = response.parse()
-        assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+        assert_matches_type(SyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -53,7 +54,7 @@ class TestWallDict:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             wall_dict = response.parse()
-            assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+            assert_matches_type(SyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -64,7 +65,7 @@ class TestAsyncWallDict:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         wall_dict = await async_client.donnees.batiment_groupe.wall_dict.list()
-        assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -79,7 +80,7 @@ class TestAsyncWallDict:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -88,7 +89,7 @@ class TestAsyncWallDict:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         wall_dict = await response.parse()
-        assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+        assert_matches_type(AsyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -97,6 +98,6 @@ class TestAsyncWallDict:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             wall_dict = await response.parse()
-            assert_matches_type(WallDictListResponse, wall_dict, path=["response"])
+            assert_matches_type(AsyncDefault[BatimentGroupeWallDict], wall_dict, path=["response"])
 
         assert cast(Any, response.is_closed) is True

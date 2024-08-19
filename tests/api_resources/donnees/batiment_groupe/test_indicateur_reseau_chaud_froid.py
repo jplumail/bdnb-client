@@ -9,8 +9,9 @@ import pytest
 
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
+from bdnb_client.pagination import SyncDefault, AsyncDefault
 from bdnb_client.types.donnees.batiment_groupe import (
-    IndicateurReseauChaudFroidListResponse,
+    BatimentGroupeIndicateurReseauChaudFroid,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -22,7 +23,9 @@ class TestIndicateurReseauChaudFroid:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         indicateur_reseau_chaud_froid = client.donnees.batiment_groupe.indicateur_reseau_chaud_froid.list()
-        assert_matches_type(IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"])
+        assert_matches_type(
+            SyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
+        )
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -43,7 +46,9 @@ class TestIndicateurReseauChaudFroid:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"])
+        assert_matches_type(
+            SyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
+        )
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -52,7 +57,9 @@ class TestIndicateurReseauChaudFroid:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         indicateur_reseau_chaud_froid = response.parse()
-        assert_matches_type(IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"])
+        assert_matches_type(
+            SyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
+        )
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -62,7 +69,7 @@ class TestIndicateurReseauChaudFroid:
 
             indicateur_reseau_chaud_froid = response.parse()
             assert_matches_type(
-                IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"]
+                SyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True
@@ -74,7 +81,9 @@ class TestAsyncIndicateurReseauChaudFroid:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         indicateur_reseau_chaud_froid = await async_client.donnees.batiment_groupe.indicateur_reseau_chaud_froid.list()
-        assert_matches_type(IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"])
+        assert_matches_type(
+            AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
+        )
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -95,7 +104,9 @@ class TestAsyncIndicateurReseauChaudFroid:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"])
+        assert_matches_type(
+            AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
+        )
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -104,7 +115,9 @@ class TestAsyncIndicateurReseauChaudFroid:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         indicateur_reseau_chaud_froid = await response.parse()
-        assert_matches_type(IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"])
+        assert_matches_type(
+            AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
+        )
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -114,7 +127,7 @@ class TestAsyncIndicateurReseauChaudFroid:
 
             indicateur_reseau_chaud_froid = await response.parse()
             assert_matches_type(
-                IndicateurReseauChaudFroidListResponse, indicateur_reseau_chaud_froid, path=["response"]
+                AsyncDefault[BatimentGroupeIndicateurReseauChaudFroid], indicateur_reseau_chaud_froid, path=["response"]
             )
 
         assert cast(Any, response.is_closed) is True

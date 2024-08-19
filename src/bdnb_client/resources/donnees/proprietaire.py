@@ -5,11 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    strip_not_given,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -18,9 +14,10 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncDefault, AsyncDefault
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.donnees import proprietaire_list_params
-from ...types.donnees.proprietaire_list_response import ProprietaireListResponse
+from ...types.donnees.proprietaire import Proprietaire
 
 __all__ = ["ProprietaireResource", "AsyncProprietaireResource"]
 
@@ -58,7 +55,7 @@ class ProprietaireResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProprietaireListResponse:
+    ) -> SyncDefault[Proprietaire]:
         """
         Données des propriétaires de bâtiment (principalement issues des Fichiers
         Fonciers) (la version open filtre sur la colonne `dans_majic_pm`)
@@ -109,8 +106,9 @@ class ProprietaireResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get(
+        return self._get_api_list(
             "/donnees/proprietaire",
+            page=SyncDefault[Proprietaire],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -135,7 +133,7 @@ class ProprietaireResource(SyncAPIResource):
                     proprietaire_list_params.ProprietaireListParams,
                 ),
             ),
-            cast_to=ProprietaireListResponse,
+            model=Proprietaire,
         )
 
 
@@ -148,7 +146,7 @@ class AsyncProprietaireResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncProprietaireResourceWithStreamingResponse:
         return AsyncProprietaireResourceWithStreamingResponse(self)
 
-    async def list(
+    def list(
         self,
         *,
         code_departement_insee: str | NotGiven = NOT_GIVEN,
@@ -172,7 +170,7 @@ class AsyncProprietaireResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProprietaireListResponse:
+    ) -> AsyncPaginator[Proprietaire, AsyncDefault[Proprietaire]]:
         """
         Données des propriétaires de bâtiment (principalement issues des Fichiers
         Fonciers) (la version open filtre sur la colonne `dans_majic_pm`)
@@ -223,14 +221,15 @@ class AsyncProprietaireResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return await self._get(
+        return self._get_api_list(
             "/donnees/proprietaire",
+            page=AsyncDefault[Proprietaire],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "code_departement_insee": code_departement_insee,
                         "code_postal": code_postal,
@@ -249,7 +248,7 @@ class AsyncProprietaireResource(AsyncAPIResource):
                     proprietaire_list_params.ProprietaireListParams,
                 ),
             ),
-            cast_to=ProprietaireListResponse,
+            model=Proprietaire,
         )
 
 
