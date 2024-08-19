@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import dle_reseaux_2020_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_dle_reseaux_2020 import BatimentGroupeDleReseaux2020
+from ....types.donnees.batiment_groupe.dle_reseaux_2020_list_response import DleReseaux2020ListResponse
 
 __all__ = ["DleReseaux2020Resource", "AsyncDleReseaux2020Resource"]
 
@@ -59,7 +62,7 @@ class DleReseaux2020Resource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleReseaux2020]:
+    ) -> DleReseaux2020ListResponse:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -116,9 +119,8 @@ class DleReseaux2020Resource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_dle_reseaux_2020",
-            page=SyncDefault[BatimentGroupeDleReseaux2020],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -147,7 +149,7 @@ class DleReseaux2020Resource(SyncAPIResource):
                     dle_reseaux_2020_list_params.DleReseaux2020ListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseaux2020,
+            cast_to=DleReseaux2020ListResponse,
         )
 
 
@@ -160,7 +162,7 @@ class AsyncDleReseaux2020Resource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncDleReseaux2020ResourceWithStreamingResponse:
         return AsyncDleReseaux2020ResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -188,7 +190,7 @@ class AsyncDleReseaux2020Resource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeDleReseaux2020, AsyncDefault[BatimentGroupeDleReseaux2020]]:
+    ) -> DleReseaux2020ListResponse:
         """
         [TABLE DEPRECIEE] Données de consommations des DLE agrégées à l'échelle du
         bâtiment
@@ -245,15 +247,14 @@ class AsyncDleReseaux2020Resource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_dle_reseaux_2020",
-            page=AsyncDefault[BatimentGroupeDleReseaux2020],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -276,7 +277,7 @@ class AsyncDleReseaux2020Resource(AsyncAPIResource):
                     dle_reseaux_2020_list_params.DleReseaux2020ListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseaux2020,
+            cast_to=DleReseaux2020ListResponse,
         )
 
 

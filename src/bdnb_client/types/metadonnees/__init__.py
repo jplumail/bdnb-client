@@ -7,6 +7,10 @@ from .table import Table as Table
 from .colonne import Colonne as Colonne
 from .info_list_params import InfoListParams as InfoListParams
 from .table_list_params import TableListParams as TableListParams
+from .info_list_response import InfoListResponse as InfoListResponse
 from .colonne_list_params import ColonneListParams as ColonneListParams
+from .table_list_response import TableListResponse as TableListResponse
 from .colonne_souscription import ColonneSouscription as ColonneSouscription
+from .colonne_list_response import ColonneListResponse as ColonneListResponse
 from .colonnes_souscription_list_params import ColonnesSouscriptionListParams as ColonnesSouscriptionListParams
+from .colonnes_souscription_list_response import ColonnesSouscriptionListResponse as ColonnesSouscriptionListResponse

@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.referentiel_administratif import epci_list_params
-from ....types.donnees.referentiel_administratif.referentiel_administratif_epci import ReferentielAdministratifEpci
+from ....types.donnees.referentiel_administratif.epci_list_response import EpciListResponse
 
 __all__ = ["EpciResource", "AsyncEpciResource"]
 
@@ -50,7 +53,7 @@ class EpciResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ReferentielAdministratifEpci]:
+    ) -> EpciListResponse:
         """
         Données sur contours des EPCI, issues de l'agrégation des IRIS Grande Echelle
         fournies par l'IGN pour le compte de l'INSEE
@@ -89,9 +92,8 @@ class EpciResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/referentiel_administratif_epci",
-            page=SyncDefault[ReferentielAdministratifEpci],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -111,7 +113,7 @@ class EpciResource(SyncAPIResource):
                     epci_list_params.EpciListParams,
                 ),
             ),
-            model=ReferentielAdministratifEpci,
+            cast_to=EpciListResponse,
         )
 
 
@@ -124,7 +126,7 @@ class AsyncEpciResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncEpciResourceWithStreamingResponse:
         return AsyncEpciResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         code_epci_insee: str | NotGiven = NOT_GIVEN,
@@ -143,7 +145,7 @@ class AsyncEpciResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ReferentielAdministratifEpci, AsyncDefault[ReferentielAdministratifEpci]]:
+    ) -> EpciListResponse:
         """
         Données sur contours des EPCI, issues de l'agrégation des IRIS Grande Echelle
         fournies par l'IGN pour le compte de l'INSEE
@@ -182,15 +184,14 @@ class AsyncEpciResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/referentiel_administratif_epci",
-            page=AsyncDefault[ReferentielAdministratifEpci],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "code_epci_insee": code_epci_insee,
                         "geom_epci": geom_epci,
@@ -204,7 +205,7 @@ class AsyncEpciResource(AsyncAPIResource):
                     epci_list_params.EpciListParams,
                 ),
             ),
-            model=ReferentielAdministratifEpci,
+            cast_to=EpciListResponse,
         )
 
 

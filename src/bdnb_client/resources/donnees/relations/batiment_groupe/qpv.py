@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import maybe_transform, strip_not_given
+from ....._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -14,10 +18,9 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .....pagination import SyncDefault, AsyncDefault
-from ....._base_client import AsyncPaginator, make_request_options
+from ....._base_client import make_request_options
 from .....types.donnees.relations.batiment_groupe import qpv_list_params
-from .....types.donnees.relations.batiment_groupe.rel_batiment_groupe_qpv import RelBatimentGroupeQpv
+from .....types.donnees.relations.batiment_groupe.qpv_list_response import QpvListResponse
 
 __all__ = ["QpvResource", "AsyncQpvResource"]
 
@@ -50,7 +53,7 @@ class QpvResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeQpv]:
+    ) -> QpvListResponse:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table QPV
 
@@ -89,9 +92,8 @@ class QpvResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/rel_batiment_groupe_qpv",
-            page=SyncDefault[RelBatimentGroupeQpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -111,7 +113,7 @@ class QpvResource(SyncAPIResource):
                     qpv_list_params.QpvListParams,
                 ),
             ),
-            model=RelBatimentGroupeQpv,
+            cast_to=QpvListResponse,
         )
 
 
@@ -124,7 +126,7 @@ class AsyncQpvResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncQpvResourceWithStreamingResponse:
         return AsyncQpvResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_construction_id: str | NotGiven = NOT_GIVEN,
@@ -143,7 +145,7 @@ class AsyncQpvResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeQpv, AsyncDefault[RelBatimentGroupeQpv]]:
+    ) -> QpvListResponse:
         """
         Table de relation entre les bâtiments de la BDNB et les éléments de la table QPV
 
@@ -182,15 +184,14 @@ class AsyncQpvResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/rel_batiment_groupe_qpv",
-            page=AsyncDefault[RelBatimentGroupeQpv],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_construction_id": batiment_construction_id,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -204,7 +205,7 @@ class AsyncQpvResource(AsyncAPIResource):
                     qpv_list_params.QpvListParams,
                 ),
             ),
-            model=RelBatimentGroupeQpv,
+            cast_to=QpvListResponse,
         )
 
 

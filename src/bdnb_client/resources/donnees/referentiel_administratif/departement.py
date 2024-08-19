@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,12 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.referentiel_administratif import departement_list_params
-from ....types.donnees.referentiel_administratif.referentiel_administratif_departement import (
-    ReferentielAdministratifDepartement,
-)
+from ....types.donnees.referentiel_administratif.departement_list_response import DepartementListResponse
 
 __all__ = ["DepartementResource", "AsyncDepartementResource"]
 
@@ -52,7 +53,7 @@ class DepartementResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ReferentielAdministratifDepartement]:
+    ) -> DepartementListResponse:
         """
         Données sur contours des départements, issues de l'agrégation des IRIS Grande
         Echelle fournies par l'IGN pour le compte de l'INSEE
@@ -91,9 +92,8 @@ class DepartementResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/referentiel_administratif_departement",
-            page=SyncDefault[ReferentielAdministratifDepartement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -113,7 +113,7 @@ class DepartementResource(SyncAPIResource):
                     departement_list_params.DepartementListParams,
                 ),
             ),
-            model=ReferentielAdministratifDepartement,
+            cast_to=DepartementListResponse,
         )
 
 
@@ -126,7 +126,7 @@ class AsyncDepartementResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncDepartementResourceWithStreamingResponse:
         return AsyncDepartementResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         code_departement_insee: str | NotGiven = NOT_GIVEN,
@@ -145,7 +145,7 @@ class AsyncDepartementResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ReferentielAdministratifDepartement, AsyncDefault[ReferentielAdministratifDepartement]]:
+    ) -> DepartementListResponse:
         """
         Données sur contours des départements, issues de l'agrégation des IRIS Grande
         Echelle fournies par l'IGN pour le compte de l'INSEE
@@ -184,15 +184,14 @@ class AsyncDepartementResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/referentiel_administratif_departement",
-            page=AsyncDefault[ReferentielAdministratifDepartement],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "code_departement_insee": code_departement_insee,
                         "code_region_insee": code_region_insee,
@@ -206,7 +205,7 @@ class AsyncDepartementResource(AsyncAPIResource):
                     departement_list_params.DepartementListParams,
                 ),
             ),
-            model=ReferentielAdministratifDepartement,
+            cast_to=DepartementListResponse,
         )
 
 

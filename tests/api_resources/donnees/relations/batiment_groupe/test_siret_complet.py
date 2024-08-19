@@ -10,8 +10,7 @@ import pytest
 from bdnb_client import Bdnb, AsyncBdnb
 from tests.utils import assert_matches_type
 from bdnb_client._utils import parse_date
-from bdnb_client.pagination import SyncDefault, AsyncDefault
-from bdnb_client.types.donnees.relations.batiment_groupe import RelBatimentGroupeSiretComplet
+from bdnb_client.types.donnees.relations.batiment_groupe import SiretCompletListResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -22,7 +21,7 @@ class TestSiretComplet:
     @parametrize
     def test_method_list(self, client: Bdnb) -> None:
         siret_complet = client.donnees.relations.batiment_groupe.siret_complet.list()
-        assert_matches_type(SyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+        assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Bdnb) -> None:
@@ -48,7 +47,7 @@ class TestSiretComplet:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(SyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+        assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Bdnb) -> None:
@@ -57,7 +56,7 @@ class TestSiretComplet:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         siret_complet = response.parse()
-        assert_matches_type(SyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+        assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Bdnb) -> None:
@@ -66,7 +65,7 @@ class TestSiretComplet:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             siret_complet = response.parse()
-            assert_matches_type(SyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+            assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -77,7 +76,7 @@ class TestAsyncSiretComplet:
     @parametrize
     async def test_method_list(self, async_client: AsyncBdnb) -> None:
         siret_complet = await async_client.donnees.relations.batiment_groupe.siret_complet.list()
-        assert_matches_type(AsyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+        assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncBdnb) -> None:
@@ -103,7 +102,7 @@ class TestAsyncSiretComplet:
             range="Range",
             range_unit="Range-Unit",
         )
-        assert_matches_type(AsyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+        assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncBdnb) -> None:
@@ -112,7 +111,7 @@ class TestAsyncSiretComplet:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         siret_complet = await response.parse()
-        assert_matches_type(AsyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+        assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncBdnb) -> None:
@@ -121,6 +120,6 @@ class TestAsyncSiretComplet:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             siret_complet = await response.parse()
-            assert_matches_type(AsyncDefault[RelBatimentGroupeSiretComplet], siret_complet, path=["response"])
+            assert_matches_type(SiretCompletListResponse, siret_complet, path=["response"])
 
         assert cast(Any, response.is_closed) is True

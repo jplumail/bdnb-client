@@ -8,7 +8,11 @@ from datetime import date
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import maybe_transform, strip_not_given
+from ....._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -17,10 +21,9 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .....pagination import SyncDefault, AsyncDefault
-from ....._base_client import AsyncPaginator, make_request_options
+from ....._base_client import make_request_options
 from .....types.donnees.relations.batiment_groupe import siret_complet_list_params
-from .....types.donnees.relations.batiment_groupe.rel_batiment_groupe_siret_complet import RelBatimentGroupeSiretComplet
+from .....types.donnees.relations.batiment_groupe.siret_complet_list_response import SiretCompletListResponse
 
 __all__ = ["SiretCompletResource", "AsyncSiretCompletResource"]
 
@@ -63,7 +66,7 @@ class SiretCompletResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentGroupeSiretComplet]:
+    ) -> SiretCompletListResponse:
         """
         Table de relation entre les bâtiments de la BDNB et les SIRET.
 
@@ -132,9 +135,8 @@ class SiretCompletResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/rel_batiment_groupe_siret_complet",
-            page=SyncDefault[RelBatimentGroupeSiretComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -164,7 +166,7 @@ class SiretCompletResource(SyncAPIResource):
                     siret_complet_list_params.SiretCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSiretComplet,
+            cast_to=SiretCompletListResponse,
         )
 
 
@@ -177,7 +179,7 @@ class AsyncSiretCompletResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncSiretCompletResourceWithStreamingResponse:
         return AsyncSiretCompletResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         activite_registre_metier: str | NotGiven = NOT_GIVEN,
@@ -206,7 +208,7 @@ class AsyncSiretCompletResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentGroupeSiretComplet, AsyncDefault[RelBatimentGroupeSiretComplet]]:
+    ) -> SiretCompletListResponse:
         """
         Table de relation entre les bâtiments de la BDNB et les SIRET.
 
@@ -275,15 +277,14 @@ class AsyncSiretCompletResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/rel_batiment_groupe_siret_complet",
-            page=AsyncDefault[RelBatimentGroupeSiretComplet],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "activite_registre_metier": activite_registre_metier,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -307,7 +308,7 @@ class AsyncSiretCompletResource(AsyncAPIResource):
                     siret_complet_list_params.SiretCompletListParams,
                 ),
             ),
-            model=RelBatimentGroupeSiretComplet,
+            cast_to=SiretCompletListResponse,
         )
 
 

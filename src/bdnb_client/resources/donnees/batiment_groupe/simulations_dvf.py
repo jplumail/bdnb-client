@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import simulations_dvf_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_simulations_dvf import BatimentGroupeSimulationsDvf
+from ....types.donnees.batiment_groupe.simulations_dvf_list_response import SimulationsDvfListResponse
 
 __all__ = ["SimulationsDvfResource", "AsyncSimulationsDvfResource"]
 
@@ -65,7 +68,7 @@ class SimulationsDvfResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeSimulationsDvf]:
+    ) -> SimulationsDvfListResponse:
         """
         Simulations des valeurs foncières des bâtiments
 
@@ -136,9 +139,8 @@ class SimulationsDvfResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_simulations_dvf",
-            page=SyncDefault[BatimentGroupeSimulationsDvf],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -173,7 +175,7 @@ class SimulationsDvfResource(SyncAPIResource):
                     simulations_dvf_list_params.SimulationsDvfListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsDvf,
+            cast_to=SimulationsDvfListResponse,
         )
 
 
@@ -186,7 +188,7 @@ class AsyncSimulationsDvfResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncSimulationsDvfResourceWithStreamingResponse:
         return AsyncSimulationsDvfResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -220,7 +222,7 @@ class AsyncSimulationsDvfResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeSimulationsDvf, AsyncDefault[BatimentGroupeSimulationsDvf]]:
+    ) -> SimulationsDvfListResponse:
         """
         Simulations des valeurs foncières des bâtiments
 
@@ -291,15 +293,14 @@ class AsyncSimulationsDvfResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_simulations_dvf",
-            page=AsyncDefault[BatimentGroupeSimulationsDvf],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "classe_dpe_conso_initial": classe_dpe_conso_initial,
@@ -328,7 +329,7 @@ class AsyncSimulationsDvfResource(AsyncAPIResource):
                     simulations_dvf_list_params.SimulationsDvfListParams,
                 ),
             ),
-            model=BatimentGroupeSimulationsDvf,
+            cast_to=SimulationsDvfListResponse,
         )
 
 
