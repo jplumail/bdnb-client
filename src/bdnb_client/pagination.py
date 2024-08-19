@@ -18,7 +18,7 @@ _T = TypeVar("_T")
 
 class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
     items: List[_T]
-    total_count: Optional[str] = None
+    total_count: Optional[object] = None
 
     @override
     def _get_page_items(self) -> List[_T]:
@@ -51,14 +51,14 @@ class SyncDefault(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
             None,
             **{
                 **(cast(Mapping[str, Any], data) if is_mapping(data) else {"items": data}),
-                "total_count": response.headers.get("content-range"),
+                # TODO: 'total_count' is not supported yet
             },
         )
 
 
 class AsyncDefault(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
     items: List[_T]
-    total_count: Optional[str] = None
+    total_count: Optional[object] = None
 
     @override
     def _get_page_items(self) -> List[_T]:
@@ -91,6 +91,6 @@ class AsyncDefault(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
             None,
             **{
                 **(cast(Mapping[str, Any], data) if is_mapping(data) else {"items": data}),
-                "total_count": response.headers.get("content-range"),
+                # TODO: 'total_count' is not supported yet
             },
         )
