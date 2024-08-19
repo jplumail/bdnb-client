@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ....._utils import maybe_transform, strip_not_given
+from ....._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -14,12 +18,9 @@ from ....._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .....pagination import SyncDefault, AsyncDefault
-from ....._base_client import AsyncPaginator, make_request_options
+from ....._base_client import make_request_options
 from .....types.donnees.relations.batiment_construction import adresse_list_params
-from .....types.donnees.relations.batiment_construction.rel_batiment_construction_adresse import (
-    RelBatimentConstructionAdresse,
-)
+from .....types.donnees.relations.batiment_construction.adresse_list_response import AdresseListResponse
 
 __all__ = ["AdresseResource", "AsyncAdresseResource"]
 
@@ -54,7 +55,7 @@ class AdresseResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[RelBatimentConstructionAdresse]:
+    ) -> AdresseListResponse:
         """
         Table de relation entre les adresses postales BAN/Arcep et les entrées de la
         table [batiment_construction]. Pour plus d'informations voir la méthodologie
@@ -105,9 +106,8 @@ class AdresseResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/rel_batiment_construction_adresse",
-            page=SyncDefault[RelBatimentConstructionAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -129,7 +129,7 @@ class AdresseResource(SyncAPIResource):
                     adresse_list_params.AdresseListParams,
                 ),
             ),
-            model=RelBatimentConstructionAdresse,
+            cast_to=AdresseListResponse,
         )
 
 
@@ -142,7 +142,7 @@ class AsyncAdresseResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncAdresseResourceWithStreamingResponse:
         return AsyncAdresseResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         adresse_principale: str | NotGiven = NOT_GIVEN,
@@ -163,7 +163,7 @@ class AsyncAdresseResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[RelBatimentConstructionAdresse, AsyncDefault[RelBatimentConstructionAdresse]]:
+    ) -> AdresseListResponse:
         """
         Table de relation entre les adresses postales BAN/Arcep et les entrées de la
         table [batiment_construction]. Pour plus d'informations voir la méthodologie
@@ -214,15 +214,14 @@ class AsyncAdresseResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/rel_batiment_construction_adresse",
-            page=AsyncDefault[RelBatimentConstructionAdresse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "adresse_principale": adresse_principale,
                         "batiment_construction_id": batiment_construction_id,
@@ -238,7 +237,7 @@ class AsyncAdresseResource(AsyncAPIResource):
                     adresse_list_params.AdresseListParams,
                 ),
             ),
-            model=RelBatimentConstructionAdresse,
+            cast_to=AdresseListResponse,
         )
 
 

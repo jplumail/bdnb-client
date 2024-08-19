@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import maybe_transform, strip_not_given
+from ..._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -14,10 +18,9 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...pagination import SyncDefault, AsyncDefault
-from ..._base_client import AsyncPaginator, make_request_options
+from ..._base_client import make_request_options
 from ...types.metadonnees import colonnes_souscription_list_params
-from ...types.metadonnees.colonne_souscription import ColonneSouscription
+from ...types.metadonnees.colonnes_souscription_list_response import ColonnesSouscriptionListResponse
 
 __all__ = ["ColonnesSouscriptionResource", "AsyncColonnesSouscriptionResource"]
 
@@ -57,7 +60,7 @@ class ColonnesSouscriptionResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[ColonneSouscription]:
+    ) -> ColonnesSouscriptionListResponse:
         """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
@@ -109,9 +112,8 @@ class ColonnesSouscriptionResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/metadonnees/colonne_souscription",
-            page=SyncDefault[ColonneSouscription],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -138,7 +140,7 @@ class ColonnesSouscriptionResource(SyncAPIResource):
                     colonnes_souscription_list_params.ColonnesSouscriptionListParams,
                 ),
             ),
-            model=ColonneSouscription,
+            cast_to=ColonnesSouscriptionListResponse,
         )
 
 
@@ -151,7 +153,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncColonnesSouscriptionResourceWithStreamingResponse:
         return AsyncColonnesSouscriptionResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         contrainte_acces: str | NotGiven = NOT_GIVEN,
@@ -177,7 +179,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ColonneSouscription, AsyncDefault[ColonneSouscription]]:
+    ) -> ColonnesSouscriptionListResponse:
         """Liste des colonnes de la base = attributs = modalités = champs des tables.
 
         Ces
@@ -229,15 +231,14 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/metadonnees/colonne_souscription",
-            page=AsyncDefault[ColonneSouscription],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "contrainte_acces": contrainte_acces,
                         "description": description,
@@ -258,7 +259,7 @@ class AsyncColonnesSouscriptionResource(AsyncAPIResource):
                     colonnes_souscription_list_params.ColonnesSouscriptionListParams,
                 ),
             ),
-            model=ColonneSouscription,
+            cast_to=ColonnesSouscriptionListResponse,
         )
 
 

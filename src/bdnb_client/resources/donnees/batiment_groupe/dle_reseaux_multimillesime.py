@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,11 +18,10 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import dle_reseaux_multimillesime_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_dle_reseaux_multimillesime import (
-    BatimentGroupeDleReseauxMultimillesime,
+from ....types.donnees.batiment_groupe.dle_reseaux_multimillesime_list_response import (
+    DleReseauxMultimillesimeListResponse,
 )
 
 __all__ = ["DleReseauxMultimillesimeResource", "AsyncDleReseauxMultimillesimeResource"]
@@ -62,7 +65,7 @@ class DleReseauxMultimillesimeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeDleReseauxMultimillesime]:
+    ) -> DleReseauxMultimillesimeListResponse:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur réseau de chaleur agrégées à l'échelle du bâtiment. Attention les
@@ -123,9 +126,8 @@ class DleReseauxMultimillesimeResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_dle_reseaux_multimillesime",
-            page=SyncDefault[BatimentGroupeDleReseauxMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -155,7 +157,7 @@ class DleReseauxMultimillesimeResource(SyncAPIResource):
                     dle_reseaux_multimillesime_list_params.DleReseauxMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseauxMultimillesime,
+            cast_to=DleReseauxMultimillesimeListResponse,
         )
 
 
@@ -168,7 +170,7 @@ class AsyncDleReseauxMultimillesimeResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncDleReseauxMultimillesimeResourceWithStreamingResponse:
         return AsyncDleReseauxMultimillesimeResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         batiment_groupe_id: str | NotGiven = NOT_GIVEN,
@@ -197,7 +199,7 @@ class AsyncDleReseauxMultimillesimeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeDleReseauxMultimillesime, AsyncDefault[BatimentGroupeDleReseauxMultimillesime]]:
+    ) -> DleReseauxMultimillesimeListResponse:
         """
         Données de consommations des données locales de l'énergie du SDES pour le
         vecteur réseau de chaleur agrégées à l'échelle du bâtiment. Attention les
@@ -258,15 +260,14 @@ class AsyncDleReseauxMultimillesimeResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_dle_reseaux_multimillesime",
-            page=AsyncDefault[BatimentGroupeDleReseauxMultimillesime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "batiment_groupe_id": batiment_groupe_id,
                         "code_departement_insee": code_departement_insee,
@@ -290,7 +291,7 @@ class AsyncDleReseauxMultimillesimeResource(AsyncAPIResource):
                     dle_reseaux_multimillesime_list_params.DleReseauxMultimillesimeListParams,
                 ),
             ),
-            model=BatimentGroupeDleReseauxMultimillesime,
+            cast_to=DleReseauxMultimillesimeListResponse,
         )
 
 

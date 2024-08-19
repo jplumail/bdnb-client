@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import radon_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_radon import BatimentGroupeRadon
+from ....types.donnees.batiment_groupe.radon_list_response import RadonListResponse
 
 __all__ = ["RadonResource", "AsyncRadonResource"]
 
@@ -49,7 +52,7 @@ class RadonResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeRadon]:
+    ) -> RadonListResponse:
         """
         Informations sur l'aléa Radon à l'échelle du bâtiment
 
@@ -85,9 +88,8 @@ class RadonResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_radon",
-            page=SyncDefault[BatimentGroupeRadon],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -106,7 +108,7 @@ class RadonResource(SyncAPIResource):
                     radon_list_params.RadonListParams,
                 ),
             ),
-            model=BatimentGroupeRadon,
+            cast_to=RadonListResponse,
         )
 
 
@@ -119,7 +121,7 @@ class AsyncRadonResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncRadonResourceWithStreamingResponse:
         return AsyncRadonResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         alea: str | NotGiven = NOT_GIVEN,
@@ -137,7 +139,7 @@ class AsyncRadonResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeRadon, AsyncDefault[BatimentGroupeRadon]]:
+    ) -> RadonListResponse:
         """
         Informations sur l'aléa Radon à l'échelle du bâtiment
 
@@ -173,15 +175,14 @@ class AsyncRadonResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_radon",
-            page=AsyncDefault[BatimentGroupeRadon],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "alea": alea,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -194,7 +195,7 @@ class AsyncRadonResource(AsyncAPIResource):
                     radon_list_params.RadonListParams,
                 ),
             ),
-            model=BatimentGroupeRadon,
+            cast_to=RadonListResponse,
         )
 
 

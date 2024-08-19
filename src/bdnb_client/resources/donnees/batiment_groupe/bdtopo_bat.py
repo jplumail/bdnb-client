@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ...._utils import maybe_transform, strip_not_given
+from ...._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -14,10 +18,9 @@ from ...._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ....pagination import SyncDefault, AsyncDefault
-from ...._base_client import AsyncPaginator, make_request_options
+from ...._base_client import make_request_options
 from ....types.donnees.batiment_groupe import bdtopo_bat_list_params
-from ....types.donnees.batiment_groupe.batiment_groupe_bdtopo_bat import BatimentGroupeBdtopoBat
+from ....types.donnees.batiment_groupe.bdtopo_bat_list_response import BdtopoBatListResponse
 
 __all__ = ["BdtopoBatResource", "AsyncBdtopoBatResource"]
 
@@ -55,7 +58,7 @@ class BdtopoBatResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[BatimentGroupeBdtopoBat]:
+    ) -> BdtopoBatListResponse:
         """
         Informations de la BDTopo, couche bâti, agrégées à l'échelle du bâtiment
 
@@ -103,9 +106,8 @@ class BdtopoBatResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/donnees/batiment_groupe_bdtopo_bat",
-            page=SyncDefault[BatimentGroupeBdtopoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -130,7 +132,7 @@ class BdtopoBatResource(SyncAPIResource):
                     bdtopo_bat_list_params.BdtopoBatListParams,
                 ),
             ),
-            model=BatimentGroupeBdtopoBat,
+            cast_to=BdtopoBatListResponse,
         )
 
 
@@ -143,7 +145,7 @@ class AsyncBdtopoBatResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncBdtopoBatResourceWithStreamingResponse:
         return AsyncBdtopoBatResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         altitude_sol_mean: str | NotGiven = NOT_GIVEN,
@@ -167,7 +169,7 @@ class AsyncBdtopoBatResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[BatimentGroupeBdtopoBat, AsyncDefault[BatimentGroupeBdtopoBat]]:
+    ) -> BdtopoBatListResponse:
         """
         Informations de la BDTopo, couche bâti, agrégées à l'échelle du bâtiment
 
@@ -215,15 +217,14 @@ class AsyncBdtopoBatResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/donnees/batiment_groupe_bdtopo_bat",
-            page=AsyncDefault[BatimentGroupeBdtopoBat],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "altitude_sol_mean": altitude_sol_mean,
                         "batiment_groupe_id": batiment_groupe_id,
@@ -242,7 +243,7 @@ class AsyncBdtopoBatResource(AsyncAPIResource):
                     bdtopo_bat_list_params.BdtopoBatListParams,
                 ),
             ),
-            model=BatimentGroupeBdtopoBat,
+            cast_to=BdtopoBatListResponse,
         )
 
 

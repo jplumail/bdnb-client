@@ -5,7 +5,11 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import maybe_transform, strip_not_given
+from ..._utils import (
+    maybe_transform,
+    strip_not_given,
+    async_maybe_transform,
+)
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -14,10 +18,9 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...pagination import SyncDefault, AsyncDefault
-from ..._base_client import AsyncPaginator, make_request_options
+from ..._base_client import make_request_options
 from ...types.metadonnees import info_list_params
-from ...types.metadonnees.info import Info
+from ...types.metadonnees.info_list_response import InfoListResponse
 
 __all__ = ["InfoResource", "AsyncInfoResource"]
 
@@ -48,7 +51,7 @@ class InfoResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncDefault[Info]:
+    ) -> InfoListResponse:
         """
         Information sur le millésime servi par l'API
 
@@ -82,9 +85,8 @@ class InfoResource(SyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return self._get(
             "/metadonnees/info",
-            page=SyncDefault[Info],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -102,7 +104,7 @@ class InfoResource(SyncAPIResource):
                     info_list_params.InfoListParams,
                 ),
             ),
-            model=Info,
+            cast_to=InfoListResponse,
         )
 
 
@@ -115,7 +117,7 @@ class AsyncInfoResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncInfoResourceWithStreamingResponse:
         return AsyncInfoResourceWithStreamingResponse(self)
 
-    def list(
+    async def list(
         self,
         *,
         limit: str | NotGiven = NOT_GIVEN,
@@ -132,7 +134,7 @@ class AsyncInfoResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[Info, AsyncDefault[Info]]:
+    ) -> InfoListResponse:
         """
         Information sur le millésime servi par l'API
 
@@ -166,15 +168,14 @@ class AsyncInfoResource(AsyncAPIResource):
             ),
             **(extra_headers or {}),
         }
-        return self._get_api_list(
+        return await self._get(
             "/metadonnees/info",
-            page=AsyncDefault[Info],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
                         "limit": limit,
                         "modifiee": modifiee,
@@ -186,7 +187,7 @@ class AsyncInfoResource(AsyncAPIResource):
                     info_list_params.InfoListParams,
                 ),
             ),
-            model=Info,
+            cast_to=InfoListResponse,
         )
 
 
