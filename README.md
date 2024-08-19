@@ -26,7 +26,9 @@ from bdnb_client import Bdnb
 
 client = Bdnb()
 
-page = client.donnees.batiment_groupe.list()
+page = client.donnees.batiment_groupe.list(
+    code_commune_insee="eq.76108",
+)
 print(page.page)
 ```
 
@@ -42,7 +44,9 @@ client = AsyncBdnb()
 
 
 async def main() -> None:
-    page = await client.donnees.batiment_groupe.list()
+    page = await client.donnees.batiment_groupe.list(
+        code_commune_insee="eq.76108",
+    )
     print(page.page)
 
 
@@ -73,7 +77,9 @@ client = Bdnb()
 
 all_batiment_groupes = []
 # Automatically fetches more pages as needed.
-for batiment_groupe in client.donnees.batiment_groupe.list():
+for batiment_groupe in client.donnees.batiment_groupe.list(
+    code_commune_insee="eq.76108",
+):
     # Do something with batiment_groupe here
     all_batiment_groupes.append(batiment_groupe)
 print(all_batiment_groupes)
@@ -91,7 +97,9 @@ client = AsyncBdnb()
 async def main() -> None:
     all_batiment_groupes = []
     # Iterate through items across all pages, issuing requests as needed.
-    async for batiment_groupe in client.donnees.batiment_groupe.list():
+    async for batiment_groupe in client.donnees.batiment_groupe.list(
+        code_commune_insee="eq.76108",
+    ):
         all_batiment_groupes.append(batiment_groupe)
     print(all_batiment_groupes)
 
@@ -102,7 +110,9 @@ asyncio.run(main())
 Alternatively, you can use the `.has_next_page()`, `.next_page_info()`, or `.get_next_page()` methods for more granular control working with pages:
 
 ```python
-first_page = await client.donnees.batiment_groupe.list()
+first_page = await client.donnees.batiment_groupe.list(
+    code_commune_insee="eq.76108",
+)
 if first_page.has_next_page():
     print(f"will fetch next page using these details: {first_page.next_page_info()}")
     next_page = await first_page.get_next_page()
@@ -114,7 +124,9 @@ if first_page.has_next_page():
 Or just work directly with the returned data:
 
 ```python
-first_page = await client.donnees.batiment_groupe.list()
+first_page = await client.donnees.batiment_groupe.list(
+    code_commune_insee="eq.76108",
+)
 for batiment_groupe in first_page.items:
     print(batiment_groupe.batiment_groupe_id)
 
@@ -137,7 +149,9 @@ from bdnb_client import Bdnb
 client = Bdnb()
 
 try:
-    client.donnees.batiment_groupe.list()
+    client.donnees.batiment_groupe.list(
+        code_commune_insee="eq.76108",
+    )
 except bdnb_client.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -180,7 +194,9 @@ client = Bdnb(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).donnees.batiment_groupe.list()
+client.with_options(max_retries=5).donnees.batiment_groupe.list(
+    code_commune_insee="eq.76108",
+)
 ```
 
 ### Timeouts
@@ -203,7 +219,9 @@ client = Bdnb(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).donnees.batiment_groupe.list()
+client.with_options(timeout=5.0).donnees.batiment_groupe.list(
+    code_commune_insee="eq.76108",
+)
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -242,7 +260,9 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from bdnb_client import Bdnb
 
 client = Bdnb()
-response = client.donnees.batiment_groupe.with_raw_response.list()
+response = client.donnees.batiment_groupe.with_raw_response.list(
+    code_commune_insee="eq.76108",
+)
 print(response.headers.get('X-My-Header'))
 
 batiment_groupe = response.parse()  # get the object that `donnees.batiment_groupe.list()` would have returned
@@ -260,7 +280,9 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.donnees.batiment_groupe.with_streaming_response.list() as response:
+with client.donnees.batiment_groupe.with_streaming_response.list(
+    code_commune_insee="eq.76108",
+) as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
