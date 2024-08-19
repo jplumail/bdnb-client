@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.2 (2024-08-19)
+
+Full Changelog: [v0.0.1...v0.0.2](https://github.com/jplumail/bdnb-client/compare/v0.0.1...v0.0.2)
+
+### Features
+
+* **api:** update via SDK Studio ([#43](https://github.com/jplumail/bdnb-client/issues/43)) ([c654d1d](https://github.com/jplumail/bdnb-client/commit/c654d1d170f08eb7b36849854b376dfe2d5d39ef))
+
 ## 0.0.1 (2024-08-19)
 
 Full Changelog: [v0.1.0-alpha.8...v0.0.1](https://github.com/jplumail/bdnb-client/compare/v0.1.0-alpha.8...v0.0.1)
