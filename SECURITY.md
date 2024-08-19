@@ -20,7 +20,7 @@ or products provided by Bdnb please follow the respective company's security rep
 
 ### Bdnb Terms and Policies
 
-Please contact jeanplumail76@gmail.com for any questions or concerns regarding security of our services.
+Please contact contact@bdnb.io for any questions or concerns regarding security of our services.
 
 ---
 

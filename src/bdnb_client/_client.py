@@ -80,7 +80,7 @@ class Bdnb(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous bdnb client instance."""
+        """Construct a new synchronous BDNB client instance."""
         if prefer_option is None:
             prefer_option = "count=exact"
         self.prefer_option = prefer_option
@@ -244,7 +244,7 @@ class AsyncBdnb(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async bdnb client instance."""
+        """Construct a new async BDNB client instance."""
         if prefer_option is None:
             prefer_option = "count=exact"
         self.prefer_option = prefer_option
