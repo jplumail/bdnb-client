@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.1 (2024-08-19)
+
+Full Changelog: [v0.1.0-alpha.8...v0.0.1](https://github.com/jplumail/bdnb-client/compare/v0.1.0-alpha.8...v0.0.1)
+
+### Features
+
+* chore: delete unused file ([cc0760e](https://github.com/jplumail/bdnb-client/commit/cc0760e3507d63c735e555c05f725de02b1e7bc9))
+* fix(docs): fix readme example ([ec18d89](https://github.com/jplumail/bdnb-client/commit/ec18d8902cb9dc93fa3f89c46cf9f2775fd972e7))
+
 ## 0.1.0-alpha.8 (2024-08-19)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/jplumail/bdnb-client/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
