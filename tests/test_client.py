@@ -19,7 +19,7 @@ from pydantic import ValidationError
 from bdnb_client import Bdnb, AsyncBdnb, APIResponseValidationError
 from bdnb_client._types import Omit
 from bdnb_client._models import BaseModel, FinalRequestOptions
-from bdnb_client._exceptions import BdnbError, APIResponseValidationError
+from bdnb_client._exceptions import APIResponseValidationError
 from bdnb_client._base_client import (
     DEFAULT_TIMEOUT,
     HTTPX_DEFAULT_TIMEOUT,
@@ -317,10 +317,10 @@ class TestBdnb:
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("X-Gravitee-Api-Key") == api_key
 
-        with pytest.raises(BdnbError):
-            with update_env(**{"BDNB_API_KEY": Omit()}):
-                client2 = Bdnb(base_url=base_url, api_key=None, _strict_response_validation=True)
-            _ = client2
+        with update_env(**{"BDNB_API_KEY": Omit()}):
+            client2 = Bdnb(base_url=base_url, api_key=None, _strict_response_validation=True)
+
+        client2._build_request(FinalRequestOptions(method="get", url="/foo"))
 
     def test_default_query_option(self) -> None:
         client = Bdnb(
@@ -992,10 +992,10 @@ class TestAsyncBdnb:
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("X-Gravitee-Api-Key") == api_key
 
-        with pytest.raises(BdnbError):
-            with update_env(**{"BDNB_API_KEY": Omit()}):
-                client2 = AsyncBdnb(base_url=base_url, api_key=None, _strict_response_validation=True)
-            _ = client2
+        with update_env(**{"BDNB_API_KEY": Omit()}):
+            client2 = AsyncBdnb(base_url=base_url, api_key=None, _strict_response_validation=True)
+
+        client2._build_request(FinalRequestOptions(method="get", url="/foo"))
 
     def test_default_query_option(self) -> None:
         client = AsyncBdnb(
