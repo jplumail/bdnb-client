@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.0.3 (2024-08-28)
+
+Full Changelog: [v0.0.2...v0.0.3](https://github.com/jplumail/bdnb-client/compare/v0.0.2...v0.0.3)
+
+### Features
+
+* **api:** update via SDK Studio ([#47](https://github.com/jplumail/bdnb-client/issues/47)) ([f3565a4](https://github.com/jplumail/bdnb-client/commit/f3565a44b5dd24971e70b872c5954d3847fcfed0))
+* **api:** update via SDK Studio ([#50](https://github.com/jplumail/bdnb-client/issues/50)) ([0c8ef4e](https://github.com/jplumail/bdnb-client/commit/0c8ef4ee08efa74ad3cecf6236a5321ff8ba9035))
+* **api:** update via SDK Studio ([#51](https://github.com/jplumail/bdnb-client/issues/51)) ([7d48a61](https://github.com/jplumail/bdnb-client/commit/7d48a61468047ec790e7f7641874821d6fa276b7))
+* **api:** update via SDK Studio ([#52](https://github.com/jplumail/bdnb-client/issues/52)) ([594a4d4](https://github.com/jplumail/bdnb-client/commit/594a4d48e284d9d000294b41d34a055b452bee47))
+* **api:** update via SDK Studio ([#53](https://github.com/jplumail/bdnb-client/issues/53)) ([562779c](https://github.com/jplumail/bdnb-client/commit/562779cfdc059990622466dab544d57cd6c1d2e0))
+* **api:** update via SDK Studio ([#54](https://github.com/jplumail/bdnb-client/issues/54)) ([12e3f93](https://github.com/jplumail/bdnb-client/commit/12e3f93a10e0e53ed4b83b1e0104d91a7f6f50ae))
+* **api:** update via SDK Studio ([#55](https://github.com/jplumail/bdnb-client/issues/55)) ([a5ff18a](https://github.com/jplumail/bdnb-client/commit/a5ff18a67c2db648058081c553025ef5c4781c2f))
+* **api:** update via SDK Studio ([#56](https://github.com/jplumail/bdnb-client/issues/56)) ([269636d](https://github.com/jplumail/bdnb-client/commit/269636dfaffdbf52e3587103c8ea6667046982dc))
+
+
+### Chores
+
+* **internal:** codegen related update ([#49](https://github.com/jplumail/bdnb-client/issues/49)) ([6be9673](https://github.com/jplumail/bdnb-client/commit/6be967356cdd287957f77ea4605d79e6e24ef3c8))
+
 ## 0.0.2 (2024-08-19)
 
 Full Changelog: [v0.0.1...v0.0.2](https://github.com/jplumail/bdnb-client/compare/v0.0.1...v0.0.2)
