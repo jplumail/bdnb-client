@@ -25,7 +25,7 @@ from ._utils import (
 )
 from ._version import __version__
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
-from ._exceptions import BdnbError, APIStatusError
+from ._exceptions import APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
@@ -56,7 +56,7 @@ class Bdnb(SyncAPIClient):
 
     # client options
     prefer_option: str | None
-    api_key: str
+    api_key: str | None
 
     def __init__(
         self,
@@ -92,10 +92,6 @@ class Bdnb(SyncAPIClient):
 
         if api_key is None:
             api_key = os.environ.get("BDNB_API_KEY")
-        if api_key is None:
-            raise BdnbError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the BDNB_API_KEY environment variable"
-            )
         self.api_key = api_key
 
         if base_url is None:
@@ -131,6 +127,8 @@ class Bdnb(SyncAPIClient):
     @override
     def auth_headers(self) -> dict[str, str]:
         api_key = self.api_key
+        if api_key is None:
+            return {}
         return {"X-Gravitee-Api-Key": api_key}
 
     @property
@@ -241,7 +239,7 @@ class AsyncBdnb(AsyncAPIClient):
 
     # client options
     prefer_option: str | None
-    api_key: str
+    api_key: str | None
 
     def __init__(
         self,
@@ -277,10 +275,6 @@ class AsyncBdnb(AsyncAPIClient):
 
         if api_key is None:
             api_key = os.environ.get("BDNB_API_KEY")
-        if api_key is None:
-            raise BdnbError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the BDNB_API_KEY environment variable"
-            )
         self.api_key = api_key
 
         if base_url is None:
@@ -316,6 +310,8 @@ class AsyncBdnb(AsyncAPIClient):
     @override
     def auth_headers(self) -> dict[str, str]:
         api_key = self.api_key
+        if api_key is None:
+            return {}
         return {"X-Gravitee-Api-Key": api_key}
 
     @property
