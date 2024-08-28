@@ -24,9 +24,13 @@ pip install bdnb-client
 The full API of this library can be found in [api.md](api.md).
 
 ```python
+import os
 from bdnb_client import Bdnb
 
-client = Bdnb()
+client = Bdnb(
+    # This is the default and can be omitted
+    api_key=os.environ.get("BDNB_API_KEY"),
+)
 
 page = client.donnees.batiment_groupe.list(
     code_commune_insee="eq.76108",
@@ -34,15 +38,24 @@ page = client.donnees.batiment_groupe.list(
 print(page.items)
 ```
 
+While you can provide a `api_key` keyword argument,
+we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
+to add `BDNB_API_KEY="My API Key"` to your `.env` file
+so that your API Key is not stored in source control.
+
 ## Async usage
 
 Simply import `AsyncBdnb` instead of `Bdnb` and use `await` with each API call:
 
 ```python
+import os
 import asyncio
 from bdnb_client import AsyncBdnb
 
-client = AsyncBdnb()
+client = AsyncBdnb(
+    # This is the default and can be omitted
+    api_key=os.environ.get("BDNB_API_KEY"),
+)
 
 
 async def main() -> None:
