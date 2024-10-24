@@ -25,10 +25,21 @@ __all__ = ["TableResource", "AsyncTableResource"]
 class TableResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> TableResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return TableResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> TableResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return TableResourceWithStreamingResponse(self)
 
     def list(
@@ -113,10 +124,21 @@ class TableResource(SyncAPIResource):
 class AsyncTableResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncTableResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncTableResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncTableResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncTableResourceWithStreamingResponse(self)
 
     def list(

@@ -27,10 +27,21 @@ __all__ = ["SimulationsValeurVerteResource", "AsyncSimulationsValeurVerteResourc
 class SimulationsValeurVerteResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> SimulationsValeurVerteResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return SimulationsValeurVerteResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> SimulationsValeurVerteResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return SimulationsValeurVerteResourceWithStreamingResponse(self)
 
     def list(
@@ -222,10 +233,21 @@ class SimulationsValeurVerteResource(SyncAPIResource):
 class AsyncSimulationsValeurVerteResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncSimulationsValeurVerteResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncSimulationsValeurVerteResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncSimulationsValeurVerteResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncSimulationsValeurVerteResourceWithStreamingResponse(self)
 
     def list(

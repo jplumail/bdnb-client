@@ -29,10 +29,21 @@ __all__ = ["PolygonResource", "AsyncPolygonResource"]
 class PolygonResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> PolygonResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return PolygonResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> PolygonResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return PolygonResourceWithStreamingResponse(self)
 
     def list(
@@ -83,10 +94,21 @@ class PolygonResource(SyncAPIResource):
 class AsyncPolygonResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncPolygonResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncPolygonResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncPolygonResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncPolygonResourceWithStreamingResponse(self)
 
     async def list(
