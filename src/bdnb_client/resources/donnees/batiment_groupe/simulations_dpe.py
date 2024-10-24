@@ -25,10 +25,21 @@ __all__ = ["SimulationsDpeResource", "AsyncSimulationsDpeResource"]
 class SimulationsDpeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> SimulationsDpeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return SimulationsDpeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> SimulationsDpeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return SimulationsDpeResourceWithStreamingResponse(self)
 
     def list(
@@ -463,10 +474,21 @@ class SimulationsDpeResource(SyncAPIResource):
 class AsyncSimulationsDpeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncSimulationsDpeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncSimulationsDpeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncSimulationsDpeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncSimulationsDpeResourceWithStreamingResponse(self)
 
     def list(

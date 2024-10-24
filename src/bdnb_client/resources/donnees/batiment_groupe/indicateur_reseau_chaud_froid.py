@@ -27,10 +27,21 @@ __all__ = ["IndicateurReseauChaudFroidResource", "AsyncIndicateurReseauChaudFroi
 class IndicateurReseauChaudFroidResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> IndicateurReseauChaudFroidResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return IndicateurReseauChaudFroidResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> IndicateurReseauChaudFroidResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return IndicateurReseauChaudFroidResourceWithStreamingResponse(self)
 
     def list(
@@ -152,10 +163,21 @@ class IndicateurReseauChaudFroidResource(SyncAPIResource):
 class AsyncIndicateurReseauChaudFroidResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncIndicateurReseauChaudFroidResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncIndicateurReseauChaudFroidResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncIndicateurReseauChaudFroidResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncIndicateurReseauChaudFroidResourceWithStreamingResponse(self)
 
     def list(

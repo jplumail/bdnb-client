@@ -25,10 +25,21 @@ __all__ = ["AncqpvResource", "AsyncAncqpvResource"]
 class AncqpvResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AncqpvResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AncqpvResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AncqpvResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AncqpvResourceWithStreamingResponse(self)
 
     def list(
@@ -117,10 +128,21 @@ class AncqpvResource(SyncAPIResource):
 class AsyncAncqpvResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncAncqpvResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncAncqpvResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncAncqpvResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncAncqpvResourceWithStreamingResponse(self)
 
     def list(

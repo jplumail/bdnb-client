@@ -25,10 +25,21 @@ __all__ = ["BpeResource", "AsyncBpeResource"]
 class BpeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> BpeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return BpeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> BpeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return BpeResourceWithStreamingResponse(self)
 
     def list(
@@ -114,10 +125,21 @@ class BpeResource(SyncAPIResource):
 class AsyncBpeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncBpeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncBpeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncBpeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncBpeResourceWithStreamingResponse(self)
 
     def list(

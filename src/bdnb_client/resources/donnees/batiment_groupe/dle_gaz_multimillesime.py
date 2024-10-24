@@ -25,10 +25,21 @@ __all__ = ["DleGazMultimillesimeResource", "AsyncDleGazMultimillesimeResource"]
 class DleGazMultimillesimeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> DleGazMultimillesimeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return DleGazMultimillesimeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> DleGazMultimillesimeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return DleGazMultimillesimeResourceWithStreamingResponse(self)
 
     def list(
@@ -149,10 +160,21 @@ class DleGazMultimillesimeResource(SyncAPIResource):
 class AsyncDleGazMultimillesimeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncDleGazMultimillesimeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncDleGazMultimillesimeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncDleGazMultimillesimeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncDleGazMultimillesimeResourceWithStreamingResponse(self)
 
     def list(

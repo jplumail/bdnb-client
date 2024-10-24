@@ -25,10 +25,21 @@ __all__ = ["FfoBatResource", "AsyncFfoBatResource"]
 class FfoBatResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> FfoBatResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return FfoBatResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> FfoBatResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return FfoBatResourceWithStreamingResponse(self)
 
     def list(
@@ -133,10 +144,21 @@ class FfoBatResource(SyncAPIResource):
 class AsyncFfoBatResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncFfoBatResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncFfoBatResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncFfoBatResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncFfoBatResourceWithStreamingResponse(self)
 
     def list(

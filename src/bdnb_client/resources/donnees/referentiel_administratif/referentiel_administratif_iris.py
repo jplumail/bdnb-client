@@ -25,10 +25,21 @@ __all__ = ["ReferentielAdministratifIrisResource", "AsyncReferentielAdministrati
 class ReferentielAdministratifIrisResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> ReferentielAdministratifIrisResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return ReferentielAdministratifIrisResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> ReferentielAdministratifIrisResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return ReferentielAdministratifIrisResourceWithStreamingResponse(self)
 
     def list(
@@ -125,10 +136,21 @@ class ReferentielAdministratifIrisResource(SyncAPIResource):
 class AsyncReferentielAdministratifIrisResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncReferentielAdministratifIrisResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncReferentielAdministratifIrisResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncReferentielAdministratifIrisResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncReferentielAdministratifIrisResourceWithStreamingResponse(self)
 
     def list(

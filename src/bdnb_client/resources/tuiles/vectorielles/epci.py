@@ -25,10 +25,21 @@ __all__ = ["EpciResource", "AsyncEpciResource"]
 class EpciResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> EpciResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return EpciResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> EpciResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return EpciResourceWithStreamingResponse(self)
 
     def list(
@@ -76,10 +87,21 @@ class EpciResource(SyncAPIResource):
 class AsyncEpciResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncEpciResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncEpciResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncEpciResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncEpciResourceWithStreamingResponse(self)
 
     async def list(

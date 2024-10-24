@@ -27,10 +27,21 @@ __all__ = ["DpeRepresentatifLogementResource", "AsyncDpeRepresentatifLogementRes
 class DpeRepresentatifLogementResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> DpeRepresentatifLogementResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return DpeRepresentatifLogementResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> DpeRepresentatifLogementResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return DpeRepresentatifLogementResourceWithStreamingResponse(self)
 
     def list(
@@ -602,10 +613,21 @@ class DpeRepresentatifLogementResource(SyncAPIResource):
 class AsyncDpeRepresentatifLogementResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncDpeRepresentatifLogementResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncDpeRepresentatifLogementResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncDpeRepresentatifLogementResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncDpeRepresentatifLogementResourceWithStreamingResponse(self)
 
     def list(
