@@ -25,10 +25,21 @@ __all__ = ["MerimeeResource", "AsyncMerimeeResource"]
 class MerimeeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> MerimeeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return MerimeeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> MerimeeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return MerimeeResourceWithStreamingResponse(self)
 
     def list(
@@ -119,10 +130,21 @@ class MerimeeResource(SyncAPIResource):
 class AsyncMerimeeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncMerimeeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncMerimeeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncMerimeeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncMerimeeResourceWithStreamingResponse(self)
 
     def list(

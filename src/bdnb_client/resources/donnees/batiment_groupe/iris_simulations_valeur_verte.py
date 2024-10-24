@@ -25,10 +25,21 @@ __all__ = ["IrisSimulationsValeurVerteResource", "AsyncIrisSimulationsValeurVert
 class IrisSimulationsValeurVerteResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> IrisSimulationsValeurVerteResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return IrisSimulationsValeurVerteResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> IrisSimulationsValeurVerteResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return IrisSimulationsValeurVerteResourceWithStreamingResponse(self)
 
     def list(
@@ -220,10 +231,21 @@ class IrisSimulationsValeurVerteResource(SyncAPIResource):
 class AsyncIrisSimulationsValeurVerteResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncIrisSimulationsValeurVerteResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncIrisSimulationsValeurVerteResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncIrisSimulationsValeurVerteResourceWithStreamingResponse(self)
 
     def list(

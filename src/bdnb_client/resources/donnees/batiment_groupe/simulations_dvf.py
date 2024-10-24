@@ -25,10 +25,21 @@ __all__ = ["SimulationsDvfResource", "AsyncSimulationsDvfResource"]
 class SimulationsDvfResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> SimulationsDvfResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return SimulationsDvfResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> SimulationsDvfResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return SimulationsDvfResourceWithStreamingResponse(self)
 
     def list(
@@ -180,10 +191,21 @@ class SimulationsDvfResource(SyncAPIResource):
 class AsyncSimulationsDvfResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncSimulationsDvfResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncSimulationsDvfResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncSimulationsDvfResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncSimulationsDvfResourceWithStreamingResponse(self)
 
     def list(
