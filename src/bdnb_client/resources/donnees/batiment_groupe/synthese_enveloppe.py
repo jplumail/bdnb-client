@@ -25,10 +25,21 @@ __all__ = ["SyntheseEnveloppeResource", "AsyncSyntheseEnveloppeResource"]
 class SyntheseEnveloppeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> SyntheseEnveloppeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return SyntheseEnveloppeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> SyntheseEnveloppeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return SyntheseEnveloppeResourceWithStreamingResponse(self)
 
     def list(
@@ -318,10 +329,21 @@ class SyntheseEnveloppeResource(SyncAPIResource):
 class AsyncSyntheseEnveloppeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncSyntheseEnveloppeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncSyntheseEnveloppeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncSyntheseEnveloppeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncSyntheseEnveloppeResourceWithStreamingResponse(self)
 
     def list(

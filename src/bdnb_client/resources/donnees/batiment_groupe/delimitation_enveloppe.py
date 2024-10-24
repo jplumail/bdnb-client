@@ -25,10 +25,21 @@ __all__ = ["DelimitationEnveloppeResource", "AsyncDelimitationEnveloppeResource"
 class DelimitationEnveloppeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> DelimitationEnveloppeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return DelimitationEnveloppeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> DelimitationEnveloppeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return DelimitationEnveloppeResourceWithStreamingResponse(self)
 
     def list(
@@ -116,10 +127,21 @@ class DelimitationEnveloppeResource(SyncAPIResource):
 class AsyncDelimitationEnveloppeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncDelimitationEnveloppeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncDelimitationEnveloppeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncDelimitationEnveloppeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncDelimitationEnveloppeResourceWithStreamingResponse(self)
 
     def list(

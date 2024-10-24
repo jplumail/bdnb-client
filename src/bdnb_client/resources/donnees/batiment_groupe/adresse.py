@@ -25,10 +25,21 @@ __all__ = ["AdresseResource", "AsyncAdresseResource"]
 class AdresseResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AdresseResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AdresseResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AdresseResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AdresseResourceWithStreamingResponse(self)
 
     def list(
@@ -133,10 +144,21 @@ class AdresseResource(SyncAPIResource):
 class AsyncAdresseResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncAdresseResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncAdresseResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncAdresseResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncAdresseResourceWithStreamingResponse(self)
 
     def list(

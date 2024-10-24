@@ -25,10 +25,21 @@ __all__ = ["IrisContexteGeographiqueResource", "AsyncIrisContexteGeographiqueRes
 class IrisContexteGeographiqueResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> IrisContexteGeographiqueResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return IrisContexteGeographiqueResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> IrisContexteGeographiqueResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return IrisContexteGeographiqueResourceWithStreamingResponse(self)
 
     def list(
@@ -234,10 +245,21 @@ class IrisContexteGeographiqueResource(SyncAPIResource):
 class AsyncIrisContexteGeographiqueResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncIrisContexteGeographiqueResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncIrisContexteGeographiqueResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncIrisContexteGeographiqueResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncIrisContexteGeographiqueResourceWithStreamingResponse(self)
 
     def list(

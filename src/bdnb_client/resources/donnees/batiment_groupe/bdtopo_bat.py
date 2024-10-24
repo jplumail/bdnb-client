@@ -25,10 +25,21 @@ __all__ = ["BdtopoBatResource", "AsyncBdtopoBatResource"]
 class BdtopoBatResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> BdtopoBatResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return BdtopoBatResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> BdtopoBatResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return BdtopoBatResourceWithStreamingResponse(self)
 
     def list(
@@ -137,10 +148,21 @@ class BdtopoBatResource(SyncAPIResource):
 class AsyncBdtopoBatResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncBdtopoBatResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncBdtopoBatResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncBdtopoBatResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncBdtopoBatResourceWithStreamingResponse(self)
 
     def list(
