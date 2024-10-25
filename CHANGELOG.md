@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.4 (2024-10-25)
+
+Full Changelog: [v0.0.3...v0.0.4](https://github.com/jplumail/bdnb-client/compare/v0.0.3...v0.0.4)
+
+### Features
+
+* **api:** api update ([#59](https://github.com/jplumail/bdnb-client/issues/59)) ([d0e25b9](https://github.com/jplumail/bdnb-client/commit/d0e25b9021a9bda00d6516b970fb70ce8ba1a412))
+
 ## 0.0.3 (2024-08-28)
 
 Full Changelog: [v0.0.2...v0.0.3](https://github.com/jplumail/bdnb-client/compare/v0.0.2...v0.0.3)
