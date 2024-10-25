@@ -28,10 +28,21 @@ __all__ = ["SirenCompletResource", "AsyncSirenCompletResource"]
 class SirenCompletResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> SirenCompletResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return SirenCompletResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> SirenCompletResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return SirenCompletResourceWithStreamingResponse(self)
 
     def list(
@@ -175,10 +186,21 @@ class SirenCompletResource(SyncAPIResource):
 class AsyncSirenCompletResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncSirenCompletResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncSirenCompletResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncSirenCompletResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncSirenCompletResourceWithStreamingResponse(self)
 
     def list(

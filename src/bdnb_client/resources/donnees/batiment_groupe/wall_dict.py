@@ -25,10 +25,21 @@ __all__ = ["WallDictResource", "AsyncWallDictResource"]
 class WallDictResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> WallDictResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return WallDictResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> WallDictResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return WallDictResourceWithStreamingResponse(self)
 
     def list(
@@ -131,10 +142,21 @@ class WallDictResource(SyncAPIResource):
 class AsyncWallDictResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncWallDictResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncWallDictResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncWallDictResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncWallDictResourceWithStreamingResponse(self)
 
     def list(

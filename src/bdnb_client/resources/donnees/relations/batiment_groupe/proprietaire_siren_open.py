@@ -27,10 +27,21 @@ __all__ = ["ProprietaireSirenOpenResource", "AsyncProprietaireSirenOpenResource"
 class ProprietaireSirenOpenResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> ProprietaireSirenOpenResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return ProprietaireSirenOpenResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> ProprietaireSirenOpenResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return ProprietaireSirenOpenResourceWithStreamingResponse(self)
 
     def list(
@@ -132,10 +143,21 @@ class ProprietaireSirenOpenResource(SyncAPIResource):
 class AsyncProprietaireSirenOpenResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncProprietaireSirenOpenResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncProprietaireSirenOpenResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncProprietaireSirenOpenResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncProprietaireSirenOpenResourceWithStreamingResponse(self)
 
     def list(

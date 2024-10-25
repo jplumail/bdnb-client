@@ -27,10 +27,21 @@ __all__ = ["DleElecMultimillesimeResource", "AsyncDleElecMultimillesimeResource"
 class DleElecMultimillesimeResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> DleElecMultimillesimeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return DleElecMultimillesimeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> DleElecMultimillesimeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return DleElecMultimillesimeResourceWithStreamingResponse(self)
 
     def list(
@@ -152,10 +163,21 @@ class DleElecMultimillesimeResource(SyncAPIResource):
 class AsyncDleElecMultimillesimeResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncDleElecMultimillesimeResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#accessing-raw-response-data-eg-headers
+        """
         return AsyncDleElecMultimillesimeResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncDleElecMultimillesimeResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/jplumail/bdnb-client#with_streaming_response
+        """
         return AsyncDleElecMultimillesimeResourceWithStreamingResponse(self)
 
     def list(
