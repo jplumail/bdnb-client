@@ -1,4 +1,4 @@
-# Bdnb Python API library
+# BDNB Python API library
 
 [![PyPI version](https://img.shields.io/pypi/v/bdnb-client.svg)](https://pypi.org/project/bdnb-client/)
 
@@ -35,7 +35,7 @@ client = Bdnb(
 page = client.donnees.batiment_groupe.list(
     code_commune_insee="eq.76108",
 )
-print(page.page)
+print(page.items)
 ```
 
 While you can provide a `api_key` keyword argument,
@@ -62,7 +62,7 @@ async def main() -> None:
     page = await client.donnees.batiment_groupe.list(
         code_commune_insee="eq.76108",
     )
-    print(page.page)
+    print(page.items)
 
 
 asyncio.run(main())
