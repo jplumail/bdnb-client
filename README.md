@@ -28,8 +28,7 @@ import os
 from bdnb_client import Bdnb
 
 client = Bdnb(
-    # This is the default and can be omitted
-    api_key=os.environ.get("BDNB_API_KEY"),
+    api_key=os.environ.get("BDNB_API_KEY"),  # This is the default and can be omitted
 )
 
 page = client.donnees.batiment_groupe.list(
@@ -53,8 +52,7 @@ import asyncio
 from bdnb_client import AsyncBdnb
 
 client = AsyncBdnb(
-    # This is the default and can be omitted
-    api_key=os.environ.get("BDNB_API_KEY"),
+    api_key=os.environ.get("BDNB_API_KEY"),  # This is the default and can be omitted
 )
 
 
