@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.8 (2024-11-11)
+
+Full Changelog: [v0.0.7...v0.0.8](https://github.com/jplumail/bdnb-client/compare/v0.0.7...v0.0.8)
+
+### Chores
+
+* **internal:** version bump ([#68](https://github.com/jplumail/bdnb-client/issues/68)) ([a30ac52](https://github.com/jplumail/bdnb-client/commit/a30ac520f5e86307e65f17d6529b09b1179e656f))
+* rebuild project due to codegen change ([#73](https://github.com/jplumail/bdnb-client/issues/73)) ([b3d8f27](https://github.com/jplumail/bdnb-client/commit/b3d8f27c7f789da71aad00767ee8374025193f8e))
+* rebuild project due to codegen change ([#75](https://github.com/jplumail/bdnb-client/issues/75)) ([66ddc66](https://github.com/jplumail/bdnb-client/commit/66ddc661f75454add6d0381a58c54102293146e0))
+* rebuild project due to codegen change ([#78](https://github.com/jplumail/bdnb-client/issues/78)) ([aa4d468](https://github.com/jplumail/bdnb-client/commit/aa4d4682037e4b2c1e67d878c5cafc43b75bc431))
+
 ## 0.0.7 (2024-11-04)
 
 Full Changelog: [v0.0.6...v0.0.7](https://github.com/jplumail/bdnb-client/compare/v0.0.6...v0.0.7)
