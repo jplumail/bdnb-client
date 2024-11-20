@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/bdnb-client.svg)](https://pypi.org/project/bdnb-client/)
 
-The BDNB Python library provides convenient access to the BDNB REST API from any Python 3.7+
+The Bdnb Python library provides convenient access to the Bdnb REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -28,8 +28,7 @@ import os
 from bdnb_client import Bdnb
 
 client = Bdnb(
-    # This is the default and can be omitted
-    api_key=os.environ.get("BDNB_API_KEY"),
+    api_key=os.environ.get("BDNB_API_KEY"),  # This is the default and can be omitted
 )
 
 page = client.donnees.batiment_groupe.list(
@@ -53,8 +52,7 @@ import asyncio
 from bdnb_client import AsyncBdnb
 
 client = AsyncBdnb(
-    # This is the default and can be omitted
-    api_key=os.environ.get("BDNB_API_KEY"),
+    api_key=os.environ.get("BDNB_API_KEY"),  # This is the default and can be omitted
 )
 
 
@@ -397,7 +395,7 @@ print(bdnb_client.__version__)
 
 ## Requirements
 
-Python 3.7 or higher.
+Python 3.8 or higher.
 
 ## Contributing
 
