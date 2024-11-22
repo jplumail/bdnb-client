@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.9 (2024-11-22)
+
+Full Changelog: [v0.0.8...v0.0.9](https://github.com/jplumail/bdnb-client/compare/v0.0.8...v0.0.9)
+
+### Chores
+
+* **internal:** fix compat model_dump method when warnings are passed ([#87](https://github.com/jplumail/bdnb-client/issues/87)) ([d55f51d](https://github.com/jplumail/bdnb-client/commit/d55f51d893a3e6f7b0253c2ddfec8201e80247b6))
+* **internal:** version bump ([#68](https://github.com/jplumail/bdnb-client/issues/68)) ([e9eef8e](https://github.com/jplumail/bdnb-client/commit/e9eef8e99067bce68a6a3bb8b0191d277846cf70))
+* **internal:** version bump ([#85](https://github.com/jplumail/bdnb-client/issues/85)) ([81583b8](https://github.com/jplumail/bdnb-client/commit/81583b80ca14674b6fbb27810993c009f5002e20))
+* rebuild project due to codegen change ([#73](https://github.com/jplumail/bdnb-client/issues/73)) ([d105512](https://github.com/jplumail/bdnb-client/commit/d1055128ca486ca0b739a2fd655ff07d3f2b3b49))
+
 ## 0.0.8 (2024-11-19)
 
 Full Changelog: [v0.0.7...v0.0.8](https://github.com/jplumail/bdnb-client/compare/v0.0.7...v0.0.8)
