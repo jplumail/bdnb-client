@@ -1,6 +1,6 @@
 [project]
 name = "bdnb-client"
-version = "0.0.8"
+version = "0.0.9"
 description = "The official Python library for the BDNB API"
 dynamic = ["readme"]
 license = "Apache-2.0"
