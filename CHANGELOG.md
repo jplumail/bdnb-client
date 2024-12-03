@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.0.10 (2024-12-03)
+
+Full Changelog: [v0.0.9...v0.0.10](https://github.com/jplumail/bdnb-client/compare/v0.0.9...v0.0.10)
+
+### Bug Fixes
+
+* **client:** compat with new httpx 0.28.0 release ([#98](https://github.com/jplumail/bdnb-client/issues/98)) ([1b947eb](https://github.com/jplumail/bdnb-client/commit/1b947ebf11bfb56085a57d8699bcb32b39b5133b))
+
+
+### Chores
+
+* **internal:** bump pyright ([#100](https://github.com/jplumail/bdnb-client/issues/100)) ([921239a](https://github.com/jplumail/bdnb-client/commit/921239ad58fd33a4a04219b8e1a671f1202831c8))
+* **internal:** codegen related update ([#95](https://github.com/jplumail/bdnb-client/issues/95)) ([a06a185](https://github.com/jplumail/bdnb-client/commit/a06a1852426b9a25d5f2eab0f819fb16be8d4473))
+* **internal:** codegen related update ([#99](https://github.com/jplumail/bdnb-client/issues/99)) ([735da6b](https://github.com/jplumail/bdnb-client/commit/735da6b1c3e35f8610f5b846174c822b85385945))
+* **internal:** exclude mypy from running on tests ([#96](https://github.com/jplumail/bdnb-client/issues/96)) ([eb38798](https://github.com/jplumail/bdnb-client/commit/eb3879882ab715ed5198492e0ecb4de8fe40ca7e))
+* **internal:** version bump ([#68](https://github.com/jplumail/bdnb-client/issues/68)) ([05c511c](https://github.com/jplumail/bdnb-client/commit/05c511c8c96adc4b20a61bb65ad20944e32a1c93))
+* **internal:** version bump ([#85](https://github.com/jplumail/bdnb-client/issues/85)) ([fd53774](https://github.com/jplumail/bdnb-client/commit/fd53774ca52e4985c0b84b6a0a67167254b704cf))
+* **internal:** version bump ([#90](https://github.com/jplumail/bdnb-client/issues/90)) ([e21d3ab](https://github.com/jplumail/bdnb-client/commit/e21d3ab6caa17ac13bd479d9877db2b87f7cc701))
+* rebuild project due to codegen change ([#73](https://github.com/jplumail/bdnb-client/issues/73)) ([e3a1767](https://github.com/jplumail/bdnb-client/commit/e3a1767b45542153499cdf51fca10de9b9c760b9))
+
+
+### Documentation
+
+* add info log level to readme ([#93](https://github.com/jplumail/bdnb-client/issues/93)) ([8cc6714](https://github.com/jplumail/bdnb-client/commit/8cc67142f920b33a1bcaa06fab2facec96043795))
+
 ## 0.0.9 (2024-11-22)
 
 Full Changelog: [v0.0.8...v0.0.9](https://github.com/jplumail/bdnb-client/compare/v0.0.8...v0.0.9)
